@@ -7,6 +7,8 @@ draft: false
 
 [p5.js](https://p5js.org/) function that visits `quadrille` cells executing the `fx` function taking `(row, col)` params (which defines the quadrille visited cell position) either on all cells or those defined in the `cells` array.
 
+# Examples
+
 ## visitQuadrille(quadrille, fx)
 
 The sketch below implements a visit to the upper quadrille to filling its empty cells which have exactly three neighbors and stores the result in the lower quadrille:
@@ -145,3 +147,17 @@ function draw() {
 }
 ```
 {{< /details >}}
+
+# Syntax
+
+> `createQuadrille(quadrille, fx)`
+
+> `createQuadrille(quadrille, fx, cells)`
+
+# Parameters
+
+| parameter     | description                                                                        |
+|---------------|------------------------------------------------------------------------------------|
+| quadrille     | Quadrille: `quadrille` to be visited                                               |
+| fx            | function: function of the form `fx(row, col)` to be executed on all visited cells  |
+| cells         | array: cells to be visited. All cells are visited if this parameter is `undefined` |

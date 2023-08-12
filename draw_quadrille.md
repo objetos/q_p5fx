@@ -5,29 +5,9 @@ draft: false
 
 # drawQuadrille
 
-[p5.js](https://p5js.org/) function that draws the quadrille at `(x, y)` screen position on the [`graphics`](https://p5js.org/reference/#/p5.Graphics) (which is the main [`canvas`](https://p5js.org/reference/#/p5/createCanvas) by default), using the display parameter values which are discussed in the following sections.
+[p5.js](https://p5js.org/) function that draws a `quadrille`.
 
-```js
-drawQuadrille(quadrille, [{
-  [graphics=this],
-  [x],
-  [y],
-  [col],
-  [row],
-  [cellLength=Quadrille.CELL_LENGTH],
-  [outlineWeight=Quadrille.OUTLINE_WEIGHT],
-  [outline=Quadrille.OUTLINE],
-  [textColor=Quadrille.TEXT_COLOR],
-  [textZoom=Quadrille.TEXT_ZOOM],
-  [tileDisplay=Quadrille.TILE],
-  [imageDisplay=Quadrille.IMAGE],
-  [stringDisplay=Quadrille.STRING],
-  [colorDisplay=Quadrille.COLOR],
-  [numberDisplay=Quadrille.NUMBER],
-  [arrayDisplay],
-  [objectDisplay]
-}])
-```
+# Examples
 
 ## Positioning
 
@@ -237,15 +217,42 @@ function draw() {
 ```
 {{< /details >}}
 
-{{< hint info >}}
-**Exercises**     
-1. Implement the remaining display functions: `imageDisplay`, `stringDisplay`, `numberDisplay`, `arrayDisplay` and `objectDisplay`.
-2. Implement other [regular tilings](https://en.wikipedia.org/wiki/Euclidean_tilings_by_convex_regular_polygons#Regular_tilings) different than the default [square tiling](https://en.wikipedia.org/wiki/Square_tiling).
+{{< hint warning >}}
+**observations**     
+* Testing the remaining display functions: `imageDisplay`, `stringDisplay`, `numberDisplay`, `arrayDisplay` and `objectDisplay`, are left out as an exercise to the reader.
+* Implementing other [regular tilings](https://en.wikipedia.org/wiki/Euclidean_tilings_by_convex_regular_polygons#Regular_tilings) different than the default [square tiling](https://en.wikipedia.org/wiki/Square_tiling) is also possible.
 {{< /hint >}}
 
 ## Remaining params
 
-{{< hint info >}}
-**Exercise**     
-Implement a sketch to test the remaining quadrille drawing params: `cellLength`, `outlineWeight`, `outline`, `textColor` and `textZoom`, some of which are demonstrated within the [boolean operators](/docs/Quadrille_API/boolean_operators/) code snippets.
+{{< hint warning >}}
+**Observation**     
+Testing the remaining quadrille drawing params: `cellLength`, `outlineWeight`, `outline`, `textColor` and `textZoom`, some of which are demonstrated within the [boolean operators]({{< ref "boolean_operators" >}}) code snippets, are left out as an exercise to the reader.
 {{< /hint >}}
+
+# Syntax
+
+> `drawQuadrille(quadrille, [{[graphics], [x], [y], [col], [row], [tileDisplay], [imageDisplay], [colorDisplay], [stringDisplay], [numberDisplay], [arrayDisplay], [objectDisplay], [cellLength], [outlineWeight], [outline], [textColor], [textZoom]}])`
+
+# Parameters
+
+| parameter     | description                                                                                              |
+|---------------|----------------------------------------------------------------------------------------------------------|
+| quadrille     | Quadrille: `quadrille` to be drawn                                                                       |
+| graphics      | [p5.Graphics](https://p5js.org/reference/#/p5.Graphics): renderer target default is `this` (main canvas) |
+| tileDisplay   | Function: empty cell drawing custom procedure                                                            |
+| imageDisplay  | Function: image filled cell drawing custom procedure                                                     |
+| colorDisplay  | Function: color filled cell drawing custom procedure                                                     |
+| stringDisplay | Function: string filled cell drawing custom procedure                                                    |
+| numberDisplay | Function: number filled cell drawing custom procedure                                                    |
+| arrayDisplay  | Function: array filled cell drawing custom procedure                                                     |
+| objectDisplay | Function: object filled cell drawing custom procedure                                                    |
+| x             | Number: upper left quadrille pixel x coordinate default is `0`. Takes higher precedence than `col`       |
+| y             | Number: upper left quadrille pixel y coordinate default is `0`. Takes higher precedence than `row`       |
+| col           | Number: upper left quadrille col default is `0`.                                                         |
+| row           | Number: upper left quadrille row default is `0`.                                                         |
+| cellLength    | Number: edge length in pixels default is `10`                                                            |
+| outlineWeight | Number: edge weight defaut is `2`. Use `0` to discard all edges                                          |
+| outline       | [p5.Color](https://p5js.org/reference/#/p5.Color) representation: edge color default is `magenta`        |
+| textColor     | [p5.Color](https://p5js.org/reference/#/p5.Color) representation: text color default is `cyan`           |
+| textZoom      | Number:: text zoom level default is `0.89`                                                               |
