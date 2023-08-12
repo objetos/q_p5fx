@@ -13,6 +13,8 @@ Before going into the chapter it is good idea to study first the coding train tu
    {{< youtube id="TaluaAD9MKA" title="p5.Graphics tutorial" >}}
 {{< /hint >}}
 
+# Examples
+
 ## createQuadrille(width, height)
 
 Creates an empty quadrille having `width` number of columns and `height` number of rows.
@@ -80,7 +82,7 @@ let quadrille;
 function preload() {
   // loading an image should be done in preload
   // https://p5js.org/reference/#/p5/preload
-  al = loadImage('/sketches/quadrille/abraham_lincoln.jpg');
+  al = loadImage('../abraham_lincoln.jpg');
 }
 
 function setup() {
@@ -153,7 +155,7 @@ let pg;
 let quadrille;
 
 function preload() {
-  al = loadImage('/sketches/quadrille/abraham_lincoln.jpg');
+  al = loadImage('../abraham_lincoln.jpg');
 }
 
 function setup() {
@@ -220,7 +222,7 @@ let pg;
 let quadrille;
 
 function preload() {
-  al = loadImage('/sketches/quadrille/abraham_lincoln.jpg');
+  al = loadImage('../abraham_lincoln.jpg');
 }
 
 function setup() {
@@ -356,7 +358,7 @@ let al;
 let quadrille;
 
 function preload() {
-  al = loadImage('/sketches/quadrille/abraham_lincoln.jpg');
+  al = loadImage('../abraham_lincoln.jpg');
 }
 
 function setup() {
@@ -472,3 +474,38 @@ function draw() {
 }
 ```
 {{< /details >}}
+
+# Syntax
+
+> `createQuadrille(width, height)`
+
+> `createQuadrille(jagged_array)`
+
+> `createQuadrille(array)`
+
+> `createQuadrille(width, array)`
+
+> `createQuadrille(string)`
+
+> `createQuadrille(width, string)`
+
+> `createQuadrille(width, image, [coherence])`
+
+> `createQuadrille(width, height, order, pattern)`
+
+> `createQuadrille(width, bitboard, pattern)`
+
+# Parameters
+
+| param     | description                                                                                                                                                                   |
+|-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| jagged_array | [jagged_array](https://en.wikipedia.org/wiki/Jagged_array): containing any combination of [p5.Image](https://p5js.org/reference/#/p5.Image) \| [p5.Graphics](https://p5js.org/reference/#/p5.Graphics) \| [p5.Color](https://p5js.org/reference/#/p5.Color) \| array \| object \| string \| number \| `null` cells |
+| array     | array: containing any combination of [p5.Image](https://p5js.org/reference/#/p5.Image) \| [p5.Graphics](https://p5js.org/reference/#/p5.Graphics) \| [p5.Color](https://p5js.org/reference/#/p5.Color) \| array \| object \| string \| number \| `null` cells |
+| string    | String: containing any combination of chars                                                                                                                                   |
+| width     | Number: total number of columns                                                                                                                                               |
+| height    | Number: total number of rows                                                                                                                                                  |
+| image     | [p5.Image](https://p5js.org/reference/#/p5.Image) instance                                                                                                                    |
+| coherence | [boolean]: define whether or not to use spatial coherence to convert image default is false                                                                                   |
+| bitboard  | Number: [bitboard](https://en.wikipedia.org/wiki/Bitboard) [big-endian](https://en.wikipedia.org/wiki/Endianness) integer representation                                      |
+| order     | Number: total number of non-empty cells                                                                                                                                       |
+| pattern   | [p5.Image](https://p5js.org/reference/#/p5.Image) \| [p5.Graphics](https://p5js.org/reference/#/p5.Graphics) \| [p5.Color](https://p5js.org/reference/#/p5.Color) \| array \| object \| string \| number \| `null`: empty cells |
