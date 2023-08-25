@@ -227,7 +227,7 @@ function draw() {
 |---------------|-----------------------------------------------------------------------------------------------------------|
 | quadrille     | Quadrille: `quadrille` to be drawn                                                                        |
 | graphics      | [p5.Graphics](https://p5js.org/reference/#/p5.Graphics): renderer target default is `this` (main canvas)  |
-| tileDisplay   | Function: empty cell drawing custom procedure default is [Quadrille.TILE]({{< ref "tile" >}})[^1]         |
+| tileDisplay   | Function: empty cell drawing custom procedure default is [Quadrille.TILE]({{< ref "tile" >}})[^1].  Use `0`, `null` or `undefined` to discard all edges |
 | imageDisplay  | Function: image filled cell drawing custom procedure default is [Quadrille.IMAGE]({{< ref "image" >}})    |
 | colorDisplay  | Function: color filled cell drawing custom procedure default is [Quadrille.COLOR]({{< ref "color" >}})    |
 | stringDisplay | Function: string filled cell drawing custom procedure default is [Quadrille.STRING]({{< ref "string" >}}) |
@@ -239,7 +239,7 @@ function draw() {
 | col           | Number: upper left quadrille col default is `0`.                                                          |
 | row           | Number: upper left quadrille row default is `0`.                                                          |
 | cellLength    | Number: edge length in pixels default is [Quadrille.CELL_LENGTH]({{< ref "cell_length" >}})               |
-| outlineWeight | Number: edge weight default is [Quadrille.OUTLINE_WEIGHT]({{< ref "outline_weight" >}}). Use `0` to discard all edges |
+| outlineWeight | Number: edge weight default is [Quadrille.OUTLINE_WEIGHT]({{< ref "outline_weight" >}}).                  |
 | outline       | [p5.Color](https://p5js.org/reference/#/p5.Color) representation: edge color default is [Quadrille.OUTLINE]({{< ref "outline" >}}) |
 | textColor     | [p5.Color](https://p5js.org/reference/#/p5.Color) representation: text color default is [Quadrille.TEXT_COLOR]({{< ref "text_color" >}}) |
 | textZoom      | Number:: text zoom level default is [Quadrille.TEXT_ZOOM]({{< ref "text_zoom" >}})                        |
