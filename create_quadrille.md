@@ -505,7 +505,7 @@ function draw() {
 | width     | Number: total number of columns                                                                                                                                               |
 | height    | Number: total number of rows                                                                                                                                                  |
 | image     | [p5.Image](https://p5js.org/reference/#/p5.Image) instance                                                                                                                    |
-| coherence | [boolean]: define whether or not to use spatial coherence to convert image default is false                                                                                   |
+| coherence | boolean: define whether or not to use spatial coherence to convert image default is false                                                                                   |
 | bitboard  | Number: [bitboard](https://en.wikipedia.org/wiki/Bitboard) [big-endian](https://en.wikipedia.org/wiki/Endianness) integer representation                                      |
 | order     | Number: total number of non-empty cells                                                                                                                                       |
 | pattern   | [p5.Image](https://p5js.org/reference/#/p5.Image) \| [p5.Graphics](https://p5js.org/reference/#/p5.Graphics) \| [p5.Color](https://p5js.org/reference/#/p5.Color) \| array \| object \| string \| number \| `null`: empty cells |
