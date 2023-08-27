@@ -106,12 +106,6 @@ function draw() {
 
 ## Display functions
 
-{{< hint warning >}}
-**Observation**  
-Before going into this section it is good idea to study first the coding train tutorial on arrow functions:
-   {{< youtube id="mrYMzpbFz18" title="arrow functions tutorial" >}}
-{{< /hint >}}
-
 The display functions define how the quadrille cell data is to be displayed:
 1. `tileDisplay`: define the cell contour display.
 2. `imageDisplay`: define the cell image display.
