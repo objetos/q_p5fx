@@ -116,8 +116,9 @@ The display functions define how the quadrille cell data is to be displayed:
 7. `objectDisplay`: define the cell object display.
 
 {{< hint warning >}}
-**Observation**  
-The `arrayDisplay` and `objectDisplay` methods don't have ([static](https://developer.mozilla.org/en-US/docs/Glossary/Static_method)) defaults.
+**Observations**  
+1. The `arrayDisplay` and `objectDisplay` methods don't have ([static](https://developer.mozilla.org/en-US/docs/Glossary/Static_method)) defaults.
+2. The object literal used to parameterize these functions can have the following properties: `{ quadrille, graphics, outline, outlineWeight, cellLength, textColor, textZoom, row, col, cell }`, where `row` and `col` hold the cell position within the quadrille and `cell` holds the cell contents. The remaining properties (`outline`, `cellLength`,...) are taken from the `drawQuadrille` method params themselves.
 {{< /hint >}}
 
 The following code snippet demonstrates how to display quadrille cells as circles:
@@ -126,17 +127,26 @@ The following code snippet demonstrates how to display quadrille cells as circle
 `use strict`;
 let quadrille;
 let circled;
-let tileDisplay;
-let colorDisplay;
-// imageDisplay, stringDisplay;
+// ✨ user provided functions to customize the quadrille display
+// the object literal used to parameterize these functions can
+// have the following properties:
+// { quadrille, graphics, outline, outlineWeight, cellLength,
+// textColor, textZoom, row, col, cell }
+// row and col holds the cell position within the quadrille
+// cell holds the cell contents
+// the remaining properties (outline, cellLength,...) are taken
+// from the drawQuadrille method call itself
+let tileDisplay;// (all) quadrille cell contours
+let colorDisplay;// quadrille color cells
 
 function setup() {
   createCanvas(6 * Quadrille.CELL_LENGTH, 4 * Quadrille.CELL_LENGTH);
   circled = createCheckbox('circled', true);
   circled.position(10, 10);
   circled.style('color', 'magenta');
-  // { graphics: graphics, cell: cell, outline: outline, outlineWeight: outlineWeight, cellLength: cellLength, row: i, col: j }
-  tileDisplay = ({ outline: outline, outlineWeight: outlineWeight, cellLength: cellLength }) => {
+  tileDisplay = ({ 
+    outline: outline, outlineWeight: outlineWeight,
+    cellLength: cellLength }) => {
     noFill();
     stroke(outline);
     strokeWeight(outlineWeight);
@@ -169,20 +179,25 @@ function draw() {
 let quadrille;
 let circled;
 // ✨ user provided functions to customize the quadrille display
-// the object literal used to parameterize these functions can have the following properties:
-// { graphics, cell, outline, outlineWeight, cellLength, row, col }
-// cell holds the cell contents
+// the object literal used to parameterize these functions can
+// have the following properties:
+// { quadrille, graphics, outline, outlineWeight, cellLength,
+// textColor, textZoom, row, col, cell }
 // row and col holds the cell position within the quadrille
-// and the remaining properties are taken from the drawQuadrille method call itself
+// cell holds the cell contents
+// the remaining properties (outline, cellLength,...) are taken
+// from the drawQuadrille method call itself
 let tileDisplay;// (all) quadrille cell contours
-let colorDisplay;// quadrille color cell
+let colorDisplay;// quadrille color cells
 
 function setup() {
   createCanvas(6 * Quadrille.CELL_LENGTH, 4 * Quadrille.CELL_LENGTH);
   circled = createCheckbox('circled', true);
   circled.position(10, 10);
   circled.style('color', 'magenta');
-  tileDisplay = ({ outline: outline, outlineWeight: outlineWeight, cellLength: cellLength }) => {
+  tileDisplay = ({ 
+    outline: outline, outlineWeight: outlineWeight,
+    cellLength: cellLength }) => {
     noFill();
     stroke(outline);
     strokeWeight(outlineWeight);
