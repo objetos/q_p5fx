@@ -20,15 +20,15 @@ Quadrille.CELL_LENGTH = 20;
 const w = 600 / Quadrille.CELL_LENGTH;
 const h = 400 / Quadrille.CELL_LENGTH;
 // refer to https://htmlcolorcodes.com/
-let lime, olive, red;
+let yellow, blue, red;
 
 function setup() {
   createCanvas(600, 400);
-  lime = color('lime');
-  olive = color('olive');
+  yellow = color('yellow');
+  blue = color('blue');
   red = color('red');
-  source = createQuadrille(w - 2, (h / 2) - 2, 50, lime);
-  source.rand(100, olive);
+  source = createQuadrille(w - 2, (h / 2) - 2, 50, yellow);
+  source.rand(100, blue);
   target = createQuadrille(w - 2, (h / 2) - 2);
   visitQuadrille(source, (row, col) => {
     if (source.isEmpty(row, col) && source.ring(row, col).order === 3) {
@@ -51,15 +51,15 @@ Quadrille.CELL_LENGTH = 20;
 const w = 600 / Quadrille.CELL_LENGTH;
 const h = 400 / Quadrille.CELL_LENGTH;
 // refer to https://htmlcolorcodes.com/
-let lime, olive, red;
+let yellow, blue, red;
 
 function setup() {
   createCanvas(600, 400);
-  lime = color('lime');
-  olive = color('olive');
+  yellow = color('yellow');
+  blue = color('blue');
   red = color('red');
-  source = createQuadrille(w - 2, (h / 2) - 2, 50, lime);
-  source.rand(100, olive);
+  source = createQuadrille(w - 2, (h / 2) - 2, 50, yellow);
+  source.rand(100, blue);
   target = createQuadrille(w - 2, (h / 2) - 2);
   visitQuadrille(source, (row, col) => {
     if (source.isEmpty(row, col) && source.ring(row, col).order === 3) {
@@ -83,7 +83,7 @@ To implement the above sketch the [isEmpty, ring](/docs/Quadrille_API/main_metho
 
 ## visitQuadrille(quadrille, fx, cells)
 
-The sketch below implements a visit to the upper quadrille to clearing the `lime` and `olive` cells which have more than two neighbors and stores the result in the lower quadrille:
+The sketch below implements a visit to the upper quadrille to clearing the `yellow` and `blue` cells which have more than two neighbors and stores the result in the lower quadrille:
 
 {{< p5-global-iframe lib1="https://cdn.jsdelivr.net/gh/objetos/p5.quadrille.js/p5.quadrille.js" width="625" height="425" >}}
 `use strict`;
@@ -91,22 +91,21 @@ let source, target;
 Quadrille.CELL_LENGTH = 20;
 const w = 600 / Quadrille.CELL_LENGTH;
 const h = 400 / Quadrille.CELL_LENGTH;
-let lime, olive, yellow;
+let yellow, blue, red;
 
 function setup() {
   createCanvas(600, 400);
-  lime = color('lime');
   yellow = color('yellow');
-  olive = color('olive');
-  source = createQuadrille(w - 2, (h / 2) - 2, 30, lime);
-  source.rand(60, olive);
-  source.rand(90, yellow);
+  red = color('red');
+  blue = color('blue');
+  source = createQuadrille(w - 2, (h / 2) - 2, 30, yellow);
+  source.rand(60, blue).rand(90, red);
   target = source.clone();
   visitQuadrille(source, (row, col) => {
     if (source.ring(row, col).order > 2) {
       target.clear(row, col);
     }
-  }, [lime, olive]);
+  }, [yellow, blue]);
 }
 
 function draw() {
@@ -122,22 +121,21 @@ let source, target;
 Quadrille.CELL_LENGTH = 20;
 const w = 600 / Quadrille.CELL_LENGTH;
 const h = 400 / Quadrille.CELL_LENGTH;
-let lime, olive, yellow;
+let yellow, blue, red;
 
 function setup() {
   createCanvas(600, 400);
-  lime = color('lime');
   yellow = color('yellow');
-  olive = color('olive');
-  source = createQuadrille(w - 2, (h / 2) - 2, 30, lime);
-  source.rand(60, olive);
-  source.rand(90, yellow);
+  red = color('red');
+  blue = color('blue');
+  source = createQuadrille(w - 2, (h / 2) - 2, 30, yellow);
+  source.rand(60, blue).rand(90, red);
   target = source.clone();
   visitQuadrille(source, (row, col) => {
     if (source.ring(row, col).order > 2) {
       target.clear(row, col);
     }
-  }, [lime, olive]);
+  }, [yellow, blue]);
 }
 
 function draw() {
