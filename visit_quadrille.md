@@ -28,7 +28,7 @@ function setup() {
   blue = color('blue');
   red = color('red');
   source = createQuadrille(w - 2, (h / 2) - 2, 50, yellow);
-  source.rand(100, blue);
+  source.rand(50, blue);
   target = createQuadrille(w - 2, (h / 2) - 2);
   visitQuadrille(source, (row, col) => {
     if (source.isEmpty(row, col) && source.ring(row, col).order === 3) {
@@ -59,7 +59,7 @@ function setup() {
   blue = color('blue');
   red = color('red');
   source = createQuadrille(w - 2, (h / 2) - 2, 50, yellow);
-  source.rand(100, blue);
+  source.rand(50, blue);
   target = createQuadrille(w - 2, (h / 2) - 2);
   visitQuadrille(source, (row, col) => {
     if (source.isEmpty(row, col) && source.ring(row, col).order === 3) {
@@ -99,7 +99,7 @@ function setup() {
   red = color('red');
   blue = color('blue');
   source = createQuadrille(w - 2, (h / 2) - 2, 30, yellow);
-  source.rand(60, blue).rand(90, red);
+  source.rand(30, blue).rand(30, red);
   target = source.clone();
   visitQuadrille(source, (row, col) => {
     if (source.ring(row, col).order > 2) {
@@ -129,7 +129,7 @@ function setup() {
   red = color('red');
   blue = color('blue');
   source = createQuadrille(w - 2, (h / 2) - 2, 30, yellow);
-  source.rand(60, blue).rand(90, red);
+  source.rand(30, blue).rand(30, red);
   target = source.clone();
   visitQuadrille(source, (row, col) => {
     if (source.ring(row, col).order > 2) {
