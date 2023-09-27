@@ -158,4 +158,4 @@ function draw() {
 |---------------|------------------------------------------------------------------------------------|
 | quadrille     | Quadrille: `quadrille` to be visited                                               |
 | fx            | function: function of the form `fx(row, col)` to be executed on all visited cells  |
-| cells         | array: cells to be visited. All cells are visited if this parameter is `undefined` |
+| cells         | [Iterable](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of): cells to be visited. All cells are visited if this parameter is `undefined` |
