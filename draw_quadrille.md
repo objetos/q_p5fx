@@ -247,7 +247,7 @@ function draw() {
 | y             | Number: upper left quadrille pixel y coordinate default is `0`. Takes higher precedence than `row`        |
 | col           | Number: upper left quadrille col default is `0`.                                                          |
 | row           | Number: upper left quadrille row default is `0`.                                                          |
-| cells         | [Iterable](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of): cells to be drawn. All cells are visited if this parameter is `undefined` |
+| cells         | [Iterable](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of): cells to be drawn. All cells are drawn if this parameter is `undefined` |
 | cellLength    | Number: edge length in pixels default is [Quadrille.CELL_LENGTH]({{< ref "cell_length" >}})               |
 | outlineWeight | Number: edge weight default is [Quadrille.OUTLINE_WEIGHT]({{< ref "outline_weight" >}}).                  |
 | outline       | [p5.Color](https://p5js.org/reference/#/p5.Color) representation: edge color default is [Quadrille.OUTLINE]({{< ref "outline" >}}) |
