@@ -127,15 +127,6 @@ The following code snippet demonstrates how to display quadrille cells as circle
 `use strict`;
 let quadrille;
 let circled;
-// ✨ user provided functions to customize the quadrille display
-// the object literal used to parameterize these functions can
-// have the following properties:
-// { quadrille, graphics, outline, outlineWeight, cellLength,
-// textColor, textZoom, row, col, cell }
-// row and col holds the cell position within the quadrille
-// cell holds the cell contents
-// the remaining properties (outline, cellLength,...) are taken
-// from the drawQuadrille method call itself
 let tileDisplay;// (all) quadrille cell contours
 let colorDisplay;// quadrille color cells
 
@@ -178,15 +169,6 @@ function draw() {
 ```js
 let quadrille;
 let circled;
-// ✨ user provided functions to customize the quadrille display
-// the object literal used to parameterize these functions can
-// have the following properties:
-// { quadrille, graphics, outline, outlineWeight, cellLength,
-// textColor, textZoom, row, col, cell }
-// row and col holds the cell position within the quadrille
-// cell holds the cell contents
-// the remaining properties (outline, cellLength,...) are taken
-// from the drawQuadrille method call itself
 let tileDisplay;// (all) quadrille cell contours
 let colorDisplay;// quadrille color cells
 
