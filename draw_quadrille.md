@@ -118,7 +118,7 @@ The display functions define how the quadrille cell data is to be displayed:
 {{< hint warning >}}
 **Observations**  
 1. The `arrayDisplay` and `objectDisplay` methods don't have ([static](https://developer.mozilla.org/en-US/docs/Glossary/Static_method)) defaults.
-2. The object literal used to parameterize these functions can have the following properties: `{ quadrille, graphics, outline, outlineWeight, cellLength, textColor, textZoom, row, col, cell }`, where `row` and `col` hold the cell position within the quadrille and `cell` holds the cell contents. The remaining properties (`outline`, `cellLength`,...) are taken from the `drawQuadrille` method params themselves.
+2. The object literal used to parameterize these functions can have the following properties: `{ quadrille, graphics, outline, outlineWeight, cellLength, textColor, textZoom, value, row, col, width, height }`, where `value` holds the cell contents, `row` and `col` hold the cell position within the `quadrille` and `ẁidth` and `height` are defined as `quadrille.width` and `quadrille.height`, resp. The remaining properties (`outline`, `cellLength`,...) are taken from the `drawQuadrille` method params themselves.
 {{< /hint >}}
 
 The following code snippet demonstrates how to display quadrille cells as circles:
@@ -135,18 +135,16 @@ function setup() {
   circled = createCheckbox('circled', true);
   circled.position(10, 10);
   circled.style('color', 'magenta');
-  tileDisplay = ({ 
-    outline: outline, outlineWeight: outlineWeight,
-    cellLength: cellLength }) => {
+  tileDisplay = ({ outline, outlineWeight, cellLength }) => {
     noFill();
     stroke(outline);
     strokeWeight(outlineWeight);
     ellipseMode(CORNER);
     ellipse(0, 0, cellLength, cellLength);
   };
-  colorDisplay = ({ cell: cell, cellLength: cellLength }) => {
+  colorDisplay = ({ value, cellLength }) => {
     noStroke();
-    fill(cell);
+    fill(value);
     ellipseMode(CORNER);
     ellipse(0, 0, cellLength, cellLength);
   }
@@ -177,18 +175,16 @@ function setup() {
   circled = createCheckbox('circled', true);
   circled.position(10, 10);
   circled.style('color', 'magenta');
-  tileDisplay = ({ 
-    outline: outline, outlineWeight: outlineWeight,
-    cellLength: cellLength }) => {
+  tileDisplay = ({ outline, outlineWeight, cellLength }) => {
     noFill();
     stroke(outline);
     strokeWeight(outlineWeight);
     ellipseMode(CORNER);
     ellipse(0, 0, cellLength, cellLength);
   };
-  colorDisplay = ({ cell: cell, cellLength: cellLength }) => {
+  colorDisplay = ({ value, cellLength }) => {
     noStroke();
-    fill(cell);
+    fill(value);
     ellipseMode(CORNER);
     ellipse(0, 0, cellLength, cellLength);
   }
@@ -229,7 +225,7 @@ function draw() {
 | y             | Number: upper left quadrille pixel y coordinate default is `0`. Takes higher precedence than `row`        |
 | col           | Number: upper left quadrille col default is `0`.                                                          |
 | row           | Number: upper left quadrille row default is `0`.                                                          |
-| cells         | [Iterable](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of): cells to be drawn. All cells are drawn if this parameter is `undefined` |
+| values        | [Iterable](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of): cells to be drawn. All cells are drawn if this parameter is `undefined` |
 | cellLength    | Number: edge length in pixels default is [Quadrille.CELL_LENGTH]({{< ref "cell_length" >}})               |
 | outlineWeight | Number: edge weight default is [Quadrille.OUTLINE_WEIGHT]({{< ref "outline_weight" >}}).                  |
 | outline       | [p5.Color](https://p5js.org/reference/#/p5.Color) representation: edge color default is [Quadrille.OUTLINE]({{< ref "outline" >}}) |

@@ -5,11 +5,11 @@ draft: false
 
 # createQuadrille
 
-[p5](https://p5js.org/) [polymorphic](https://en.wikipedia.org/wiki/Ad_hoc_polymorphism) method that creates a [quadrille](https://en.wikipedia.org/wiki/Square_tiling) object whose individual cells may be either `numbers`, `strings`, [p5.Colors](https://p5js.org/reference/#/p5.Color), [p5.Images](https://p5js.org/reference/#/p5.Image) and [p5.Graphics](https://p5js.org/reference/#/p5.Graphics), `arrays` and `object literals`. Drawing a quadrille will be covered separately later on in [another chapter]({{< relref "draw_quadrille" >}}).
+[p5](https://p5js.org/) [polymorphic](https://en.wikipedia.org/wiki/Ad_hoc_polymorphism) method that creates a [quadrille](https://en.wikipedia.org/wiki/Square_tiling) object whose individual cells may be filled either with `numbers`, `strings`, [p5.Colors](https://p5js.org/reference/#/p5.Color), [p5.Images](https://p5js.org/reference/#/p5.Image) and [p5.Graphics](https://p5js.org/reference/#/p5.Graphics), `arrays`, `object literals` and `null` which defined empty cells. Drawing a quadrille will be covered separately later on in [another chapter]({{< relref "draw_quadrille" >}}).
 
 {{< hint warning >}}
 **Observation**  
-Before going into the chapter it is good idea to study first the coding train tutorial on `p5.Graphics`:
+Before delving into this function's details, consider reviewing the Coding Train tutorial on `p5.Graphics` first:
    {{< youtube id="TaluaAD9MKA" title="p5.Graphics tutorial" >}}
 {{< /hint >}}
 
@@ -71,7 +71,7 @@ Have a look the the above p5 editor version of the above example [here](https://
 
 ## createQuadrille(jagged_array)
 
-Creates a quadrille and fills its cells taking the [jagged_array](https://en.wikipedia.org/wiki/Jagged_array) items as source. Note that `null` `array` items represent empty quadrille cells.
+Creates a quadrille and fills its cells taking the [jagged_array](https://en.wikipedia.org/wiki/Jagged_array) items as source.
 
 {{< p5-global-iframe lib1="https://cdn.jsdelivr.net/gh/objetos/p5.quadrille.js/p5.quadrille.js" width="625" height="425" >}}
 `use strict`;
@@ -146,7 +146,7 @@ function update() {
 
 ## createQuadrille(array)
 
-Creates a quadrille and fills its cells taking the `array` items as source. Note that `null` `array` items represent empty quadrille cells.
+Creates a quadrille and fills its cells taking the `array` items as source.
 
 {{< p5-global-iframe lib1="https://cdn.jsdelivr.net/gh/objetos/p5.quadrille.js/p5.quadrille.js" width="625" height="425" >}}
 `use strict`;
@@ -213,7 +213,7 @@ function update() {
 
 ## createQuadrille(width, array)
 
-Creates a quadrille and fills its cells taking the `array` items as source up to `width` number of columns. Observe that (one or) several quadrille rows may be created to include all the `array` items. Note that `null` `array` items represent empty quadrille cells.
+Creates a quadrille and fills its cells taking the `array` items as source up to `width` number of columns. Observe that (one or) several quadrille rows may be created to include all the `array` items.
 
 {{< p5-global-iframe lib1="https://cdn.jsdelivr.net/gh/objetos/p5.quadrille.js/p5.quadrille.js" width="625" height="425" >}}
 `use strict`;
@@ -395,9 +395,9 @@ function draw() {
 ```
 {{< /details >}}
 
-## createQuadrille(width, height, order, pattern)
+## createQuadrille(width, height, order, value)
 
-Creates a quadrille and fills its cells using `pattern` (any data type instance but `undefined` or `null`) which is randomly repeated along the quadrille up to `order` number of times.
+Creates a quadrille and fills its cells using `value` (any data type instance but `undefined`) which is randomly repeated along the quadrille up to `order` number of times.
 
 {{< p5-global-iframe lib1="https://cdn.jsdelivr.net/gh/objetos/p5.quadrille.js/p5.quadrille.js" width="625" height="425" >}}
 `use strict`;
@@ -430,9 +430,9 @@ function draw() {
 ```
 {{< /details >}}
 
-## createQuadrille(width, bitboard, pattern)
+## createQuadrille(width, bitboard, value)
 
-Creates a quadrille and fills its cells taking [bitboard](https://en.wikipedia.org/wiki/Bitboard) as source, using `pattern` (any data type instance but `undefined` or `null`) to represent [`1` (or on)](https://en.wikipedia.org/wiki/Bit) bits. For instance the following code snippet draws the [T tetromino](https://en.wikipedia.org/wiki/Tetromino) which may be part of the [tetris](https://en.wikipedia.org/wiki/Tetris) game.
+Creates a quadrille and fills its cells taking [bitboard](https://en.wikipedia.org/wiki/Bitboard) as source, using `value` (any data type instance but `undefined`) to represent [`1` (or on)](https://en.wikipedia.org/wiki/Bit) bits. For instance the following code snippet draws the [T tetromino](https://en.wikipedia.org/wiki/Tetromino) which may be part of the [tetris](https://en.wikipedia.org/wiki/Tetris) game.
 
 {{< p5-global-iframe lib1="https://cdn.jsdelivr.net/gh/objetos/p5.quadrille.js/p5.quadrille.js" width="625" height="425" >}}
 `use strict`;
@@ -491,9 +491,9 @@ function draw() {
 
 > `createQuadrille(width, image, [coherence])`
 
-> `createQuadrille(width, height, order, pattern)`
+> `createQuadrille(width, height, order, value)`
 
-> `createQuadrille(width, bitboard, pattern)`
+> `createQuadrille(width, bitboard, value)`
 
 # Parameters
 
@@ -505,7 +505,7 @@ function draw() {
 | width     | Number: total number of columns                                                                                                                                               |
 | height    | Number: total number of rows                                                                                                                                                  |
 | image     | [p5.Image](https://p5js.org/reference/#/p5.Image) instance                                                                                                                    |
-| coherence | boolean: define whether or not to use spatial coherence to convert image default is false                                                                                   |
+| coherence | Boolean: define whether or not to use spatial coherence to convert image default is false                                                                                   |
 | bitboard  | Number: [bitboard](https://en.wikipedia.org/wiki/Bitboard) [big-endian](https://en.wikipedia.org/wiki/Endianness) integer representation                                      |
 | order     | Number: total number of non-empty cells                                                                                                                                       |
-| pattern   | [p5.Image](https://p5js.org/reference/#/p5.Image) \| [p5.Graphics](https://p5js.org/reference/#/p5.Graphics) \| [p5.Color](https://p5js.org/reference/#/p5.Color) \| array \| object \| string \| number \| `null`: empty cells |
+| value     | [p5.Image](https://p5js.org/reference/#/p5.Image) \| [p5.Graphics](https://p5js.org/reference/#/p5.Graphics) \| [p5.Color](https://p5js.org/reference/#/p5.Color) \| array \| object \| string \| number \| `null`: empty cells |
