@@ -15,6 +15,51 @@ Before delving into this function's details, consider reviewing the Coding Train
 
 # Examples
 
+## createQuadrille()
+
+Creates an 8x8 quadrille with a chessboard pattern.
+
+{{< p5-global-iframe lib1="https://cdn.jsdelivr.net/gh/objetos/p5.quadrille.js/p5.quadrille.js" width="425" height="425" >}}
+`use strict`;
+// Quadrille.CELL_LENGTH is a constant defining the quadrille
+// cell length default is: 100, we change it to 50
+Quadrille.CELL_LENGTH = 50;
+// quadrille object declaration
+let quadrille;
+
+function setup() {
+  createCanvas(8 * Quadrille.CELL_LENGTH, 8 * Quadrille.CELL_LENGTH);
+  // quadrille object initialization
+  quadrille = createQuadrille();
+}
+
+function draw() {
+  // to display the quadrille a call to drawQuadrille is needed
+  drawQuadrille(quadrille);
+}
+{{< /p5-global-iframe >}}
+
+{{< details title="code" open=false >}}
+```js
+// Quadrille.CELL_LENGTH is a constant defining the quadrille
+// cell length default is: 100, we change it to 50
+Quadrille.CELL_LENGTH = 50;
+// quadrille object declaration
+let quadrille;
+
+function setup() {
+  createCanvas(8 * Quadrille.CELL_LENGTH, 8 * Quadrille.CELL_LENGTH);
+  // quadrille object initialization
+  quadrille = createQuadrille();
+}
+
+function draw() {
+  // to display the quadrille a call to drawQuadrille is needed
+  drawQuadrille(quadrille);
+}
+```
+{{< /details >}}
+
 ## createQuadrille(width, height)
 
 Creates an empty quadrille having `width` number of columns and `height` number of rows.
@@ -278,6 +323,49 @@ function update() {
 ```
 {{< /details >}}
 
+## createQuadrille(fen)
+
+Creates a quadrille with the chess board position described by the given [fen](https://en.wikipedia.org/wiki/Forsyth%E2%80%93Edwards_Notation).
+
+{{< p5-global-iframe lib1="https://cdn.jsdelivr.net/gh/objetos/p5.quadrille.js/p5.quadrille.js" width="425" height="425" >}}
+`use strict`;
+Quadrille.CELL_LENGTH = 50;
+const COLS = 8, ROWS = 8;
+let board, fen;
+
+function setup() {
+  createCanvas(COLS * Quadrille.CELL_LENGTH, ROWS * Quadrille.CELL_LENGTH);
+  board = createQuadrille();
+  fen = createQuadrille('rnbqkbnr/pp1ppppp/8/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 1 2');
+}
+
+function draw() {
+  background('darkkhaki')
+  drawQuadrille(board, { tileDisplay: 0 });
+  drawQuadrille(fen, { textColor: 'black', tileDisplay: 0 });
+}
+{{< /p5-global-iframe >}}
+
+{{< details title="code" open=false >}}
+```js
+Quadrille.CELL_LENGTH = 50;
+const COLS = 8, ROWS = 8;
+let board, fen;
+
+function setup() {
+  createCanvas(COLS * Quadrille.CELL_LENGTH, ROWS * Quadrille.CELL_LENGTH);
+  board = createQuadrille();
+  fen = createQuadrille('rnbqkbnr/pp1ppppp/8/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 1 2');
+}
+
+function draw() {
+  background('darkkhaki')
+  drawQuadrille(board, { tileDisplay: 0 });
+  drawQuadrille(fen, { textColor: 'black', tileDisplay: 0 });
+}
+```
+{{< /details >}}
+
 ## createQuadrille(string)
 
 Creates a quadrille and fills its cells taking `string` as source. The resulting number of quadrille `columns` matches that of the [string length](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/length).
@@ -445,7 +533,7 @@ function setup() {
   | 2 | 1 | 0 |
   (0)2⁰ + (1)2¹ + (0)2² + (1)2³ + (1)2⁴ + (1)2⁵ = 58
   */
-  quadrille = createQuadrille(3, 58, color('blue'));
+  quadrille = createQuadrille(3, 58n, color('blue'));
 }
 
 function draw() {
@@ -465,7 +553,7 @@ function setup() {
   | 2 | 1 | 0 |
   (0)2⁰ + (1)2¹ + (0)2² + (1)2³ + (1)2⁴ + (1)2⁵ = 58
   */
-  quadrille = createQuadrille(3, 58, color('blue'));
+  quadrille = createQuadrille(3, 58n, color('blue'));
 }
 
 function draw() {
@@ -477,6 +565,8 @@ function draw() {
 
 # Syntax
 
+> `createQuadrille()`
+
 > `createQuadrille(width, height)`
 
 > `createQuadrille(jagged_array)`
@@ -484,6 +574,8 @@ function draw() {
 > `createQuadrille(array)`
 
 > `createQuadrille(width, array)`
+
+> `createQuadrille(fen)`
 
 > `createQuadrille(string)`
 
@@ -501,11 +593,12 @@ function draw() {
 |-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | jagged_array | [jagged_array](https://en.wikipedia.org/wiki/Jagged_array): containing any combination of [p5.Image](https://p5js.org/reference/#/p5.Image) \| [p5.Graphics](https://p5js.org/reference/#/p5.Graphics) \| [p5.Color](https://p5js.org/reference/#/p5.Color) \| array \| object \| string \| number \| `null` cells |
 | array     | array: containing any combination of [p5.Image](https://p5js.org/reference/#/p5.Image) \| [p5.Graphics](https://p5js.org/reference/#/p5.Graphics) \| [p5.Color](https://p5js.org/reference/#/p5.Color) \| array \| object \| string \| number \| `null` cells |
+| fen       | String: [fen](https://en.wikipedia.org/wiki/Forsyth%E2%80%93Edwards_Notation) describing a particular board position of a chess game                                          |
 | string    | String: containing any combination of chars                                                                                                                                   |
 | width     | Number: total number of columns                                                                                                                                               |
 | height    | Number: total number of rows                                                                                                                                                  |
 | image     | [p5.Image](https://p5js.org/reference/#/p5.Image) instance                                                                                                                    |
-| coherence | Boolean: define whether or not to use spatial coherence to convert image default is false                                                                                   |
-| bitboard  | Number: [bitboard](https://en.wikipedia.org/wiki/Bitboard) [big-endian](https://en.wikipedia.org/wiki/Endianness) integer representation                                      |
+| coherence | Boolean: define whether or not to use spatial coherence to convert image default is false                                                                                     |
+| bitboard  | BigInt (or Number): [bitboard](https://en.wikipedia.org/wiki/Bitboard) [big-endian](https://en.wikipedia.org/wiki/Endianness) integer representation                          |
 | order     | Number: total number of non-empty cells                                                                                                                                       |
 | value     | [p5.Image](https://p5js.org/reference/#/p5.Image) \| [p5.Graphics](https://p5js.org/reference/#/p5.Graphics) \| [p5.Color](https://p5js.org/reference/#/p5.Color) \| array \| object \| string \| number \| `null`: empty cells |
