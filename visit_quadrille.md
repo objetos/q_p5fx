@@ -13,7 +13,7 @@ draft: false
 
 The sketch below implements a visit to the upper quadrille to filling its empty cells which have exactly three neighbors and stores the result in the lower quadrille:
 
-{{< p5-global-iframe lib1="https://cdn.jsdelivr.net/gh/objetos/p5.quadrille.js/p5.quadrille.js" width="625" height="425" >}}
+{{< p5-global-iframe lib1="/p5.quadrille.js/docs/libs/p5.quadrille.js" width="625" height="425" >}}
 `use strict`;
 let source, target;
 Quadrille.CELL_LENGTH = 20;
@@ -85,7 +85,7 @@ To implement the above sketch the [isEmpty, ring](/docs/Quadrille_API/main_metho
 
 The sketch below implements a visit to the upper quadrille to clearing the `yellow` and `blue` cells which have more than two neighbors and stores the result in the lower quadrille:
 
-{{< p5-global-iframe lib1="https://cdn.jsdelivr.net/gh/objetos/p5.quadrille.js/p5.quadrille.js" width="625" height="425" >}}
+{{< p5-global-iframe lib1="/p5.quadrille.js/docs/libs/p5.quadrille.js" width="625" height="425" >}}
 `use strict`;
 let source, target;
 Quadrille.CELL_LENGTH = 20;
