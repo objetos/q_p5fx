@@ -123,7 +123,7 @@ The display functions define how the quadrille cell data is to be displayed:
 
 The following code snippet demonstrates how to display quadrille cells as circles:
 
-{{< p5-global-iframe lib1="https://cdn.jsdelivr.net/gh/objetos/p5.quadrille.js@2.0.3/p5.quadrille.js" width="625" height="425" >}}
+{{< p5-global-iframe lib1="https://cdn.jsdelivr.net/gh/objetos/p5.quadrille.js/p5.quadrille.js" width="625" height="425" >}}
 `use strict`;
 let quadrille;
 let circled;
