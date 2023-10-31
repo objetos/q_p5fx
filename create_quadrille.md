@@ -23,14 +23,14 @@ Creates an 8x8 quadrille with a chessboard pattern.
 `use strict`;
 // Global style vars
 // Quadrille cell length default is: 100, we change it to 50
-Quadrille.CELL_LENGTH = 50;
+Quadrille.cellLength = 50;
 // Disable the tile display algorithm
 Quadrille.tile = 0;
 // quadrille object declaration
 let quadrille;
 
 function setup() {
-  createCanvas(8 * Quadrille.CELL_LENGTH, 8 * Quadrille.CELL_LENGTH);
+  createCanvas(8 * Quadrille.cellLength, 8 * Quadrille.cellLength);
   // quadrille object initialization
   quadrille = createQuadrille();
 }
@@ -45,14 +45,14 @@ function draw() {
 ```js
 // Global style vars
 // Quadrille cell length default is: 100, we change it to 50
-Quadrille.CELL_LENGTH = 50;
+Quadrille.cellLength = 50;
 // Disable the tile display algorithm
 Quadrille.tile = 0;
 // quadrille object declaration
 let quadrille;
 
 function setup() {
-  createCanvas(8 * Quadrille.CELL_LENGTH, 8 * Quadrille.CELL_LENGTH);
+  createCanvas(8 * Quadrille.cellLength, 8 * Quadrille.cellLength);
   // quadrille object initialization
   quadrille = createQuadrille();
 }
@@ -79,9 +79,9 @@ Creates an empty quadrille having `width` number of columns and `height` number 
 let quadrille;
 
 function setup() {
-  // Quadrille.CELL_LENGTH is a constant defining the quadrille
+  // Quadrille.cellLength is a constant defining the quadrille
   // cell length default is: 100
-  createCanvas(6 * Quadrille.CELL_LENGTH, 4 * Quadrille.CELL_LENGTH);
+  createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength);
   // quadrille object initialization
   quadrille = createQuadrille(4, 3);
 }
@@ -99,9 +99,9 @@ function draw() {
 let quadrille;
 
 function setup() {
-  // Quadrille.CELL_LENGTH is a constant defining the quadrille
+  // Quadrille.cellLength is a constant defining the quadrille
   // cell length default is: 100
-  createCanvas(6 * Quadrille.CELL_LENGTH, 4 * Quadrille.CELL_LENGTH);
+  createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength);
   // quadrille object initialization
   quadrille = createQuadrille(4, 3);
 }
@@ -140,9 +140,9 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(6 * Quadrille.CELL_LENGTH, 4 * Quadrille.CELL_LENGTH);
+  createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength);
   // refer to the coding train tutorial linked above
-  pg = createGraphics(Quadrille.CELL_LENGTH, Quadrille.CELL_LENGTH);
+  pg = createGraphics(Quadrille.cellLength, Quadrille.cellLength);
   quadrille = createQuadrille([['hi', 100, al, pg],
                                [null, color('red'), pg]]);
 }
@@ -175,9 +175,9 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(6 * Quadrille.CELL_LENGTH, 4 * Quadrille.CELL_LENGTH);
+  createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength);
   // refer to the coding train tutorial linked above
-  pg = createGraphics(Quadrille.CELL_LENGTH, Quadrille.CELL_LENGTH);
+  pg = createGraphics(Quadrille.cellLength, Quadrille.cellLength);
   quadrille = createQuadrille([['hi', 100,          al, pg],
                                [null, color('red'), pg]]);
 }
@@ -213,8 +213,8 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(6 * Quadrille.CELL_LENGTH, 4 * Quadrille.CELL_LENGTH);
-  pg = createGraphics(Quadrille.CELL_LENGTH, Quadrille.CELL_LENGTH);
+  createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength);
+  pg = createGraphics(Quadrille.cellLength, Quadrille.cellLength);
   quadrille = createQuadrille(['hi', 100, al, color('red'), pg]);
 }
 
@@ -244,8 +244,8 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(6 * Quadrille.CELL_LENGTH, 4 * Quadrille.CELL_LENGTH);
-  pg = createGraphics(Quadrille.CELL_LENGTH, Quadrille.CELL_LENGTH);
+  createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength);
+  pg = createGraphics(Quadrille.cellLength, Quadrille.cellLength);
   quadrille = createQuadrille(['hi', 100, al, color('red'), pg]);
 }
 
@@ -280,8 +280,8 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(6 * Quadrille.CELL_LENGTH, 4 * Quadrille.CELL_LENGTH);
-  pg = createGraphics(Quadrille.CELL_LENGTH, Quadrille.CELL_LENGTH);
+  createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength);
+  pg = createGraphics(Quadrille.cellLength, Quadrille.cellLength);
   quadrille = createQuadrille(3, ['hi', 100, al, color('red'), pg]);
 }
 
@@ -311,8 +311,8 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(6 * Quadrille.CELL_LENGTH, 4 * Quadrille.CELL_LENGTH);
-  pg = createGraphics(Quadrille.CELL_LENGTH, Quadrille.CELL_LENGTH);
+  createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength);
+  pg = createGraphics(Quadrille.cellLength, Quadrille.cellLength);
   quadrille = createQuadrille(3, ['hi', 100, al, color('red'), pg]);
 }
 
@@ -338,15 +338,15 @@ Creates a quadrille with the chess board position described by the given [fen](h
 
 {{< p5-global-iframe lib1="https://cdn.jsdelivr.net/gh/objetos/p5.quadrille.js/p5.quadrille.js" width="425" height="425" >}}
 `use strict`;
-Quadrille.CELL_LENGTH = 50;
+Quadrille.cellLength = 50;
 Quadrille.tile = 0;
-Quadrille.TEXT_COLOR = 'black';
+Quadrille.textColor = 'black';
 const COLS = 8, ROWS = 8;
 // two quadrille layers
 let board, fen;
 
 function setup() {
-  createCanvas(COLS * Quadrille.CELL_LENGTH, ROWS * Quadrille.CELL_LENGTH);
+  createCanvas(COLS * Quadrille.cellLength, ROWS * Quadrille.cellLength);
   board = createQuadrille();
   fen = createQuadrille('rnbqkbnr/pp1ppppp/8/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R');
 }
@@ -361,15 +361,15 @@ function draw() {
 
 {{< details title="code" open=false >}}
 ```js
-Quadrille.CELL_LENGTH = 50;
+Quadrille.cellLength = 50;
 Quadrille.tile = 0;
-Quadrille.TEXT_COLOR = 'black';
+Quadrille.textColor = 'black';
 const COLS = 8, ROWS = 8;
 // two quadrille layers
 let board, fen;
 
 function setup() {
-  createCanvas(COLS * Quadrille.CELL_LENGTH, ROWS * Quadrille.CELL_LENGTH);
+  createCanvas(COLS * Quadrille.cellLength, ROWS * Quadrille.cellLength);
   board = createQuadrille();
   fen = createQuadrille('rnbqkbnr/pp1ppppp/8/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R');
 }
@@ -392,7 +392,7 @@ Creates a quadrille and fills its cells taking `string` as source. The resulting
 let quadrille;
 
 function setup() {
-  createCanvas(6 * Quadrille.CELL_LENGTH, 4 * Quadrille.CELL_LENGTH);
+  createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength);
   quadrille = createQuadrille('hi 👽');
 }
 
@@ -407,7 +407,7 @@ function draw() {
 let quadrille;
 
 function setup() {
-  createCanvas(6 * Quadrille.CELL_LENGTH, 4 * Quadrille.CELL_LENGTH);
+  createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength);
   quadrille = createQuadrille('hi 👽');
 }
 
@@ -427,7 +427,7 @@ Creates a quadrille and fills its cells taking `string` as source. Note that (on
 let quadrille;
 
 function setup() {
-  createCanvas(6 * Quadrille.CELL_LENGTH, 4 * Quadrille.CELL_LENGTH);
+  createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength);
   quadrille = createQuadrille(2, 'hi 👽');
 }
 
@@ -442,7 +442,7 @@ function draw() {
 let quadrille;
 
 function setup() {
-  createCanvas(6 * Quadrille.CELL_LENGTH, 4 * Quadrille.CELL_LENGTH);
+  createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength);
   quadrille = createQuadrille(2, 'hi 👽');
 }
 
@@ -467,8 +467,8 @@ function preload() {
 }
 
 function setup() {
-  Quadrille.CELL_LENGTH = 25;
-  createCanvas(24 * Quadrille.CELL_LENGTH, 24 * Quadrille.CELL_LENGTH);
+  Quadrille.cellLength = 25;
+  createCanvas(24 * Quadrille.cellLength, 24 * Quadrille.cellLength);
   quadrille = createQuadrille(24, al);
 }
 
@@ -488,8 +488,8 @@ function preload() {
 }
 
 function setup() {
-  Quadrille.CELL_LENGTH = 25;
-  createCanvas(24 * Quadrille.CELL_LENGTH, 24 * Quadrille.CELL_LENGTH);
+  Quadrille.cellLength = 25;
+  createCanvas(24 * Quadrille.cellLength, 24 * Quadrille.cellLength);
   quadrille = createQuadrille(24, al);
 }
 
@@ -514,8 +514,8 @@ function preload() {
 }
 
 function setup() {
-  Quadrille.CELL_LENGTH = 25;
-  createCanvas(24 * Quadrille.CELL_LENGTH, 24 * Quadrille.CELL_LENGTH);
+  Quadrille.cellLength = 25;
+  createCanvas(24 * Quadrille.cellLength, 24 * Quadrille.cellLength);
   quadrille = createQuadrille(24, al, false);
 }
 
@@ -535,8 +535,8 @@ function preload() {
 }
 
 function setup() {
-  Quadrille.CELL_LENGTH = 25;
-  createCanvas(24 * Quadrille.CELL_LENGTH, 24 * Quadrille.CELL_LENGTH);
+  Quadrille.cellLength = 25;
+  createCanvas(24 * Quadrille.cellLength, 24 * Quadrille.cellLength);
   quadrille = createQuadrille(24, al, false);
 }
 
@@ -556,7 +556,7 @@ Creates a quadrille and fills its cells using `value` (any data type instance bu
 let quadrille;
 
 function setup() {
-  createCanvas(6 * Quadrille.CELL_LENGTH, 4 * Quadrille.CELL_LENGTH);
+  createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength);
   quadrille = createQuadrille(4, 3, 7, 150);
 }
 
@@ -571,7 +571,7 @@ function draw() {
 let quadrille;
 
 function setup() {
-  createCanvas(6 * Quadrille.CELL_LENGTH, 4 * Quadrille.CELL_LENGTH);
+  createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength);
   quadrille = createQuadrille(4, 3, 7, 150);
 }
 
@@ -591,7 +591,7 @@ Converts a [bigint](https://www.w3schools.com/js/js_bigint.asp) into a quadrille
 let quadrille;
 
 function setup() {
-  createCanvas(6 * Quadrille.CELL_LENGTH, 4 * Quadrille.CELL_LENGTH);
+  createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength);
   /*
   | 5 | 4 | 3 |
   | 2 | 1 | 0 |
@@ -611,7 +611,7 @@ function draw() {
 let quadrille;
 
 function setup() {
-  createCanvas(6 * Quadrille.CELL_LENGTH, 4 * Quadrille.CELL_LENGTH);
+  createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength);
   /*
   | 5 | 4 | 3 |
   | 2 | 1 | 0 |

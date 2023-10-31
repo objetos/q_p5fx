@@ -16,9 +16,9 @@ The sketch below implements a visit to the upper quadrille to filling its empty 
 {{< p5-global-iframe lib1="https://cdn.jsdelivr.net/gh/objetos/p5.quadrille.js/p5.quadrille.js" width="625" height="425" >}}
 `use strict`;
 let source, target;
-Quadrille.CELL_LENGTH = 20;
-const w = 600 / Quadrille.CELL_LENGTH;
-const h = 400 / Quadrille.CELL_LENGTH;
+Quadrille.cellLength = 20;
+const w = 600 / Quadrille.cellLength;
+const h = 400 / Quadrille.cellLength;
 // refer to https://htmlcolorcodes.com/
 let yellow, blue, red;
 
@@ -47,9 +47,9 @@ function draw() {
 {{< details title="code" open=false >}}
 ```js
 let source, target;
-Quadrille.CELL_LENGTH = 20;
-const w = 600 / Quadrille.CELL_LENGTH;
-const h = 400 / Quadrille.CELL_LENGTH;
+Quadrille.cellLength = 20;
+const w = 600 / Quadrille.cellLength;
+const h = 400 / Quadrille.cellLength;
 // refer to https://htmlcolorcodes.com/
 let yellow, blue, red;
 
@@ -88,9 +88,9 @@ The sketch below implements a visit to the upper quadrille to clearing the `yell
 {{< p5-global-iframe lib1="https://cdn.jsdelivr.net/gh/objetos/p5.quadrille.js/p5.quadrille.js" width="625" height="425" >}}
 `use strict`;
 let source, target;
-Quadrille.CELL_LENGTH = 20;
-const w = 600 / Quadrille.CELL_LENGTH;
-const h = 400 / Quadrille.CELL_LENGTH;
+Quadrille.cellLength = 20;
+const w = 600 / Quadrille.cellLength;
+const h = 400 / Quadrille.cellLength;
 let yellow, blue, red;
 
 function setup() {
@@ -118,9 +118,9 @@ function draw() {
 {{< details title="code" open=false >}}
 ```js
 let source, target;
-Quadrille.CELL_LENGTH = 20;
-const w = 600 / Quadrille.CELL_LENGTH;
-const h = 400 / Quadrille.CELL_LENGTH;
+Quadrille.cellLength = 20;
+const w = 600 / Quadrille.cellLength;
+const h = 400 / Quadrille.cellLength;
 let yellow, blue, red;
 
 function setup() {

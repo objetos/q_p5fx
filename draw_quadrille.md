@@ -23,7 +23,7 @@ The `x` and `y` params define the quadrille upper left corner in pixels.
 let q0, q;
 
 function setup() {
-  createCanvas(6 * Quadrille.CELL_LENGTH, 4 * Quadrille.CELL_LENGTH);
+  createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength);
   q0 = createQuadrille(6, 4);
   q = createQuadrille(3, 58, color('blue'));
 }
@@ -42,7 +42,7 @@ function draw() {
 let q0, q;
 
 function setup() {
-  createCanvas(6 * Quadrille.CELL_LENGTH, 4 * Quadrille.CELL_LENGTH);
+  createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength);
   q0 = createQuadrille(6, 4);
   q = createQuadrille(3, 58, color('blue'));
 }
@@ -71,7 +71,7 @@ Observe the `mouseRow` and `mouseCol` [quadrille properties](/docs/Quadrille_API
 let q0, q;
 
 function setup() {
-  createCanvas(6 * Quadrille.CELL_LENGTH, 4 * Quadrille.CELL_LENGTH);
+  createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength);
   q0 = createQuadrille(6, 4);
   q = createQuadrille(3, 58, color('blue'));
 }
@@ -90,7 +90,7 @@ function draw() {
 let q0, q;
 
 function setup() {
-  createCanvas(6 * Quadrille.CELL_LENGTH, 4 * Quadrille.CELL_LENGTH);
+  createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength);
   q0 = createQuadrille(6, 4);
   q = createQuadrille(3, 58, color('blue'));
 }
@@ -131,7 +131,7 @@ let tileDisplay;// (all) quadrille cell contours
 let colorDisplay;// quadrille color cells
 
 function setup() {
-  createCanvas(6 * Quadrille.CELL_LENGTH, 4 * Quadrille.CELL_LENGTH);
+  createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength);
   circled = createCheckbox('circled', true);
   circled.position(10, 10);
   circled.style('color', 'magenta');
@@ -171,7 +171,7 @@ let tileDisplay;// (all) quadrille cell contours
 let colorDisplay;// quadrille color cells
 
 function setup() {
-  createCanvas(6 * Quadrille.CELL_LENGTH, 4 * Quadrille.CELL_LENGTH);
+  createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength);
   circled = createCheckbox('circled', true);
   circled.position(10, 10);
   circled.style('color', 'magenta');
@@ -226,10 +226,10 @@ function draw() {
 | col           | Number: upper left quadrille col default is `0`.                                                          |
 | row           | Number: upper left quadrille row default is `0`.                                                          |
 | values        | [Iterable](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of): cells to be drawn. All cells are drawn if this parameter is `undefined` |
-| cellLength    | Number: edge length in pixels default is [Quadrille.CELL_LENGTH]({{< ref "cell_length" >}})               |
-| outlineWeight | Number: edge weight default is [Quadrille.OUTLINE_WEIGHT]({{< ref "outline_weight" >}}).                  |
-| outline       | [p5.Color](https://p5js.org/reference/#/p5.Color) representation: edge color default is [Quadrille.OUTLINE]({{< ref "outline" >}}) |
-| textColor     | [p5.Color](https://p5js.org/reference/#/p5.Color) representation: text color default is [Quadrille.TEXT_COLOR]({{< ref "text_color" >}}) |
-| textZoom      | Number:: text zoom level default is [Quadrille.TEXT_ZOOM]({{< ref "text_zoom" >}})                        |
+| cellLength    | Number: edge length in pixels default is [Quadrille.cellLength]({{< ref "cell_length" >}})               |
+| outlineWeight | Number: edge weight default is [Quadrille.outlineWeight]({{< ref "outline_weight" >}}).                  |
+| outline       | [p5.Color](https://p5js.org/reference/#/p5.Color) representation: edge color default is [Quadrille.outline]({{< ref "outline" >}}) |
+| textColor     | [p5.Color](https://p5js.org/reference/#/p5.Color) representation: text color default is [Quadrille.textColor]({{< ref "text_color" >}}) |
+| textZoom      | Number:: text zoom level default is [Quadrille.textZoom]({{< ref "text_zoom" >}})                        |
 
 [^1]: This function allows to implementing other [regular tilings](https://en.wikipedia.org/wiki/Euclidean_tilings_by_convex_regular_polygons#Regular_tilings) different than the default [square tiling](https://en.wikipedia.org/wiki/Square_tiling).
