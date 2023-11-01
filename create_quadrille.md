@@ -25,7 +25,7 @@ Creates an 8x8 quadrille with a chessboard pattern.
 // Quadrille cell length default is: 100, we change it to 50
 Quadrille.cellLength = 50;
 // Disable the tile display algorithm
-Quadrille.tile = 0;
+Quadrille.tileDisplay = 0;
 // quadrille object declaration
 let quadrille;
 
@@ -47,7 +47,7 @@ function draw() {
 // Quadrille cell length default is: 100, we change it to 50
 Quadrille.cellLength = 50;
 // Disable the tile display algorithm
-Quadrille.tile = 0;
+Quadrille.tileDisplay = 0;
 // quadrille object declaration
 let quadrille;
 
@@ -339,7 +339,7 @@ Creates a quadrille with the chess board position described by the given [fen](h
 {{< p5-global-iframe lib1="https://cdn.jsdelivr.net/gh/objetos/p5.quadrille.js/p5.quadrille.js" width="425" height="425" >}}
 `use strict`;
 Quadrille.cellLength = 50;
-Quadrille.tile = 0;
+Quadrille.tileDisplay = 0;
 Quadrille.textColor = 'black';
 const COLS = 8, ROWS = 8;
 // two quadrille layers
@@ -362,7 +362,7 @@ function draw() {
 {{< details title="code" open=false >}}
 ```js
 Quadrille.cellLength = 50;
-Quadrille.tile = 0;
+Quadrille.tileDisplay = 0;
 Quadrille.textColor = 'black';
 const COLS = 8, ROWS = 8;
 // two quadrille layers
