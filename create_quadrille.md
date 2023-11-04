@@ -332,9 +332,9 @@ function update() {
 ```
 {{< /details >}}
 
-## createQuadrille(fen)
+## createQuadrille(FEN)
 
-Creates a quadrille with the chess board position described by the given [fen](https://en.wikipedia.org/wiki/Forsyth%E2%80%93Edwards_Notation).
+Creates a quadrille with the chess board position described by the given [FEN](https://en.wikipedia.org/wiki/Forsyth%E2%80%93Edwards_Notation).
 
 {{< p5-global-iframe lib1="https://cdn.jsdelivr.net/gh/objetos/p5.quadrille.js/p5.quadrille.js" width="425" height="425" >}}
 `use strict`;
@@ -644,7 +644,7 @@ Observe that a [bigint](https://developer.mozilla.org/en-US/docs/Web/JavaScript/
 
 > `createQuadrille(width, array)`
 
-> `createQuadrille(fen)`
+> `createQuadrille(FEN)`
 
 > `createQuadrille(string)`
 
@@ -662,7 +662,7 @@ Observe that a [bigint](https://developer.mozilla.org/en-US/docs/Web/JavaScript/
 |-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | jagged_array | [jagged_array](https://en.wikipedia.org/wiki/Jagged_array): containing any combination of [p5.Image](https://p5js.org/reference/#/p5.Image) \| [p5.Graphics](https://p5js.org/reference/#/p5.Graphics) \| [p5.Color](https://p5js.org/reference/#/p5.Color) \| array \| object \| string \| number \| `null` cells |
 | array     | array: containing any combination of [p5.Image](https://p5js.org/reference/#/p5.Image) \| [p5.Graphics](https://p5js.org/reference/#/p5.Graphics) \| [p5.Color](https://p5js.org/reference/#/p5.Color) \| array \| object \| string \| number \| `null` cells |
-| fen       | String: [fen](https://en.wikipedia.org/wiki/Forsyth%E2%80%93Edwards_Notation) describing a particular board position of a chess game                                          |
+| FEN       | String: [FEN](https://en.wikipedia.org/wiki/Forsyth%E2%80%93Edwards_Notation) describing a particular board position of a chess game                                          |
 | string    | String: containing any combination of chars                                                                                                                                   |
 | width     | Number: total number of columns                                                                                                                                               |
 | height    | Number: total number of rows                                                                                                                                                  |
