@@ -19,7 +19,7 @@ Before delving into this function's details, consider reviewing the Coding Train
 
 Creates an 8x8 quadrille with a chessboard pattern.
 
-{{< p5-global-iframe lib1="https://cdn.jsdelivr.net/gh/objetos/p5.quadrille.js/p5.quadrille.js" width="425" height="425" >}}
+{{< p5-global-iframe quadrille="true" width="425" height="425" >}}
 `use strict`;
 // Global style vars
 // Quadrille cell length default is: 100, we change it to 50
@@ -73,7 +73,7 @@ Observe that `createQuadrille()` is equivalent to `createQuadrille(8, 8).fill()`
 
 Creates an empty quadrille having `width` number of columns and `height` number of rows.
 
-{{< p5-global-iframe lib1="https://cdn.jsdelivr.net/gh/objetos/p5.quadrille.js/p5.quadrille.js" width="625" height="425" >}}
+{{< p5-global-iframe quadrille="true" width="625" height="425" >}}
 `use strict`;
 // quadrille object declaration
 let quadrille;
@@ -127,7 +127,7 @@ Have a look the the above p5 editor version of the above example [here](https://
 
 Creates a quadrille and fills its cells taking the [jagged_array](https://en.wikipedia.org/wiki/Jagged_array) items as source.
 
-{{< p5-global-iframe lib1="https://cdn.jsdelivr.net/gh/objetos/p5.quadrille.js/p5.quadrille.js" width="625" height="425" >}}
+{{< p5-global-iframe quadrille="true" width="625" height="425" >}}
 `use strict`;
 let al;
 let pg;
@@ -202,7 +202,7 @@ function update() {
 
 Creates a quadrille and fills its cells taking the `array` items as source.
 
-{{< p5-global-iframe lib1="https://cdn.jsdelivr.net/gh/objetos/p5.quadrille.js/p5.quadrille.js" width="625" height="425" >}}
+{{< p5-global-iframe quadrille="true" width="625" height="425" >}}
 `use strict`;
 let al;
 let pg;
@@ -269,7 +269,7 @@ function update() {
 
 Creates a quadrille and fills its cells taking the `array` items as source up to `width` number of columns. Observe that (one or) several quadrille rows may be created to include all the `array` items.
 
-{{< p5-global-iframe lib1="https://cdn.jsdelivr.net/gh/objetos/p5.quadrille.js/p5.quadrille.js" width="625" height="425" >}}
+{{< p5-global-iframe quadrille="true" width="625" height="425" >}}
 `use strict`;
 let al;
 let pg;
@@ -336,7 +336,7 @@ function update() {
 
 Creates a quadrille with the chess board position described by the given [FEN](https://en.wikipedia.org/wiki/Forsyth%E2%80%93Edwards_Notation).
 
-{{< p5-global-iframe lib1="https://cdn.jsdelivr.net/gh/objetos/p5.quadrille.js/p5.quadrille.js" width="425" height="425" >}}
+{{< p5-global-iframe quadrille="true" width="425" height="425" >}}
 `use strict`;
 Quadrille.cellLength = 50;
 Quadrille.tileDisplay = 0;
@@ -387,7 +387,7 @@ function draw() {
 
 Creates a quadrille and fills its cells taking `string` as source. The resulting number of quadrille `columns` matches that of the [string length](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/length).
 
-{{< p5-global-iframe lib1="https://cdn.jsdelivr.net/gh/objetos/p5.quadrille.js/p5.quadrille.js" width="625" height="425" >}}
+{{< p5-global-iframe quadrille="true" width="625" height="425" >}}
 `use strict`;
 let quadrille;
 
@@ -422,7 +422,7 @@ function draw() {
 
 Creates a quadrille and fills its cells taking `string` as source. Note that (one or) several quadrille rows may be created to include all the `string` characters.
 
-{{< p5-global-iframe lib1="https://cdn.jsdelivr.net/gh/objetos/p5.quadrille.js/p5.quadrille.js" width="625" height="425" >}}
+{{< p5-global-iframe quadrille="true" width="625" height="425" >}}
 `use strict`;
 let quadrille;
 
@@ -457,7 +457,7 @@ function draw() {
 
 Converts `image` (either a [p5.Image](https://p5js.org/reference/#/p5.Image) or a [p5.Graphics](https://p5js.org/reference/#/p5.Graphics)) into a quadrille.
 
-{{< p5-global-iframe lib1="https://cdn.jsdelivr.net/gh/objetos/p5.quadrille.js/p5.quadrille.js" width="625" height="625" >}}
+{{< p5-global-iframe quadrille="true" width="625" height="625" >}}
 `use strict`;
 let al;
 let quadrille;
@@ -504,7 +504,7 @@ function draw() {
 
 Converts `image` (either a [p5.Image](https://p5js.org/reference/#/p5.Image) or a [p5.Graphics](https://p5js.org/reference/#/p5.Graphics)) into a _pixelated_ quadrille. The `coherence` boolean param defines whether or not the quadrille filling algorithm should use spatial coherence.
 
-{{< p5-global-iframe lib1="https://cdn.jsdelivr.net/gh/objetos/p5.quadrille.js/p5.quadrille.js" width="625" height="625" >}}
+{{< p5-global-iframe quadrille="true" width="625" height="625" >}}
 `use strict`;
 let al;
 let quadrille;
@@ -551,7 +551,7 @@ function draw() {
 
 Creates a quadrille and fills its cells using `value` (any data type instance but `undefined`) which is randomly repeated along the quadrille up to `order` number of times.
 
-{{< p5-global-iframe lib1="https://cdn.jsdelivr.net/gh/objetos/p5.quadrille.js/p5.quadrille.js" width="625" height="425" >}}
+{{< p5-global-iframe quadrille="true" width="625" height="425" >}}
 `use strict`;
 let quadrille;
 
@@ -586,7 +586,7 @@ function draw() {
 
 Converts a [bigint](https://www.w3schools.com/js/js_bigint.asp) into a quadrille pattern, filling [`1` (or on)](https://en.wikipedia.org/wiki/Bit) bits with the specified value. For instance the following code snippet draws the [T tetromino](https://en.wikipedia.org/wiki/Tetromino) which may be part of the [tetris](https://en.wikipedia.org/wiki/Tetris) game.
 
-{{< p5-global-iframe lib1="https://cdn.jsdelivr.net/gh/objetos/p5.quadrille.js/p5.quadrille.js" width="625" height="425" >}}
+{{< p5-global-iframe quadrille="true" width="625" height="425" >}}
 `use strict`;
 let quadrille;
 
