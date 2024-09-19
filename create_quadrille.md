@@ -7,11 +7,11 @@ draft: false
 
 [p5](https://p5js.org/) [polymorphic](https://en.wikipedia.org/wiki/Ad_hoc_polymorphism) method that creates a [quadrille](https://en.wikipedia.org/wiki/Square_tiling) object whose individual cells may be filled either with `numbers`, `strings`, [p5.Colors](https://p5js.org/reference/#/p5.Color), [p5.Images](https://p5js.org/reference/#/p5.Image) and [p5.Graphics](https://p5js.org/reference/#/p5.Graphics), `arrays`, `objects` and `null` which defined empty cells. Drawing a quadrille will be covered separately later on in [another chapter]({{< relref "draw_quadrille" >}}).
 
-{{< hint warning >}}
+{{< callout type="warning" >}}
 **Observation**\
 Before delving into this function's details, consider reviewing the Coding Train tutorial on `p5.Graphics` first:
    {{< youtube id="TaluaAD9MKA" title="p5.Graphics tutorial" >}}
-{{< /hint >}}
+{{< /callout >}}
 
 # Examples
 
@@ -64,10 +64,10 @@ function draw() {
 ```
 {{< /details >}}
 
-{{< hint info >}}
+{{< callout type="info" >}}
 **Observation**\
 Observe that `createQuadrille()` is equivalent to `createQuadrille(8, 8).fill()`. See [createQuadrille(width, height)]({{< ref "create_quadrille/#createquadrillewidth-height" >}}) and [fill()]({{< ref "fill" >}}).
-{{< /hint >}}
+{{< /callout >}}
 
 ## createQuadrille(width, height)
 
@@ -114,14 +114,14 @@ function draw() {
 ```
 {{< /details >}}
 
-{{< hint warning >}}
+{{< callout type="warning" >}}
 **Observation**  
 To run the above sketch you need to include the library in your `html` file, i.e.,
 ```html
 <script src="https://cdn.jsdelivr.net/gh/objetos/p5.quadrille.js/p5.quadrille.min.js"></script>
 ```
 Have a look the the above p5 editor version of the above example [here](https://editor.p5js.org/nakednous/sketches/fT1twGeXA).
-{{< /hint >}}
+{{< /callout >}}
 
 ## createQuadrille(jagged_array)
 
@@ -627,10 +627,10 @@ function draw() {
 ```
 {{< /details >}}
 
-{{< hint info >}}
+{{< callout type="info" >}}
 **Observation**\
 Observe that a [bigint](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt) may represent a [bitboard](https://en.wikipedia.org/wiki/Bitboard).
-{{< /hint >}}
+{{< /callout >}}
 
 # Syntax
 
