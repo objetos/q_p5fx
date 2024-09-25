@@ -60,10 +60,10 @@ function draw() {
 
 The `row` and `col` params define the quadrille upper left corner in rows and cols units.
 
-{{< callout type="warning" >}}
+{{< hint warning >}}
 **Observation**  
 Observe the `mouseRow` and `mouseCol` [quadrille properties](/docs/Quadrille_API/properties/) calls used to positioning the `q` quadrille below.
-{{< /callout >}}
+{{< /hint >}}
 
 {{< p5-global-iframe quadrille="true" width="625" height="425" >}}
 `use strict`;
@@ -115,11 +115,11 @@ The display functions define how the quadrille cell data is to be displayed:
 6. `arrayDisplay`: define the cell array display.
 7. `objectDisplay`: define the cell object display.
 
-{{< callout type="warning" >}}
+{{< hint warning >}}
 **Observations**  
 1. The `arrayDisplay` and `objectDisplay` methods don't have ([static](https://developer.mozilla.org/en-US/docs/Glossary/Static_method)) defaults.
 2. The object literal used to parameterize these functions can have the following properties: `{ quadrille, graphics, outline, outlineWeight, cellLength, textColor, textZoom, value, row, col, width, height }`, where `value` holds the cell contents, `row` and `col` hold the cell position within the `quadrille` and `ẁidth` and `height` are defined as `quadrille.width` and `quadrille.height`, resp. The remaining properties (`outline`, `cellLength`,...) are taken from the `drawQuadrille` method params themselves.
-{{< /callout >}}
+{{< /hint >}}
 
 The following code snippet demonstrates how to display quadrille cells as circles:
 
