@@ -76,10 +76,10 @@ function draw() {
 ```
 {{< /details >}}
 
-{{< hint warning >}}
+{{< callout type="warning" >}}
 **Observation**  
 To implement the above sketch the [isEmpty, ring](/docs/Quadrille_API/main_methods/#read-methods), [rand and fill](/docs/Quadrille_API/main_methods/#write-methods) quadrille methods are used.
-{{< /hint >}}
+{{< /callout >}}
 
 ## visitQuadrille(quadrille, fx, values)
 
