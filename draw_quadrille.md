@@ -1,9 +1,8 @@
 ---
 weight: 2
 draft: false
+title: drawQuadrille()
 ---
-
-# drawQuadrille
 
 [p5.js](https://p5js.org/) function that draws a `quadrille`.
 

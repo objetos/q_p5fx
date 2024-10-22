@@ -1,6 +1,6 @@
 ---
 bookCollapseSection: true
-title: "createQuadrille"
+title: "createQuadrille()"
 weight: 2
 draft: false
 ---

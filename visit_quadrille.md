@@ -1,9 +1,8 @@
 ---
 weight: 3
 draft: false
+title: visitQuadrille()
 ---
-
-# visitQuadrille
 
 [p5.js](https://p5js.org/) function that visits `quadrille` cells executing the `fx` function taking `(row, col)` params (which defines the quadrille visited cell position) either on all cells or those defined by the `values` array.
 
@@ -148,9 +147,9 @@ function draw() {
 
 # Syntax
 
-> `createQuadrille(quadrille, fx)`
+> `visitQuadrille(quadrille, fx)`
 
-> `createQuadrille(quadrille, fx, values)`
+> `visitQuadrille(quadrille, fx, values)`
 
 # Parameters
 
