@@ -81,7 +81,7 @@ To implement the above sketch, the following quadrille methods are used: [isEmpt
 
 ## Example using arrow functions
 
-The following example uses an [arrow function](https://www.w3schools.com/js/js_arrow_function.asp), also known as an anonymous function, instead of a named function. Arrow functions provide a concise way to write functions in JavaScript and are often used when the function doesn’t need a specific name.
+The following example uses an [arrow function](https://www.w3schools.com/js/js_arrow_function.asp), also known as an anonymous function, instead of a named function. Arrow functions provide a concise way to write functions in JavaScript, especially for short, one-off uses.
 
 {{< p5-global-iframe quadrille="true" width="625" height="425" >}}
 `use strict`;
@@ -143,6 +143,36 @@ function draw() {
 }
 ```
 {{< /details >}}
+
+In this example, we’ve transformed the named function `fx` into an [arrow function](https://www.w3schools.com/js/js_arrow_function.asp), which is an anonymous function. Here’s how we made this transformation, step-by-step:
+
+```js
+// Original named function
+function fx(row, col) {
+  if (source.isEmpty(row, col) && source.ring(row, col).order === 3) {
+    target.fill(row, col, red);
+  }
+}
+
+// Step 1: Convert the named function to an anonymous function expression
+const fx = function(row, col) {
+  if (source.isEmpty(row, col) && source.ring(row, col).order === 3) {
+    target.fill(row, col, red);
+  }
+}
+
+// Step 2: Convert the function keyword to the arrow syntax
+const fx = (row, col) => {
+  if (source.isEmpty(row, col) && source.ring(row, col).order === 3) {
+    target.fill(row, col, red);
+  }
+}
+
+// Step 3: If there's only a single expression, remove the braces and return keyword
+const fx = (row, col) => source.isEmpty(row, col) && source.ring(row, col).order === 3 ? target.fill(row, col, red) : null;
+```
+
+As arrow functions do not have their own `this` context, they are especially useful in contexts where the function doesn’t require a specific binding. They’re often shorter and more readable for inline functions.
 
 {{< callout type="info" >}}
 **Note**  
