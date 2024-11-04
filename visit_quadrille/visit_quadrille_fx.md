@@ -7,7 +7,76 @@ title: visitQuadrille(quadrille, fx)
 
 ## Example
 
-The sketch below implements a visit to the upper quadrille, filling its empty cells that have exactly three neighbors, and stores the result in the lower quadrille:
+The example below uses a named function `fx` to visit each cell in the upper quadrille, filling its empty cells that have exactly three neighbors, and storing the result in the lower quadrille.
+
+{{< p5-global-iframe quadrille="true" width="625" height="425" >}}
+`use strict`;
+let source, target;
+Quadrille.cellLength = 20;
+const w = 600 / Quadrille.cellLength;
+const h = 400 / Quadrille.cellLength;
+let yellow, blue, red;
+
+function setup() {
+  createCanvas(600, 400);
+  yellow = color('yellow');
+  blue = color('blue');
+  red = color('red');
+  source = createQuadrille(w - 2, (h / 2) - 2, 50, yellow);
+  source.rand(50, blue);
+  target = createQuadrille(w - 2, (h / 2) - 2);
+  visitQuadrille(source, fx);
+}
+
+function fx(row, col) {
+  if (source.isEmpty(row, col) && source.ring(row, col).order === 3) {
+    target.fill(row, col, red);
+  }
+}
+
+function draw() {
+  background('coral');
+  drawQuadrille(source, { outline: 'white', row: 1, col: 1 });
+  drawQuadrille(target, { outline: 'cyan', row: (h / 2) + 1, col: 1 });
+}
+{{< /p5-global-iframe >}}
+
+{{< details title="code" open=false >}}
+```js
+let source, target;
+Quadrille.cellLength = 20;
+const w = 600 / Quadrille.cellLength;
+const h = 400 / Quadrille.cellLength;
+let yellow, blue, red;
+
+function setup() {
+  createCanvas(600, 400);
+  yellow = color('yellow');
+  blue = color('blue');
+  red = color('red');
+  source = createQuadrille(w - 2, (h / 2) - 2, 50, yellow);
+  source.rand(50, blue);
+  target = createQuadrille(w - 2, (h / 2) - 2);
+  visitQuadrille(source, fx);
+}
+
+function fx(row, col) {
+  if (source.isEmpty(row, col) && source.ring(row, col).order === 3) {
+    target.fill(row, col, red);
+  }
+}
+
+function draw() {
+  background('coral');
+  drawQuadrille(source, { outline: 'white', row: 1, col: 1 });
+  drawQuadrille(target, { outline: 'cyan', row: (h / 2) + 1, col: 1 });
+}
+```
+{{< /details >}}
+
+## Example using arrow functions
+
+The following example uses an [arrow function](https://www.w3schools.com/js/js_arrow_function.asp) instead of a named function. Arrow functions provide a concise way to write functions in JavaScript.
 
 {{< p5-global-iframe quadrille="true" width="625" height="425" >}}
 `use strict`;
@@ -69,6 +138,8 @@ function draw() {
 }
 ```
 {{< /details >}}
+
+In this example, the function `fx` from the previous section is restructured as an [arrow function](https://www.w3schools.com/js/js_arrow_function.asp) and passed directly to `visitQuadrille`. Arrow functions are especially useful for writing concise, inline functions and can make the code more readable when used correctly.
 
 {{< callout type="warning" >}}
 **Observation**  
