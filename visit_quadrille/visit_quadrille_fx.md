@@ -74,9 +74,14 @@ function draw() {
 ```
 {{< /details >}}
 
+{{< callout type="warning" >}}
+**Observation**  
+To implement the above sketch, the following quadrille methods are used: [isEmpty()]({{< ref "is_empty" >}}), [ring]({{< ref "ring" >}}), [rand(times, value)]({{< ref "rand_times_value" >}}), and [fill(row, col, value)]({{< ref "fill_row_col_value" >}}).
+{{< /callout >}}
+
 ## Example using arrow functions
 
-The following example uses an [arrow function](https://www.w3schools.com/js/js_arrow_function.asp) instead of a named function. Arrow functions provide a concise way to write functions in JavaScript.
+The following example uses an [arrow function](https://www.w3schools.com/js/js_arrow_function.asp), also known as an anonymous function, instead of a named function. Arrow functions provide a concise way to write functions in JavaScript and are often used when the function doesn’t need a specific name.
 
 {{< p5-global-iframe quadrille="true" width="625" height="425" >}}
 `use strict`;
@@ -139,11 +144,9 @@ function draw() {
 ```
 {{< /details >}}
 
-In this example, the function `fx` from the previous section is restructured as an [arrow function](https://www.w3schools.com/js/js_arrow_function.asp) and passed directly to `visitQuadrille`. Arrow functions are especially useful for writing concise, inline functions and can make the code more readable when used correctly.
-
-{{< callout type="warning" >}}
-**Observation**  
-To implement the above sketch, the following quadrille methods are used: [isEmpty()]({{< ref "is_empty" >}}), [ring]({{< ref "ring" >}}), [rand(times, value)]({{< ref "rand_times_value" >}}) and [fill(row, col, value)]({{< ref "fill_row_col_value" >}}).
+{{< callout type="info" >}}
+**Note**  
+From now on, we’ll be using [arrow functions](https://www.w3schools.com/js/js_arrow_function.asp), also known as anonymous functions, instead of named functions, to simplify the examples.
 {{< /callout >}}
 
 ## Syntax
