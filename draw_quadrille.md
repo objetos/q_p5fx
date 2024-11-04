@@ -6,13 +6,13 @@ title: drawQuadrille()
 
 [p5.js](https://p5js.org/) function that draws a `quadrille`.
 
-# Examples
+## Examples
 
-## Positioning
+### Positioning
 
 The quadrille origin (i.e., upper left corner) can be set either with the `x` & `y` or the `row` & `col` drawing params.
 
-### x & y
+#### x & y
 
 The `x` and `y` params define the quadrille upper left corner in pixels.
 
@@ -55,7 +55,7 @@ function draw() {
 ```
 {{< /details >}}
 
-### row & col
+#### row & col
 
 The `row` and `col` params define the quadrille upper left corner in rows and cols units.
 
@@ -103,7 +103,7 @@ function draw() {
 ```
 {{< /details >}}
 
-## Display functions
+### Display functions
 
 The display functions define how the quadrille cell data is to be displayed:
 1. `tileDisplay`: define the cell contour display.
@@ -203,11 +203,11 @@ function draw() {
 ```
 {{< /details >}}
 
-# Syntax
+## Syntax
 
 > `drawQuadrille(quadrille, [{[graphics], [x], [y], [col], [row], [cells], [tileDisplay], [imageDisplay], [colorDisplay], [stringDisplay], [numberDisplay], [arrayDisplay], [objectDisplay], [cellLength], [outlineWeight], [outline], [textColor], [textZoom]}])`
 
-# Parameters
+## Parameters
 
 | parameter     | description                                                                                               |
 |---------------|-----------------------------------------------------------------------------------------------------------|

@@ -6,9 +6,9 @@ title: visitQuadrille()
 
 [p5.js](https://p5js.org/) function that visits `quadrille` cells executing the `fx` function taking `(row, col)` params (which defines the quadrille visited cell position) either on all cells or those defined by the `values` array.
 
-# Examples
+## Examples
 
-## visitQuadrille(quadrille, fx)
+### visitQuadrille(quadrille, fx)
 
 The sketch below implements a visit to the upper quadrille to filling its empty cells which have exactly three neighbors and stores the result in the lower quadrille:
 
@@ -80,7 +80,7 @@ function draw() {
 To implement the above sketch the [isEmpty, ring](/docs/Quadrille_API/main_methods/#read-methods), [rand and fill](/docs/Quadrille_API/main_methods/#write-methods) quadrille methods are used.
 {{< /callout >}}
 
-## visitQuadrille(quadrille, fx, values)
+### visitQuadrille(quadrille, fx, values)
 
 The sketch below implements a visit to the upper quadrille to clearing the `yellow` and `blue` cells which have more than two neighbors and stores the result in the lower quadrille:
 
@@ -145,13 +145,13 @@ function draw() {
 ```
 {{< /details >}}
 
-# Syntax
+## Syntax
 
 > `visitQuadrille(quadrille, fx)`
 
 > `visitQuadrille(quadrille, fx, values)`
 
-# Parameters
+## Parameters
 
 | parameter     | description                                                                        |
 |---------------|------------------------------------------------------------------------------------|

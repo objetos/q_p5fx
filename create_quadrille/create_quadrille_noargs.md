@@ -61,7 +61,3 @@ Observe that `createQuadrille()` is equivalent to `createQuadrille(8, 8).fill()`
 ## Syntax
 
 > `createQuadrille()`
-
-## Parameters
-
-None.
