@@ -146,7 +146,7 @@ function draw() {
 
 ### Step-by-Step Transformation to Arrow Function
 
-Here’s how we transform the named function `fx` into an [arrow function](https://www.w3schools.com/js/js_arrow_function.asp), which is an anonymous function, step-by-step:
+To convert the named function `fx` into an [arrow function](https://www.w3schools.com/js/js_arrow_function.asp), also known as an anonymous function, follow these steps:
 
 ```js
 // Original named function
@@ -167,7 +167,7 @@ const fx = function(row, col) {
 };
 ```
 
-**Step 2:** Replace `function` with the arrow syntax.
+**Step 2:** Replace `function` with arrow syntax.
 
 ```js
 const fx = (row, col) => {
@@ -177,7 +177,7 @@ const fx = (row, col) => {
 };
 ```
 
-**Step 3:** If the function contains only one expression, remove the braces `{}` and the `return` keyword.
+**Step 3:** If the function contains only one expression, remove the braces `{}` and `return` keyword.
 
 ```js
 const fx = (row, col) => source.isEmpty(row, col) && source.ring(row, col).order === 3 ? target.fill(row, col, red) : null;
@@ -197,7 +197,7 @@ Using arrow functions provides a more concise syntax, making them suitable for i
 
 {{< callout type="info" >}}
 **Note**  
-From now on, we’ll use [arrow functions](https://www.w3schools.com/js/js_arrow_function.asp), also known as anonymous functions, instead of named functions to simplify the examples. Keep in mind that arrow functions do not have their own `this` context. For more details on how `this` behaves in arrow functions, refer to [this guide on arrow functions](https://www.w3schools.com/js/js_arrow_function.asp).
+From now on, [arrow functions](https://www.w3schools.com/js/js_arrow_function.asp), also known as anonymous functions, will be used instead of named functions to simplify examples. Keep in mind that arrow functions do not have their own `this` context. For more details on how `this` behaves in arrow functions, refer to [this guide on arrow functions](https://www.w3schools.com/js/js_arrow_function.asp).
 {{< /callout >}}
 
 ## Syntax
