@@ -144,7 +144,9 @@ function draw() {
 ```
 {{< /details >}}
 
-In this example, we’ve transformed the named function `fx` into an [arrow function](https://www.w3schools.com/js/js_arrow_function.asp), which is an anonymous function. Here’s how we made this transformation, step-by-step:
+### Step-by-Step Transformation to Arrow Function
+
+Here’s how we transform the named function `fx` into an [arrow function](https://www.w3schools.com/js/js_arrow_function.asp), which is an anonymous function, step-by-step:
 
 ```js
 // Original named function
@@ -153,30 +155,49 @@ function fx(row, col) {
     target.fill(row, col, red);
   }
 }
+```
 
-// Step 1: Convert the named function to an anonymous function expression
+**Step 1:** Convert the named function to an anonymous function expression.
+
+```js
 const fx = function(row, col) {
   if (source.isEmpty(row, col) && source.ring(row, col).order === 3) {
     target.fill(row, col, red);
   }
-}
+};
+```
 
-// Step 2: Convert the function keyword to the arrow syntax
+**Step 2:** Replace `function` with the arrow syntax.
+
+```js
 const fx = (row, col) => {
   if (source.isEmpty(row, col) && source.ring(row, col).order === 3) {
     target.fill(row, col, red);
   }
-}
+};
+```
 
-// Step 3: If there's only a single expression, remove the braces and return keyword
+**Step 3:** If the function contains only one expression, remove the braces `{}` and the `return` keyword.
+
+```js
 const fx = (row, col) => source.isEmpty(row, col) && source.ring(row, col).order === 3 ? target.fill(row, col, red) : null;
 ```
 
-As arrow functions do not have their own `this` context, they are especially useful in contexts where the function doesn’t require a specific binding. They’re often shorter and more readable for inline functions.
+**Final Step:** Inline the arrow function directly in `visitQuadrille` as shown in the second example above:
+
+```js
+visitQuadrille(source, (row, col) => {
+  if (source.isEmpty(row, col) && source.ring(row, col).order === 3) {
+    target.fill(row, col, red);
+  }
+});
+```
+
+Using arrow functions provides a more concise syntax, making them suitable for inline functions in cases like this one.
 
 {{< callout type="info" >}}
 **Note**  
-From now on, we’ll be using [arrow functions](https://www.w3schools.com/js/js_arrow_function.asp), also known as anonymous functions, instead of named functions, to simplify the examples.
+From now on, we’ll use [arrow functions](https://www.w3schools.com/js/js_arrow_function.asp), also known as anonymous functions, instead of named functions to simplify the examples. Keep in mind that arrow functions do not have their own `this` context. For more details on how `this` behaves in arrow functions, refer to [this guide on arrow functions](https://www.w3schools.com/js/js_arrow_function.asp).
 {{< /callout >}}
 
 ## Syntax
@@ -185,7 +206,7 @@ From now on, we’ll be using [arrow functions](https://www.w3schools.com/js/js_
 
 ## Parameters
 
-| parameter | description                                                                                   |
-|-----------|-----------------------------------------------------------------------------------------------|
-| quadrille | Quadrille: The `quadrille` to be visited                                                      |
-| fx        | Function: A function of the form `fx(row, col)` to be executed on all visited cells           |
+| parameter | description                                                                         |
+|-----------|-------------------------------------------------------------------------------------|
+| quadrille | Quadrille: The `quadrille` to be visited                                            |
+| fx        | Function: A function of the form `fx(row, col)` to be executed on all visited cells |
