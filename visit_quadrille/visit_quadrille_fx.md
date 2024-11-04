@@ -177,12 +177,6 @@ const fx = (row, col) => {
 };
 ```
 
-**Step 3:** If the function contains only one expression, remove the braces `{}` and `return` keyword.
-
-```js
-const fx = (row, col) => source.isEmpty(row, col) && source.ring(row, col).order === 3 ? target.fill(row, col, red) : null;
-```
-
 **Final Step:** Inline the arrow function directly in `visitQuadrille` as shown in the second example above:
 
 ```js
