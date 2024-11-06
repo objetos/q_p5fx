@@ -9,7 +9,7 @@ This chapter introduces techniques for iterating over `quadrille` cells to execu
 
 ## Manual Iteration Using Nested Loops
 
-The first and most familiar way to iterate over a `quadrille` is with standard `for` loops:
+The first and most familiar way to iterate over a `quadrille` is with standard `for` loops, a common method used for looping through matrices:
 
 ```js
 for (let row = 0; row < quadrille.height; row++) {
