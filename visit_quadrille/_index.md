@@ -35,12 +35,12 @@ This method simplifies access to `row` and `col` without explicit indexing, redu
 
 ## Using `visitQuadrille` for Simplified, Less Error-Prone Iteration
 
-The `visitQuadrille` function, a [p5.js](https://p5js.org/) utility, enhances iteration by executing the `fx` function across `quadrille` cells automatically. `visitQuadrille` promotes a clean, [declarative](https://en.wikipedia.org/wiki/Declarative_programming) style, minimizing the need for manual indexing and making it less error-prone.
+The `visitQuadrille` function is a [p5.js](https://p5js.org/) utility that enhances iteration by executing the `fx` function across `quadrille` cells in a straightforward manner. It promotes a clean, [declarative](https://en.wikipedia.org/wiki/Declarative_programming) style, removing the need for explicit indexing and making the process less error-prone.
 
 With `visitQuadrille`, the iteration process becomes a single, straightforward call:
 
 ```js
-visitQuadrille(source, fx);
+visitQuadrille(source, (row, col) => fx(row, col));
 ```
 
 This approach is not only concise but also supports scenarios that are prone to indexing errors. Additionally, `visitQuadrille` accepts an optional `values` array to selectively process specific cell values, adding flexibility without complicating the syntax.
