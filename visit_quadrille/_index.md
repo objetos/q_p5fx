@@ -40,7 +40,7 @@ The `visitQuadrille` function is a [p5.js](https://p5js.org/) utility that enhan
 With `visitQuadrille`, the iteration process becomes a single, straightforward call:
 
 ```js
-visitQuadrille(source, (row, col) => fx(row, col));
+visitQuadrille(quadrille, (row, col) => fx(row, col));
 ```
 
 This approach is not only concise but also supports scenarios that are prone to indexing errors. Additionally, `visitQuadrille` accepts an optional `values` array to selectively process specific cell values, adding flexibility without complicating the syntax.
