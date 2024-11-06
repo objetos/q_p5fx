@@ -5,11 +5,11 @@ weight: 2
 draft: false
 ---
 
-This chapter introduces techniques for iterating over `quadrille` cells to execute a specified `fx` function on each cell. The `visitQuadrille` function offers a concise, less error-prone approach that aligns well with functional programming principles.
+This chapter introduces techniques for iterating over `quadrille` cells to execute a specified `fx` function on each cell. The `visitQuadrille` function provides a concise, less error-prone approach that aligns well with functional programming principles.
 
 ## Manual Iteration Using Nested Loops
 
-The first and most familiar way to iterate over a `quadrille` is with standard `for` loops.
+The first and most familiar way to iterate over a `quadrille` is with standard `for` loops:
 
 ```js
 for (let row = 0; row < quadrille.height; row++) {
@@ -19,7 +19,7 @@ for (let row = 0; row < quadrille.height; row++) {
 }
 ```
 
-This approach, while widely understood, requires careful indexing of `row` and `col`, which can sometimes lead to errors (gpt improve this without using parenthesis: particularly in index limits).
+This approach, while widely understood, requires precise indexing of `row` and `col`, which can sometimes lead to errors, particularly in setting index limits.
 
 ## Iteration Using `for...of` with Cell Objects
 
@@ -31,11 +31,11 @@ for (let cell of quadrille) {
 }
 ```
 
-This method simplifies access to `row` and `col` without explicit indexing, which can reduce errors. However, it still requires manual iteration logic, which can become complex in more intricate operations.
+This method simplifies access to `row` and `col` without explicit indexing, reducing errors. However, it still requires manual iteration logic, which can become complex in more intricate operations.
 
 ## Using `visitQuadrille` for Simplified, Less Error-Prone Iteration
 
-The `visitQuadrille` function, a [p5.js](https://p5js.org/) utility, enhances iteration by executing the `fx` function across `quadrille` cells automatically. `visitQuadrille` promotes a clean, declarative style (gpt i love using declarative but add wikipedia ref), minimizing the need for manual indexing and making it less error-prone.
+The `visitQuadrille` function, a [p5.js](https://p5js.org/) utility, enhances iteration by executing the `fx` function across `quadrille` cells automatically. `visitQuadrille` promotes a clean, [declarative](https://en.wikipedia.org/wiki/Declarative_programming) style, minimizing the need for manual indexing and making it less error-prone.
 
 With `visitQuadrille`, the iteration process becomes a single, straightforward call:
 
