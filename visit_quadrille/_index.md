@@ -45,4 +45,4 @@ visitQuadrille(quadrille, (row, col) => fx(row, col));
 
 This approach is not only concise but also supports scenarios that are prone to indexing errors. Additionally, `visitQuadrille` accepts an optional `values` array to selectively process specific cell values, adding flexibility without complicating the syntax.
 
-Throughout this section, `visitQuadrille` will be used with modern [arrow functions](https://www.w3schools.com/js/js_arrow_function.asp) for even more concise and functional code, making it an essential tool for streamlined `quadrille` operations.
+Modern [arrow functions](https://www.w3schools.com/js/js_arrow_function.asp) will be used with the `visitQuadrille` function for even more concise and functional code, making it an essential tool for streamlined `quadrille` operations.
