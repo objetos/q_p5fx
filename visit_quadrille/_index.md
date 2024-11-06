@@ -5,7 +5,7 @@ weight: 2
 draft: false
 ---
 
-This chapter introduces techniques for iterating over `quadrille` cells to execute a specified `fx` function on each cell. The `visitQuadrille` function provides a concise, less error-prone approach that aligns well with functional programming principles.
+The `visitQuadrille` p5 function is designed to iterate over `quadrille` cells and execute a specified `fx` function on each cell. It provides a concise, less error-prone approach that aligns well with functional programming principles.
 
 ## Manual Iteration Using Nested Loops
 
@@ -45,4 +45,4 @@ visitQuadrille(source, fx);
 
 This approach is not only concise but also supports scenarios that are prone to indexing errors. Additionally, `visitQuadrille` accepts an optional `values` array to selectively process specific cell values, adding flexibility without complicating the syntax.
 
-In this chapter, `visitQuadrille` will be used with modern [arrow functions](https://www.w3schools.com/js/js_arrow_function.asp) for even more concise and functional code, making it an essential tool for streamlined `quadrille` operations.
+Throughout this section, `visitQuadrille` will be used with modern [arrow functions](https://www.w3schools.com/js/js_arrow_function.asp) for even more concise and functional code, making it an essential tool for streamlined `quadrille` operations.
