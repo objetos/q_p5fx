@@ -1,5 +1,5 @@
 ---
-weight: 3
+weight: 4
 draft: false
 title: "createQuadrille(jagged_array)"
 ---

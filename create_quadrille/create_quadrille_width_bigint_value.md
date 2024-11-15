@@ -1,5 +1,5 @@
 ---
-weight: 12
+weight: 13
 draft: false
 title: "createQuadrille(width, bigint, value)"
 ---
