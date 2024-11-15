@@ -1,5 +1,5 @@
 ---
-weight: 3
+weight: 2
 draft: false
 title: "createQuadrille(color1, color2)"
 ---
