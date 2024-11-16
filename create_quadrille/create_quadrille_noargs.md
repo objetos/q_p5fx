@@ -1,7 +1,7 @@
 ---
-weight: 1
-draft: false
-title: "createQuadrille()"
+weight: 1  
+draft: false  
+title: "createQuadrille()"  
 ---
 
 Creates an 8x8 quadrille with a chessboard pattern.
@@ -10,62 +10,67 @@ Creates an 8x8 quadrille with a chessboard pattern.
 
 {{< p5-global-iframe quadrille="true" width="665" height="340" >}}
 `use strict`;
-// Global style vars
-// Quadrille cell length default is: 100, we change it to 40
+// Set the cell length for all Quadrille objects (default is 100, changed to 40 here)
 Quadrille.cellLength = 40;
-// Disable the tile display algorithm
+// Disable the tile display algorithm for all Quadrille objects
 Quadrille.tileDisplay = 0;
-// quadrille object declaration
 let q1, q2;
 
 function setup() {
   createCanvas(17 * Quadrille.cellLength, 8 * Quadrille.cellLength);
-  // quadrille object instantiation
+  // Instantiate two quadrille objects
   q1 = createQuadrille();
-  // Global white and black square colors used from now on
-  Quadrille.whiteSquare = '#769555';
-  Quadrille.blackSquare = '#EBECCF';
+  // Update global square colors for all new Quadrille objects
+  Quadrille.whiteSquare = '#769555'; // Lichess light square color
+  Quadrille.blackSquare = '#EBECCF'; // Lichess dark square color
   q2 = createQuadrille();
 }
 
 function draw() {
-  // to display the quadrille a call to drawQuadrille is needed
+  // Display q1
   drawQuadrille(q1);
-  drawQuadrille(q2, { x: 330, y: 0 });
+  // Display q2 with an x-offset in pixels
+  drawQuadrille(q2, { x: 330 });
 }
 {{< /p5-global-iframe >}}
 
 {{< details title="code" open=false >}}
 ```js
-// Global style vars
-// Quadrille cell length default is: 100, we change it to 40
+// Set the cell length for all Quadrille objects (default is 100, changed to 40 here)
 Quadrille.cellLength = 40;
-// Disable the tile display algorithm
+// Disable the tile display algorithm for all Quadrille objects
 Quadrille.tileDisplay = 0;
-// quadrille object declaration
 let q1, q2;
 
 function setup() {
   createCanvas(17 * Quadrille.cellLength, 8 * Quadrille.cellLength);
-  // quadrille object instantiation
+  // Instantiate two quadrille objects
   q1 = createQuadrille();
-  // Global white and black square colors used from now on
-  Quadrille.whiteSquare = '#769555';
-  Quadrille.blackSquare = '#EBECCF';
+  // Update global square colors for all new Quadrille objects
+  Quadrille.lightSquare = '#769555'; // chess.com light square color
+  Quadrille.darkSquare = '#EBECCF'; // chess.com dark square color
   q2 = createQuadrille();
 }
 
 function draw() {
-  // to display the quadrille a call to drawQuadrille is needed
+  // Display q1
   drawQuadrille(q1);
-  drawQuadrille(q2, { x: 330, y: 0 });
+  // Display q2 with an x-offset in pixels
+  drawQuadrille(q2, { x: 330 });
 }
 ```
 {{< /details >}}
 
 {{< callout type="info" >}}
-**Observation**\
-Observe that `createQuadrille()` is equivalent to `createQuadrille(8, 8).fill()`. See [createQuadrille(width, height)]({{< ref "create_quadrille/#createquadrillewidth-height" >}}) and [fill()]({{< ref "fill" >}}).
+**Observation**  
+`createQuadrille()` is equivalent to `createQuadrille(8, 8).fill()`. See [createQuadrille(width, height)]({{< ref "create_quadrille/#createquadrillewidth-height" >}}) and [fill()]({{< ref "fill" >}}).
+{{< /callout >}}
+
+{{< callout type="warning" >}}
+**Global Parameters**  
+The following parameters are static fields of the `Quadrille` class, meaning they are shared across all instances of `Quadrille`. Changing these values affects all newly created quadrille objects:
+- `Quadrille.lightSquare` and `Quadrille.darkSquare`: Define the colors for the light and dark squares of the chessboard pattern.
+- [Quadrille.cellLength]({{< ref "cell_length" >}}) and [Quadrille.tileDisplay]({{< ref "tile_display" >}}) are discussed separately.
 {{< /callout >}}
 
 ## Syntax
@@ -74,7 +79,7 @@ Observe that `createQuadrille()` is equivalent to `createQuadrille(8, 8).fill()`
 
 ## Parameters
 
-| param | description                                                                                   |
-|-------|-----------------------------------------------------------------------------------------------|
-| Quadrille.whiteSquare | [p5.Color](https://p5js.org/reference/#/p5.Color) \| String: The global color used for the white squares of the chessboard pattern. Can be a `p5.Color` instance or an HTML color string (e.g., `'red'`, `'#ff0000'`, `'rgb(255,0,0)'`). Default is `#FDCDAA` |
-| Quadrille.blackSquare | [p5.Color](https://p5js.org/reference/#/p5.Color) \| String: The global color used for the black squares of the chessboard pattern. Can be a `p5.Color` instance or an HTML color string. Default is `#D28C45` |
+| Param                 | Description                                                                                             |
+|-----------------------|---------------------------------------------------------------------------------------------------------|
+| Quadrille.lightSquare | String \| [p5.Color](https://p5js.org/reference/#/p5.Color): The global color used for the light squares of the chessboard pattern. Can be an HTML color string (e.g., `'red'`, `'#ff0000'`, `'rgb(255,0,0)'`) or a `p5.Color` instance. Default is `#FDCDAA` |
+| Quadrille.darkSquare  | String \| [p5.Color](https://p5js.org/reference/#/p5.Color): The global color used for the dark squares of the chessboard pattern. Can be an HTML color string or a `p5.Color` instance. Default is `#D28C45` |
