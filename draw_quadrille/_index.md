@@ -1,7 +1,8 @@
 ---
+bookCollapseSection: true
+title: "drawQuadrille(args)"
 weight: 3
 draft: false
-title: drawQuadrille()
 ---
 
 [p5.js](https://p5js.org/) function that draws a `quadrille`.
