@@ -4,7 +4,7 @@ draft: false
 title: "createQuadrille(width, image)"
 ---
 
-Converts an `image` (either a [p5.Image](https://p5js.org/reference/#/p5.Image) or a [p5.Graphics](https://p5js.org/reference/#/p5.Graphics)) into a quadrille with the specified number of columns (`width`). The image is pixelated into the quadrille grid cells.
+Converts an `image` (a [p5.Image](https://p5js.org/reference/#/p5.Image) or [p5.Graphics](https://p5js.org/reference/#/p5.Graphics)) into a quadrille with the specified number of columns (`width`), pixelating the image into cells.
 
 ## Example
 
@@ -52,8 +52,8 @@ function draw() {
 {{< /details >}}
 
 {{< callout type="info" >}}
-**Observation**\
-The `createQuadrille(width, image)` function converts an image into a quadrille grid, where each cell represents a pixel from the image.
+**Observation**\ 
+`createQuadrille(width, image)` converts an image into a quadrille, with each cell representing a pixel.
 {{< /callout >}}
 
 ## Syntax

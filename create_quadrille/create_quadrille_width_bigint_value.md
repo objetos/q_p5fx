@@ -4,7 +4,7 @@ draft: false
 title: "createQuadrille(width, bigint, value)"
 ---
 
-Converts a [bigint](https://www.w3schools.com/js/js_bigint.asp) into a quadrille pattern, filling the grid cells corresponding to `1` bits in the binary representation of the bigint with the specified `value`. The number of columns is determined by `width`.
+Converts a [bigint](https://www.w3schools.com/js/js_bigint.asp) to a quadrille, filling cells corresponding to `1` bits in the bigint's binary representation with the given `value`. The number of columns is set by `width`.
 
 ## Example
 
@@ -50,8 +50,8 @@ function draw() {
 {{< /details >}}
 
 {{< callout type="info" >}}
-**Observation**\
-The `createQuadrille(width, bigint, value)` function creates a quadrille grid based on the binary representation of the bigint. Each `1` bit corresponds to a cell filled with the provided value.
+**Observation**\ 
+`createQuadrille(width, bigint, value)` generates a quadrille from the bigint's binary representation. Each `1` bit fills a cell with the specified value.
 {{< /callout >}}
 
 ## Syntax

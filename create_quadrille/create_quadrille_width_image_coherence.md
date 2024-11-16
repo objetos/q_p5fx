@@ -4,7 +4,7 @@ draft: false
 title: "createQuadrille(width, image, coherence)"
 ---
 
-Converts an `image` (either a [p5.Image](https://p5js.org/reference/#/p5.Image) or a [p5.Graphics](https://p5js.org/reference/#/p5.Graphics)) into a pixelated quadrille. The `coherence` parameter defines whether or not to use spatial coherence while filling the quadrille grid cells.
+Converts an `image` (a [p5.Image](https://p5js.org/reference/#/p5.Image) or [p5.Graphics](https://p5js.org/reference/#/p5.Graphics)) into a pixelated quadrille. The `coherence` parameter controls spatial coherence when filling cells.
 
 ## Example
 
@@ -52,8 +52,8 @@ function draw() {
 {{< /details >}}
 
 {{< callout type="info" >}}
-**Observation**\
-The `createQuadrille(width, image, coherence)` function converts an image into a pixelated quadrille grid, where the `coherence` parameter determines whether the spatial coherence of the image should be preserved.
+**Observation**\ 
+`createQuadrille(width, image, coherence)` converts an image into a pixelated quadrille, with `coherence` controlling spatial coherence.
 {{< /callout >}}
 
 ## Syntax

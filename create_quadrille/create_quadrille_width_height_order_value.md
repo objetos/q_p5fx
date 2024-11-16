@@ -40,8 +40,8 @@ function draw() {
 {{< /details >}}
 
 {{< callout type="info" >}}
-**Observation**\
-The `createQuadrille(width, height, order, value)` function fills a quadrille grid with the specified value, distributing it randomly across the grid up to the defined number of occurrences (`order`).
+**Observation**\ 
+`createQuadrille(width, height, order, value)` fills a quadrille with the given value, distributing it randomly up to the specified `order` count.
 {{< /callout >}}
 
 ## Syntax

@@ -50,8 +50,8 @@ function draw() {
 {{< /details >}}
 
 {{< callout type="info" >}}
-**Observation**\
-`createQuadrille(width, height)` creates an empty grid with the specified dimensions. See also [fill()]({{< ref "fill" >}}) for populating the quadrille.
+**Observation**\ 
+`createQuadrille(width, height)` creates an empty quadrille with the given dimensions. See [fill()]({{< ref "fill" >}}) for populating it.
 {{< /callout >}}
 
 ## Syntax
