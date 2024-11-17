@@ -1,7 +1,7 @@
 ---
-weight: 7
+weight: 6
 draft: false
-title: textColor
+title: textFont
 ---
 
 Defines the quadrille default text drawing color. Default is `white`.

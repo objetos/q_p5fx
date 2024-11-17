@@ -1,12 +1,10 @@
 ---
-weight: 11
+weight: 1
 draft: false
 title: tileDisplay
 ---
 
 Static method for drawing cell tiles.
-
-Used by [drawQuadrille]({{< ref "draw_quadrille" >}}).
 
 ## Example
 

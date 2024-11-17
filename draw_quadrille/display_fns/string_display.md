@@ -1,12 +1,10 @@
 ---
-weight: 15
+weight: 4
 draft: false
 title: stringDisplay
 ---
 
 Static method for drawing cells that are filled with colors.
-
-Used by [drawQuadrille]({{< ref "draw_quadrille" >}}) and [sample](https://objetos.github.io/p5.quadrille.js/docs/visual_computing/sample/).
 
 ## Example
 
