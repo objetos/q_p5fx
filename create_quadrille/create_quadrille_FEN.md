@@ -86,7 +86,6 @@ function draw() {
 
 {{< details title="code" open=false >}}
 ```js
-'use strict';
 Quadrille.cellLength = 50;
 Quadrille.tileDisplay = 0;
 Quadrille.textColor = 'blue';
@@ -115,8 +114,27 @@ function draw() {
 {{< /details >}}
 
 {{< callout type="info" >}}
-**Custom Symbols and Colors**  
-This example uses Chess.com colors for the board and custom emoji symbols for the chess pieces. The `setChessSymbols()` function updates both `chessSymbols` and `chessKeys`, enabling reverse lookup of piece symbols.
+**Custom Symbols and Colors**\
+This example uses Chess.com colors for the board and custom emoji symbols for the chess pieces. The `setChessSymbols()` function updates both `Quadrille.chessSymbols` and `Quadrille.chessKeys`, enabling reverse lookup of piece symbols.
+{{< /callout >}}
+
+{{< callout type="info" >}}
+**Default Chess Symbols and Keys**\
+If no custom symbols are set, the following default values are used:
+
+```js
+// Default chess symbols
+static chessSymbols = {
+  K: '♔', Q: '♕', R: '♖', B: '♗', N: '♘', P: '♙',
+  k: '♚', q: '♛', r: '♜', b: '♝', n: '♞', p: '♟'
+};
+
+// Default chess keys (reverse lookup)
+static chessKeys = {
+  '♔': 'K', '♕': 'Q', '♖': 'R', '♗': 'B', '♘': 'N', '♙': 'P',
+  '♚': 'k', '♛': 'q', '♜': 'r', '♝': 'b', '♞': 'n', '♟': 'p'
+};
+```
 {{< /callout >}}
 
 ## Syntax
