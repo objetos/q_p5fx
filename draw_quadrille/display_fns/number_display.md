@@ -45,8 +45,8 @@ function draw() {
 
 ## Parameters
 
-| parameter  | description                                                                                 |
-|------------|---------------------------------------------------------------------------------------------|
-| graphics   | [p5.Graphics](https://p5js.org/reference/#/p5.Graphics): renderer target                    |
-| value      | Number: cell contents                                                                       |
+| parameter  | description                                                                                |
+|------------|--------------------------------------------------------------------------------------------|
+| graphics   | [p5.Graphics](https://p5js.org/reference/#/p5.Graphics): renderer target                   |
+| value      | Number: cell contents                                                                      |
 | cellLength | Number: edge length in pixels default is [Quadrille.cellLength]({{< ref "cell_length" >}}) |
