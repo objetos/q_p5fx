@@ -11,7 +11,7 @@ Used by [drawQuadrille]({{< ref "draw_quadrille" >}}).
 ## Example
 
 {{< p5-global-iframe quadrille="true" width="425" height="425" >}}
-`use strict`;
+'use strict';
 let quadrille;
 let weightSlider;
 

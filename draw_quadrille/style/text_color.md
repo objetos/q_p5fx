@@ -11,7 +11,7 @@ Used by [drawQuadrille]({{< ref "draw_quadrille" >}}).
 ## Example
 
 {{< p5-global-iframe quadrille="true" width="625" height="425" >}}
-`use strict`;
+'use strict';
 Quadrille.textColor = 'magenta';
 let quadrille;
 let colorPicker;

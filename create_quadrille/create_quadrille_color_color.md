@@ -9,7 +9,7 @@ Creates an 8x8 quadrille with a chessboard pattern.
 ## Example
 
 {{< p5-global-iframe quadrille="true" width="425" height="425" >}}
-`use strict`;
+'use strict';
 // Global style vars
 // Quadrille cell length default is: 100, we change it to 50
 Quadrille.cellLength = 50;

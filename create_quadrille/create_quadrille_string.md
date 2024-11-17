@@ -9,7 +9,7 @@ Creates a quadrille and fills its cells using the characters from the provided `
 ## Example
 
 {{< p5-global-iframe quadrille="true" width="625" height="425" >}}
-`use strict`;
+'use strict';
 let quadrille;
 
 function setup() {

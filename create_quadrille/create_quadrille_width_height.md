@@ -9,7 +9,7 @@ Creates an empty quadrille having `width` number of columns and `height` number 
 ## Example
 
 {{< p5-global-iframe quadrille="true" width="625" height="425" >}}
-`use strict`;
+'use strict';
 // quadrille object declaration
 let quadrille;
 

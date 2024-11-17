@@ -10,7 +10,7 @@ title: visitQuadrille(quadrille, fx)
 The example below uses a named function `fx` to visit each cell in the upper quadrille, filling its empty cells that have exactly three neighbors, and storing the result in the lower quadrille.
 
 {{< p5-global-iframe quadrille="true" width="625" height="425" >}}
-`use strict`;
+'use strict';
 let source, target;
 Quadrille.cellLength = 20;
 const w = 600 / Quadrille.cellLength;
@@ -84,7 +84,7 @@ To implement the above sketch, the following quadrille methods are used: [isEmpt
 The following example uses an [arrow function](https://www.w3schools.com/js/js_arrow_function.asp), also known as an anonymous function, instead of a named function. Arrow functions provide a concise way to write functions in JavaScript, especially for short, one-off uses.
 
 {{< p5-global-iframe quadrille="true" width="625" height="425" >}}
-`use strict`;
+'use strict';
 let source, target;
 Quadrille.cellLength = 20;
 const w = 600 / Quadrille.cellLength;

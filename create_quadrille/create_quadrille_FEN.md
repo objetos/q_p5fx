@@ -9,7 +9,7 @@ Creates a quadrille with the chess board position described by the given [FEN](h
 ## Example
 
 {{< p5-global-iframe quadrille="true" width="425" height="425" >}}
-`use strict`;
+'use strict';
 Quadrille.cellLength = 50;
 Quadrille.tileDisplay = 0;
 Quadrille.textColor = 'black';

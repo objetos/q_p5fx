@@ -11,7 +11,7 @@ Used by [drawQuadrille]({{< ref "draw_quadrille" >}}).
 ## Example
 
 {{< p5-global-iframe quadrille="true" width="130" height="130" >}}
-`use strict`;
+'use strict';
 function setup() {
   createCanvas(105, 105);
 }

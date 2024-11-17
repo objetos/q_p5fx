@@ -9,7 +9,7 @@ Creates an 8x8 quadrille with a chessboard pattern.
 ## Example
 
 {{< p5-global-iframe quadrille="true" width="665" height="340" >}}
-`use strict`;
+'use strict';
 // Set the cell length for all Quadrille objects (default is 100, changed to 40 here)
 Quadrille.cellLength = 40;
 // Disable the tile display algorithm for all Quadrille objects
@@ -21,15 +21,15 @@ function setup() {
   // Instantiate two quadrille objects
   q1 = createQuadrille();
   // Update global square colors for all new Quadrille objects
-  Quadrille.whiteSquare = '#769555'; // Lichess light square color
-  Quadrille.blackSquare = '#EBECCF'; // Lichess dark square color
+  Quadrille.lightSquare = '#EBECCF'; // chess.com light square color
+  Quadrille.darkSquare = '#769555'; // chess.com dark square color
   q2 = createQuadrille();
 }
 
 function draw() {
   // Display q1
   drawQuadrille(q1);
-  // Display q2 with an x-offset in pixels
+  // Display q2 with an x-offset of 330 pixels
   drawQuadrille(q2, { x: 330 });
 }
 {{< /p5-global-iframe >}}
@@ -47,15 +47,15 @@ function setup() {
   // Instantiate two quadrille objects
   q1 = createQuadrille();
   // Update global square colors for all new Quadrille objects
-  Quadrille.lightSquare = '#769555'; // chess.com light square color
-  Quadrille.darkSquare = '#EBECCF'; // chess.com dark square color
+  Quadrille.lightSquare = '#EBECCF'; // chess.com light square color
+  Quadrille.darkSquare = '#769555'; // chess.com dark square color
   q2 = createQuadrille();
 }
 
 function draw() {
   // Display q1
   drawQuadrille(q1);
-  // Display q2 with an x-offset in pixels
+  // Display q2 with an x-offset of 330 pixels
   drawQuadrille(q2, { x: 330 });
 }
 ```

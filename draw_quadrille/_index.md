@@ -18,7 +18,7 @@ The quadrille origin (i.e., upper left corner) can be set either with the `x` & 
 The `x` and `y` params define the quadrille upper left corner in pixels.
 
 {{< p5-global-iframe quadrille="true" width="625" height="425" >}}
-`use strict`;
+'use strict';
 // q0 is defined as reference quadrille
 let q0, q;
 
@@ -66,7 +66,7 @@ Observe the `mouseRow` and `mouseCol` [quadrille properties](/docs/Quadrille_API
 {{< /callout >}}
 
 {{< p5-global-iframe quadrille="true" width="625" height="425" >}}
-`use strict`;
+'use strict';
 // q0 is defined as reference quadrille
 let q0, q;
 
@@ -124,7 +124,7 @@ The display functions define how the quadrille cell data is to be displayed:
 The following code snippet demonstrates how to display quadrille cells as circles:
 
 {{< p5-global-iframe quadrille="true" width="625" height="425" >}}
-`use strict`;
+'use strict';
 let quadrille;
 let circled;
 let tileDisplay;// (all) quadrille cell contours

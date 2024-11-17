@@ -9,7 +9,7 @@ Converts a [bigint](https://www.w3schools.com/js/js_bigint.asp) to a quadrille, 
 ## Example
 
 {{< p5-global-iframe quadrille="true" width="625" height="425" >}}
-`use strict`;
+'use strict';
 let quadrille;
 
 function setup() {

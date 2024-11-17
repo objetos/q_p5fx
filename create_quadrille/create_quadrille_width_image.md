@@ -9,7 +9,7 @@ Converts an `image` (a [p5.Image](https://p5js.org/reference/#/p5.Image) or [p5.
 ## Example
 
 {{< p5-global-iframe quadrille="true" width="625" height="625" >}}
-`use strict`;
+'use strict';
 let sb;
 let quadrille;
 

@@ -10,7 +10,7 @@ title: visitQuadrille(quadrille, fx, values)
 The sketch below implements a visit to the upper quadrille, clearing `yellow` and `blue` cells that have more than two neighbors, and stores the result in the lower quadrille:
 
 {{< p5-global-iframe quadrille="true" width="625" height="425" >}}
-`use strict`;
+'use strict';
 let source, target;
 Quadrille.cellLength = 20;
 const w = 600 / Quadrille.cellLength;

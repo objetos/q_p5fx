@@ -11,7 +11,7 @@ Used by [drawQuadrille]({{< ref "draw_quadrille" >}}) and [sample](https://objet
 ## Example
 
 {{< p5-global-iframe quadrille="true" width="190" height="220" >}}
-`use strict`;
+'use strict';
 let number;
 
 function setup() {
