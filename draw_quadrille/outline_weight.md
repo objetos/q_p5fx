@@ -65,7 +65,7 @@ function draw() {
 
 {{< callout type="info" >}}
 **Observation**  
-In this example, `q1` is drawn with an outline weight controlled by the slider, while `q2` uses the fixed global `Quadrille.outlineWeight`, which is `2`.
+In this example, `q1` is drawn with an outline weight controlled by the slider, while `q2` uses the default global `Quadrille.outlineWeight`, which is `2`.
 {{< /callout >}}
 
 ## Syntax
