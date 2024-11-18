@@ -9,6 +9,7 @@ Defines the drawing cell length for quadrilles in pixels. The default is `Quadri
 ## Example
 
 {{< p5-global-iframe quadrille="true" width="665" height="340" >}}
+'use strict';
 Quadrille.cellLength = 30; // Initial value for the resizable quadrille
 let q1, q2;
 let lengthSlider;
