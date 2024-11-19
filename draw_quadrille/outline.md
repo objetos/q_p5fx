@@ -8,7 +8,7 @@ Defines the default outline color used for drawing the quadrille cells. The defa
 
 ## Example
 
-{{< p5-global-iframe quadrille="true" width="670" height="350" >}}
+{{< p5-global-iframe quadrille="true" width="675" height="355" >}}
 'use strict';
 // Set a common cell length of 40 pixels for all quadrilles
 Quadrille.cellLength = 40;

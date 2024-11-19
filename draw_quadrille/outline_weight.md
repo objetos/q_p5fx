@@ -8,7 +8,7 @@ Defines the default outline weight (stroke thickness) for drawing the quadrille 
 
 ## Example
 
-{{< p5-global-iframe quadrille="true" width="670" height="350" >}}
+{{< p5-global-iframe quadrille="true" width="675" height="355" >}}
 'use strict';
 // Set a common cell length of 40 pixels for all quadrilles
 Quadrille.cellLength = 40;

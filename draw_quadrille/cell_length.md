@@ -8,7 +8,7 @@ Defines the drawing cell length for quadrilles in pixels. The default is `Quadri
 
 ## Example
 
-{{< p5-global-iframe quadrille="true" width="670" height="350" >}}
+{{< p5-global-iframe quadrille="true" width="675" height="355" >}}
 'use strict';
 // Set the global cell length to a fixed value of 40 pixels (default is 100)
 Quadrille.cellLength = 40;
