@@ -8,68 +8,79 @@ Defines the default outline color used for drawing the quadrille cells. The defa
 
 ## Example
 
-{{< p5-global-iframe quadrille="true" width="665" height="340" >}}
+{{< p5-global-iframe quadrille="true" width="670" height="350" >}}
 'use strict';
-// Set a common cell length of 40 pixels for both quadrilles
+// Set a common cell length of 40 pixels for all quadrilles
 Quadrille.cellLength = 40;
-// Set the global outline color (initially 'OrangeRed', changed to 'cyan' here)
-Quadrille.outline = 'cyan';
-let q1, q2;
-let colorPicker;
+// Set the global outline color (default is 'OrangeRed')
+let q1, q2, q3, q4;
+let localPicker, globalPicker;
 
 function setup() {
-  createCanvas(640, 315);
-  // Quadrille with an outline color controlled by the color picker
-  q1 = createQuadrille(8, 8);
-  // Quadrille using the global outline color
-  q2 = createQuadrille(8, 8);
-  // Initialize the color picker with 'red'
-  colorPicker = createColorPicker('red');
-  colorPicker.position(10, height - 25);
+  createCanvas(650, 330);
+  q1 = createQuadrille(8, 4); // Quadrille with a local outline color
+  q2 = createQuadrille(8, 4);
+  q3 = createQuadrille(8, 4);
+  q4 = createQuadrille(8, 4);
+  // Local color picker for q1
+  localPicker = createColorPicker('magenta');
+  localPicker.position(10, 10);
+  // Global color picker to control Quadrille.outline
+  globalPicker = createColorPicker(Quadrille.outline);
+  globalPicker.position(340, 10);
+  globalPicker.input(() => Quadrille.outline = globalPicker.value());
 }
 
 function draw() {
   background('#FFC0CB');
-  // Draw q1 with the outline color set by the color picker
-  drawQuadrille(q1, { outline: colorPicker.value() });
-  // Draw q2 using the current global Quadrille.outline color ('cyan')
+  // Draw q1 with the outline color set by the local picker
+  drawQuadrille(q1, { outline: localPicker.value() });
+  // Draw q2, q3, and q4 using the global Quadrille.outline
   drawQuadrille(q2, { x: 330 });
+  drawQuadrille(q3, { y: 170 });
+  drawQuadrille(q4, { x: 330, y: 170 });
 }
 {{< /p5-global-iframe >}}
 
 {{< details title="code" open=false >}}
 ```js
-// Set a common cell length of 40 pixels for both quadrilles
+// Set a common cell length of 40 pixels for all quadrilles
 Quadrille.cellLength = 40;
-// Set the global outline color (initially 'OrangeRed', changed to 'cyan' here)
-Quadrille.outline = 'cyan';
-let q1, q2;
-let colorPicker;
+// Set the global outline color (default is 'OrangeRed')
+let q1, q2, q3, q4;
+let localPicker, globalPicker;
 
 function setup() {
-  createCanvas(640, 315);
-  // Quadrille with an outline color controlled by the color picker
-  q1 = createQuadrille(8, 8);
-  // Quadrille using the global outline color
-  q2 = createQuadrille(8, 8);
-  // Initialize the color picker with 'red'
-  colorPicker = createColorPicker('red');
-  colorPicker.position(10, height - 25);
+  createCanvas(650, 330);
+  q1 = createQuadrille(8, 4); // Quadrille with a local outline color
+  q2 = createQuadrille(8, 4);
+  q3 = createQuadrille(8, 4);
+  q4 = createQuadrille(8, 4);
+  // Local color picker for q1
+  localPicker = createColorPicker('magenta');
+  localPicker.position(10, 10);
+  // Global color picker to control Quadrille.outline
+  globalPicker = createColorPicker(Quadrille.outline);
+  globalPicker.position(340, 10);
+  globalPicker.input(() => Quadrille.outline = globalPicker.value());
 }
 
 function draw() {
   background('#FFC0CB');
-  // Draw q1 with the outline color set by the color picker
-  drawQuadrille(q1, { outline: colorPicker.value() });
-  // Draw q2 using the current global Quadrille.outline color ('cyan')
+  // Draw q1 with the outline color set by the local picker
+  drawQuadrille(q1, { outline: localPicker.value() });
+  // Draw q2, q3, and q4 using the global Quadrille.outline
   drawQuadrille(q2, { x: 330 });
+  drawQuadrille(q3, { y: 170 });
+  drawQuadrille(q4, { x: 330, y: 170 });
 }
 ```
 {{< /details >}}
 
 {{< callout type="info" >}}
 **Observation**  
-In this example, `q1` is drawn with an outline color controlled by the color picker, while `q2` uses the global `Quadrille.outline` color, which has been set to `'cyan'`.
+- `q1` is drawn with an outline color controlled by the local picker (`localPicker`), initialized to `'magenta'`.  
+- `q2`, `q3`, and `q4` use the global `Quadrille.outline`, which can be adjusted via the global picker (`globalPicker`).
 {{< /callout >}}
 
 ## Syntax
@@ -80,4 +91,4 @@ In this example, `q1` is drawn with an outline color controlled by the color pic
 
 | Param    | Description                                                                      |
 |----------|----------------------------------------------------------------------------------|
-| outline  | String \| [p5.Color](https://p5js.org/reference/#/p5.Color): The color used for drawing the quadrille outline. Default is `Quadrille.outline`, which is `'OrangeRed'` |
+| outline  | String \| [p5.Color](https://p5js.org/reference/#/p5.Color): Specifies the color used for drawing the quadrille outline. Default is `Quadrille.outline`, which is `'OrangeRed'` |
