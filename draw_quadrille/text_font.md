@@ -12,7 +12,7 @@ Defines the default font used for drawing the text in quadrille cells. The defau
 'use strict';
 // Set a common cell length of 40 pixels for all quadrilles
 Quadrille.cellLength = 40;
-// Set a common cell text zoom of 0.8
+// Set a common cell text zoom of 0.8 for all quadrilles
 Quadrille.textZoom = 0.8
 let q1, q2;
 let notoFont;
@@ -43,7 +43,7 @@ function draw() {
 ```js
 // Set a common cell length of 40 pixels for all quadrilles
 Quadrille.cellLength = 40;
-// Set a common cell text zoom of 0.8
+// Set a common cell text zoom of 0.8 for all quadrilles
 Quadrille.textZoom = 0.8
 let q1, q2;
 let notoFont;
