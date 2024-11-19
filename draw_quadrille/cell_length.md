@@ -1,37 +1,43 @@
 ---
 weight: 1  
 draft: false  
-title: cellLength  
+title: cellLength
 ---
 
 Defines the drawing cell length for quadrilles in pixels. The default is `Quadrille.cellLength`, which is `100`.
 
 ## Example
 
-{{< p5-global-iframe quadrille="true" width="665" height="340" >}}
+{{< p5-global-iframe quadrille="true" width="670" height="350" >}}
 'use strict';
 // Set the global cell length to a fixed value of 40 pixels (default is 100)
 Quadrille.cellLength = 40;
-let q1, q2;
-let lengthSlider;
+let q1, q2, q3, q4;
+let localSlider, globalSlider;
 
 function setup() {
-  createCanvas(640, 315);
-  // Quadrille with a resizable cell length (controlled by the slider)
-  q1 = createQuadrille(8, 8);
-  // Quadrille with a fixed cell length of 40 pixels
-  q2 = createQuadrille(8, 8);
-  // Create a slider to adjust the cell length for q1
-  lengthSlider = createSlider(20, 40, 30, 1);
-  lengthSlider.position(10, height - 20);
+  createCanvas(650, 330);
+  q1 = createQuadrille(8, 4); // Quadrille with a resizable cell length
+  q2 = createQuadrille(8, 4);
+  q3 = createQuadrille(8, 4);
+  q4 = createQuadrille(8, 4);
+  // Local slider to adjust the cell length for q1
+  localSlider = createSlider(20, 40, 30, 1);
+  localSlider.position(10, 10);
+  // Global slider to set the global Quadrille.cellLength
+  globalSlider = createSlider(20, 40, Quadrille.cellLength, 1);
+  globalSlider.position(340, 10);
+  globalSlider.input(() => Quadrille.cellLength = globalSlider.value());
 }
 
 function draw() {
   background('#DFFF00');
-  // Draw q1 with a cell length controlled by the slider
-  drawQuadrille(q1, { cellLength: lengthSlider.value() });
-  // Draw q2 using the fixed global Quadrille.cellLength of 40 pixels
+  // Draw q1 with a cell length controlled by the local slider
+  drawQuadrille(q1, { cellLength: localSlider.value() });
+  // Draw q2, q3, and q4 using the global Quadrille.cellLength
   drawQuadrille(q2, { x: 330 });
+  drawQuadrille(q3, { y: 170 });
+  drawQuadrille(q4, { x: 330, y: 170 });
 }
 {{< /p5-global-iframe >}}
 
@@ -39,33 +45,40 @@ function draw() {
 ```js
 // Set the global cell length to a fixed value of 40 pixels (default is 100)
 Quadrille.cellLength = 40;
-let q1, q2;
-let lengthSlider;
+let q1, q2, q3, q4;
+let localSlider, globalSlider;
 
 function setup() {
-  createCanvas(640, 315);
-  // Quadrille with a resizable cell length (controlled by the slider)
-  q1 = createQuadrille(8, 8);
-  // Quadrille with a fixed cell length of 40 pixels
-  q2 = createQuadrille(8, 8);
-  // Create a slider to adjust the cell length for q1
-  lengthSlider = createSlider(20, 40, 30, 1);
-  lengthSlider.position(10, height - 20);
+  createCanvas(650, 330);
+  q1 = createQuadrille(8, 4); // Quadrille with a resizable cell length
+  q2 = createQuadrille(8, 4);
+  q3 = createQuadrille(8, 4);
+  q4 = createQuadrille(8, 4);
+  // Local slider to adjust the cell length for q1
+  localSlider = createSlider(20, 40, 30, 1);
+  localSlider.position(10, 10);
+  // Global slider to set the global Quadrille.cellLength
+  globalSlider = createSlider(20, 40, Quadrille.cellLength, 1);
+  globalSlider.position(340, 10);
+  globalSlider.input(() => Quadrille.cellLength = globalSlider.value());
 }
 
 function draw() {
   background('#DFFF00');
-  // Draw q1 with a cell length controlled by the slider
-  drawQuadrille(q1, { cellLength: lengthSlider.value() });
-  // Draw q2 using the fixed global Quadrille.cellLength of 40 pixels
+  // Draw q1 with a cell length controlled by the local slider
+  drawQuadrille(q1, { cellLength: localSlider.value() });
+  // Draw q2, q3, and q4 using the global Quadrille.cellLength
   drawQuadrille(q2, { x: 330 });
+  drawQuadrille(q3, { y: 170 });
+  drawQuadrille(q4, { x: 330, y: 170 });
 }
 ```
 {{< /details >}}
 
 {{< callout type="info" >}}
 **Observation**  
-In this example, `q1` is drawn with a cell length controlled by the slider, while `q2` uses the fixed global `Quadrille.cellLength` set to `40` pixels.
+- `q1` is drawn with a cell length controlled by the local slider (`localSlider`), initialized to `30` pixels.  
+- `q2`, `q3`, and `q4` use the global `Quadrille.cellLength` set by the global slider (`globalSlider`), which is initially `40` pixels.
 {{< /callout >}}
 
 ## Syntax
