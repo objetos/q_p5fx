@@ -8,64 +8,77 @@ Defines the default outline weight (stroke thickness) for drawing the quadrille 
 
 ## Example
 
-{{< p5-global-iframe quadrille="true" width="665" height="340" >}}
+{{< p5-global-iframe quadrille="true" width="670" height="350" >}}
 'use strict';
-// Set a common cell length of 40 pixels for both quadrilles
+// Set a common cell length of 40 pixels for all quadrilles
 Quadrille.cellLength = 40;
-let q1, q2;
-let weightSlider;
+let q1, q2, q3, q4;
+let localSlider, globalSlider;
 
 function setup() {
-  createCanvas(640, 315);
-  // Quadrille with a fixed outline weight
-  q1 = createQuadrille(8, 8);
-  // Quadrille with an adjustable outline weight
-  q2 = createQuadrille(8, 8);
-  // Create a slider to adjust the outline weight for q1
-  weightSlider = createSlider(1, 10, 2, 0.5);
-  weightSlider.position(10, height - 20);
+  createCanvas(650, 330);
+  q1 = createQuadrille(8, 4); // Quadrille with a local outline weight
+  q2 = createQuadrille(8, 4);
+  q3 = createQuadrille(8, 4);
+  q4 = createQuadrille(8, 4);
+  // Slider to control q1's local outline weight
+  localSlider = createSlider(1, 10, 5, 0.5);
+  localSlider.position(10, 10);
+  // Slider to control global Quadrille.outlineWeight
+  globalSlider = createSlider(1, 10, Quadrille.outlineWeight, 0.5);
+  globalSlider.position(340, 10);
+  globalSlider.input(() => Quadrille.outlineWeight = globalSlider.value());
 }
 
 function draw() {
   background('lightblue');
-  // Draw q1 with an outline weight controlled by the slider
-  drawQuadrille(q1, { outlineWeight: weightSlider.value() });
-  // Draw q2 using the default Quadrille.outlineWeight
+  // Draw q1 with an outline weight controlled by the local slider
+  drawQuadrille(q1, { outlineWeight: localSlider.value() });
+  // Draw q2, q3, and q4 using the global Quadrille.outlineWeight
   drawQuadrille(q2, { x: 330 });
+  drawQuadrille(q3, { y: 170 });
+  drawQuadrille(q4, { x: 330, y: 170 });
 }
 {{< /p5-global-iframe >}}
 
 {{< details title="code" open=false >}}
 ```js
-// Set a common cell length of 40 pixels for both quadrilles
+// Set a common cell length of 40 pixels for all quadrilles
 Quadrille.cellLength = 40;
-let q1, q2;
-let weightSlider;
+let q1, q2, q3, q4;
+let localSlider, globalSlider;
 
 function setup() {
-  createCanvas(640, 315);
-  // Quadrille with a fixed outline weight
-  q1 = createQuadrille(8, 8);
-  // Quadrille with an adjustable outline weight
-  q2 = createQuadrille(8, 8);
-  // Create a slider to adjust the outline weight for q1
-  weightSlider = createSlider(1, 10, 2, 0.5);
-  weightSlider.position(10, height - 20);
+  createCanvas(650, 330);
+  q1 = createQuadrille(8, 4); // Quadrille with a local outline weight
+  q2 = createQuadrille(8, 4);
+  q3 = createQuadrille(8, 4);
+  q4 = createQuadrille(8, 4);
+  // Slider to control q1's local outline weight
+  localSlider = createSlider(1, 10, 5, 0.5);
+  localSlider.position(10, 10);
+  // Slider to control global Quadrille.outlineWeight
+  globalSlider = createSlider(1, 10, Quadrille.outlineWeight, 0.5);
+  globalSlider.position(340, 10);
+  globalSlider.input(() => Quadrille.outlineWeight = globalSlider.value());
 }
 
 function draw() {
   background('lightblue');
-  // Draw q1 with an outline weight controlled by the slider
-  drawQuadrille(q1, { outlineWeight: weightSlider.value() });
-  // Draw q2 using the default Quadrille.outlineWeight
+  // Draw q1 with an outline weight controlled by the local slider
+  drawQuadrille(q1, { outlineWeight: localSlider.value() });
+  // Draw q2, q3, and q4 using the global Quadrille.outlineWeight
   drawQuadrille(q2, { x: 330 });
+  drawQuadrille(q3, { y: 170 });
+  drawQuadrille(q4, { x: 330, y: 170 });
 }
 ```
 {{< /details >}}
 
 {{< callout type="info" >}}
 **Observation**  
-In this example, `q1` is drawn with an outline weight controlled by the slider, while `q2` uses the default global `Quadrille.outlineWeight`, which is `2`.
+- `q1` is drawn with an outline weight controlled by the local slider (`localSlider`).  
+- `q2`, `q3`, and `q4` use the global `Quadrille.outlineWeight`, which can be adjusted by the global slider (`globalSlider`).
 {{< /callout >}}
 
 ## Syntax
