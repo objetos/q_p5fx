@@ -4,7 +4,7 @@ draft: false
 title: values
 ---
 
-Selectively draws cells in the `quadrille` with specified `values`, also discarding tile of unselected cells.
+Selectively draws cells in the `quadrille` based on the specified `values`, and skips tiles of unselected cells. This feature is often paired with a reference quadrille used to define the tiles.
 
 ## Example
 
@@ -14,7 +14,7 @@ Selectively draws cells in the `quadrille` with specified `values`, also discard
 Quadrille.cellLength = 20;
 Quadrille.outlineWeight = 1;
 Quadrille.outline = '#101010';
-// tile quadrille is defined as a reference quadrille and used to draw tiles
+// Reference quadrille (tile) used for tile display
 let tile, q;
 let yellow, blue, red;
 let yellowBox, blueBox, redBox, tileBox;
@@ -52,7 +52,9 @@ function update() {
   redBox.checked() && values.push(red);
 }
 
-keyPressed = () => q.randomize();
+function keyPressed() {
+  q.randomize();
+}
 {{< /p5-global-iframe >}}
 
 {{< details title="code" open=false >}}
@@ -60,7 +62,7 @@ keyPressed = () => q.randomize();
 Quadrille.cellLength = 20;
 Quadrille.outlineWeight = 1;
 Quadrille.outline = '#101010';
-// tile quadrille is defined as a reference quadrille and used to draw tiles
+// Reference quadrille (tile) used for tile display
 let tile, q;
 let yellow, blue, red;
 let yellowBox, blueBox, redBox, tileBox;
@@ -98,9 +100,20 @@ function update() {
   redBox.checked() && values.push(red);
 }
 
-keyPressed = () => q.randomize();
+function mousePressed() {
+  q.randomize();
+}
 ```
 {{< /details >}}
+
+{{< callout type="info" >}}
+**Observation**  
+In this example:  
+- `values` determines which cells are drawn and excludes tiles for unselected cells.  
+- The reference quadrille (`tile`) is used to display quadrille tile.
+- Checkboxes control the inclusion of specific colors (`yellow`, `blue`, `red`) in the `values` array.  
+- The "Toggle tile" checkbox allows toggling the drawing of the tile quadrille.
+{{< /callout >}}
 
 ## Syntax
 
@@ -110,4 +123,4 @@ keyPressed = () => q.randomize();
 
 | Param  | Description                                                                                 |
 |--------|---------------------------------------------------------------------------------------------|
-| values | [Iterable](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of): Cells to draw; all cells are drawn if this parameter is `undefined` |
+| values | [Iterable](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of): Specifies which cells to draw; tiles of unselected cells are skipped. All cells are drawn if this parameter is `undefined` |
