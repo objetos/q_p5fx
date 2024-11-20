@@ -106,14 +106,10 @@ function mousePressed() {
 ```
 {{< /details >}}
 
-{{< callout type="info" >}}
+{{< callout type="info" >}}  
 **Observation**  
-In this example:  
-- `values` determines which cells are drawn and excludes tiles for unselected cells.  
-- The reference quadrille (`tile`) is used to display quadrille tile.
-- Checkboxes control the inclusion of specific colors (`yellow`, `blue`, `red`) in the `values` array.  
-- The "Toggle tile" checkbox allows toggling the drawing of the tile quadrille.
-{{< /callout >}}
+The `values` array must contain references to the exact instances used to fill the quadrille. For example, if `q` was filled with the variable `yellow`, which holds the value `color('lemonchiffon')`, the `values` array must include the `yellow` variable itself, not a new instance created with `color('lemonchiffon')`.  
+{{< /callout >}}  
 
 ## Syntax
 

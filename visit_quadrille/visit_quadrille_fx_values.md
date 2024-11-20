@@ -70,6 +70,11 @@ function draw() {
 ```
 {{< /details >}}
 
+{{< callout type="info" >}}  
+**Observation**  
+The `values` array must contain references to the exact instances used to fill the `quadrille`. For example, if cells in the `quadrille` were filled using variables like `yellow` (defined as `color('yellow')`), the `values` array must include `yellow` itself, not a new instance created with `color('yellow')`.  
+{{< /callout >}}
+
 ## Syntax
 
 > `visitQuadrille(quadrille, fx, values)`
