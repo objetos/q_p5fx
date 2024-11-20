@@ -19,7 +19,7 @@ let notoFont;
 
 function preload() {
   // Load the Noto Serif font
-  notoFont = loadFont('/fonts/noto_serif.ttf');
+  notoFont = loadFont('/fonts/noto_serif_italic.ttf');
 }
 
 function setup() {
@@ -50,12 +50,13 @@ let notoFont;
 
 function preload() {
   // Load the Noto Serif font
-  notoFont = loadFont('/fonts/noto_serif.ttf');
+  notoFont = loadFont('/fonts/noto_serif_italic.ttf');
 }
 
 function setup() {
   createCanvas(650, 160);
   // Quadrille with the Noto Serif font
+  // q1 = createQuadrille(8, 'cronopiofabulosaliteratatangente');
   q1 = createQuadrille(8, 'CRONOPIOFABULOSALITERATATANGENTE');
   q2 = q1.clone();
 }
