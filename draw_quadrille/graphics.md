@@ -4,6 +4,8 @@ draft: false
 title: graphics
 ---
 
+The `graphics` parameter renders quadrilles onto an off-screen `p5.Graphics` buffer, enabling advanced compositing and transformations.
+
 ## Example 1
 
 (click and drag the canvas to move the quadrille graphics)\
