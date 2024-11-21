@@ -59,14 +59,14 @@ function draw() {
 {{< /details >}}
 
 {{< callout type="info" >}}
-**Observation**  
-This example demonstrates how to render a quadrille onto a `p5.Graphics` object and use it as a dynamic image (`image()`) that can be repositioned with the mouse. This allows for layering and independent manipulation of graphical content.
+**Observation**\
+This example shows how to render a quadrille onto a `p5.Graphics` object, allowing it to be used as a dynamic image (`image()`). The rendered graphics object can be moved independently of the main canvas, enabling layering and modular manipulation.
 {{< /callout >}}
 
 ## Example 2
 
 (click and drag to orbit; dynamic Game of Life pattern rendered as a 3D texture)\
-{{< p5-global-iframe quadrille="true" width="625" height="425" >}}
+{{< p5-global-iframe quadrille="true" width="425" height="425" >}}
 'use strict';
 Quadrille.cellLength = 20;
 let game, pattern;
@@ -164,8 +164,10 @@ function update() {
 {{< /details >}}
 
 {{< callout type="info" >}}
-**Observation**  
-This example illustrates how a quadrille can be rendered as a 3D texture in a WEBGL scene. The Game of Life logic updates the quadrille's state, and the `graphics` object serves as a texture applied to the 3D model (a sphere in this case). The `graphics` parameter decouples the rendering of the quadrille from the main canvas, enabling advanced visualizations.
+**Observations**  
+* This example highlights the use of a `p5.Graphics` object to render a quadrille and apply it as a 3D texture in a WEBGL environment. The quadrille represents a Game of Life simulation, with its updated state drawn onto the graphics object, decoupling the simulation from the main canvas for advanced visualization.
+* The Game of Life is discussed separately in the [showcase Game of Life]({{< relref "game_of_life" >}}), without WEBGL, using direct rendering of the quadrille.
+* A more advanced demonstration renders the Game of Life as a texture using a `p5.Framebuffer` instead of `p5.Graphics`, featured in a dedicated [demo]({{< relref "game_of_life_fbo" >}}).
 {{< /callout >}}
 
 ## Syntax
