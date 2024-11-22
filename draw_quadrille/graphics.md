@@ -4,7 +4,7 @@ draft: false
 title: graphics
 ---
 
-The `graphics` parameter renders quadrilles onto an off-screen `p5.Graphics` buffer, enabling advanced compositing and transformations.
+The `graphics` parameter renders quadrilles onto a custom [p5.Graphics](https://p5js.org/reference/#/p5.Graphics) buffer, enabling flexible compositing and advanced texturing.
 
 ## Example 1
 
