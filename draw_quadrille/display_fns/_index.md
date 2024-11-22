@@ -5,222 +5,131 @@ weight: 11
 draft: false
 ---
 
-## tileDisplay
+The display functions define how the quadrille cell data is to be displayed:
 
-Static method for drawing cell tiles.
+1. `tileDisplay`: define the cell contour display.
+2. `imageDisplay`: define the cell image display.
+3. `stringDisplay`: define the cell string display.
+4. `colorDisplay`: define the cell color display.
+5. `numberDisplay`: define the cell number display.
+6. `arrayDisplay`: define the cell array display.
+7. `objectDisplay`: define the cell object display.
 
-### Example
+{{< callout type="warning" >}}
+**Observations**  
+1. The `arrayDisplay` and `objectDisplay` methods don't have ([static](https://developer.mozilla.org/en-US/docs/Glossary/Static_method)) defaults.
+2. The object literal used to parameterize these functions can have the following properties: `{ quadrille, graphics, outline, outlineWeight, cellLength, textColor, textZoom, value, row, col, width, height }`, where `value` holds the cell contents, `row` and `col` hold the cell position within the `quadrille` and `ẁidth` and `height` are defined as `quadrille.width` and `quadrille.height`, resp. The remaining properties (`outline`, `cellLength`,...) are taken from the `drawQuadrille` method params themselves.
+{{< /callout >}}
 
-{{< p5-global-iframe quadrille="true" width="130" height="130" >}}
-'use strict';
+The following code snippet demonstrates how to display quadrille cells as circles:
+
+{{< p5-global-iframe quadrille="true" width="625" height="425" >}}
+`use strict`;
+let quadrille;
+let circled;
+let tileDisplay;// (all) quadrille cell contours
+let colorDisplay;// quadrille color cells
+
 function setup() {
-  createCanvas(105, 105);
+  createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength);
+  circled = createCheckbox('circled', true);
+  circled.position(10, 10);
+  circled.style('color', 'magenta');
+  tileDisplay = ({ outline, outlineWeight, cellLength }) => {
+    noFill();
+    stroke(outline);
+    strokeWeight(outlineWeight);
+    ellipseMode(CORNER);
+    ellipse(0, 0, cellLength, cellLength);
+  };
+  colorDisplay = ({ value, cellLength }) => {
+    noStroke();
+    fill(value);
+    ellipseMode(CORNER);
+    ellipse(0, 0, cellLength, cellLength);
+  }
+  quadrille = createQuadrille(3, 58, color('blue'));
 }
 
 function draw() {
-  background('yellow');
-  Quadrille.tileDisplay( { graphics: this, outlineWeight: 9 } );
+  background('orange');
+  let params = {
+    x: mouseX,
+    y: mouseY,
+    tileDisplay: circled.checked() ? tileDisplay : Quadrille.tileDisplay,
+    colorDisplay: circled.checked() ? colorDisplay : Quadrille.colorDisplay
+  }
+  drawQuadrille(quadrille, params);
 }
 {{< /p5-global-iframe >}}
 
 {{< details title="code" open=false >}}
 ```js
+let quadrille;
+let circled;
+let tileDisplay;// (all) quadrille cell contours
+let colorDisplay;// quadrille color cells
+
 function setup() {
-  createCanvas(105, 105);
+  createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength);
+  circled = createCheckbox('circled', true);
+  circled.position(10, 10);
+  circled.style('color', 'magenta');
+  tileDisplay = ({ outline, outlineWeight, cellLength }) => {
+    noFill();
+    stroke(outline);
+    strokeWeight(outlineWeight);
+    ellipseMode(CORNER);
+    ellipse(0, 0, cellLength, cellLength);
+  };
+  colorDisplay = ({ value, cellLength }) => {
+    noStroke();
+    fill(value);
+    ellipseMode(CORNER);
+    ellipse(0, 0, cellLength, cellLength);
+  }
+  quadrille = createQuadrille(3, 58, color('blue'));
 }
 
 function draw() {
-  background('yellow');
-  Quadrille.tileDisplay( { graphics: this, outlineWeight: 9 } );
+  background('orange');
+  let params = {
+    x: mouseX,
+    y: mouseY,
+    tileDisplay: circled.checked() ? tileDisplay : Quadrille.tileDisplay,
+    colorDisplay: circled.checked() ? colorDisplay : Quadrille.colorDisplay
+  }
+  drawQuadrille(quadrille, params);
 }
 ```
 {{< /details >}}
 
-### Syntax
+## Syntax
 
-> `Quadrille.tileDisplay({graphics, [col], [row], [width], [height], [cellLength], [outline], [outlineWeight]})`
-
-## colorDisplay
-
-Static method for drawing cells that are filled with colors.
-
-### Example
-
-{{< p5-global-iframe quadrille="true" width="190" height="225" >}}
-'use strict';
-let color;
-
-function setup() {
-  createCanvas(165, 165);
-  color = createColorPicker('magenta');
-}
-
-function draw() {
-  background('blue');
-  Quadrille.colorDisplay({graphics: this, value: color.value(), cellLength: width});
-}
-{{< /p5-global-iframe >}}
-
-{{< details title="code" open=false >}}
-```js
-let color;
-
-function setup() {
-  createCanvas(165, 165);
-  color = createColorPicker('magenta');
-}
-
-function draw() {
-  background('blue');
-  Quadrille.colorDisplay({graphics: this, value: color.value(), cellLength: width});
-}
-```
-{{< /details >}}
-
-### Syntax
-
-> `Quadrille.colorDisplay({graphics, value, [cellLength]})`
-
-## numberDisplay
-
-Static method for drawing cells that are filled with numbers. [Implemented](https://github.com/objetos/p5.quadrille.js/blob/main/p5.quadrille.js#L1086) in terms of [Quadrille.colorDisplay]({{< ref "color_display" >}}) as: `Quadrille.colorDisplay({ graphics: graphics, cell: graphics.color(graphics.constrain(cell, 0, 255)), cellLength: cellLength })`.
-
-### Example
-
-{{< p5-global-iframe quadrille="true" width="190" height="220" >}}
-'use strict';
-let number;
-
-function setup() {
-  createCanvas(165, 165);
-  number = createSlider(0, 255, 125, 1);
-}
-
-function draw() {
-  background('blue');
-  Quadrille.numberDisplay( { graphics: this, value: number.value(), cellLength: width } );
-}
-{{< /p5-global-iframe >}}
-
-{{< details title="code" open=false >}}
-```js
-let number;
-
-function setup() {
-  createCanvas(165, 165);
-  number = createSlider(0, 255, 125, 1);
-}
-
-function draw() {
-  background('blue');
-  Quadrille.numberDisplay({graphics: this, value: number.value(), cellLength: width});
-}
-```
-{{< /details >}}
-
-### Syntax
-
-> `Quadrille.numberDisplay({graphics, value, [cellLength]})`
-
-## stringDisplay
-
-Static method for drawing cells that are filled with colors.
-
-### Example
-
-{{< p5-global-iframe quadrille="true" width="205" height="230" >}}
-'use strict';
-let string;
-
-function setup() {
-  createCanvas(180, 180);
-  string = createInput('hola');
-}
-
-function draw() {
-  background('tomato');
-  Quadrille.stringDisplay({ graphics: this, value: string.value(), cellLength: width, textZoom: 0.65 });
-}
-{{< /p5-global-iframe >}}
-
-{{< details title="code" open=false >}}
-```js
-let string;
-
-function setup() {
-  createCanvas(180, 180);
-  string = createInput('hola');
-}
-
-function draw() {
-  background('tomato');
-  Quadrille.stringDisplay({ graphics: this, value: string.value(),
-                            cellLength: width, textZoom: 0.65 });
-}
-```
-{{< /details >}}
-
-### Syntax
-
-> `Quadrille.stringDisplay({graphics, value, [cellLength], [textColor], [textZoom]})`
-
-## imageDisplay
-
-Static method for drawing cells that are filled with [p5.Image](https://p5js.org/reference/#/p5.Image) or [p5.Graphics](https://p5js.org/reference/#/p5.Graphics) instances.
-
-### Example
-
-{{< p5-global-iframe quadrille="true" width="190" height="190" >}}
-'use strict';
-let al;
-
-function preload() {
-  al = loadImage('../abraham_lincoln.jpg');
-}
-
-function setup() {
-  createCanvas(165, 165);
-}
-
-function draw() {
-  background('blue');
-  Quadrille.imageDisplay({ graphics: this, value: al, cellLength: width });
-}
-{{< /p5-global-iframe >}}
-
-{{< details title="code" open=false >}}
-```js
-let al;
-
-function preload() {
-  al = loadImage('abraham_lincoln.jpg');
-}
-
-function setup() {
-  createCanvas(165, 165);
-}
-
-function draw() {
-  background('blue');
-  Quadrille.imageDisplay({ graphics: this, value: al, cellLength: width });
-}
-```
-{{< /details >}}
-
-### Syntax
-
-> `Quadrille.imageDisplay({graphics, value, [cellLength]})`
+> `drawQuadrille(quadrille, [{[graphics], [x], [y], [col], [row], [cells], [tileDisplay], [imageDisplay], [colorDisplay], [stringDisplay], [numberDisplay], [arrayDisplay], [objectDisplay], [cellLength], [outlineWeight], [outline], [textColor], [textZoom]}])`
 
 ## Parameters
 
-| parameter  | description                                                                                 |
-|------------|---------------------------------------------------------------------------------------------|
-| graphics   | [p5.Graphics](https://p5js.org/reference/#/p5.Graphics): renderer target                    |
-| col        | Number: cell col number [\[0..width\]]({{< ref "width" >}}) default is 0                    |
-| row        | Number: cell row number [\[0..height\]]({{< ref "height" >}}) default is 0                  |
-| width      | Number: total number of columns default is 1                                                |
-| height     | Number: total number of rows default is 1                                                   |
-| cellLength | Number: edge length in pixels default is [Quadrille.cellLength]({{< ref "cell_length" >}}) |
+| parameter     | description                                                                                               |
+|---------------|-----------------------------------------------------------------------------------------------------------|
+| quadrille     | Quadrille: `quadrille` to be drawn                                                                        |
+| graphics      | [p5.Graphics](https://p5js.org/reference/#/p5.Graphics): renderer target default is `this` (main canvas)  |
+| tileDisplay   | Function: empty cell drawing custom procedure default is [Quadrille.tileDisplay]({{< ref "tile_display" >}})[^1].  Use `0`, `null` or `undefined` to discard all edges |
+| imageDisplay  | Function: image filled cell drawing custom procedure default is [Quadrille.imageDisplay]({{< ref "image_display" >}})    |
+| colorDisplay  | Function: color filled cell drawing custom procedure default is [Quadrille.colorDisplay]({{< ref "color_display" >}})    |
+| stringDisplay | Function: string filled cell drawing custom procedure default is [Quadrille.stringDisplay]({{< ref "string_display" >}}) |
+| numberDisplay | Function: number filled cell drawing custom procedure default is [Quadrille.numberDisplay]({{< ref "number_display" >}}) |
+| arrayDisplay  | Function: array filled cell drawing custom procedure                                                      |
+| objectDisplay | Function: object filled cell drawing custom procedure                                                     |
+| x             | Number: upper left quadrille pixel x coordinate default is `0`. Takes higher precedence than `col`        |
+| y             | Number: upper left quadrille pixel y coordinate default is `0`. Takes higher precedence than `row`        |
+| col           | Number: upper left quadrille col default is `0`.                                                          |
+| row           | Number: upper left quadrille row default is `0`.                                                          |
+| values        | [Iterable](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of): cells to be drawn. All cells are drawn if this parameter is `undefined` |
+| cellLength    | Number: edge length in pixels default is [Quadrille.cellLength]({{< ref "cell_length" >}})               |
+| outlineWeight | Number: edge weight default is [Quadrille.outlineWeight]({{< ref "outline_weight" >}}).                  |
 | outline       | [p5.Color](https://p5js.org/reference/#/p5.Color) representation: edge color default is [Quadrille.outline]({{< ref "outline" >}}) |
-| outlineWeight | Number: edge weight default is [Quadrille.outlineWeight]({{< ref "outline_weight" >}}). Use `0` to discard all edges |
+| textColor     | [p5.Color](https://p5js.org/reference/#/p5.Color) representation: text color default is [Quadrille.textColor]({{< ref "text_color" >}}) |
+| textZoom      | Number:: text zoom level default is [Quadrille.textZoom]({{< ref "text_zoom" >}})                        |
 
+[^1]: This function allows to implementing other [regular tilings](https://en.wikipedia.org/wiki/Euclidean_tilings_by_convex_regular_polygons#Regular_tilings) different than the default [square tiling](https://en.wikipedia.org/wiki/Square_tiling).

@@ -5,139 +5,8 @@ weight: 3
 draft: false
 ---
 
-[p5.js](https://p5js.org/) function that draws a `quadrille`.
-
-In this chapter, we introduce [static fields](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) that set a global default style for all `Quadrille` instances. These fields can include properties and display functions. However, their default behaviors can be overridden by supplying corresponding parameters to the [drawQuadrille]({{< ref "draw_quadrille" >}}) and [sample](https://objetos.github.io/p5.quadrille.js/docs/visual_computing/sample/) methods, which hold higher priority.
-
-Consider the following example:
-
-```js
-Quadrille.cellLength = 50;
-let q1, q2;
-let colorDisplay;
-
-function setup() {
-  q1 = createQuadrille(3, 4);
-  q2 = createQuadrille(5, 2);
-  colorDisplay = ({ value, cellLength }) => {
-    noStroke();
-    fill(value);
-    ellipseMode(CORNER);
-    ellipse(0, 0, cellLength, cellLength);
-  }
-}
-
-function draw() {
-  drawQuadrille(q1, { colorDisplay });
-  drawQuadrille(q2, { cellLength: 200 });
-}
-```
-
-In this code:
-
-* The `q1` instance will use a [cellLength]({{< ref "cell_length" >}}) of `50` and the custom `colorDisplay` function to drawing cells that are filled with [colors](https://p5js.org/reference/#/p5.Color).
-* Conversely, `q2` will be rendered with a `cellLength` of `200` while utilizing the default [colorDisplay]({{< ref "color_display" >}}) function to drawing cells that are filled with [colors](https://p5js.org/reference/#/p5.Color).
-
-## Examples
-
-### Positioning
-
-The quadrille origin (i.e., upper left corner) can be set either with the `x` & `y` or the `row` & `col` drawing params.
-
-#### x & y
-
-The `x` and `y` params define the quadrille upper left corner in pixels.
-
-{{< p5-global-iframe quadrille="true" width="625" height="425" >}}
-'use strict';
-// q0 is defined as reference quadrille
-let q0, q;
-
-function setup() {
-  createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength);
-  q0 = createQuadrille(6, 4);
-  q = createQuadrille(3, 58, color('blue'));
-}
-
-function draw() {
-  background('orange');
-  drawQuadrille(q0);
-  // an object literal param is used to pass custom drawing properties
-  drawQuadrille(q, { x: mouseX, y: mouseY, outline: 'lime' });
-}
-{{< /p5-global-iframe >}}
-
-{{< details title="code" open=false >}}
-```js
-// q0 is defined as reference quadrille
-let q0, q;
-
-function setup() {
-  createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength);
-  q0 = createQuadrille(6, 4);
-  q = createQuadrille(3, 58, color('blue'));
-}
-
-function draw() {
-  background('orange');
-  drawQuadrille(q0);
-  // an object literal param is used to pass custom drawing properties
-  drawQuadrille(q, { x: mouseX, y: mouseY, outline: 'lime' });
-}
-```
-{{< /details >}}
-
-#### row & col
-
-The `row` and `col` params define the quadrille upper left corner in rows and cols units.
-
-{{< callout type="warning" >}}
-**Observation**  
-Observe the `mouseRow` and `mouseCol` [quadrille properties](/docs/Quadrille_API/properties/) calls used to positioning the `q` quadrille below.
-{{< /callout >}}
-
-{{< p5-global-iframe quadrille="true" width="625" height="425" >}}
-'use strict';
-// q0 is defined as reference quadrille
-let q0, q;
-
-function setup() {
-  createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength);
-  q0 = createQuadrille(6, 4);
-  q = createQuadrille(3, 58, color('blue'));
-}
-
-function draw() {
-  background('orange');
-  drawQuadrille(q0);
-  // an object literal param is used to pass custom drawing properties
-  drawQuadrille(q, { row: q0.mouseRow, col: q0.mouseCol, outline: 'lime' });
-}
-{{< /p5-global-iframe >}}
-
-{{< details title="code" open=false >}}
-```js
-// q0 is defined as reference quadrille
-let q0, q;
-
-function setup() {
-  createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength);
-  q0 = createQuadrille(6, 4);
-  q = createQuadrille(3, 58, color('blue'));
-}
-
-function draw() {
-  background('orange');
-  drawQuadrille(q0);
-  // an object literal param is used to pass custom drawing properties
-  drawQuadrille(q, { row: q0.mouseRow, col: q0.mouseCol, outline: 'lime' });
-}
-```
-{{< /details >}}
-
-### Display functions
-
 The display functions define how the quadrille cell data is to be displayed:
+
 1. `tileDisplay`: define the cell contour display.
 2. `imageDisplay`: define the cell image display.
 3. `stringDisplay`: define the cell string display.
@@ -155,7 +24,7 @@ The display functions define how the quadrille cell data is to be displayed:
 The following code snippet demonstrates how to display quadrille cells as circles:
 
 {{< p5-global-iframe quadrille="true" width="625" height="425" >}}
-'use strict';
+`use strict`;
 let quadrille;
 let circled;
 let tileDisplay;// (all) quadrille cell contours
