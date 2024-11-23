@@ -1,7 +1,7 @@
 ---
 bookCollapseSection: true
 title: "display functions"
-weight: 12
+weight: 13
 draft: false
 ---
 
