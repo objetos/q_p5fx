@@ -1,14 +1,14 @@
 ---
-weight: 11
+weight: 11  
 draft: false  
-title: origin
+title: origin  
 ---
 
-`origin` define the origin where to draw a given quadrille; it can be `CORNER` or `CENTER`; default is `CORNER` in `P2D` and `CENTER` in `WEBGL` mode.
+The `origin` parameter defines the top-left corner of the quadrille for drawing: `CORNER` positions it at the top-left corner of the canvas, the default in `P2D`; `CENTER` positions it at the center of the canvas, the default in `WEBGL`.
 
 ## Example
 
-(click or press any key to define `q` `origin` either as `CORNER` or `CENTER`)\
+(click or press any key to toggle the origin of `q` between `CORNER` and `CENTER`)\
 {{< p5-global-iframe quadrille="true" width="625" height="425" >}}
 'use strict';
 // q0 is the reference quadrille
@@ -70,6 +70,6 @@ function keyPressed() {
 
 ## Parameters
 
-| Param    | Description                                                   |
-|----------|---------------------------------------------------------------|
-| `origin` |   |
+| Param  | Description                                                                                      |
+|--------|--------------------------------------------------------------------------------------------------|
+| origin | Constant: `CORNER` draws the quadrille aligned to the top-left corner of the canvas (default in `P2D`); `CENTER` draws it aligned to the center of the canvas (default in `WEBGL`) |
