@@ -1,19 +1,20 @@
 ---
 bookCollapseSection: true
 title: "display functions"
-weight: 11
+weight: 12
 draft: false
 ---
 
-The display functions define how the quadrille cell data is to be displayed:
+The display functions define how the quadrille cell values are to be displayed:
 
 1. `tileDisplay`: define the cell contour display.
-2. `imageDisplay`: define the cell image display.
-3. `stringDisplay`: define the cell string display.
+2. `stringDisplay`: define the cell string display.
+3. `numberDisplay`: define the cell number display.
 4. `colorDisplay`: define the cell color display.
-5. `numberDisplay`: define the cell number display.
-6. `arrayDisplay`: define the cell array display.
-7. `objectDisplay`: define the cell object display.
+5. `imageDisplay`: define the cell image display.
+6. `functionDisplay`: define the cell function display.
+7. `arrayDisplay`: define the cell array display.
+8. `objectDisplay`: define the cell object display.
 
 {{< callout type="warning" >}}
 **Observations**  
@@ -110,14 +111,15 @@ function draw() {
 
 ## Parameters
 
-| parameter     | description                                                                                               |
-|---------------|-----------------------------------------------------------------------------------------------------------|
-| tileDisplay   | Function: empty cell drawing custom procedure default is [Quadrille.tileDisplay]({{< ref "tile_display" >}})[^1].  Use `0`, `null` or `undefined` to discard all edges |
-| imageDisplay  | Function: image filled cell drawing custom procedure default is [Quadrille.imageDisplay]({{< ref "image_display" >}})    |
-| colorDisplay  | Function: color filled cell drawing custom procedure default is [Quadrille.colorDisplay]({{< ref "color_display" >}})    |
-| stringDisplay | Function: string filled cell drawing custom procedure default is [Quadrille.stringDisplay]({{< ref "string_display" >}}) |
-| numberDisplay | Function: number filled cell drawing custom procedure default is [Quadrille.numberDisplay]({{< ref "number_display" >}}) |
-| arrayDisplay  | Function: array filled cell drawing custom procedure                                                      |
-| objectDisplay | Function: object filled cell drawing custom procedure                                                     |
+| parameter      | description                                                                                               |
+|----------------|-----------------------------------------------------------------------------------------------------------|
+| tileDisplay    | Function: empty cell drawing custom procedure default is [Quadrille.tileDisplay]({{< ref "tile_display" >}})[^1].  Use `0`, `null` or `undefined` to discard all edges |
+| stringDisplay  | Function: string filled cell drawing custom procedure default is [Quadrille.stringDisplay]({{< ref "string_display" >}}) |
+| numberDisplay  | Function: number filled cell drawing custom procedure default is [Quadrille.numberDisplay]({{< ref "number_display" >}}) |
+| colorDisplay   | Function: color filled cell drawing custom procedure default is [Quadrille.colorDisplay]({{< ref "color_display" >}})    |
+| imageDisplay   | Function: image filled cell drawing custom procedure default is [Quadrille.imageDisplay]({{< ref "image_display" >}})    |
+| functionDisplay | Function: image filled cell drawing custom procedure default is [Quadrille.functionDisplay]({{< ref "function_display" >}})    |
+| arrayDisplay   | Function: array filled cell drawing custom procedure                                                      |
+| objectDisplay  | Function: object filled cell drawing custom procedure                                                     |
 
 [^1]: This function allows to implementing other [regular tilings](https://en.wikipedia.org/wiki/Euclidean_tilings_by_convex_regular_polygons#Regular_tilings) different than the default [square tiling](https://en.wikipedia.org/wiki/Square_tiling).
