@@ -23,9 +23,9 @@ Display functions define how quadrille cells are rendered based on their values.
 2. The object literal used to parameterize these functions can include the following properties: `{ quadrille, cellLength, outline, outlineWeight, textColor, textZoom, textFont, graphics, origin, options, value, row, col, width, height }`. Here, `options` allows passing a custom object to the display function, `value` contains the cell contents, `row` and `col` represent the cell's position in the `quadrille`, and `width` and `height` refer to `quadrille.width` and `quadrille.height`, respectively.
 {{< /callout >}}
 
-The following example demonstrates customizing `tileDisplay` and `colorDisplay` functions to render quadrille cells as circles:
-
 ## Example
+
+The following example demonstrates customizing `tileDisplay` and `colorDisplay` functions to render quadrille cells as circles:
 
 {{< p5-global-iframe quadrille="true" width="625" height="425" >}}
 'use strict';
