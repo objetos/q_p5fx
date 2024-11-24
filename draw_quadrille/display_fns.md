@@ -4,28 +4,22 @@ draft: false
 title: display functions  
 ---
 
-Display functions define how quadrille cells are rendered based on their values. Use `0`, `null`, or `undefined` to skip a specific display function.
+Display functions determine how quadrille cells are visually rendered based on their values. To disable a specific display function, assign it a value of `0`, `null`, or `undefined`.
 
 | Display Function  | Value Type | Default                                                                                                              |
 |-------------------|------------|----------------------------------------------------------------------------------------------------------------------|
 | `tileDisplay`     | All cells  | `Quadrille.tileDisplay`: Draws cell contours as square tiles                                                         |
 | `stringDisplay`   | String     | `Quadrille.stringDisplay`: Displays strings in cells                                                                 |
-| `numberDisplay`   | Number     | `Quadrille.numberDisplay`: Displays numbers in cells, where numbers represent grayscale colors in the range [0..255] |
+| `numberDisplay`   | Number     | `Quadrille.numberDisplay`: Renders numbers in cells as grayscale colors, clamped to the range [0..255] |
 | `colorDisplay`    | Color      | `Quadrille.colorDisplay`: Fills cells with specified [p5.Colors](https://p5js.org/reference/#/p5.Color)              |
 | `imageDisplay`    | Image      | `Quadrille.imageDisplay`: Draws images in cells                                                                      |
 | `functionDisplay` | Function   | `Quadrille.functionDisplay`: Executes a function to draw the cell (available only in WEBGL)                          |
-| `arrayDisplay`    | Array      | No static default                                                                                                    |
-| `objectDisplay`   | Object     | No static default                                                                                                    |
+| `arrayDisplay`    | Array      | No static default. It must be explicitly defined if used                                                             |
+| `objectDisplay`   | Object     | No static default. It must be explicitly defined if used                                                             |
 
-{{< callout type="info" >}}
-**Observations**  
-1. The `arrayDisplay` and `objectDisplay` methods do not have static defaults. They must be explicitly defined if used.  
-2. The object literal used to parameterize these functions can include the following properties: `{ quadrille, cellLength, outline, outlineWeight, textColor, textZoom, textFont, graphics, origin, options, value, row, col, width, height }`. Here, `options` allows passing a custom object to the display function, `value` contains the cell contents, `row` and `col` represent the cell's position in the `quadrille`, and `width` and `height` refer to `quadrille.width` and `quadrille.height`, respectively.
-{{< /callout >}}
+The object literal used to parameterize these functions can include the following properties: `{` `quadrille`, [cellLength]({{< relref "cell_length" >}}), [outline]({{< relref "outline" >}}), [outlineWeight]({{< relref "outline_weight" >}}), [textColor]({{< relref "text_color" >}}), [textZoom]({{< relref "text_zoom" >}}), [textFont]({{< relref "text_font" >}}), [graphics]({{< relref "graphics" >}}), [origin]({{< relref "origin" >}}), `options`, `value`, `row`, `col`, `width`, `height` `}`. Here, `options` allows passing a custom object to the display function, `value` contains the cell contents, `row` and `col` represent the cell's position in the `quadrille`, and `width` and `height` refer to `quadrille.width` and `quadrille.height`, respectively.
 
 ## Example
-
-The following example demonstrates customizing `tileDisplay` and `colorDisplay` functions to render quadrille cells as circles:
 
 {{< p5-global-iframe quadrille="true" width="625" height="425" >}}
 'use strict';
@@ -120,15 +114,15 @@ function draw() {
 
 ## Parameters
 
-| Parameter       | Description                                                                                                         |
-|-----------------|---------------------------------------------------------------------------------------------------------------------|
-| tileDisplay     | Function: Draws cell contours. Default is `Quadrille.tileDisplay`. Use `0`, `null`, or `undefined` to discard edges |
-| stringDisplay   | Function: Customizes string rendering in cells. Default is `Quadrille.stringDisplay`                                |
-| numberDisplay   | Function: Customizes number rendering in cells. Default is `Quadrille.numberDisplay`                                |
-| colorDisplay    | Function: Customizes color rendering in cells. Default is `Quadrille.colorDisplay`                                  |
-| imageDisplay    | Function: Customizes image rendering in cells. Default is `Quadrille.imageDisplay`                                  |
-| functionDisplay | Function: Customizes function-based rendering in cells. Default is `Quadrille.functionDisplay`                      |
-| arrayDisplay    | Function: Customizes rendering for array-filled cells. No static default                                            |
-| objectDisplay   | Function: Customizes rendering for object-filled cells. No static default                                           |
+| Parameter       | Description                                                                                           |
+|-----------------|-------------------------------------------------------------------------------------------------------|
+| tileDisplay[^1] | Function: Renders cell contours. Default is `Quadrille.tileDisplay`                                   |
+| stringDisplay   | Function: Renders strings in cells. Default is `Quadrille.stringDisplay`                              |
+| numberDisplay   | Function: Renders numbers in cells. Default is `Quadrille.numberDisplay`                              |
+| colorDisplay    | Function: Renders colors in cells. Default is `Quadrille.colorDisplay`                                |
+| imageDisplay    | Function: Renders images in cells. Default is `Quadrille.imageDisplay`                                |
+| functionDisplay | Function: Renders functions in cells, available only in WEBGL. Default is `Quadrille.functionDisplay` |
+| arrayDisplay    | Function: Renders cells filled with arrays. No static default provided                                |
+| objectDisplay   | Function: Renders cells filled with objects. No static default provided                               |
 
-[^1]: The `tileDisplay` parameter enables the implementation of [regular tilings](https://en.wikipedia.org/wiki/Euclidean_tilings_by_convex_regular_polygons#Regular_tilings) other than the default [square tiling](https://en.wikipedia.org/wiki/Square_tiling).
+[^1]: The `tileDisplay` function enables the implementation of [regular tilings](https://en.wikipedia.org/wiki/Euclidean_tilings_by_convex_regular_polygons#Regular_tilings) other than the default [square tiling](https://en.wikipedia.org/wiki/Square_tiling).
