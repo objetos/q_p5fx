@@ -70,7 +70,7 @@ function draw() {
 **Global Parameters**  
 The following parameters are static fields of the `Quadrille` class, meaning they are shared across all instances of `Quadrille`. Changing these values affects all newly created quadrille objects:
 - `Quadrille.lightSquare` and `Quadrille.darkSquare`: Define the colors for the light and dark squares of the chessboard pattern.
-- [Quadrille.cellLength]({{< ref "cell_length" >}}) and [Quadrille.tileDisplay]({{< ref "tile_display" >}}) are discussed separately.
+- [Quadrille.cellLength]({{< ref "cell_length" >}}) and [Quadrille.tileDisplay]({{< ref "display_fns" >}}) are discussed separately.
 {{< /callout >}}
 
 ## Syntax

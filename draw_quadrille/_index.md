@@ -114,11 +114,11 @@ function draw() {
 |---------------|-----------------------------------------------------------------------------------------------------------|
 | quadrille     | Quadrille: `quadrille` to be drawn                                                                        |
 | graphics      | [p5.Graphics](https://p5js.org/reference/#/p5.Graphics): renderer target default is `this` (main canvas)  |
-| tileDisplay   | Function: empty cell drawing custom procedure default is [Quadrille.tileDisplay]({{< ref "tile_display" >}})[^1].  Use `0`, `null` or `undefined` to discard all edges |
-| imageDisplay  | Function: image filled cell drawing custom procedure default is [Quadrille.imageDisplay]({{< ref "image_display" >}})    |
-| colorDisplay  | Function: color filled cell drawing custom procedure default is [Quadrille.colorDisplay]({{< ref "color_display" >}})    |
-| stringDisplay | Function: string filled cell drawing custom procedure default is [Quadrille.stringDisplay]({{< ref "string_display" >}}) |
-| numberDisplay | Function: number filled cell drawing custom procedure default is [Quadrille.numberDisplay]({{< ref "number_display" >}}) |
+| tileDisplay   | Function: empty cell drawing custom procedure default is [Quadrille.tileDisplay]({{< ref "display_fns" >}})[^1].  Use `0`, `null` or `undefined` to discard all edges |
+| imageDisplay  | Function: image filled cell drawing custom procedure default is [Quadrille.imageDisplay]({{< ref "display_fns" >}})    |
+| colorDisplay  | Function: color filled cell drawing custom procedure default is [Quadrille.colorDisplay]({{< ref "display_fns" >}})    |
+| stringDisplay | Function: string filled cell drawing custom procedure default is [Quadrille.stringDisplay]({{< ref "display_fns" >}}) |
+| numberDisplay | Function: number filled cell drawing custom procedure default is [Quadrille.numberDisplay]({{< ref "display_fns" >}}) |
 | arrayDisplay  | Function: array filled cell drawing custom procedure                                                      |
 | objectDisplay | Function: object filled cell drawing custom procedure                                                     |
 | x             | Number: upper left quadrille pixel x coordinate default is `0`. Takes higher precedence than `col`        |
