@@ -18,7 +18,7 @@ let center = false;
 function setup() {
   createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength);
   q0 = createQuadrille(6, 4);
-  q = createQuadrille(3, 58, color('blue'));
+  q = createQuadrille(3, 58n, color('blue'));
 }
 
 function draw() {
@@ -45,7 +45,7 @@ let center = false;
 function setup() {
   createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength);
   q0 = createQuadrille(6, 4);
-  q = createQuadrille(3, 58, color('blue'));
+  q = createQuadrille(3, 58n, color('blue'));
 }
 
 function draw() {
