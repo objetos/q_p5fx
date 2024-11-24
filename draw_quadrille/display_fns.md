@@ -46,7 +46,7 @@ function setup() {
     ellipseMode(CORNER);
     ellipse(0, 0, cellLength, cellLength);
   };
-  quadrille = createQuadrille(3, 58, color('blue'));
+  quadrille = createQuadrille(3, 58n, color('blue'));
 }
 
 function draw() {
@@ -86,7 +86,7 @@ function setup() {
     ellipseMode(CORNER);
     ellipse(0, 0, cellLength, cellLength);
   };
-  quadrille = createQuadrille(3, 58, color('blue'));
+  quadrille = createQuadrille(3, 58n, color('blue'));
 }
 
 function draw() {
