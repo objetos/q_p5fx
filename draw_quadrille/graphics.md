@@ -62,7 +62,7 @@ function draw() {
 
 {{< callout type="info" >}}
 **Observation**\
-This example shows how to render a quadrille onto a `p5.Graphics` object, allowing it to be used as a dynamic image (`image()`). The rendered graphics object can be moved independently of the main canvas, enabling layering and modular manipulation.
+This example shows how to render a quadrille onto a `p5.Graphics` object, allowing it to be used as a dynamic image ([image()](https://p5js.org/reference/p5/image/)). The rendered graphics object can be moved independently of the main canvas, enabling layering and modular manipulation.
 {{< /callout >}}
 
 ## Example 2
