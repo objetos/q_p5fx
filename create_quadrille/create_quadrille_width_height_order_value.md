@@ -52,7 +52,7 @@ function draw() {
 
 | param  | description                                                                                                                                        |
 |--------|----------------------------------------------------------------------------------------------------------------------------------------------------|
-| width  | Number: The total number of columns for the quadrille.                                                                                              |
-| height | Number: The total number of rows for the quadrille.                                                                                                |
-| order  | Number: The number of non-empty cells to be filled with the `value`.                                                                                |
-| value  | Any: The value to be used to fill the quadrille cells. This can be an image, color, string, number, or other valid data type.                       |
+| width  | Number: The total number of columns for the quadrille                                                                                              |
+| height | Number: The total number of rows for the quadrille                                                                                                |
+| order  | Number: The number of non-empty cells to be filled with the `value`                                                                                |
+| value  | Any: The value to be used to fill the quadrille cells. This can be an image, color, string, number, or other valid data type                       |

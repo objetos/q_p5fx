@@ -9,7 +9,7 @@ The `drawQuadrille` function is used to render a quadrille onto the canvas or a 
 
 ## Syntax
 
-> `drawQuadrille(quadrille, [{[cellLength], [outline], [outlineWeight], [textColor], [textZoom], [textFont], [x], [y], [row], [col], [values], [graphics], [origin], [tileDisplay], [stringDisplay], [numberDisplay], [colorDisplay], [imageDisplay], [functionDisplay], [arrayDisplay], [objectDisplay]}])`
+> drawQuadrille(quadrille, [{[[cellLength]({{< relref "cell_length" >}})], [[outline]({{< relref "outline" >}})], [[outlineWeight]({{< relref "outline_weight" >}})], [[textColor]({{< relref "text_color" >}})], [[textZoom]({{< relref "text_zoom" >}})], [[textFont]({{< relref "text_font" >}})], [[x]({{< relref "x_y" >}})], [[y]({{< relref "x_y" >}})], [[row]({{< relref "row_col" >}})], [[col]({{< relref "row_col" >}})], [[values]({{< relref "values" >}})], [[graphics]({{< relref "graphics" >}})], [[origin]({{< relref "origin" >}})], [[tileDisplay]({{< relref "display_fns" >}})], [[stringDisplay]({{< relref "display_fns" >}})], [[numberDisplay]({{< relref "display_fns" >}})], [[colorDisplay]({{< relref "display_fns" >}})], [[imageDisplay]({{< relref "display_fns" >}})], [[functionDisplay]({{< relref "display_fns" >}})], [[arrayDisplay]({{< relref "display_fns" >}})], [[objectDisplay]({{< relref "display_fns" >}})]}])
 
 ## Parameters
 
