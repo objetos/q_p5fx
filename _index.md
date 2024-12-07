@@ -14,4 +14,4 @@ The [p5.js](https://p5js.org/) functions provide tools to seamlessly **create**,
 
 - **[visitQuadrille]({{< ref "visit_quadrille" >}}):** Iterates through the quadrille's cells, allowing you to access, modify, or analyze their content. Use this function to implement game mechanics, apply transformations, or programmatically update the state of quadrille cells.  
  
-Alongside the p5.js API, these functions allow you to start developing immersive board games, dynamic visual art, and creative projects built on structured, cell-based content.
+Alongside the [p5.js API](https://p5js.org/reference/), these functions allow you to start developing immersive board games, dynamic visual art, and creative projects built on structured, cell-based content.
