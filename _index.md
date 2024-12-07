@@ -1,9 +1,17 @@
 ---
-bookCollapseSection: true
-weight: 2
-draft: false
+bookCollapseSection: true  
+weight: 2  
+draft: false  
 ---
 
-# p5 functions
+# p5 functions  
 
-[p5](https://p5js.org/) functions to [create]({{< ref "create_quadrille" >}}), [draw]({{< ref "draw_quadrille" >}}) and [iterate]({{< ref "visit_quadrille" >}}) over quadrille cells.
+The [p5.js](https://p5js.org/) functions provide tools to seamlessly **create**, **draw**, and **iterate** over **quadrille cells**. Whether you're building board games, designing generative visuals, or managing cell-based data, these functions serve as a bridge between the p5.js canvas and the **quadrille object**—the core structure of the **p5.quadrille.js** library.  
+
+- **[createQuadrille]({{< ref "create_quadrille" >}}):** Creates a **quadrille** with flexible initialization options. You can populate it with a variety of data types, including [colors](https://p5js.org/reference/p5/p5.Color/), numbers, strings, [images](https://p5js.org/reference/p5/p5.Image/) & [videos](https://p5js.org/reference/p5/p5.MediaElement/), [p5.Graphics](https://p5js.org/reference/p5/p5.Graphics/), (drawing) functions, or custom objects. Since the **quadrille object** is the only object provided by the library, `createQuadrille` is the essential entry point for representing game boards, organizing data collections, or implementing cell-based logic.  
+
+- **[drawQuadrille]({{< ref "draw_quadrille" >}}):** Renders the quadrille onto the p5.js canvas with options for visual customization. Styles are applied globally to all quadrille cells, allowing you to display content, apply color, and enhance visuals—well-suited to displaying board game states, dynamic patterns, or data visualizations.  
+
+- **[visitQuadrille]({{< ref "visit_quadrille" >}}):** Iterates through the quadrille's cells, allowing you to access, modify, or analyze their content. Use this function to implement game mechanics, apply transformations, or programmatically update the state of quadrille cells.  
+ 
+Alongside the p5.js API, these functions allow you to develop immersive board games, dynamic visual art, and creative projects built on structured, cell-based content.
