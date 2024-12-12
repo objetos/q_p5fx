@@ -8,16 +8,16 @@ Creates an 8x8 quadrille with a chessboard pattern.
 
 ## Example
 
-{{< p5-global-iframe quadrille="true" width="665" height="340" >}}
+{{< p5-global-iframe quadrille="true" width="670" height="345" >}}
 'use strict';
-// Set the cell length for all Quadrille objects (default is 100, changed to 40 here)
+// Set the cell length for all quadrilles (default is 100, changed to 40 here)
 Quadrille.cellLength = 40;
 // Disable the tile display algorithm for all Quadrille objects
 Quadrille.tileDisplay = 0;
 let q1, q2;
 
 function setup() {
-  createCanvas(17 * Quadrille.cellLength, 8 * Quadrille.cellLength);
+  createCanvas(16 * Quadrille.cellLength + 10, 8 * Quadrille.cellLength);
   // Instantiate two quadrille objects
   q1 = createQuadrille();
   // Update global square colors for all new Quadrille objects
@@ -36,14 +36,14 @@ function draw() {
 
 {{< details title="code" open=false >}}
 ```js
-// Set the cell length for all Quadrille objects (default is 100, changed to 40 here)
+// Set the cell length for all quadrilles (default is 100, changed to 40 here)
 Quadrille.cellLength = 40;
 // Disable the tile display algorithm for all Quadrille objects
 Quadrille.tileDisplay = 0;
 let q1, q2;
 
 function setup() {
-  createCanvas(17 * Quadrille.cellLength, 8 * Quadrille.cellLength);
+  createCanvas(16 * Quadrille.cellLength + 10, 8 * Quadrille.cellLength);
   // Instantiate two quadrille objects
   q1 = createQuadrille();
   // Update global square colors for all new Quadrille objects

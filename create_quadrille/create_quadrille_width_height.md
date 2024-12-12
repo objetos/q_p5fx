@@ -18,7 +18,7 @@ function setup() {
   // cell length default is: 100
   createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength);
   // quadrille object initialization
-  quadrille = createQuadrille(4, 3);
+  quadrille = createQuadrille(6, 4);
 }
 
 function draw() {
@@ -38,7 +38,7 @@ function setup() {
   // cell length default is: 100
   createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength);
   // quadrille object initialization
-  quadrille = createQuadrille(4, 3);
+  quadrille = createQuadrille(6, 4);
 }
 
 function draw() {
@@ -50,8 +50,8 @@ function draw() {
 {{< /details >}}
 
 {{< callout type="info" >}}
-**Observation**\ 
-`createQuadrille(width, height)` creates an empty quadrille with the given dimensions. See [fill()]({{< ref "fill" >}}) for populating it.
+**Observation**  
+`createQuadrille(width, height)` creates an empty quadrille with the given dimensions. See [fill]({{< ref "fill" >}}) and [rand]({{< ref "rand" >}}) for ways to populating it.
 {{< /callout >}}
 
 ## Syntax

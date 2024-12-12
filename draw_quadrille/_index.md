@@ -1,11 +1,13 @@
 ---
 bookCollapseSection: true
 title: "drawQuadrille(args)"
-weight: 3
+weight: 2
 draft: false
 ---
 
 The `drawQuadrille` function is used to render a quadrille onto the canvas or a specified graphics buffer. It provides various parameters for customizing the appearance and behavior of the drawn quadrille, including cell dimensions, colors, and display styles.
+
+By default, `drawQuadrille(quadrille)` is sufficient for most cases where no custom display parameters are needed, as it uses the quadrille's default properties for rendering. For more advanced use cases, `drawQuadrille(quadrille, { options })` allows you to specify optional display parameters, such as [cellLength]({{< relref "cell_length" >}}), [outline]({{< relref "outline" >}}), [textColor]({{< relref "text_color" >}}), and more, to customize the rendering behavior.
 
 ## Syntax
 
