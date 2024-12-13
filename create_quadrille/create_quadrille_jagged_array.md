@@ -364,14 +364,14 @@ function pulse() {
 {{< callout type="info" >}}  
 **Observations about [p5.Graphics](https://p5js.org/reference/p5/p5.Graphics/) cells**  
 1. **Alternative to function cells:** `p5.Graphics` can be used instead of function cells and works in both `P2D` and `WEBGL` modes, but the resulting code is less clean compared to function cells.  
-2. **Requires a separate p5.Graphics object:** A p5.Graphics object (`pg`) must be created using `createGraphics`, usually with dimensions matching the cell size.  
+2. **Requires a separate p5.Graphics object:** A `p5.Graphics` object (`pg`) must be created using `createGraphics`, usually with dimensions matching the cell size.  
 3. **Origin in P2D mode:** In this example, the origin is the **top-left corner**, so `pg.circle(pg.width / 2, pg.height / 2, radius)` centers the circle within the cell.  
-4. **Manual update trigger:** p5.Graphics requires an explicit update call, such as from `draw`, which makes it less concise than function cells.  
-5. **Performance:** p5.Graphics is less efficient than function cells, which are more performant.  
+4. **Manual update trigger:** `p5.Graphics` requires an explicit update call, such as from `draw`, which makes it less concise than function cells.  
+5. **Performance:** `p5.Graphics` is less efficient than function cells, which are more performant.  
 {{< /callout >}}
 
-{{< callout type="error" >}}
-This API's examples will focus exclusively on function cells and will no longer include `p5.Graphics`.
+{{< callout type="warning" >}}
+Function cells are the preferred choice in this API's examples while occasionally using `p5.Graphics`.
 {{< /callout >}}
 
 ## Syntax  
