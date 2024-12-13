@@ -71,6 +71,11 @@ function draw() {
 ```
 {{< /details >}}
 
+{{< callout type="info" >}}  
+**Observations about images**  
+Images must be loaded in the [preload](https://p5js.org/reference/p5/preload) function using [loadImage](https://p5js.org/reference/p5/loadImage) to ensure they are fully available before [setup](https://p5js.org/reference/p5/setup) or [draw](https://p5js.org/reference/p5/draw) run. This avoids timing issues and ensures smooth rendering.
+{{< /callout >}}
+
 ## Example 2: Videos, Text, Colors, Numbers, and Emojis
 
 (click to toggle the video playback)  
