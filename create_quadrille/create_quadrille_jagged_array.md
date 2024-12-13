@@ -6,9 +6,7 @@ title: "createQuadrille(jagged_array)"
 
 The `createQuadrille` function creates a **quadrille** and fills its cells using items from a [jagged_array](https://en.wikipedia.org/wiki/Jagged_array). The array can contain any combination of [valid JavaScript values](https://www.w3schools.com/js/js_datatypes.asp), with `null` representing empty cells.
 
-## Example 1: Images, Text, Colors, Numbers, and Emojis  
-
-This example creates a quadrille using a mix of images, numbers, colors, text (including emojis), and empty cells (`null`).  
+## Example 1: Images, Text, Colors, Numbers, and Emojis
 
 {{< p5-global-iframe quadrille="true" width="625" height="425" >}}
 'use strict';
@@ -17,7 +15,7 @@ let quadrille;
 let yellow, blue, red;
 
 function preload() {
-  // Load an image in preload for proper rendering
+  // Load images in preload so that they are ready before setup
   sb = loadImage('/images/simon_bolivar_wedding.jpg');
 }
 
@@ -26,7 +24,6 @@ function setup() {
   yellow = color('yellow');
   blue = color('blue');
   red = color('red');
-
   // Define the quadrille with diverse content
   quadrille = createQuadrille([
     ['hi', 100, sb, sb, null, 0],
@@ -37,7 +34,7 @@ function setup() {
 }
 
 function draw() {
-  background('#DAF7A6'); // Light green background
+  background('#DAF7A6');
   drawQuadrille(quadrille); // Render the quadrille
 }
 {{< /p5-global-iframe >}}
@@ -49,7 +46,7 @@ let quadrille;
 let yellow, blue, red;
 
 function preload() {
-  // Load an image in preload for proper rendering
+  // Load images in preload so that they are ready before setup
   sb = loadImage('/images/simon_bolivar_wedding.jpg');
 }
 
@@ -58,7 +55,6 @@ function setup() {
   yellow = color('yellow');
   blue = color('blue');
   red = color('red');
-
   // Define the quadrille with diverse content
   quadrille = createQuadrille([
     ['hi', 100, sb, sb, null, 0],
@@ -69,16 +65,15 @@ function setup() {
 }
 
 function draw() {
-  background('#DAF7A6'); // Light green background
+  background('#DAF7A6');
   drawQuadrille(quadrille); // Render the quadrille
 }
 ```
 {{< /details >}}
 
-## Example 2: Videos, Text, Colors, Numbers, and Emojis  
+## Example 2: Videos, Text, Colors, Numbers, and Emojis
 
-This example demonstrates how to use a video along with other content types in the quadrille. Clicking the mouse toggles the video playback.  
-
+(click to toggle the video playback)  
 {{< p5-global-iframe quadrille="true" width="625" height="425" >}}
 'use strict';
 let sb; // Image variable
@@ -115,13 +110,8 @@ function draw() {
 
 function mouseClicked() {
   // Toggle video playback on mouse click
-  if (destino.looping) {
-    destino.pause();
-    destino.looping = false;
-  } else {
-    destino.loop();
-    destino.looping = true;
-  }
+  destino.looping ? destino.pause() : destino.loop();
+  destino.looping = !destino.looping;
 }
 {{< /p5-global-iframe >}}
 
@@ -161,20 +151,29 @@ function draw() {
 
 function mouseClicked() {
   // Toggle video playback on mouse click
-  if (destino.looping) {
-    destino.pause();
-    destino.looping = false;
-  } else {
-    destino.loop();
-    destino.looping = true;
-  }
+  destino.looping ? destino.pause() : destino.loop();
+  destino.looping = !destino.looping;
 }
 ```
 {{< /details >}}
 
-## Example 3: WEBGL Mode with Functions, Images, Text, and Colors  
+{{< callout type="info" >}}
+**Observations about video**  
+1. **Loading the Video:** Videos should be loaded in `preload()` and immediately hidden using `destino.hide()` to remove default controls.  
+2. **Interactive Playback Toggle:** This code toggles the video playback when the mouse is clicked:  
+   ```javascript
+   destino.looping ? destino.pause() : destino.loop();
+   destino.looping = !destino.looping;
+   ```  
+   The [ternary operator](https://www.w3schools.com/js/js_comparisons.asp#ternary) (`condition ? exprIfTrue : exprIfFalse`) is shorthand for `if/else`. Equivalent code:  
+   ```javascript
+   if (destino.looping) destino.pause();
+   else destino.loop();
+   ```  
+3. **`destino.looping` custom [property](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics):** Initially, `destino.looping` is `undefined` (a [falsy](https://developer.mozilla.org/en-US/docs/Glossary/Falsy) value). The line `destino.looping = !destino.looping;` flips its value to `true` on the first click, and subsequently toggles it between `true` and `false`.  
+{{< /callout >}}
 
-This example uses **WEBGL mode** and includes a mix of images, colors, and cell functions. The `pulse` function animates a circular effect inside a quadrille cell.  
+## Example 3: WEBGL Mode with Functions, Images, Text, and Colors
 
 {{< p5-global-iframe quadrille="true" width="625" height="425" >}}
 'use strict';
@@ -184,8 +183,9 @@ let quadrille;
 let yellow, blue, red;
 
 function preload() {
+  // Load image and font in preload
   sb = loadImage('/images/simon_bolivar_wedding.jpg');
-  font = loadFont('/fonts/noto_sans.ttf'); // Load a custom font
+  font = loadFont('/fonts/noto_sans.ttf');
 }
 
 function setup() {
@@ -194,7 +194,6 @@ function setup() {
   yellow = color('yellow');
   blue = color('blue');
   red = color('red');
-
   // Quadrille containing cell functions and other content
   quadrille = createQuadrille([
     ['hi', 100, sb, pulse, null, 0],
@@ -205,13 +204,13 @@ function setup() {
 }
 
 function draw() {
-  background('#DAF7A6'); // Light green background
+  background('#DAF7A6');
   drawQuadrille(quadrille, { origin: CORNER }); // Render the quadrille
 }
 
 function pulse() {
-  background('green'); // Cell-specific animation
-  const radius = map(sin(frameCount * 0.05), -1, 1, 10, Quadrille.cellLength / 2);
+  background('green');
+  const radius = map(sin(frameCount * 0.1), -1, 1, 5, Quadrille.cellLength / 2);
   noStroke();
   fill('cyan');
   circle(0, 0, radius);
@@ -226,8 +225,9 @@ let quadrille;
 let yellow, blue, red;
 
 function preload() {
+  // Load image and font in preload
   sb = loadImage('/images/simon_bolivar_wedding.jpg');
-  font = loadFont('/fonts/noto_sans.ttf'); // Load a custom font
+  font = loadFont('/fonts/noto_sans.ttf');
 }
 
 function setup() {
@@ -236,7 +236,6 @@ function setup() {
   yellow = color('yellow');
   blue = color('blue');
   red = color('red');
-
   // Quadrille containing cell functions and other content
   quadrille = createQuadrille([
     ['hi', 100, sb, pulse, null, 0],
@@ -247,50 +246,13 @@ function setup() {
 }
 
 function draw() {
-  background('#DAF7A6'); // Light green background
+  background('#DAF7A6');
   drawQuadrille(quadrille, { origin: CORNER }); // Render the quadrille
 }
 
 function pulse() {
-  background('green'); // Cell-specific animation
-  const radius = map(sin(frameCount * 0.05), -1, 1, 10, Quadrille.cellLength / 2);
-  noStroke();
-  fill('cyan');
-  circle(0, 0, radius);
-}let sb; // Image variable
-let font; // Custom font
-let quadrille;
-let yellow, blue, red;
-
-function preload() {
-  sb = loadImage('/images/simon_bolivar_wedding.jpg');
-  font = loadFont('/fonts/noto_sans.ttf'); // Load a custom font
-}
-
-function setup() {
-  createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength, WEBGL);
-  textFont(font);
-  yellow = color('yellow');
-  blue = color('blue');
-  red = color('red');
-
-  // Quadrille containing cell functions and other content
-  quadrille = createQuadrille([
-    ['hi', 100, sb, pulse, null, 0],
-    [null, yellow, pulse, ':)'],
-    [null, blue, pulse, 255, ':p'],
-    [null, red, null, 185, ';)', pulse]
-  ]);
-}
-
-function draw() {
-  background('#DAF7A6'); // Light green background
-  drawQuadrille(quadrille, { origin: CORNER }); // Render the quadrille
-}
-
-function pulse() {
-  background('green'); // Cell-specific animation
-  const radius = map(sin(frameCount * 0.05), -1, 1, 10, Quadrille.cellLength / 2);
+  background('green');
+  const radius = map(sin(frameCount * 0.1), -1, 1, 5, Quadrille.cellLength / 2);
   noStroke();
   fill('cyan');
   circle(0, 0, radius);
@@ -298,9 +260,15 @@ function pulse() {
 ```
 {{< /details >}}
 
-## Example 4: p5.Graphics, Images, Text, Colors, and Emojis  
+{{< callout type="info" >}}
+**Observations about [WEBGL](https://p5js.org/reference/p5/WEBGL/) mode and function cells**  
+1. **[createCanvas](https://p5js.org/reference/p5/createCanvas/) with `WEBGL` and Function Cells:** Passing `WEBGL` as the third parameter in [createCanvas](https://p5js.org/reference/p5/createCanvas/) enables support for function cells, such as `pulse`.
+2. **Font Limitations:** In `WEBGL` mode, fonts must be loaded manually, and emojis are not supported (the only known limitation). 
+3. **Origin in WEBGL vs P2D:** In `WEBGL` mode, the origin defaults to the **center** of the canvas, while in `P2D` mode, it defaults to the **top-left corner**. To ensure the quadrille aligns correctly in `WEBGL` mode, the `origin` option is explicitly set to `CORNER` using: `drawQuadrille(quadrille, { origin: CORNER })`.
+4. **Origin in Function Cells:** Similarly, within function cells (like `pulse`), the origin is also the **center**. Therefore, `circle(0, 0, radius)` draws a circle centered at the cell’s origin.
+{{< /callout >}}
 
-This example demonstrates using **p5.Graphics** as a quadrille cell type. A smooth pulse animation is drawn within a `p5.Graphics` object.  
+## Example 4: p5.Graphics, Images, Text, Colors, and Emojis
 
 {{< p5-global-iframe quadrille="true" width="625" height="425" >}}
 'use strict';
@@ -310,6 +278,7 @@ let quadrille;
 let yellow, blue, red;
 
 function preload() {
+  // Load image in preload
   sb = loadImage('/images/simon_bolivar_wedding.jpg');
 }
 
@@ -318,10 +287,8 @@ function setup() {
   yellow = color('yellow');
   blue = color('blue');
   red = color('red');
-
   // Create a p5.Graphics object for custom drawing
   pg = createGraphics(Quadrille.cellLength, Quadrille.cellLength);
-
   quadrille = createQuadrille([
     ['hi', 100, sb, pg, null, 0],
     [null, yellow, pg, '🐷'],
@@ -331,14 +298,14 @@ function setup() {
 }
 
 function draw() {
-  background('#DAF7A6'); // Light green background
+  background('#DAF7A6');
   pulse(); // Update the p5.Graphics animation
   drawQuadrille(quadrille); // Render the quadrille
 }
 
 function pulse() {
-  pg.background('green'); // Draw smooth pulse animation
-  const radius = map(sin(frameCount * 0.05), -1, 1, 10, pg.width / 2);
+  pg.background('green');
+  const radius = map(sin(frameCount * 0.1), -1, 1, 5, Quadrille.cellLength / 2);
   pg.noStroke();
   pg.fill('cyan');
   pg.circle(pg.width / 2, pg.height / 2, radius);
@@ -353,6 +320,7 @@ let quadrille;
 let yellow, blue, red;
 
 function preload() {
+  // Load image in preload
   sb = loadImage('/images/simon_bolivar_wedding.jpg');
 }
 
@@ -361,10 +329,8 @@ function setup() {
   yellow = color('yellow');
   blue = color('blue');
   red = color('red');
-
   // Create a p5.Graphics object for custom drawing
   pg = createGraphics(Quadrille.cellLength, Quadrille.cellLength);
-
   quadrille = createQuadrille([
     ['hi', 100, sb, pg, null, 0],
     [null, yellow, pg, '🐷'],
@@ -374,20 +340,33 @@ function setup() {
 }
 
 function draw() {
-  background('#DAF7A6'); // Light green background
+  background('#DAF7A6');
   pulse(); // Update the p5.Graphics animation
   drawQuadrille(quadrille); // Render the quadrille
 }
 
 function pulse() {
-  pg.background('green'); // Draw smooth pulse animation
-  const radius = map(sin(frameCount * 0.05), -1, 1, 10, pg.width / 2);
+  pg.background('green');
+  const radius = map(sin(frameCount * 0.1), -1, 1, 5, Quadrille.cellLength / 2);
   pg.noStroke();
   pg.fill('cyan');
   pg.circle(pg.width / 2, pg.height / 2, radius);
 }
 ```
 {{< /details >}}
+
+{{< callout type="info" >}}  
+**Observations about [p5.Graphics](https://p5js.org/reference/p5/p5.Graphics/) cells**  
+1. **Alternative to function cells:** `p5.Graphics` can be used instead of function cells and works in both `P2D` and `WEBGL` modes, but the resulting code is less clean compared to function cells.  
+2. **Requires a separate p5.Graphics object:** A p5.Graphics object (`pg`) must be created using `createGraphics`, usually with dimensions matching the cell size.  
+3. **Origin in P2D mode:** In this example, the origin is the **top-left corner**, so `pg.circle(pg.width / 2, pg.height / 2, radius)` centers the circle within the cell.  
+4. **Manual update trigger:** p5.Graphics requires an explicit update call, such as from `draw`, which makes it less concise than function cells.  
+5. **Performance:** p5.Graphics is less efficient than function cells, which are more performant.  
+{{< /callout >}}
+
+{{< callout type="error" >}}
+This API's examples will focus exclusively on function cells and will no longer include `p5.Graphics`.
+{{< /callout >}}
 
 ## Syntax  
 
