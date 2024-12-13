@@ -268,9 +268,10 @@ function pulse() {
 {{< callout type="info" >}}
 **Observations about [WEBGL](https://p5js.org/reference/p5/WEBGL/) mode and function cells**  
 1. **[createCanvas](https://p5js.org/reference/p5/createCanvas/) with `WEBGL` and Function Cells:** Passing `WEBGL` as the third parameter in [createCanvas](https://p5js.org/reference/p5/createCanvas/) enables support for function cells, such as `pulse`.
-2. **Font Limitations:** In `WEBGL` mode, fonts must be loaded manually, and emojis are not supported (the only known limitation). 
-3. **Origin in WEBGL vs P2D:** In `WEBGL` mode, the origin defaults to the **center** of the canvas, while in `P2D` mode, it defaults to the **top-left corner**. To ensure the quadrille aligns correctly in `WEBGL` mode, the `origin` option is explicitly set to `CORNER` using: `drawQuadrille(quadrille, { origin: CORNER })`.
-4. **Origin in Function Cells:** Similarly, within function cells (like `pulse`), the origin is also the **center**. Therefore, `circle(0, 0, radius)` draws a circle centered at the cell’s origin.
+2. **Function Cells and 3D Geometry:** In `WEBGL` mode, function cells can render 3D geometry using shapes like [`box`](https://p5js.org/reference/p5/box), [`sphere`](https://p5js.org/reference/p5/sphere), and other 3D primitives.  
+3. **Font Limitations:** In `WEBGL` mode, fonts must be loaded manually, and emojis are not supported (the only known limitation). 
+4. **Origin in WEBGL vs P2D:** In `WEBGL` mode, the origin defaults to the **center** of the canvas, while in `P2D` mode, it defaults to the **top-left corner**. To ensure the quadrille aligns correctly in `WEBGL` mode, the `origin` option is explicitly set to `CORNER` using: `drawQuadrille(quadrille, { origin: CORNER })`.
+5. **Origin in Function Cells:** Similarly, within function cells (like `pulse`), the origin is also the **center**. Therefore, `circle(0, 0, radius)` draws a circle centered at the cell’s origin.
 {{< /callout >}}
 
 ## Example 4: p5.Graphics, Images, Text, Colors, and Emojis
