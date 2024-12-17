@@ -8,13 +8,13 @@ Creates a quadrille and fills its cells using the characters from the provided `
 
 ## Example
 
-{{< p5-global-iframe quadrille="true" width="625" height="425" >}}
+{{< p5-global-iframe quadrille="true" width="625" height="125" >}}
 'use strict';
 let quadrille;
 
 function setup() {
-  createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength);
-  quadrille = createQuadrille('hi 👽');
+  createCanvas(6 * Quadrille.cellLength, Quadrille.cellLength);
+  quadrille = createQuadrille('hola 👽');
 }
 
 function draw() {
@@ -40,7 +40,6 @@ function draw() {
 {{< /details >}}
 
 {{< callout type="info" >}}
-**Observation**\
 The `createQuadrille(string)` function fills a quadrille with each character of the provided string, where each column represents one character.
 {{< /callout >}}
 
@@ -50,6 +49,6 @@ The `createQuadrille(string)` function fills a quadrille with each character of 
 
 ## Parameters
 
-| param  | description                                                    |
-|--------|----------------------------------------------------------------|
-| string | String: The string used to fill the quadrille cells. Each character occupies one cell. |
+| param    | description                                                    |
+|----------|----------------------------------------------------------------|
+| `string` | String: The string used to fill the quadrille cells. Each character occupies one cell |

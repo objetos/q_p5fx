@@ -382,4 +382,4 @@ Function cells are the preferred choice in this API's examples while occasionall
 
 | Parameter    | Description                                                                                         |
 |--------------|-----------------------------------------------------------------------------------------------------|
-| jagged_array | An array containing any combination of valid JavaScript values. Use `null` to represent empty cells |
+| `jagged_array` | An array containing any combination of valid JavaScript values. Use `null` to represent empty cells |

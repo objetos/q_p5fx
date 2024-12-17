@@ -66,5 +66,5 @@ Observe that `createQuadrille(color1, color2)` is equivalent to `createQuadrille
 
 | Param  | Description                                                                                             |
 |--------|---------------------------------------------------------------------------------------------------------|
-| color1 | [p5.Color](https://p5js.org/reference/#/p5.Color) \| String: The color used for the light squares of the chessboard pattern. Can be a `p5.Color` instance or an HTML color string (e.g., `'red'`, `'#ff0000'`, `'rgb(255,0,0)'`) |
-| color2 | [p5.Color](https://p5js.org/reference/#/p5.Color) \| String: The color used for the dark squares of the chessboard pattern. Can be a `p5.Color` instance or an HTML color string                                                |
+| `color1` | [p5.Color](https://p5js.org/reference/#/p5.Color) \| String: The color used for the light squares of the chessboard pattern. Can be a `p5.Color` instance or an HTML color string (e.g., `'red'`, `'#ff0000'`, `'rgb(255,0,0)'`) |
+| `color2` | [p5.Color](https://p5js.org/reference/#/p5.Color) \| String: The color used for the dark squares of the chessboard pattern. Can be a `p5.Color` instance or an HTML color string                                                |

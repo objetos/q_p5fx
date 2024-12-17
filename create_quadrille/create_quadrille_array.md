@@ -4,76 +4,57 @@ draft: false
 title: "createQuadrille(array)"
 ---
 
-Creates a quadrille and fills its cells using the items from the `array` as the source.
+The `createQuadrille` function creates a **quadrille** and fills its cells using items from the `array` as the source. The array can contain any combination of [valid JavaScript values](https://www.w3schools.com/js/js_datatypes.asp), with `null` representing empty cells.
 
 ## Example
 
-{{< p5-global-iframe quadrille="true" width="625" height="425" >}}
+{{< p5-global-iframe quadrille="true" width="625" height="125" >}}
 'use strict';
-let sb;
-let pg;
+let sb; // Image variable
 let quadrille;
 
 function preload() {
+  // Load images in preload so that they are ready before setup
   sb = loadImage('/images/simon_bolivar_wedding.jpg');
 }
 
 function setup() {
-  createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength);
-  pg = createGraphics(Quadrille.cellLength, Quadrille.cellLength);
-  quadrille = createQuadrille(['hi', 100, sb, color('red'), pg]);
+  createCanvas(6 * Quadrille.cellLength, Quadrille.cellLength);
+  // Define the quadrille with diverse content
+  quadrille = createQuadrille(['hi', 100, null, sb, '🦜', color('red')]);
 }
 
 function draw() {
-  background('orange');
-  update();
-  drawQuadrille(quadrille);
-}
-
-function update() {
-  pg.background('green');
-  let radius = map(mouseX, 0, width, 10, pg.width);
-  pg.noStroke();
-  pg.fill('cyan');
-  pg.circle(pg.width/2, pg.height/2, radius);
+  background('#DAF7A6');
+  drawQuadrille(quadrille); // Render the quadrille
 }
 {{< /p5-global-iframe >}}
 
 {{< details title="code" open=false >}}
 ```js
-let sb;
-let pg;
+let sb; // Image variable
 let quadrille;
 
 function preload() {
+  // Load images in preload so that they are ready before setup
   sb = loadImage('/images/simon_bolivar_wedding.jpg');
 }
 
 function setup() {
-  createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength);
-  pg = createGraphics(Quadrille.cellLength, Quadrille.cellLength);
-  quadrille = createQuadrille(['hi', 100, sb, color('red'), pg]);
+  createCanvas(6 * Quadrille.cellLength, Quadrille.cellLength);
+  // Define the quadrille with diverse content
+  quadrille = createQuadrille(['hi', 100, null, sb, '🦜', color('red')]);
 }
 
 function draw() {
-  background('orange');
-  update();
-  drawQuadrille(quadrille);
-}
-
-function update() {
-  pg.background('green');
-  let radius = map(mouseX, 0, width, 10, pg.width);
-  pg.noStroke();
-  pg.fill('cyan');
-  pg.circle(pg.width/2, pg.height/2, radius);
+  background('#DAF7A6');
+  drawQuadrille(quadrille); // Render the quadrille
 }
 ```
 {{< /details >}}
 
 {{< callout type="info" >}}
-**Observation**\
-The `createQuadrille(array)` function allows you to fill a quadrille with any combination of valid types, including images, colors, strings, and more, provided within an array.
+The `createQuadrille(array)` function lets you populate a quadrille with any valid JavaScript values, such as images, colors, and strings, provided in an `array`; for handling these values, see [createQuadrille(jagged_array)]({{< relref "create_quadrille_jagged_array" >}}).
 {{< /callout >}}
 
 ## Syntax
@@ -84,4 +65,4 @@ The `createQuadrille(array)` function allows you to fill a quadrille with any co
 
 | param | description                                                                                                                                        |
 |-------|----------------------------------------------------------------------------------------------------------------------------------------------------|
-| array | An array containing any combination of [p5.Image](https://p5js.org/reference/#/p5.Image), [p5.Graphics](https://p5js.org/reference/#/p5.Graphics), [p5.Color](https://p5js.org/reference/#/p5.Color), arrays, objects, strings, numbers, or `null` cells. |
+| `array` | An array containing any combination of valid JavaScript values. Use `null` to represent empty cells |

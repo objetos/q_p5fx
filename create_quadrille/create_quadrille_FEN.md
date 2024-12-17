@@ -50,8 +50,7 @@ function draw() {
 {{< /details >}}
 
 {{< callout type="info" >}}
-**Observation**  
-`createQuadrille(FEN)` creates a chess board based on the given FEN notation. See more about FEN [here](https://en.wikipedia.org/wiki/Forsyth%E2%80%93Edwards_Notation).
+`createQuadrille(FEN)` creates a chess board based on the given [FEN notation](https://en.wikipedia.org/wiki/Forsyth%E2%80%93Edwards_Notation).
 {{< /callout >}}
 
 ## Example 2: Custom Chess Symbols with Chess.com Colors
@@ -145,4 +144,4 @@ static chessKeys = {
 
 | Param | Description                                                                                                                             |
 |-------|-----------------------------------------------------------------------------------------------------------------------------------------|
-| FEN   | String: A valid [Forsyth–Edwards Notation](https://en.wikipedia.org/wiki/Forsyth%E2%80%93Edwards_Notation) describing a board position |
+| `FEN` | String: A valid [Forsyth–Edwards Notation](https://en.wikipedia.org/wiki/Forsyth%E2%80%93Edwards_Notation) describing a board position |
