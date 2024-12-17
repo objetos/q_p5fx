@@ -164,7 +164,7 @@ function mouseClicked() {
 
 {{< callout type="info" >}}
 **Observations about video**  
-1. **Loading the Video:** Videos should be loaded in `preload()` and immediately hidden using `destino.hide()` to remove default controls.  
+1. **Loading the Video:** Videos should be loaded in `preload()` and immediately hidden using the `destino` [hide](https://p5js.org/reference/p5.Element/hide/) method to remove default controls.  
 2. **Interactive Playback Toggle:** This code toggles the video playback when the mouse is clicked:  
    ```javascript
    destino.looping ? destino.pause() : destino.loop();
