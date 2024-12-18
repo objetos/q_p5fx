@@ -1,10 +1,10 @@
 ---
-weight: 11
-draft: false
-title: "createQuadrille(width, image, coherence)"
+weight: 11  
+draft: false  
+title: "createQuadrille(width, image, coherence)"  
 ---
 
-Converts an `image` (a [p5.Image](https://p5js.org/reference/#/p5.Image), [p5.Graphics](https://p5js.org/reference/#/p5.Graphics)) [p5.MediaElement](https://p5js.org/reference/p5/p5.MediaElement/) into a pixelated quadrille. The `coherence` parameter controls spatial coherence when filling cells.
+Converts an `image` (a [p5.Image](https://p5js.org/reference/#/p5.Image), [p5.Graphics](https://p5js.org/reference/#/p5.Graphics), or a video [p5.MediaElement](https://p5js.org/reference/p5/p5.MediaElement/)) into a pixelated quadrille. The `coherence` parameter **must be provided** to control spatial coherence; omitting it invokes [createQuadrille(width, image)]({{< relref "create_quadrille_width_image" >}}).
 
 ## Example
 
@@ -12,6 +12,7 @@ Converts an `image` (a [p5.Image](https://p5js.org/reference/#/p5.Image), [p5.Gr
 'use strict';
 let ps;
 let quadrille;
+let coherence;
 
 function preload() {
   ps = loadImage('/images/pola.jpg');
@@ -20,7 +21,18 @@ function preload() {
 function setup() {
   Quadrille.cellLength = 25;
   createCanvas(24 * Quadrille.cellLength, 24 * Quadrille.cellLength);
-  quadrille = createQuadrille(24, ps, false);
+  // Initialize checkbox with a label
+  coherence = createCheckbox('Coherence', false)
+    .position(10, 10)
+    .style('color', 'white')
+    .changed(update);
+  // Initial quadrille setup
+  update();
+}
+
+function update() {
+  // Toggle coherence based on checkbox state
+  quadrille = createQuadrille(24, ps, coherence.checked());
 }
 
 function draw() {
@@ -33,6 +45,7 @@ function draw() {
 ```js
 let ps;
 let quadrille;
+let coherence;
 
 function preload() {
   ps = loadImage('/images/pola.jpg');
@@ -41,7 +54,18 @@ function preload() {
 function setup() {
   Quadrille.cellLength = 25;
   createCanvas(24 * Quadrille.cellLength, 24 * Quadrille.cellLength);
-  quadrille = createQuadrille(24, ps, false);
+  // Initialize checkbox with a label
+  coherence = createCheckbox('Coherence', false)
+    .position(10, 10)
+    .style('color', 'white')
+    .changed(update);
+  // Initial quadrille setup
+  update();
+}
+
+function update() {
+  // Toggle coherence based on checkbox state
+  quadrille = createQuadrille(24, ps, coherence.checked());
 }
 
 function draw() {
@@ -51,18 +75,14 @@ function draw() {
 ```
 {{< /details >}}
 
-{{< callout type="info" >}}
-`createQuadrille(width, image, coherence)` converts an image into a pixelated quadrille, with `coherence` controlling spatial coherence.
-{{< /callout >}}
-
 ## Syntax
 
 > `createQuadrille(width, image, coherence)`
 
 ## Parameters
 
-| param  | description                                                                                         |
-|--------|-----------------------------------------------------------------------------------------------------|
-| `width`  | Number: The total number of columns for the quadrille                                               |
-| `image`  | [p5.Image](https://p5js.org/reference/#/p5.Image), [p5.Graphics](https://p5js.org/reference/#/p5.Graphics) or [p5.MediaElement](https://p5js.org/reference/p5/p5.MediaElement/): The image to be pixelated into the quadrille |
-| `coherence` | Boolean: Defines whether to preserve spatial coherence when converting the image. Default is `false` |
+| Param       | Description                                                                                         |
+|-------------|-----------------------------------------------------------------------------------------------------|
+| `width`     | Number: The total number of columns for the quadrille                                               |
+| `image`     | [p5.Image](https://p5js.org/reference/#/p5.Image), [p5.Graphics](https://p5js.org/reference/#/p5.Graphics), or [p5.MediaElement](https://p5js.org/reference/p5/p5.MediaElement/): The image to be pixelated into the quadrille |
+| `coherence` | Boolean: Defines whether to preserve spatial coherence when converting the image. **Required**      |

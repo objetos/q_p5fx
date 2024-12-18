@@ -52,7 +52,7 @@ function draw() {
 {{< /details >}}
 
 {{< callout type="info" >}}
-`createQuadrille(width, image)` converts an image into a quadrille, with each cell representing an sub-image.
+`createQuadrille(width, image)` converts an image into a quadrille, with each cell representing a sub-image.
 {{< /callout >}}
 
 ## Syntax
@@ -64,4 +64,4 @@ function draw() {
 | param  | description                                                                                         |
 |--------|-----------------------------------------------------------------------------------------------------|
 | `width`  | Number: The total number of columns for the quadrille                                               |
-| `image`  | [p5.Image](https://p5js.org/reference/#/p5.Image), [p5.Graphics](https://p5js.org/reference/#/p5.Graphics) or [p5.MediaElement](https://p5js.org/reference/p5/p5.MediaElement/): The image to be pixelated into the quadrille |
+| `image`  | [p5.Image](https://p5js.org/reference/#/p5.Image), [p5.Graphics](https://p5js.org/reference/#/p5.Graphics) or video [p5.MediaElement](https://p5js.org/reference/p5/p5.MediaElement/): The image to be pixelated into the quadrille |

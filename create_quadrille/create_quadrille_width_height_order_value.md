@@ -14,7 +14,7 @@ let quadrille;
 
 function setup() {
   createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength);
-  quadrille = createQuadrille(4, 3, 7, 150);
+  quadrille = createQuadrille(6, 4, 13, 150);
 }
 
 function draw() {
@@ -29,7 +29,7 @@ let quadrille;
 
 function setup() {
   createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength);
-  quadrille = createQuadrille(4, 3, 7, 150);
+  quadrille = createQuadrille(6, 4, 13, 150);
 }
 
 function draw() {
@@ -40,8 +40,7 @@ function draw() {
 {{< /details >}}
 
 {{< callout type="info" >}}
-**Observation**\ 
-`createQuadrille(width, height, order, value)` fills a quadrille with the given value, distributing it randomly up to the specified `order` count.
+To define different values in `createQuadrille(width, height, order, value)`, refer to [createQuadrille(jagged_array)]({{< relref "create_quadrille_jagged_array" >}}).
 {{< /callout >}}
 
 ## Syntax
@@ -52,7 +51,7 @@ function draw() {
 
 | param  | description                                                                                                                                        |
 |--------|----------------------------------------------------------------------------------------------------------------------------------------------------|
-| width  | Number: The total number of columns for the quadrille                                                                                              |
-| height | Number: The total number of rows for the quadrille                                                                                                |
-| order  | Number: The number of non-empty cells to be filled with the `value`                                                                                |
-| value  | Any: The value to be used to fill the quadrille cells. This can be an image, color, string, number, or other valid data type                       |
+| `width`  | Number: The total number of columns for the quadrille                                                                                              |
+| `height` | Number: The total number of rows for the quadrille                                                                                                |
+| `order`  | Number: The number of non-empty cells to be filled with the `value`                                                                                |
+| `value`  | Any: [valid JavaScript value](https://www.w3schools.com/js/js_datatypes.asp), with `null` representing empty cells                       |

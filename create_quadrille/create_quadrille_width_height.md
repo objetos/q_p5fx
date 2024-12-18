@@ -50,7 +50,6 @@ function draw() {
 {{< /details >}}
 
 {{< callout type="info" >}}
-**Observation**  
 `createQuadrille(width, height)` creates an empty quadrille with the given dimensions. See [fill]({{< ref "fill" >}}) and [rand]({{< ref "rand" >}}) for ways to populating it.
 {{< /callout >}}
 
@@ -60,7 +59,7 @@ function draw() {
 
 ## Parameters
 
-| param  | description                       |
-|--------|-----------------------------------|
-| width  | Number: total number of columns   |
-| height | Number: total number of rows      |
+| param    | description                       |
+|----------|-----------------------------------|
+| `width`  | Number: total number of columns   |
+| `height` | Number: total number of rows      |
