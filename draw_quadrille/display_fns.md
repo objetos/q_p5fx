@@ -30,9 +30,9 @@ let customColor; // Custom display for quadrille color cells
 
 function setup() {
   createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength);
-  circled = createCheckbox('circled', true);
-  circled.position(10, 10);
-  circled.style('color', 'magenta');
+  circled = createCheckbox('circled', true)
+    .position(10, 10)
+    .style('color', 'magenta');
   customTile = ({ outline, outlineWeight, cellLength }) => {
     noFill();
     stroke(outline);
@@ -55,7 +55,7 @@ function draw() {
     x: mouseX,
     y: mouseY,
     tileDisplay: circled.checked() ? customTile : Quadrille.tileDisplay,
-    colorDisplay: circled.checked() ? customColor : Quadrille.colorDisplay,
+    colorDisplay: circled.checked() ? customColor : Quadrille.colorDisplay
   };
   drawQuadrille(quadrille, params);
 }
@@ -70,9 +70,9 @@ let customColor; // Custom display for quadrille color cells
 
 function setup() {
   createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength);
-  circled = createCheckbox('circled', true);
-  circled.position(10, 10);
-  circled.style('color', 'magenta');
+  circled = createCheckbox('circled', true)
+    .position(10, 10)
+    .style('color', 'magenta');
   customTile = ({ outline, outlineWeight, cellLength }) => {
     noFill();
     stroke(outline);
@@ -95,7 +95,7 @@ function draw() {
     x: mouseX,
     y: mouseY,
     tileDisplay: circled.checked() ? customTile : Quadrille.tileDisplay,
-    colorDisplay: circled.checked() ? customColor : Quadrille.colorDisplay,
+    colorDisplay: circled.checked() ? customColor : Quadrille.colorDisplay
   };
   drawQuadrille(quadrille, params);
 }

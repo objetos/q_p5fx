@@ -71,7 +71,6 @@ function draw() {
 {{< /details >}}
 
 {{< callout type="info" >}}  
-**Observation**  
 The `values` array must contain references to the exact instances used to fill the `quadrille`. For example, if cells in the `quadrille` were filled using variables like `yellow` (defined as `color('yellow')`), the `values` array must include `yellow` itself, not a new instance created with `color('yellow')`.  
 {{< /callout >}}
 
@@ -81,8 +80,8 @@ The `values` array must contain references to the exact instances used to fill t
 
 ## Parameters
 
-| parameter | description                                                                                      |
+| Param | Description                                                                                      |
 |-----------|--------------------------------------------------------------------------------------------------|
-| quadrille | Quadrille: The `quadrille` to be visited                                                         |
-| fx        | Function: A function of the form `fx(row, col)` to be executed on each cell matching `values`    |
-| values    | [Iterable](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of): Cells to visit; all cells are visited if this parameter is `undefined` |
+| `quadrille` | Quadrille: The `quadrille` to be visited                                                         |
+| `fx`        | Function: A function of the form `fx(row, col)` to be executed on each cell matching `values`    |
+| `values`    | [Iterable](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of): Cells to visit; all cells are visited if this parameter is `undefined` |

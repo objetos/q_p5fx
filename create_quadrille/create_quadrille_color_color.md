@@ -54,8 +54,7 @@ function draw() {
 {{< /details >}}
 
 {{< callout type="info" >}}
-**Observation**\
-Observe that `createQuadrille(color1, color2)` is equivalent to `createQuadrille(8, 8).fill(color1, color2)`. See [createQuadrille(width, height)]({{< ref "create_quadrille/#createquadrillewidth-height" >}}) and [fill(color1, color2)]({{< ref "fill_color_color" >}}).
+`createQuadrille(color1, color2)` is equivalent to `createQuadrille(8, 8).fill(color1, color2)`. See [createQuadrille(width, height)]({{< ref "create_quadrille/#createquadrillewidth-height" >}}) and [fill(color1, color2)]({{< ref "fill_color_color" >}}).
 {{< /callout >}}
 
 ## Syntax

@@ -74,8 +74,7 @@ function draw() {
 ```
 {{< /details >}}
 
-{{< callout type="warning" >}}
-**Observation**  
+{{< callout type="info" >}}
 To implement the above sketch, the following quadrille methods are used: [isEmpty()]({{< ref "is_empty" >}}), [ring]({{< ref "ring" >}}), [rand(times, value)]({{< ref "rand_times_value" >}}), and [fill(row, col, value)]({{< ref "fill_row_col_value" >}}).
 {{< /callout >}}
 
@@ -190,7 +189,6 @@ visitQuadrille(source, (row, col) => {
 Using arrow functions provides a more concise syntax, making them suitable for inline functions in cases like this one.
 
 {{< callout type="info" >}}
-**Note**  
 From now on, [arrow functions](https://www.w3schools.com/js/js_arrow_function.asp), also known as anonymous functions, will be used instead of named functions to simplify examples. Keep in mind that arrow functions do not have their own `this` context. For more details on how `this` behaves in arrow functions, refer to [this guide on arrow functions](https://www.w3schools.com/js/js_arrow_function.asp).
 {{< /callout >}}
 
@@ -200,7 +198,7 @@ From now on, [arrow functions](https://www.w3schools.com/js/js_arrow_function.as
 
 ## Parameters
 
-| parameter | description                                                                         |
+| Param | Description                                                                         |
 |-----------|-------------------------------------------------------------------------------------|
-| quadrille | Quadrille: The `quadrille` to be visited                                            |
-| fx        | Function: A function of the form `fx(row, col)` to be executed on all visited cells |
+| `quadrille` | Quadrille: The `quadrille` to be visited                                            |
+| `fx`        | Function: A function of the form `fx(row, col)` to be executed on all visited cells |
