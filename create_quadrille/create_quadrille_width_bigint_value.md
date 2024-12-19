@@ -73,7 +73,7 @@ To define different values in `createQuadrille(width, bigint, value)`, refer to 
 
 ## Parameters
 
-| param  | description                                                                                               |
+| Param  | Description                                                                                               |
 |--------|-----------------------------------------------------------------------------------------------------------|
 | `width`  | Number: The total number of columns for the quadrille                                                     |
 | `bigint` | BigInt (or Number): A bigint whose binary representation will determine the filled cells in the quadrille |

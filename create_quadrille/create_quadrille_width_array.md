@@ -63,7 +63,7 @@ The `createQuadrille(width, array)` function lets you specify the number of colu
 
 ## Parameters  
 
-| **param** | **description**                                                                                                                      |  
+| Param | Description                                                                                                                      |  
 |-----------|--------------------------------------------------------------------------------------------------------------------------------------|  
 | `width`   | Number: The total number of columns for the quadrille                                                                               |  
 | `array`   | An array containing any combination of valid JavaScript values. Use `null` to represent empty cells |  

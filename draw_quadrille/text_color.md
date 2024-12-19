@@ -74,7 +74,6 @@ function draw() {
 {{< /details >}}
 
 {{< callout type="info" >}}
-**Observation**  
 - `q1` is drawn with a text color controlled by the local color picker (`localPicker`), initialized to `'magenta'`.  
 - `q2`, `q3`, and `q4` use the global `Quadrille.textColor` set by the global color picker (`globalPicker`).
 {{< /callout >}}
@@ -87,4 +86,4 @@ function draw() {
 
 | Param     | Description                                                                            |
 |-----------|----------------------------------------------------------------------------------------|
-| textColor | String \| [p5.Color](https://p5js.org/reference/#/p5.Color): Specifies the color used for drawing the text. The default is `Quadrille.textColor`, which is `'DodgerBlue'` |
+| `textColor` | String \| [p5.Color](https://p5js.org/reference/#/p5.Color): Specifies the color used for drawing the text. The default is `Quadrille.textColor`, which is `'DodgerBlue'` |

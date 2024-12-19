@@ -49,7 +49,7 @@ To define different values in `createQuadrille(width, height, order, value)`, re
 
 ## Parameters
 
-| param  | description                                                                                                                                        |
+| Param  | Description                                                                                                                                        |
 |--------|----------------------------------------------------------------------------------------------------------------------------------------------------|
 | `width`  | Number: The total number of columns for the quadrille                                                                                              |
 | `height` | Number: The total number of rows for the quadrille                                                                                                |

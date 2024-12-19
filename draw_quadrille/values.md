@@ -106,10 +106,23 @@ function mousePressed() {
 ```
 {{< /details >}}
 
-{{< callout type="info" >}}  
-**Observation**  
+{{< callout type="info" >}}
 The `values` array must contain references to the exact instances used to fill the quadrille. For example, if `q` was filled with the variable `yellow`, which holds the value `color('lemonchiffon')`, the `values` array must include the `yellow` variable itself, not a new instance created with `color('lemonchiffon')`.  
-{{< /callout >}}  
+{{< /callout >}}
+
+{{< callout type="info" >}}  
+The `&&` operator in the `update()` function acts as a [short-circuiting conditional](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND). If the condition before `&&` is true (e.g., `yellowBox.checked()`), the expression after `&&` (e.g., `values.push(yellow)`) is executed. This makes the code concise and avoids the need for `if` statements.  
+For example:  
+```js
+yellowBox.checked() && values.push(yellow);
+```  
+is equivalent to:  
+```js
+if (yellowBox.checked()) {
+  values.push(yellow);
+}
+```  
+{{< /callout >}}
 
 ## Syntax
 
@@ -117,6 +130,6 @@ The `values` array must contain references to the exact instances used to fill t
 
 ## Parameters
 
-| Param  | Description                                                                                 |
-|--------|---------------------------------------------------------------------------------------------|
-| values | [Iterable](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of): Specifies which cells to draw; tiles of unselected cells are skipped. All cells are drawn if this parameter is `undefined` |
+| Param    | Description                                                                                 |
+|----------|---------------------------------------------------------------------------------------------|
+| `values` | [Iterable](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of): Specifies which cells to draw; tiles of unselected cells are skipped. All cells are drawn if this parameter is `undefined` |

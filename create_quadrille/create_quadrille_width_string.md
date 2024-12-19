@@ -49,7 +49,7 @@ The `createQuadrille(width, string)` function allows you to control the number o
 
 ## Parameters
 
-| param    | description                                                    |
+| Param    | Description                                                    |
 |----------|----------------------------------------------------------------|
 | `width`  | Number: The total number of columns for the quadrille          |
 | `string` | String: The string used to fill the quadrille cells. Each character occupies one cell |

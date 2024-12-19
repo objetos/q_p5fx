@@ -49,6 +49,6 @@ The `createQuadrille(string)` function fills a quadrille with each character of 
 
 ## Parameters
 
-| param    | description                                                    |
+| Param    | Description                                                    |
 |----------|----------------------------------------------------------------|
 | `string` | String: The string used to fill the quadrille cells. Each character occupies one cell |

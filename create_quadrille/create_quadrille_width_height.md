@@ -59,7 +59,7 @@ function draw() {
 
 ## Parameters
 
-| param    | description                       |
+| Param    | Description                       |
 |----------|-----------------------------------|
 | `width`  | Number: total number of columns   |
 | `height` | Number: total number of rows      |

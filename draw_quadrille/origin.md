@@ -72,4 +72,4 @@ function keyPressed() {
 
 | Param  | Description                                                                                      |
 |--------|--------------------------------------------------------------------------------------------------|
-| origin | Constant: `CORNER` draws the quadrille aligned to the top-left corner of the canvas (default in `P2D`); `CENTER` draws it aligned to the center of the canvas (default in `WEBGL`) |
+| `origin` | Constant: `CORNER` draws the quadrille aligned to the top-left corner of the canvas (default in `P2D`); `CENTER` draws it aligned to the center of the canvas (default in `WEBGL`) |

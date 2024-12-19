@@ -76,7 +76,6 @@ function draw() {
 {{< /details >}}
 
 {{< callout type="info" >}}
-**Observation**  
 - `q1` is drawn with a cell length controlled by the local slider (`localSlider`), initialized to `30` pixels.  
 - `q2`, `q3`, and `q4` use the global `Quadrille.cellLength` set by the global slider (`globalSlider`), which is initially `40` pixels.
 {{< /callout >}}
@@ -89,4 +88,4 @@ function draw() {
 
 | Param      | Description                                                                                 |
 |------------|---------------------------------------------------------------------------------------------|
-| cellLength | Number: Specifies the cell length in pixels. The default is `Quadrille.cellLength`, which is `100` |
+| `cellLength` | Number: Specifies the cell length in pixels. The default is `Quadrille.cellLength`, which is `100` |

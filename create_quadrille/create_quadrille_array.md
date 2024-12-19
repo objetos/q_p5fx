@@ -63,6 +63,6 @@ The `createQuadrille(array)` function lets you populate a quadrille with any val
 
 ## Parameters
 
-| param | description                                                                                                                                        |
+| Param | Description                                                                                                                                        |
 |-------|----------------------------------------------------------------------------------------------------------------------------------------------------|
 | `array` | An array containing any combination of valid JavaScript values. Use `null` to represent empty cells |

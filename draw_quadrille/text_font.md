@@ -72,7 +72,6 @@ function draw() {
 {{< /details >}}
 
 {{< callout type="info" >}}
-**Observation**  
 - `q1` is drawn using the Noto Serif font loaded in `preload`.  
 - `q2` uses the default font set by p5.js for rendering text in quadrille cells.
 {{< /callout >}}
@@ -85,4 +84,4 @@ function draw() {
 
 | Param     | Description                                                                                              |
 |-----------|----------------------------------------------------------------------------------------------------------|
-| textFont  | [p5.Font](https://p5js.org/reference/#/p5.Font): Specifies the font used for rendering text in cells. Default is the current p5.js font |
+| `textFont` | [p5.Font](https://p5js.org/reference/#/p5.Font): Specifies the font used for rendering text in cells. Default is the current p5.js font |

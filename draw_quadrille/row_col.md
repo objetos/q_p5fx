@@ -47,7 +47,6 @@ function draw() {
 {{< /details >}}
 
 {{< callout type="info" >}}
-**Observation**\
 The [mouseRow]({{< ref "mouse_row" >}}) and [mouseCol]({{< ref "mouse_col" >}}) Quadrille properties are used to dynamically position the `q` quadrille based on the mouse location.
 {{< /callout >}}
 

@@ -80,5 +80,5 @@ The following parameters are static fields of the `Quadrille` class, meaning the
 
 | Param                 | Description                                                                                             |
 |-----------------------|---------------------------------------------------------------------------------------------------------|
-| Quadrille.lightSquare | String \| [p5.Color](https://p5js.org/reference/#/p5.Color): The global color used for the light squares of the chessboard pattern. Can be an HTML color string (e.g., `'red'`, `'#ff0000'`, `'rgb(255,0,0)'`) or a `p5.Color` instance. Default is `#FDCDAA` |
-| Quadrille.darkSquare  | String \| [p5.Color](https://p5js.org/reference/#/p5.Color): The global color used for the dark squares of the chessboard pattern. Can be an HTML color string or a `p5.Color` instance. Default is `#D28C45` |
+| `Quadrille.lightSquare` | String \| [p5.Color](https://p5js.org/reference/#/p5.Color): The global color used for the light squares of the chessboard pattern. Can be an HTML color string (e.g., `'red'`, `'#ff0000'`, `'rgb(255,0,0)'`) or a `p5.Color` instance. Default is `#FDCDAA` |
+| `Quadrille.darkSquare`  | String \| [p5.Color](https://p5js.org/reference/#/p5.Color): The global color used for the dark squares of the chessboard pattern. Can be an HTML color string or a `p5.Color` instance. Default is `#D28C45` |

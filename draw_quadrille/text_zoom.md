@@ -76,7 +76,6 @@ function draw() {
 {{< /details >}}
 
 {{< callout type="info" >}}
-**Observation**  
 - `q1` is drawn with a text zoom level controlled by the local slider (`localZoomSlider`), initialized to `0.5`.  
 - `q2`, `q3`, and `q4` use the global `Quadrille.textZoom` set by the global slider (`globalZoomSlider`), which is initially `0.89`.
 {{< /callout >}}
@@ -89,4 +88,4 @@ function draw() {
 
 | Param     | Description                                                                            |
 |-----------|----------------------------------------------------------------------------------------|
-| textZoom  | Number: Specifies the text zoom level for drawing the quadrille text. The default is `Quadrille.textZoom`, which is `0.89` |
+| `textZoom` | Number: Specifies the text zoom level for drawing the quadrille text. The default is `Quadrille.textZoom`, which is `0.89` |

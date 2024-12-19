@@ -270,8 +270,8 @@ function pulse() {
 1. **[createCanvas](https://p5js.org/reference/p5/createCanvas/) with `WEBGL` and Function Cells:** Passing `WEBGL` as the third parameter in [createCanvas](https://p5js.org/reference/p5/createCanvas/) enables support for function cells, such as `pulse`.
 2. **Function Cells and 3D Geometry:** In `WEBGL` mode, function cells can render 3D geometry using shapes like [`box`](https://p5js.org/reference/p5/box), [`sphere`](https://p5js.org/reference/p5/sphere), and other 3D primitives.  
 3. **Font Limitations:** In `WEBGL` mode, fonts must be loaded manually, and emojis are not supported (the only known limitation). 
-4. **Origin in WEBGL vs P2D:** In `WEBGL` mode, the origin defaults to the **center** of the canvas, while in `P2D` mode, it defaults to the **top-left corner**. To ensure the quadrille aligns correctly in `WEBGL` mode, the `origin` option is explicitly set to `CORNER` using: `drawQuadrille(quadrille, { origin: CORNER })`.
-5. **Origin in Function Cells:** Similarly, within function cells (like `pulse`), the origin is also the **center**. Therefore, `circle(0, 0, radius)` draws a circle centered at the cell’s origin.
+4. **Origin in WEBGL vs P2D:** In `WEBGL` mode, the `origin` defaults to the **center** of the canvas, while in `P2D` mode, it defaults to the **top-left corner**. To ensure the quadrille aligns correctly in `WEBGL` mode, the `origin` option is explicitly set to `CORNER` using: `drawQuadrille(quadrille, { origin: CORNER })`.
+5. **Origin in Function Cells:** Similarly, within function cells (like `pulse`), the `origin` is also the **center**. Therefore, `circle(0, 0, radius)` draws a circle centered at the cell’s center.
 {{< /callout >}}
 
 ## Example 4: p5.Graphics, Images, Text, Colors, and Emojis
@@ -365,7 +365,7 @@ function pulse() {
 **Observations about [p5.Graphics](https://p5js.org/reference/p5/p5.Graphics/) cells**  
 1. **Alternative to function cells:** `p5.Graphics` can be used instead of function cells and works in both `P2D` and `WEBGL` modes, but the resulting code is less clean compared to function cells.  
 2. **Requires a separate p5.Graphics object:** A `p5.Graphics` object (`pg`) must be created using `createGraphics`, usually with dimensions matching the cell size.  
-3. **Origin in P2D mode:** In this example, the origin is the **top-left corner**, so `pg.circle(pg.width / 2, pg.height / 2, radius)` centers the circle within the cell.  
+3. **Origin in P2D mode:** In this example, the `origin` is the **top-left corner**, so `pg.circle(pg.width / 2, pg.height / 2, radius)` centers the circle within the cell.  
 4. **Manual update trigger:** `p5.Graphics` requires an explicit update call, such as from `draw`, which makes it less concise than function cells.  
 5. **Performance:** `p5.Graphics` is less efficient than function cells, which are more performant.  
 {{< /callout >}}
@@ -380,6 +380,6 @@ Function cells are the preferred choice in this API's examples while occasionall
 
 ## Parameters  
 
-| Parameter      | Description                                                                                         |
+| Param      | Description                                                                                         |
 |----------------|-----------------------------------------------------------------------------------------------------|
 | `jagged_array` | An array containing any combination of valid JavaScript values. Use `null` to represent empty cells |

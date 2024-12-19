@@ -46,11 +46,6 @@ function draw() {
 ```
 {{< /details >}}
 
-{{< callout type="info" >}}
-**Observation**\
-The [outline]({{< ref "outline" >}}) parameter is part of the object literal used to customize display options, defining the color of the border drawn around each cell.
-{{< /callout >}}
-
 ## Syntax
 
 > `drawQuadrille(quadrille, { x, y })`

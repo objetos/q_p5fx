@@ -76,7 +76,6 @@ function draw() {
 {{< /details >}}
 
 {{< callout type="info" >}}
-**Observation**  
 - `q1` is drawn with an outline weight controlled by the local slider (`localSlider`).  
 - `q2`, `q3`, and `q4` use the global `Quadrille.outlineWeight`, which can be adjusted by the global slider (`globalSlider`).
 {{< /callout >}}
@@ -89,4 +88,4 @@ function draw() {
 
 | Param         | Description                                                                            |
 |---------------|----------------------------------------------------------------------------------------|
-| outlineWeight | Number: Specifies the outline weight (stroke thickness). The default is `Quadrille.outlineWeight`, which is `2` |
+| `outlineWeight` | Number: Specifies the outline weight (stroke thickness). The default is `Quadrille.outlineWeight`, which is `2` |

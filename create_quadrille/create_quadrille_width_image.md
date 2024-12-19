@@ -61,7 +61,7 @@ function draw() {
 
 ## Parameters
 
-| param  | description                                                                                         |
+| Param  | Description                                                                                         |
 |--------|-----------------------------------------------------------------------------------------------------|
 | `width`  | Number: The total number of columns for the quadrille                                               |
 | `image`  | [p5.Image](https://p5js.org/reference/#/p5.Image), [p5.Graphics](https://p5js.org/reference/#/p5.Graphics) or video [p5.MediaElement](https://p5js.org/reference/p5/p5.MediaElement/): The image to be pixelated into the quadrille |

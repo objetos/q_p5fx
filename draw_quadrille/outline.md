@@ -78,7 +78,6 @@ function draw() {
 {{< /details >}}
 
 {{< callout type="info" >}}
-**Observation**  
 - `q1` is drawn with an outline color controlled by the local picker (`localPicker`), initialized to `'magenta'`.  
 - `q2`, `q3`, and `q4` use the global `Quadrille.outline`, which can be adjusted via the global picker (`globalPicker`).
 {{< /callout >}}
@@ -91,4 +90,4 @@ function draw() {
 
 | Param    | Description                                                                      |
 |----------|----------------------------------------------------------------------------------|
-| outline  | String \| [p5.Color](https://p5js.org/reference/#/p5.Color): Specifies the color used for drawing the quadrille outline. Default is `Quadrille.outline`, which is `'OrangeRed'` |
+| `outline`  | String \| [p5.Color](https://p5js.org/reference/#/p5.Color): Specifies the color used for drawing the quadrille outline. Default is `Quadrille.outline`, which is `'OrangeRed'` |

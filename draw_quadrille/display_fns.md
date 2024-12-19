@@ -103,7 +103,6 @@ function draw() {
 {{< /details >}}
 
 {{< callout type="info" >}}
-**Observations**  
 * This example customizes `tileDisplay` and `colorDisplay` to render quadrille cells as circular shapes, overriding the default square tiling.  
 * By toggling the checkbox, the rendering can switch between the custom circular shapes and the default square tiles.
 {{< /callout >}}
@@ -114,15 +113,15 @@ function draw() {
 
 ## Parameters
 
-| Parameter       | Description                                                                                           |
+| Param       | Description                                                                                           |
 |-----------------|-------------------------------------------------------------------------------------------------------|
-| tileDisplay[^1] | Function: Renders cell contours. Default is `Quadrille.tileDisplay`                                   |
-| stringDisplay   | Function: Renders strings in cells. Default is `Quadrille.stringDisplay`                              |
-| numberDisplay   | Function: Renders numbers in cells. Default is `Quadrille.numberDisplay`                              |
-| colorDisplay    | Function: Renders colors in cells. Default is `Quadrille.colorDisplay`                                |
-| imageDisplay    | Function: Renders images in cells. Default is `Quadrille.imageDisplay`                                |
-| functionDisplay | Function: Renders functions in cells, available only in WEBGL. Default is `Quadrille.functionDisplay` |
-| arrayDisplay    | Function: Renders cells filled with arrays. No static default provided                                |
-| objectDisplay   | Function: Renders cells filled with objects. No static default provided                               |
+| `tileDisplay`[^1] | Function: Renders cell contours. Default is `Quadrille.tileDisplay`                                   |
+| `stringDisplay`   | Function: Renders strings in cells. Default is `Quadrille.stringDisplay`                              |
+| `numberDisplay`   | Function: Renders numbers in cells. Default is `Quadrille.numberDisplay`                              |
+| `colorDisplay`    | Function: Renders colors in cells. Default is `Quadrille.colorDisplay`                                |
+| `imageDisplay`    | Function: Renders images in cells. Default is `Quadrille.imageDisplay`                                |
+| `functionDisplay` | Function: Renders functions in cells, available only in WEBGL. Default is `Quadrille.functionDisplay` |
+| `arrayDisplay`    | Function: Renders cells filled with arrays. No static default provided                                |
+| `objectDisplay`   | Function: Renders cells filled with objects. No static default provided                               |
 
 [^1]: The `tileDisplay` function enables the implementation of [regular tilings](https://en.wikipedia.org/wiki/Euclidean_tilings_by_convex_regular_polygons#Regular_tilings) other than the default [square tiling](https://en.wikipedia.org/wiki/Square_tiling).
