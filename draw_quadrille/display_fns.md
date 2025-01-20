@@ -38,13 +38,13 @@ function setup() {
     stroke(outline);
     strokeWeight(outlineWeight);
     ellipseMode(CORNER);
-    ellipse(0, 0, cellLength, cellLength);
+    circle(0, 0, cellLength);
   };
   customColor = ({ value, cellLength }) => {
     noStroke();
     fill(value);
     ellipseMode(CORNER);
-    ellipse(0, 0, cellLength, cellLength);
+    circle(0, 0, cellLength);
   };
   quadrille = createQuadrille(3, 58n, color('blue'));
 }
@@ -78,13 +78,13 @@ function setup() {
     stroke(outline);
     strokeWeight(outlineWeight);
     ellipseMode(CORNER);
-    ellipse(0, 0, cellLength, cellLength);
+    circle(0, 0, cellLength);
   };
   customColor = ({ value, cellLength }) => {
     noStroke();
     fill(value);
     ellipseMode(CORNER);
-    ellipse(0, 0, cellLength, cellLength);
+    circle(0, 0, cellLength);
   };
   quadrille = createQuadrille(3, 58n, color('blue'));
 }
