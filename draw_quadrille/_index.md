@@ -9,6 +9,42 @@ The `drawQuadrille` function is used to render a quadrille onto the canvas or a 
 
 By default, `drawQuadrille(quadrille)` is sufficient for most cases where no custom display parameters are needed, as it uses the quadrille's default properties for rendering. For more advanced use cases, `drawQuadrille(quadrille, { options })` allows you to specify optional display parameters, such as [cellLength]({{< relref "cell_length" >}}), [outline]({{< relref "outline" >}}), [textColor]({{< relref "text_color" >}}), and more, to customize the rendering behavior.
 
+## Configuring drawQuadrille with `{ options }`  
+
+The `drawQuadrille` function simplifies customization by using JavaScript object literals in its `{ options }` [object literal]({{< relref objects >}}) parameter. This approach makes function calls more readable, flexible, and maintainable, allowing you to configure only the parameters you need while relying on defaults for the rest.  
+
+### Example  
+
+```js
+drawQuadrille(quadrille, {
+  cellLength: 50,   // Custom size for each cell
+  outline: 'blue',  // Edge color of the quadrille
+  outlineWeight: 2, // Line thickness for the outline
+  textColor: 'white', // Color for text inside cells
+  textZoom: 0.5,    // Scale the text in cells
+});
+```
+
+In this example, only these parameters are explicitly configured:  
+- **`cellLength`**: Specifies the size of each cell in pixels.  
+- **`outline`**: Sets the edge color of the quadrille.  
+- **`outlineWeight`**: Defines the thickness of the outline.  
+- **`textColor`**: Controls the color of any text rendered in the quadrille cells.  
+- **`textZoom`**: Scales the size of the text rendered in the cells.  
+
+The remaining parameters in the `{ options }` object use their default values, making it easier to adjust specific aspects of the quadrille's rendering without needing to pass every option explicitly.  
+
+{{< callout type="info" >}}  
+### Why Use Object Literals in the `{ options }` Parameter?  
+
+Using object literals in the `{ options }` parameter of `drawQuadrille` provides several benefits:  
+
+1. **Clarity**: Parameters are grouped into a single, descriptive object, making it easier to understand the function call at a glance.  
+2. **Flexibility**: You can pass only the parameters you want to customize, and the rest will use their default values.  
+3. **Extensibility**: New parameters can be added to the function signature without affecting existing calls.  
+4. **Order Independence**: You don’t have to worry about the order of arguments; parameters are matched by their names, not their positions.  
+{{< /callout >}}  
+
 ## Syntax
 
 > drawQuadrille(quadrille, [{[[cellLength]({{< relref "cell_length" >}})], [[outline]({{< relref "outline" >}})], [[outlineWeight]({{< relref "outline_weight" >}})], [[textColor]({{< relref "text_color" >}})], [[textZoom]({{< relref "text_zoom" >}})], [[textFont]({{< relref "text_font" >}})], [[x]({{< relref "x_y" >}})], [[y]({{< relref "x_y" >}})], [[row]({{< relref "row_col" >}})], [[col]({{< relref "row_col" >}})], [[values]({{< relref "values" >}})], [[graphics]({{< relref "graphics" >}})], [[origin]({{< relref "origin" >}})], [[tileDisplay]({{< relref "display_fns" >}})], [[stringDisplay]({{< relref "display_fns" >}})], [[numberDisplay]({{< relref "display_fns" >}})], [[colorDisplay]({{< relref "display_fns" >}})], [[imageDisplay]({{< relref "display_fns" >}})], [[functionDisplay]({{< relref "display_fns" >}})], [[arrayDisplay]({{< relref "display_fns" >}})], [[objectDisplay]({{< relref "display_fns" >}})]}])
