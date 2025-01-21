@@ -35,8 +35,6 @@ In this example, only these parameters are explicitly configured:
 The remaining parameters in the `{ options }` object use their default values, making it easier to adjust specific aspects of the quadrille's rendering without needing to pass every option explicitly.  
 
 {{< callout type="info" >}}  
-### Why Use Object Literals in the `{ options }` Parameter?  
-
 Using object literals in the `{ options }` parameter of `drawQuadrille` provides several benefits:  
 
 1. **Clarity**: Parameters are grouped into a single, descriptive object, making it easier to understand the function call at a glance.  
