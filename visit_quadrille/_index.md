@@ -21,9 +21,9 @@ for (let row = 0; row < quadrille.height; row++) {
 
 This approach, while widely understood, requires precise indexing of `row` and `col`, which can sometimes lead to errors, particularly in setting index limits.
 
-## Iteration Using `for...of` with Cell Objects
+## Iteration Using `for...of` Loops
 
-As a more modern approach, `quadrille` cells can also be visited using a [for...of loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of) since a `quadrille` is an [iterable object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol). Here, each `cell` is an object with `value`, `row`, and `col` properties, enabling direct access to each cell’s position:
+A more modern approach uses a [for...of loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of) since a `quadrille` is an [iterable object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol). Each `cell` is an object with `value`, `row`, and `col` properties, enabling direct access to its position:
 
 ```js
 for (let cell of quadrille) {
@@ -31,18 +31,28 @@ for (let cell of quadrille) {
 }
 ```
 
-This method simplifies access to `row` and `col` without explicit indexing, reducing errors. However, it still requires manual iteration logic, which can become complex in more intricate operations.
+This method simplifies access to `row` and `col` without explicit indexing, reducing errors. However, it still requires manual iteration logic, which can be cumbersome in more complex scenarios.
 
-## Using `visitQuadrille` for Simplified, Less Error-Prone Iteration
+## Simplified Iteration with `visitQuadrille`
 
-The `visitQuadrille` function is a [p5.js](https://p5js.org/) utility that enhances iteration by executing the `fx` function across `quadrille` cells in a straightforward manner. It promotes a clean, [declarative](https://en.wikipedia.org/wiki/Declarative_programming) style, removing the need for explicit indexing and making the process less error-prone.
-
-With `visitQuadrille`, the iteration process becomes a single, straightforward call:
+The `visitQuadrille` function makes it easy to apply a function (`fx`) to each cell in a `quadrille`. By removing the need for manual indexing, it simplifies the process and reduces the chance of errors. Additionally, `visitQuadrille` supports an optional `values` array to selectively process specific cells, adding flexibility.
 
 ```js
-visitQuadrille(quadrille, (row, col) => fx(row, col));
+function fx(row, col) {
+  /* fx body */
+}
+
+visitQuadrille(quadrille, fx, values);
 ```
 
-This approach is not only concise but also supports scenarios that are prone to indexing errors. Additionally, `visitQuadrille` accepts an optional `values` array to selectively process specific cell values, adding flexibility without complicating the syntax.
+This approach keeps the code clean and allows the logic to be reused and organized effectively. The optional `values` array makes it possible to limit iteration to specific cell values.
 
-Modern [arrow functions](https://www.w3schools.com/js/js_arrow_function.asp) will be used with the `visitQuadrille` function for even more concise and functional code, making it an essential tool for streamlined `quadrille` operations.
+## Concise Iteration with `visitQuadrille`
+
+The `visitQuadrille` function also supports inline definitions of the `fx` function using modern [arrow functions](https://www.w3schools.com/js/js_arrow_function.asp). This enables a more concise and [declarative](https://en.wikipedia.org/wiki/Declarative_programming) style, removing the need for explicit loops:
+
+```js
+visitQuadrille(quadrille, (row, col) => { /* fx body */ }, values);
+```
+
+This concise approach is preferred for its simplicity, reducing potential errors and improving readability while fully leveraging modern JavaScript features.
