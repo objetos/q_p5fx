@@ -11,7 +11,7 @@ By default, `drawQuadrille(quadrille)` is sufficient for most cases where no cus
 
 ## Configuring drawQuadrille with `{ options }`  
 
-The `drawQuadrille` function simplifies customization by using JavaScript object literals in its `{ options }` [object literal]({{< relref objects >}}) parameter. This approach makes function calls more readable, flexible, and maintainable, allowing you to configure only the parameters you need while relying on defaults for the rest.  
+The `drawQuadrille` function simplifies customization by using its `{ options }` [object literal]({{< relref objects >}}) parameter. This approach makes function calls more readable, flexible, and maintainable, allowing you to configure only the parameters you need while relying on defaults for the rest.  
 
 ### Example  
 
