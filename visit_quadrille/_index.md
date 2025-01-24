@@ -12,6 +12,10 @@ The `visitQuadrille` p5 function is designed to iterate over `quadrille` cells a
 The first and most familiar way to iterate over a `quadrille` is with standard `for` loops, a common method used for looping through matrices:
 
 ```js
+function fx(row, col) {
+  /* fx body */
+}
+
 for (let row = 0; row < quadrille.height; row++) {
   for (let col = 0; col < quadrille.width; col++) {
     fx(row, col);
@@ -26,6 +30,10 @@ This approach, while widely understood, requires precise indexing of `row` and `
 A more modern approach uses a [for...of loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of) since a `quadrille` is an [iterable object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol). Each `cell` is an object with `value`, `row`, and `col` properties, enabling direct access to its position:
 
 ```js
+function fx(row, col) {
+  /* fx body */
+}
+
 for (let cell of quadrille) {
   fx(cell.row, cell.col);
 }
