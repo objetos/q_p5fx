@@ -57,7 +57,7 @@ This approach keeps the code clean and allows the logic to be reused and organiz
 
 ## Concise Iteration with `visitQuadrille`
 
-The `visitQuadrille` function also supports inline definitions of the `fx` function using modern [arrow functions](https://www.w3schools.com/js/js_arrow_function.asp). This enables a more concise and [declarative](https://en.wikipedia.org/wiki/Declarative_programming) style, removing the need for explicit loops:
+The `visitQuadrille` function also supports inline definitions of the `fx` function using modern [arrow functions](https://www.w3schools.com/js/js_arrow_function.asp). These anonymous functions enable a more concise and [declarative](https://en.wikipedia.org/wiki/Declarative_programming) style, removing the need for explicit loops:
 
 ```js
 visitQuadrille(quadrille, (row, col) => { /* fx body */ }, values);
