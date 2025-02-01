@@ -9,7 +9,7 @@ The `drawQuadrille` function is used to render a quadrille onto the canvas or a 
 
 By default, `drawQuadrille(quadrille)` is sufficient for most cases where no custom display parameters are needed, as it uses the quadrille's default properties for rendering. For more advanced use cases, `drawQuadrille(quadrille, { options })` allows you to specify optional display parameters, such as [cellLength]({{< relref "cell_length" >}}), [outline]({{< relref "outline" >}}), [textColor]({{< relref "text_color" >}}), and more, to customize the rendering behavior.
 
-## Configuring drawQuadrille with `{ options }`  
+## Configuring `drawQuadrille` Using Object Destructuring in `{ options }`  
 
 The `drawQuadrille` function simplifies customization by using its `{ options }` [object literal]({{< relref objects >}}) parameter. This approach makes function calls more readable, flexible, and maintainable, allowing you to configure only the parameters you need while relying on defaults for the rest.  
 
@@ -35,12 +35,12 @@ In this example, only these parameters are explicitly configured:
 The remaining parameters in the `{ options }` object use their default values, making it easier to adjust specific aspects of the quadrille's rendering without needing to pass every option explicitly.  
 
 {{< callout type="info" >}}  
-Using object literals in the `{ options }` parameter of `drawQuadrille` provides several benefits:  
+[JavaScript object destructuring](https://www.w3schools.com/js/js_destructuring.asp) allows extracting values directly from objects, improving code clarity and ease of use. This approach provides several benefits:  
 
-1. **Clarity**: Parameters are grouped into a single, descriptive object, making it easier to understand the function call at a glance.  
-2. **Flexibility**: You can pass only the parameters you want to customize, and the rest will use their default values.  
-3. **Extensibility**: New parameters can be added to the function signature without affecting existing calls.  
-4. **Order Independence**: You don’t have to worry about the order of arguments; parameters are matched by their names, not their positions.  
+1. **Clarity**: Parameters are grouped into a single, descriptive object, making function calls easier to read.  
+2. **Flexibility**: Only the parameters you need are specified, while defaults handle the rest.  
+3. **Extensibility**: New parameters can be added without breaking existing function calls.  
+4. **Named Parameters**: Parameters are assigned based on their names, so their order doesn’t matter.
 {{< /callout >}}  
 
 ## Syntax
