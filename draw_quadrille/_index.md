@@ -9,9 +9,9 @@ The `drawQuadrille` function is used to render a quadrille onto the canvas or a 
 
 By default, `drawQuadrille(quadrille)` is sufficient for most cases where no custom display parameters are needed, as it uses the quadrille's default properties for rendering. For more advanced use cases, `drawQuadrille(quadrille, { options })` allows you to specify optional display parameters, such as [cellLength]({{< relref "cell_length" >}}), [outline]({{< relref "outline" >}}), [textColor]({{< relref "text_color" >}}), and more, to customize the rendering behavior.
 
-## Configuring `drawQuadrille` Using Object Destructuring in `{ options }`  
+## Configuration  
 
-The `drawQuadrille` function simplifies customization by using its `{ options }` [object literal]({{< relref objects >}}) parameter. This approach makes function calls more readable, flexible, and maintainable, allowing you to configure only the parameters you need while relying on defaults for the rest.  
+The `drawQuadrille` function simplifies customization by using its `{ options }` [object literal]({{< relref objects >}}) parameter, leveraging [JavaScript object destructuring](https://www.w3schools.com/js/js_destructuring.asp) to extract values directly. This approach makes function calls more readable, flexible, and maintainable, allowing you to configure only the parameters you need while relying on defaults for the rest.  
 
 ### Example  
 
@@ -39,7 +39,7 @@ The remaining parameters in the `{ options }` object use their default values, m
 
 1. **Clarity**: Parameters are grouped into a single, descriptive object, making function calls easier to read.  
 2. **Flexibility**: Only the parameters you need are specified, while defaults handle the rest.  
-3. **Order Independence**: Parameters are assigned based on their names, so their order doesn’t matter
+3. **Order Independence**: Parameters are assigned based on their names, so their order doesn’t matter.  
 4. **Extensibility**: New parameters can be added without breaking existing function calls.  
 {{< /callout >}}  
 
