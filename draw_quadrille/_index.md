@@ -39,8 +39,8 @@ The remaining parameters in the `{ options }` object use their default values, m
 
 1. **Clarity**: Parameters are grouped into a single, descriptive object, making function calls easier to read.  
 2. **Flexibility**: Only the parameters you need are specified, while defaults handle the rest.  
-3. **Extensibility**: New parameters can be added without breaking existing function calls.  
-4. **Named Parameters**: Parameters are assigned based on their names, so their order doesn’t matter.
+3. **Order Independence**: Parameters are assigned based on their names, so their order doesn’t matter
+4. **Extensibility**: New parameters can be added without breaking existing function calls.  
 {{< /callout >}}  
 
 ## Syntax
