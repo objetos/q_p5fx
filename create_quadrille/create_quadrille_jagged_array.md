@@ -274,6 +274,11 @@ function pulse() {
 5. **Origin in Function Cells:** Similarly, within function cells (like `pulse`), the `origin` is also the **center**. Therefore, `circle(0, 0, radius)` draws a circle centered at the cell’s center.
 {{< /callout >}}
 
+{{< callout type="danger" >}}
+⚡ **Sustainability Consideration**  
+The **`WEBGL` mode** has a **higher carbon footprint** due to its reliance on **GPU acceleration**, which consumes more energy. For applications that do not require 3D rendering, consider using **`PGraphics`** with **`P2D` mode** as a more **energy-efficient** and **sustainable** alternative.
+{{< /callout >}}
+
 ## Example 4: p5.Graphics, Images, Text, Colors, and Emojis
 
 {{< p5-global-iframe quadrille="true" width="625" height="425" >}}
