@@ -11,7 +11,7 @@ By default, `drawQuadrille(quadrille)` is sufficient for most cases where no cus
 
 ## Configuration  
 
-The `drawQuadrille` function simplifies customization by using its `{ options }` [object literal]({{< relref objects >}}) parameter, leveraging [JavaScript object destructuring](https://www.w3schools.com/js/js_destructuring.asp) to extract values directly. This approach makes function calls more readable, flexible, and maintainable, allowing you to configure only the parameters you need while relying on defaults for the rest.  
+The `drawQuadrille` function simplifies customization by using its `{ options }` [object literal](https://www.w3schools.com/js/js_objects.asp) parameter, leveraging [JavaScript object destructuring](https://www.w3schools.com/js/js_destructuring.asp) to extract values directly. This approach makes function calls more readable, flexible, and maintainable, allowing you to configure only the parameters you need while relying on defaults for the rest.  
 
 ### Example  
 

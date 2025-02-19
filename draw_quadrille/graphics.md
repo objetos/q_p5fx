@@ -165,9 +165,11 @@ function update() {
 {{< /details >}}
 
 {{< callout type="info" >}}
-* This example highlights the use of a `p5.Graphics` object to render a quadrille and apply it as a 3D texture in a WEBGL environment. The quadrille represents a Game of Life simulation, with its updated state drawn onto the graphics object, decoupling the simulation from the main canvas for advanced visualization.
-* The Game of Life is discussed separately in the [showcase Game of Life]({{< relref "game_of_life" >}}), without WEBGL, using direct rendering of the quadrille.
-* A more advanced demonstration renders the Game of Life as a texture using a `p5.Framebuffer` instead of `p5.Graphics`, featured in a dedicated [demo]({{< relref "game_of_life_fbo" >}}).
+This [example](https://www.sciencedirect.com/science/article/pii/S2352711024002097?ref=cra_js_challenge&fr=RR-1#sec2.3) highlights the use of a `p5.Graphics` object to render a quadrille and apply it as a 3D texture in a WEBGL environment. The quadrille represents a Game of Life simulation, with its updated state drawn onto the graphics object, decoupling the simulation from the main canvas for advanced visualization.
+{{< /callout >}}
+
+{{< callout type="warning" >}}
+The **`WEBGL` mode** in **`p5.js`** has a **higher carbon footprint** due to its reliance on **GPU acceleration**, which consumes more energy. For applications that do not require 3D rendering, consider using **`PGraphics`** with **`P2D` mode** as a more **energy-efficient** and **sustainable** alternative.
 {{< /callout >}}
 
 ## Syntax
