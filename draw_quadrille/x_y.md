@@ -27,7 +27,7 @@ function draw() {
 }
 {{< /p5-global-iframe >}}
 
-{{< details title="code" open=false >}}
+{{% details title="code" open=true %}}
 ```js
 // q0 is the reference quadrille
 let q0, q;
@@ -44,7 +44,7 @@ function draw() {
   drawQuadrille(q, { x: mouseX, y: mouseY, outline: 'lime' });
 }
 ```
-{{< /details >}}
+{{% /details %}}
 
 ## Syntax
 

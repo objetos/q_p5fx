@@ -28,7 +28,7 @@ function draw() {
 }
 {{< /p5-global-iframe >}}
 
-{{< details title="code" open=false >}}
+{{% details title="code" open=true %}}
 ```js
 Quadrille.cellLength = 50;
 Quadrille.tileDisplay = 0;
@@ -47,7 +47,7 @@ function draw() {
   drawQuadrille(fen);
 }
 ```
-{{< /details >}}
+{{% /details %}}
 
 {{< callout type="info" >}}
 `createQuadrille(FEN)` creates a chess board based on the given [FEN notation](https://en.wikipedia.org/wiki/Forsyth%E2%80%93Edwards_Notation).
@@ -83,7 +83,7 @@ function draw() {
 }
 {{< /p5-global-iframe >}}
 
-{{< details title="code" open=false >}}
+{{% details title="code" open=true %}}
 ```js
 Quadrille.cellLength = 50;
 Quadrille.tileDisplay = 0;
@@ -110,7 +110,7 @@ function draw() {
   drawQuadrille(fenQuadrille);
 }
 ```
-{{< /details >}}
+{{% /details %}}
 
 {{< callout type="info" >}}
 **Custom Symbols and Colors**\

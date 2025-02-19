@@ -27,7 +27,7 @@ function draw() {
 }
 {{< /p5-global-iframe >}}
 
-{{< details title="code" open=false >}}
+{{% details title="code" open=true %}}
 ```js
 // q0 is the reference quadrille
 let q0, q;
@@ -44,7 +44,7 @@ function draw() {
   drawQuadrille(q, { row: q0.mouseRow, col: q0.mouseCol, outline: 'lime' });
 }
 ```
-{{< /details >}}
+{{% /details %}}
 
 {{< callout type="info" >}}
 The [mouseRow]({{< ref "mouse_row" >}}) and [mouseCol]({{< ref "mouse_col" >}}) Quadrille properties are used to dynamically position the `q` quadrille based on the mouse location.

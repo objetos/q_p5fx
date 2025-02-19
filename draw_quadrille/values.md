@@ -57,7 +57,7 @@ function keyPressed() {
 }
 {{< /p5-global-iframe >}}
 
-{{< details title="code" open=false >}}
+{{% details title="code" open=true %}}
 ```js
 Quadrille.cellLength = 20;
 Quadrille.outlineWeight = 1;
@@ -104,7 +104,7 @@ function mousePressed() {
   q.randomize();
 }
 ```
-{{< /details >}}
+{{% /details %}}
 
 {{< callout type="info" >}}
 The `values` array must contain references to the exact instances used to fill the quadrille. For example, if `q` was filled with the variable `yellow`, which holds the value `color('lemonchiffon')`, the `values` array must include the `yellow` variable itself, not a new instance created with `color('lemonchiffon')`.  

@@ -23,7 +23,7 @@ function draw() {
 }
 {{< /p5-global-iframe >}}
 
-{{< details title="code" open=false >}}
+{{% details title="code" open=true %}}
 ```js
 let quadrille;
 
@@ -37,7 +37,7 @@ function draw() {
   drawQuadrille(quadrille);
 }
 ```
-{{< /details >}}
+{{% /details %}}
 
 {{< callout type="info" >}}
 The `createQuadrille(string)` function fills a quadrille with each character of the provided string, where each column represents one character.

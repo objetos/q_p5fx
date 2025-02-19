@@ -29,7 +29,7 @@ function draw() {
 }
 {{< /p5-global-iframe >}}
 
-{{< details title="code" open=false >}}
+{{% details title="code" open=true %}}
 ```js
 let ps;
 let quadrille;
@@ -49,7 +49,7 @@ function draw() {
   drawQuadrille(quadrille);
 }
 ```
-{{< /details >}}
+{{% /details %}}
 
 {{< callout type="info" >}}
 `createQuadrille(width, image)` converts an image into a quadrille, with each cell representing a sub-image.

@@ -30,7 +30,7 @@ function draw() {
 }
 {{< /p5-global-iframe >}}
 
-{{< details title="code" open=false >}}
+{{% details title="code" open=true %}}
 ```js
 let sb; // Image variable
 let quadrille;
@@ -51,7 +51,7 @@ function draw() {
   drawQuadrille(quadrille); // Render the quadrille
 }
 ```
-{{< /details >}}
+{{% /details %}}
 
 {{< callout type="info" >}}  
 The `createQuadrille(width, array)` function lets you specify the number of columns (`width`) while filling the quadrille with items from the provided `array`. Items are arranged sequentially into rows, and any `null` values represent empty cells. For handling the values, refer to [createQuadrille(jagged_array)]({{< relref "create_quadrille_jagged_array" >}}).  

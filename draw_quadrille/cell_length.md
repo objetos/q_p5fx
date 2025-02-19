@@ -41,7 +41,7 @@ function draw() {
 }
 {{< /p5-global-iframe >}}
 
-{{< details title="code" open=false >}}
+{{% details title="code" open=true %}}
 ```js
 // Set the global cell length to a fixed value of 40 pixels (default is 100)
 Quadrille.cellLength = 40;
@@ -73,7 +73,7 @@ function draw() {
   drawQuadrille(q4, { x: 330, y: 170 });
 }
 ```
-{{< /details >}}
+{{% /details %}}
 
 {{< callout type="info" >}}
 - `q1` is drawn with a cell length controlled by the local slider (`localSlider`), initialized to `30` pixels.  

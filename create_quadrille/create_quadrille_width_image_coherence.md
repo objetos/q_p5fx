@@ -41,7 +41,7 @@ function draw() {
 }
 {{< /p5-global-iframe >}}
 
-{{< details title="code" open=false >}}
+{{% details title="code" open=true %}}
 ```js
 let ps;
 let quadrille;
@@ -73,7 +73,7 @@ function draw() {
   drawQuadrille(quadrille);
 }
 ```
-{{< /details >}}
+{{% /details %}}
 
 ## Syntax
 

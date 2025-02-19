@@ -23,7 +23,7 @@ function draw() {
 }
 {{< /p5-global-iframe >}}
 
-{{< details title="code" open=false >}}
+{{% details title="code" open=true %}}
 ```js
 let quadrille;
 
@@ -37,7 +37,7 @@ function draw() {
   drawQuadrille(quadrille);
 }
 ```
-{{< /details >}}
+{{% /details %}}
 
 {{< callout type="info" >}}
 To define different values in `createQuadrille(width, height, order, value)`, refer to [createQuadrille(jagged_array)]({{< relref "create_quadrille_jagged_array" >}}).

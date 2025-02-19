@@ -23,7 +23,7 @@ function draw() {
 }
 {{< /p5-global-iframe >}}
 
-{{< details title="code" open=false >}}
+{{% details title="code" open=true %}}
 ```js
 let quadrille;
 
@@ -37,7 +37,7 @@ function draw() {
   drawQuadrille(quadrille);
 }
 ```
-{{< /details >}}
+{{% /details %}}
 
 {{< callout type="info" >}}
 The `createQuadrille(width, string)` function allows you to control the number of columns (`width`) while filling the quadrille with the characters from the provided `string`. Characters will automatically overflow into additional rows as needed.

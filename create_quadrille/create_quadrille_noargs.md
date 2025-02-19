@@ -34,7 +34,7 @@ function draw() {
 }
 {{< /p5-global-iframe >}}
 
-{{< details title="code" open=false >}}
+{{% details title="code" open=true %}}
 ```js
 // Set the cell length for all quadrilles (default is 100, changed to 40 here)
 Quadrille.cellLength = 40;
@@ -59,7 +59,7 @@ function draw() {
   drawQuadrille(q2, { x: 330 });
 }
 ```
-{{< /details >}}
+{{% /details %}}
 
 {{< callout type="info" >}}
 `createQuadrille()` is equivalent to `createQuadrille(8, 8).fill()`. See [createQuadrille(width, height)]({{< ref "create_quadrille/#createquadrillewidth-height" >}}) and [fill()]({{< ref "fill" >}}).

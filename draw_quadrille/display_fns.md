@@ -61,7 +61,7 @@ function draw() {
 }
 {{< /p5-global-iframe >}}
 
-{{< details title="code" open=false >}}
+{{% details title="code" open=true %}}
 ```js
 let quadrille;
 let circled;
@@ -100,7 +100,7 @@ function draw() {
   drawQuadrille(quadrille, params);
 }
 ```
-{{< /details >}}
+{{% /details %}}
 
 {{< callout type="info" >}}
 * This example customizes `tileDisplay` and `colorDisplay` to render quadrille cells as circular shapes, overriding the default square tiling.  

@@ -30,7 +30,7 @@ function draw() {
 }
 {{< /p5-global-iframe >}}
 
-{{< details title="code" open=false >}}
+{{% details title="code" open=true %}}
 ```js
 let sb; // Image variable
 let quadrille;
@@ -51,7 +51,7 @@ function draw() {
   drawQuadrille(quadrille); // Render the quadrille
 }
 ```
-{{< /details >}}
+{{% /details %}}
 
 {{< callout type="info" >}}
 The `createQuadrille(array)` function lets you populate a quadrille with any valid JavaScript values, such as images, colors, and strings, provided in an `array`; for handling these values, see [createQuadrille(jagged_array)]({{< relref "create_quadrille_jagged_array" >}}).

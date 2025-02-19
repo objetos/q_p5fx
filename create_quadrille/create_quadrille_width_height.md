@@ -28,7 +28,7 @@ function draw() {
 }
 {{< /p5-global-iframe >}}
 
-{{< details title="code" open=false >}}
+{{% details title="code" open=true %}}
 ```js
 // quadrille object declaration
 let quadrille;
@@ -47,7 +47,7 @@ function draw() {
   drawQuadrille(quadrille);
 }
 ```
-{{< /details >}}
+{{% /details %}}
 
 {{< callout type="info" >}}
 `createQuadrille(width, height)` creates an empty quadrille with the given dimensions. See [fill]({{< ref "fill" >}}) and [rand]({{< ref "rand" >}}) for ways to populating it.

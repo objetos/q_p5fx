@@ -39,7 +39,7 @@ function draw() {
 }
 {{< /p5-global-iframe >}}
 
-{{< details title="code" open=false >}}
+{{% details title="code" open=true %}}
 ```js
 let sb; // Image variable
 let quadrille;
@@ -69,7 +69,7 @@ function draw() {
   drawQuadrille(quadrille); // Render the quadrille
 }
 ```
-{{< /details >}}
+{{% /details %}}
 
 {{< callout type="info" >}}  
 **Observation about images**  
@@ -120,7 +120,7 @@ function mouseClicked() {
 }
 {{< /p5-global-iframe >}}
 
-{{< details title="code" open=false >}}
+{{% details title="code" open=true %}}
 ```js
 let sb; // Image variable
 let destino; // Video variable
@@ -160,7 +160,7 @@ function mouseClicked() {
   destino.looping = !destino.looping;
 }
 ```
-{{< /details >}}
+{{% /details %}}
 
 {{< callout type="info" >}}
 **Observations about video**  
@@ -222,7 +222,7 @@ function pulse() {
 }
 {{< /p5-global-iframe >}}
 
-{{< details title="code" open=false >}}
+{{% details title="code" open=true %}}
 ```js
 let sb; // Image variable
 let font; // Custom font
@@ -263,7 +263,7 @@ function pulse() {
   circle(0, 0, radius);
 }
 ```
-{{< /details >}}
+{{% /details %}}
 
 {{< callout type="info" >}}
 **Observations about [WEBGL](https://p5js.org/reference/p5/WEBGL/) mode and function cells**  
@@ -322,7 +322,7 @@ function pulse() {
 }
 {{< /p5-global-iframe >}}
 
-{{< details title="code" open=false >}}
+{{% details title="code" open=true %}}
 ```js
 let sb; // Image variable
 let pg; // p5.Graphics object
@@ -363,7 +363,7 @@ function pulse() {
   pg.circle(pg.width / 2, pg.height / 2, radius);
 }
 ```
-{{< /details >}}
+{{% /details %}}
 
 {{< callout type="info" >}}  
 **Observations about [p5.Graphics](https://p5js.org/reference/p5/p5.Graphics/) cells**  

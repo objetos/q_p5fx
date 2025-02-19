@@ -39,7 +39,7 @@ function draw() {
 }
 {{< /p5-global-iframe >}}
 
-{{< details title="code" open=false >}}
+{{% details title="code" open=true %}}
 ```js
 let source, target;
 Quadrille.cellLength = 20;
@@ -68,7 +68,7 @@ function draw() {
   drawQuadrille(target, { outline: 'cyan', row: (h / 2) + 1, col: 1 });
 }
 ```
-{{< /details >}}
+{{% /details %}}
 
 {{< callout type="info" >}}  
 The `values` array must contain references to the exact instances used to fill the `quadrille`. For example, if cells in the `quadrille` were filled using variables like `yellow` (defined as `color('yellow')`), the `values` array must include `yellow` itself, not a new instance created with `color('yellow')`.  

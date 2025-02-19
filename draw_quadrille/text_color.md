@@ -40,7 +40,7 @@ function draw() {
 }
 {{< /p5-global-iframe >}}
 
-{{< details title="code" open=false >}}
+{{% details title="code" open=true %}}
 ```js
 // Set a common cell length of 40 pixels for all quadrilles
 Quadrille.cellLength = 40;
@@ -71,7 +71,7 @@ function draw() {
   drawQuadrille(q4, { x: 330, y: 170 });
 }
 ```
-{{< /details >}}
+{{% /details %}}
 
 {{< callout type="info" >}}
 - `q1` is drawn with a text color controlled by the local color picker (`localPicker`), initialized to `'magenta'`.  

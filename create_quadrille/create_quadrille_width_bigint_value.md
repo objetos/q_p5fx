@@ -29,7 +29,7 @@ function draw() {
 }
 {{< /p5-global-iframe >}}
 
-{{< details title="code" open=false >}}
+{{% details title="code" open=true %}}
 ```js
 Quadrille.cellLength = 200;
 let quadrille;
@@ -49,7 +49,7 @@ function draw() {
   drawQuadrille(quadrille);
 }
 ```
-{{< /details >}}
+{{% /details %}}
 
 {{< callout type="info" >}}  
 This example uses a [bitboard](https://en.wikipedia.org/wiki/Bitboard) to fill the quadrille. The binary form of `58` is `111010`, where each bit corresponds to a cell in the quadrille:  

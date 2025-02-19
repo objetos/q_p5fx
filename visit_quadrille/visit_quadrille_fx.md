@@ -41,7 +41,7 @@ function draw() {
 }
 {{< /p5-global-iframe >}}
 
-{{< details title="code" open=false >}}
+{{% details title="code" open=true %}}
 ```js
 let source, target;
 Quadrille.cellLength = 20;
@@ -72,7 +72,7 @@ function draw() {
   drawQuadrille(target, { outline: 'cyan', row: (h / 2) + 1, col: 1 });
 }
 ```
-{{< /details >}}
+{{% /details %}}
 
 {{< callout type="info" >}}
 To implement the above sketch, the following quadrille methods are used: [isEmpty()]({{< ref "is_empty" >}}), [ring]({{< ref "ring" >}}), [rand(times, value)]({{< ref "rand_times_value" >}}), and [fill(row, col, value)]({{< ref "fill_row_col_value" >}}).
@@ -112,7 +112,7 @@ function draw() {
 }
 {{< /p5-global-iframe >}}
 
-{{< details title="code" open=false >}}
+{{% details title="code" open=true %}}
 ```js
 let source, target;
 Quadrille.cellLength = 20;
@@ -141,7 +141,7 @@ function draw() {
   drawQuadrille(target, { outline: 'cyan', row: (h / 2) + 1, col: 1 });
 }
 ```
-{{< /details >}}
+{{% /details %}}
 
 ### Step-by-Step Transformation to Arrow Function
 
