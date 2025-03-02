@@ -28,8 +28,8 @@ function draw() {
 let quadrille;
 
 function setup() {
-  createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength);
-  quadrille = createQuadrille('hi 👽');
+  createCanvas(6 * Quadrille.cellLength, Quadrille.cellLength);
+  quadrille = createQuadrille('hola 👽');
 }
 
 function draw() {
