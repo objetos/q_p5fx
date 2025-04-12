@@ -1,7 +1,7 @@
 ---
 bookCollapseSection: true  
 title: p5 Functions
-weight: 2  
+weight: 1
 draft: false  
 ---
 
