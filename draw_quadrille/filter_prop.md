@@ -22,7 +22,7 @@ Filters which cells to draw from a given quadrille `q`. It accepts the following
   `drawQuadrille(q, { filter: {value: v => red(v) > 50, row: r => r == 0} })`
 
 {{< callout type="info" >}}  
-Arrow functions offer a compact syntax for writing functions. For example, the predicate:
+[Arrow functions](https://www.w3schools.com/js/js_arrow_function.asp) offer a compact syntax for writing functions. For example, the predicate:
 
 ```js
 function(value) {
