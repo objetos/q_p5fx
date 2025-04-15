@@ -45,7 +45,7 @@ The remaining parameters in the `{ options }` object use their default values, m
 
 ## Syntax
 
-> drawQuadrille(quadrille, [{[[cellLength]({{< relref "cell_length" >}})], [[outline]({{< relref "outline" >}})], [[outlineWeight]({{< relref "outline_weight" >}})], [[textColor]({{< relref "text_color" >}})], [[textZoom]({{< relref "text_zoom" >}})], [[textFont]({{< relref "text_font" >}})], [[x]({{< relref "x_y" >}})], [[y]({{< relref "x_y" >}})], [[row]({{< relref "row_col" >}})], [[col]({{< relref "row_col" >}})], [[values]({{< relref "values" >}})], [[graphics]({{< relref "graphics" >}})], [[origin]({{< relref "origin" >}})], [[tileDisplay]({{< relref "display_fns" >}})], [[stringDisplay]({{< relref "display_fns" >}})], [[numberDisplay]({{< relref "display_fns" >}})], [[colorDisplay]({{< relref "display_fns" >}})], [[imageDisplay]({{< relref "display_fns" >}})], [[functionDisplay]({{< relref "display_fns" >}})], [[arrayDisplay]({{< relref "display_fns" >}})], [[objectDisplay]({{< relref "display_fns" >}})]}])
+> drawQuadrille(quadrille, [{[[cellLength]({{< relref "cell_length" >}})], [[outline]({{< relref "outline" >}})], [[outlineWeight]({{< relref "outline_weight" >}})], [[textColor]({{< relref "text_color" >}})], [[textZoom]({{< relref "text_zoom" >}})], [[textFont]({{< relref "text_font" >}})], [[x]({{< relref "x_y" >}})], [[y]({{< relref "x_y" >}})], [[row]({{< relref "row_col" >}})], [[col]({{< relref "row_col" >}})], [[filter]({{< relref "filter_arg" >}})], [[graphics]({{< relref "graphics" >}})], [[origin]({{< relref "origin" >}})], [[tileDisplay]({{< relref "display_fns" >}})], [[stringDisplay]({{< relref "display_fns" >}})], [[numberDisplay]({{< relref "display_fns" >}})], [[colorDisplay]({{< relref "display_fns" >}})], [[imageDisplay]({{< relref "display_fns" >}})], [[functionDisplay]({{< relref "display_fns" >}})], [[arrayDisplay]({{< relref "display_fns" >}})], [[objectDisplay]({{< relref "display_fns" >}})]}])
 
 ## Parameters
 
@@ -62,7 +62,7 @@ The remaining parameters in the `{ options }` object use their default values, m
 | [`y`]({{< relref "x_y" >}}) | Number: Upper-left quadrille pixel `y`-coordinate. Default is `0`. Takes precedence over `row`          |
 | [`row`]({{< relref "row_col" >}}) | Number: Upper-left quadrille `row`. Default is `0`                                                      |
 | [`col`]({{< relref "row_col" >}}) | Number: Upper-left quadrille `column`. Default is `0`                                                   |
-| [`values`]({{< relref "values" >}}) | [Iterable](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of): Cells to be drawn. All cells are drawn if this parameter is `undefined` |
+| [`filter`]({{< relref "filter_arg" >}}) | [Iterable](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of): Cells to be drawn. All cells are drawn if this parameter is `undefined` |
 | [`graphics`]({{< relref "graphics" >}}) | [p5.Graphics](https://p5js.org/reference/#/p5.Graphics): Renderer target. Default is `this` (main canvas) |
 | [`origin`]({{< relref "origin" >}}) | Constant: Defines the reference point for drawing the quadrille. `CORNER` aligns it to the top-left corner of the canvas (default in `P2D`), and `CENTER` aligns it to the center of the canvas (default in `WEBGL`) |
 | [`tileDisplay`]({{< relref "display_fns" >}})[^1] | Function: Renders cell contours. Default is `Quadrille.tileDisplay`                                   |

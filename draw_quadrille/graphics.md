@@ -101,12 +101,12 @@ function draw() {
 function update() {
   const next = game.clone();
   // Implement Game of Life rules
-  visitQuadrille(game, (row, col) => {
-                       const order = game.ring(row, col).order;
-                       game.isFilled(row, col) ?
-                       (order < 3 || order > 4) && next.clear(row, col) :
-                       order === 3 && next.fill(row, col, life);
-                   });
+  game.visit(({row, col}) => {
+              const order = game.ring(row, col).order;
+              game.isFilled(row, col) ?
+              (order < 3 || order > 4) && next.clear(row, col) :
+              order === 3 && next.fill(row, col, life);
+            });
   game = next;
   graphics.background('blue');
   // Render the updated game state onto the graphics object
@@ -149,12 +149,12 @@ function draw() {
 function update() {
   const next = game.clone();
   // Implement Game of Life rules
-  visitQuadrille(game, (row, col) => {
-                       const order = game.ring(row, col).order;
-                       game.isFilled(row, col) ?
-                       (order < 3 || order > 4) && next.clear(row, col) :
-                       order === 3 && next.fill(row, col, life);
-                   });
+  game.visit(({row, col}) => {
+              const order = game.ring(row, col).order;
+              game.isFilled(row, col) ?
+              (order < 3 || order > 4) && next.clear(row, col) :
+              order === 3 && next.fill(row, col, life);
+            });
   game = next;
   graphics.background('blue');
   // Render the updated game state onto the graphics object
