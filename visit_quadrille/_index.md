@@ -2,7 +2,7 @@
 bookCollapseSection: true
 title: "visitQuadrille(args)"
 weight: 3
-draft: false
+draft: true
 ---
 
 The `visitQuadrille` p5 function is designed to iterate over `quadrille` cells and execute a specified `fx` function on each cell. It provides a concise, less error-prone approach that aligns well with functional programming principles.
