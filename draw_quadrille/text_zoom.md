@@ -22,10 +22,10 @@ function setup() {
   q3 = createQuadrille(8, 'ensueñoscaprichosilencioaventura');
   q4 = createQuadrille(8, 'claridadlecturasmisterioviajeros');
   // Local slider to adjust the text zoom level for q1
-  localZoomSlider = createSlider(0.1, 0.93, 0.5, 0.01);
+  localZoomSlider = createSlider(0.1, 0.78, 0.5, 0.01);
   localZoomSlider.position(10, 10);
   // Global slider to set the global Quadrille.textZoom
-  globalZoomSlider = createSlider(0.1, 0.93, Quadrille.textZoom, 0.01);
+  globalZoomSlider = createSlider(0.1, 0.78, Quadrille.textZoom, 0.01);
   globalZoomSlider.position(340, 10);
   globalZoomSlider.input(() => Quadrille.textZoom = globalZoomSlider.value());
 }
@@ -55,10 +55,10 @@ function setup() {
   q3 = createQuadrille(8, 'ensueñoscaprichosilencioaventura');
   q4 = createQuadrille(8, 'claridadlecturasmisterioviajeros');
   // Local slider to adjust the text zoom level for q1
-  localZoomSlider = createSlider(0.1, 0.93, 0.5, 0.01);
+  localZoomSlider = createSlider(0.1, 0.78, 0.5, 0.01);
   localZoomSlider.position(10, 10);
   // Global slider to set the global Quadrille.textZoom
-  globalZoomSlider = createSlider(0.1, 0.93, Quadrille.textZoom, 0.01);
+  globalZoomSlider = createSlider(0.1, 0.78, Quadrille.textZoom, 0.01);
   globalZoomSlider.position(340, 10);
   globalZoomSlider.input(() => Quadrille.textZoom = globalZoomSlider.value());
 }

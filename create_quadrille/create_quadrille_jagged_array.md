@@ -14,13 +14,10 @@ let sb; // Image variable
 let quadrille;
 let yellow, blue, red;
 
-function preload() {
-  // Load images in preload so that they are ready before setup
-  sb = loadImage('/images/simon_bolivar_wedding.jpg');
-}
-
-function setup() {
+async function setup() {
   createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength);
+  // Load image
+  sb = await loadImage('/images/simon_bolivar_wedding.jpg');
   yellow = color('yellow');
   blue = color('blue');
   red = color('red');
@@ -45,13 +42,10 @@ let sb; // Image variable
 let quadrille;
 let yellow, blue, red;
 
-function preload() {
-  // Load images in preload so that they are ready before setup
-  sb = loadImage('/images/simon_bolivar_wedding.jpg');
-}
-
-function setup() {
+async function setup() {
   createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength);
+  // Load image
+  sb = await loadImage('/images/simon_bolivar_wedding.jpg');
   yellow = color('yellow');
   blue = color('blue');
   red = color('red');
@@ -73,7 +67,7 @@ function draw() {
 
 {{< callout type="info" >}}  
 **Observation about images**  
-Images must be loaded in the [preload](https://p5js.org/reference/p5/preload) function using [loadImage](https://p5js.org/reference/p5/loadImage) to ensure they are fully available before [setup](https://p5js.org/reference/p5/setup) or [draw](https://p5js.org/reference/p5/draw) run. This avoids timing issues and ensures smooth rendering.
+Images are now loaded in the async [setup](https://p5js.org/reference/p5/setup) function using await with [loadImage](https://p5js.org/reference/p5/loadImage) to ensure they are fully available before being used. This follows the p5.js v2.x pattern for asset loading.
 {{< /callout >}}
 
 ## Example 2: Videos, Text, Colors, Numbers, and Emojis
@@ -86,19 +80,15 @@ let destino; // Video variable
 let quadrille;
 let yellow, blue, red;
 
-function preload() {
-  // Load image and video in preload
-  sb = loadImage('/images/simon_bolivar_wedding.jpg');
-  destino = createVideo(['/videos/destino.webm']);
-  destino.hide(); // Hide video controls
-}
-
-function setup() {
+async function setup() {
   createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength);
+  // Load image and video
+  sb = await loadImage('/images/simon_bolivar_wedding.jpg');
+  destino = await createVideo(['/videos/destino.webm']);
+  destino.hide(); // Hide video controls
   yellow = color('yellow');
   blue = color('blue');
   red = color('red');
-
   // Quadrille containing a video, image, text, and colors
   quadrille = createQuadrille([
     ['hi', 100, sb, sb, null, 0],
@@ -127,19 +117,15 @@ let destino; // Video variable
 let quadrille;
 let yellow, blue, red;
 
-function preload() {
-  // Load image and video in preload
-  sb = loadImage('/images/simon_bolivar_wedding.jpg');
-  destino = createVideo(['/videos/destino.webm']);
-  destino.hide(); // Hide video controls
-}
-
-function setup() {
+async function setup() {
   createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength);
+  // Load image and video
+  sb = await loadImage('/images/simon_bolivar_wedding.jpg');
+  destino = await createVideo(['/videos/destino.webm']);
+  destino.hide(); // Hide video controls
   yellow = color('yellow');
   blue = color('blue');
   red = color('red');
-
   // Quadrille containing a video, image, text, and colors
   quadrille = createQuadrille([
     ['hi', 100, sb, sb, null, 0],
@@ -164,7 +150,7 @@ function mouseClicked() {
 
 {{< callout type="info" >}}
 **Observations about video**  
-1. **Loading the Video:** Videos should be loaded in `preload()` and immediately hidden using the `destino` [hide](https://p5js.org/reference/p5.Element/hide/) method to remove default controls.  
+1. **Loading the Video:** Videos are now loaded in the async `setup()` function with await and immediately hidden using the `destino` [hide](https://p5js.org/reference/p5.Element/hide/) method to remove default controls.  
 2. **Interactive Playback Toggle:** This code toggles the video playback when the mouse is clicked:  
    ```javascript
    destino.looping ? destino.pause() : destino.loop();
@@ -187,14 +173,11 @@ let font; // Custom font
 let quadrille;
 let yellow, blue, red;
 
-function preload() {
-  // Load image and font in preload
-  sb = loadImage('/images/simon_bolivar_wedding.jpg');
-  font = loadFont('/fonts/noto_sans.ttf');
-}
-
-function setup() {
+async function setup() {
   createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength, WEBGL);
+  // Load image and font
+  sb = await loadImage('/images/simon_bolivar_wedding.jpg');
+  font = await loadFont('/fonts/noto_sans.ttf');
   textFont(font);
   yellow = color('yellow');
   blue = color('blue');
@@ -229,14 +212,11 @@ let font; // Custom font
 let quadrille;
 let yellow, blue, red;
 
-function preload() {
-  // Load image and font in preload
-  sb = loadImage('/images/simon_bolivar_wedding.jpg');
-  font = loadFont('/fonts/noto_sans.ttf');
-}
-
-function setup() {
+async function setup() {
   createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength, WEBGL);
+  // Load image and font
+  sb = await loadImage('/images/simon_bolivar_wedding.jpg');
+  font = await loadFont('/fonts/noto_sans.ttf');
   textFont(font);
   yellow = color('yellow');
   blue = color('blue');
@@ -271,7 +251,7 @@ function pulse() {
 2. **Function Cells and 3D Geometry:** In `WEBGL` mode, function cells can render 3D geometry using shapes like [`box`](https://p5js.org/reference/p5/box), [`sphere`](https://p5js.org/reference/p5/sphere), and other 3D primitives.  
 3. **Font Limitations:** In `WEBGL` mode, fonts must be loaded manually, and emojis are not supported (the only known limitation). 
 4. **Origin in WEBGL vs P2D:** In `WEBGL` mode, the `origin` defaults to the **center** of the canvas, while in `P2D` mode, it defaults to the **top-left corner**. To ensure the quadrille aligns correctly in `WEBGL` mode, the `origin` option is explicitly set to `CORNER` using: `drawQuadrille(quadrille, { origin: CORNER })`.
-5. **Origin in Function Cells:** Similarly, within function cells (like `pulse`), the `origin` is also the **center**. Therefore, `circle(0, 0, radius)` draws a circle centered at the cell’s center.
+5. **Origin in Function Cells:** Similarly, within function cells (like `pulse`), the `origin` is also the **center**. Therefore, `circle(0, 0, radius)` draws a circle centered at the cell's center.
 {{< /callout >}}
 
 {{< callout type="warning" >}}
@@ -287,13 +267,10 @@ let pg; // p5.Graphics object
 let quadrille;
 let yellow, blue, red;
 
-function preload() {
-  // Load image in preload
-  sb = loadImage('/images/simon_bolivar_wedding.jpg');
-}
-
-function setup() {
+async function setup() {
   createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength);
+  // Load image
+  sb = await loadImage('/images/simon_bolivar_wedding.jpg');
   yellow = color('yellow');
   blue = color('blue');
   red = color('red');
@@ -329,13 +306,10 @@ let pg; // p5.Graphics object
 let quadrille;
 let yellow, blue, red;
 
-function preload() {
-  // Load image in preload
-  sb = loadImage('/images/simon_bolivar_wedding.jpg');
-}
-
-function setup() {
+async function setup() {
   createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength);
+  // Load image
+  sb = await loadImage('/images/simon_bolivar_wedding.jpg');
   yellow = color('yellow');
   blue = color('blue');
   red = color('red');

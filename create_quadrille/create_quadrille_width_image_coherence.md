@@ -14,13 +14,10 @@ let ps;
 let quadrille;
 let coherence;
 
-function preload() {
-  ps = loadImage('/images/pola.jpg');
-}
-
-function setup() {
+async function setup() {
   Quadrille.cellLength = 25;
   createCanvas(24 * Quadrille.cellLength, 24 * Quadrille.cellLength);
+  ps = await loadImage('/images/pola.jpg');
   // Initialize checkbox with a label
   coherence = createCheckbox('Coherence', false)
     .position(10, 10)
@@ -47,13 +44,10 @@ let ps;
 let quadrille;
 let coherence;
 
-function preload() {
-  ps = loadImage('/images/pola.jpg');
-}
-
-function setup() {
+async function setup() {
   Quadrille.cellLength = 25;
   createCanvas(24 * Quadrille.cellLength, 24 * Quadrille.cellLength);
+  ps = await loadImage('/images/pola.jpg');
   // Initialize checkbox with a label
   coherence = createCheckbox('Coherence', false)
     .position(10, 10)

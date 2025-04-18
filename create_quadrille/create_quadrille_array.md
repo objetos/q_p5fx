@@ -13,13 +13,10 @@ The `createQuadrille` function creates a **quadrille** and fills its cells using
 let sb; // Image variable
 let quadrille;
 
-function preload() {
-  // Load images in preload so that they are ready before setup
-  sb = loadImage('/images/simon_bolivar_wedding.jpg');
-}
-
-function setup() {
+async function setup() {
   createCanvas(6 * Quadrille.cellLength, Quadrille.cellLength);
+  // Load image
+  sb = await loadImage('/images/simon_bolivar_wedding.jpg');
   // Define the quadrille with diverse content
   quadrille = createQuadrille(['hi', 100, null, sb, '🦜', color('red')]);
 }
@@ -35,13 +32,10 @@ function draw() {
 let sb; // Image variable
 let quadrille;
 
-function preload() {
-  // Load images in preload so that they are ready before setup
-  sb = loadImage('/images/simon_bolivar_wedding.jpg');
-}
-
-function setup() {
+async function setup() {
   createCanvas(6 * Quadrille.cellLength, Quadrille.cellLength);
+  // Load image
+  sb = await loadImage('/images/simon_bolivar_wedding.jpg');
   // Define the quadrille with diverse content
   quadrille = createQuadrille(['hi', 100, null, sb, '🦜', color('red')]);
 }

@@ -17,13 +17,10 @@ Quadrille.textZoom = 0.8
 let q1, q2;
 let notoFont;
 
-function preload() {
-  // Load the Noto Serif font
-  notoFont = loadFont('/fonts/noto_serif_italic.ttf');
-}
-
-function setup() {
+async function setup() {
   createCanvas(650, 160);
+  // Load the Noto Serif font
+  notoFont = await loadFont('/fonts/noto_serif_italic.ttf');
   // Quadrille with the Noto Serif font
   // q1 = createQuadrille(8, 'cronopiofabulosaliteratatangente');
   q1 = createQuadrille(8, 'CRONOPIOFABULOSALITERATATANGENTE');
@@ -43,18 +40,15 @@ function draw() {
 ```js
 // Set a common cell length of 40 pixels for all quadrilles
 Quadrille.cellLength = 40;
-// Set a common cell text zoom of 0.8 for all quadrilles
-Quadrille.textZoom = 0.8
+// Set a common cell text zoom of 0.78 for all quadrilles
+Quadrille.textZoom = 0.78
 let q1, q2;
 let notoFont;
 
-function preload() {
-  // Load the Noto Serif font
-  notoFont = loadFont('/fonts/noto_serif_italic.ttf');
-}
-
-function setup() {
+async function setup() {
   createCanvas(650, 160);
+  // Load the Noto Serif font
+  notoFont = await loadFont('/fonts/noto_serif_italic.ttf');
   // Quadrille with the Noto Serif font
   // q1 = createQuadrille(8, 'cronopiofabulosaliteratatangente');
   q1 = createQuadrille(8, 'CRONOPIOFABULOSALITERATATANGENTE');
@@ -72,7 +66,7 @@ function draw() {
 {{% /details %}}
 
 {{< callout type="info" >}}
-- `q1` is drawn using the Noto Serif font loaded in `preload`.  
+- `q1` is drawn using the Noto Serif font loaded in the async `setup()` function.  
 - `q2` uses the default font set by p5.js for rendering text in quadrille cells.
 {{< /callout >}}
 

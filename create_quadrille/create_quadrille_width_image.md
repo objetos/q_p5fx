@@ -13,13 +13,10 @@ Converts an `image` (a [p5.Image](https://p5js.org/reference/#/p5.Image), [p5.Gr
 let ps;
 let quadrille;
 
-function preload() {
-  ps = loadImage('/images/pola.jpg');
-}
-
-function setup() {
+async function setup() {
   Quadrille.cellLength = 25;
   createCanvas(24 * Quadrille.cellLength, 24 * Quadrille.cellLength);
+  ps = await loadImage('/images/pola.jpg');
   quadrille = createQuadrille(24, ps);
 }
 
@@ -34,13 +31,10 @@ function draw() {
 let ps;
 let quadrille;
 
-function preload() {
-  ps = loadImage('/images/pola.jpg');
-}
-
-function setup() {
+async function setup() {
   Quadrille.cellLength = 25;
   createCanvas(24 * Quadrille.cellLength, 24 * Quadrille.cellLength);
+  ps = await loadImage('/images/pola.jpg');
   quadrille = createQuadrille(24, ps);
 }
 
