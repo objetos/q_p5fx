@@ -122,7 +122,7 @@ This example applies [chess.com](https://chess.com/) board colors and uses emoji
 {{< /callout >}}
 
 {{< callout type="info" >}}
-**Default Chess Symbols and Keys**\
+**Default Chess Symbols and Keys**  
 If no custom symbols are set, the following default values are used:
 
 ```js
