@@ -14,12 +14,13 @@ Quadrille.cellLength = 50;
 Quadrille.tileDisplay = 0;
 Quadrille.textColor = 'black';
 const COLS = 8, ROWS = 8;
+const FEN = '5rk1/1P3Bp1/R6p/8/6P1/2B1rQ2/2K3P1/6q1 b - - 0 36';
 let board, fen;
 
 function setup() {
   createCanvas(COLS * Quadrille.cellLength, ROWS * Quadrille.cellLength);
   board = createQuadrille();
-  fen = createQuadrille('rnbqkbnr/pp1ppppp/8/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R');
+  fen = createQuadrille(FEN);
 }
 
 function draw() {
@@ -34,12 +35,13 @@ Quadrille.cellLength = 50;
 Quadrille.tileDisplay = 0;
 Quadrille.textColor = 'black';
 const COLS = 8, ROWS = 8;
+const FEN = '5rk1/1P3Bp1/R6p/8/6P1/2B1rQ2/2K3P1/6q1 b - - 0 36';
 let board, fen;
 
 function setup() {
   createCanvas(COLS * Quadrille.cellLength, ROWS * Quadrille.cellLength);
   board = createQuadrille();
-  fen = createQuadrille('rnbqkbnr/pp1ppppp/8/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R');
+  fen = createQuadrille(FEN);
 }
 
 function draw() {
@@ -48,6 +50,13 @@ function draw() {
 }
 ```
 {{% /details %}}
+
+{{< callout >}}
+**Capablanca vs Marshall, 1918 – The Birth of the Marshall Attack**  
+This [iconic game](https://www.chessgames.com/perl/chessgame?gid=1095025), played in New York in 1918, marked the debut of the *Marshall Attack* in top-level play. [Frank Marshall](https://en.wikipedia.org/wiki/Frank_Marshall_(chess_player)) unveiled his long-prepared gambit against [José Raúl Capablanca](https://en.wikipedia.org/wiki/Jos%C3%A9_Ra%C3%BAl_Capablanca), sacrificing a pawn for dynamic counterplay in the Ruy López. Despite the sharp attack, Capablanca defended flawlessly and won—cementing both the opening's legacy and his own positional brilliance.
+
+{{< youtube v7hc715hvVg >}}
+{{< /callout >}}
 
 {{< callout type="info" >}}
 `createQuadrille(FEN)` creates a chess board based on the given [FEN notation](https://en.wikipedia.org/wiki/Forsyth%E2%80%93Edwards_Notation).
@@ -63,8 +72,8 @@ Quadrille.textColor = 'blue';
 // Set Chess.com board colors
 Quadrille.lightSquare = '#EBECCF'; // Light square color
 Quadrille.darkSquare = '#769555';  // Dark square color
-const FEN = '5rk1/1P3Bp1/R6p/8/6P1/2B1rQ2/2K3P1/6q1 b - - 0 36';
-let board, fenQuadrille;
+const FEN = 'rnbqkbnr/pp1ppppp/8/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R';
+let board, fen;
 let pola;
 
 async function setup() {
@@ -76,12 +85,12 @@ async function setup() {
   };
   createCanvas(8 * Quadrille.cellLength, 8 * Quadrille.cellLength);
   board = createQuadrille(); // Background layer with Chess.com colors
-  fenQuadrille = createQuadrille(FEN); // Foreground layer with custom symbols
+  fen = createQuadrille(FEN); // Foreground layer with custom symbols
 }
 
 function draw() {
   drawQuadrille(board);
-  drawQuadrille(fenQuadrille);
+  drawQuadrille(fen);
 }
 {{< /p5-global-iframe >}}
 
@@ -93,8 +102,8 @@ Quadrille.textColor = 'blue';
 // Set Chess.com board colors
 Quadrille.lightSquare = '#EBECCF'; // Light square color
 Quadrille.darkSquare = '#769555';  // Dark square color
-const FEN = '5rk1/1P3Bp1/R6p/8/6P1/2B1rQ2/2K3P1/6q1 b - - 0 36';
-let board, fenQuadrille;
+const FEN = 'rnbqkbnr/pp1ppppp/8/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R';
+let board, fen;
 let pola;
 
 async function setup() {
@@ -106,12 +115,12 @@ async function setup() {
   };
   createCanvas(8 * Quadrille.cellLength, 8 * Quadrille.cellLength);
   board = createQuadrille(); // Background layer with Chess.com colors
-  fenQuadrille = createQuadrille(FEN); // Foreground layer with custom symbols
+  fen = createQuadrille(FEN); // Foreground layer with custom symbols
 }
 
 function draw() {
   drawQuadrille(board);
-  drawQuadrille(fenQuadrille);
+  drawQuadrille(fen);
 }
 ```
 {{% /details %}}
