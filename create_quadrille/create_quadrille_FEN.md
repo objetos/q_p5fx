@@ -63,15 +63,17 @@ Quadrille.textColor = 'blue';
 // Set Chess.com board colors
 Quadrille.lightSquare = '#EBECCF'; // Light square color
 Quadrille.darkSquare = '#769555';  // Dark square color
-// Set custom chess symbols with emojis
-Quadrille.setChessSymbols({
-  K: '👑', Q: '💎', R: '🏰', B: '🦅', N: '🐴', P: '🍪',
-  k: '🤴', q: '👸', r: '🏯', b: '🦉', n: '🦄', p: '🍩'
-});
-const FEN = 'rnbqkbnr/pp1ppppp/8/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R';
+const FEN = '5rk1/1P3Bp1/R6p/8/6P1/2B1rQ2/2K3P1/6q1 b - - 0 36';
 let board, fenQuadrille;
+let pola;
 
-function setup() {
+async function setup() {
+  pola = await loadImage('/images/pola.jpg');
+  // Set custom chess symbols with emojis
+  Quadrille.chessSymbols = {
+    K: '👑', Q: pola, N: '🐴',
+    k: '🤴', q: '👸', n: '🦄'
+  };
   createCanvas(8 * Quadrille.cellLength, 8 * Quadrille.cellLength);
   board = createQuadrille(); // Background layer with Chess.com colors
   fenQuadrille = createQuadrille(FEN); // Foreground layer with custom symbols
@@ -91,15 +93,17 @@ Quadrille.textColor = 'blue';
 // Set Chess.com board colors
 Quadrille.lightSquare = '#EBECCF'; // Light square color
 Quadrille.darkSquare = '#769555';  // Dark square color
-// Set custom chess symbols with emojis
-Quadrille.setChessSymbols({
-  K: '👑', Q: '💎', R: '🏰', B: '🦅', N: '🐴', P: '🍪',
-  k: '🤴', q: '👸', r: '🏯', b: '🦉', n: '🦄', p: '🍩'
-});
-const FEN = 'rnbqkbnr/pp1ppppp/8/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R';
+const FEN = '5rk1/1P3Bp1/R6p/8/6P1/2B1rQ2/2K3P1/6q1 b - - 0 36';
 let board, fenQuadrille;
+let pola;
 
-function setup() {
+async function setup() {
+  pola = await loadImage('/images/pola.jpg');
+  // Set custom chess symbols with emojis
+  Quadrille.chessSymbols = {
+    K: '👑', Q: pola, N: '🐴',
+    k: '🤴', q: '👸', n: '🦄'
+  };
   createCanvas(8 * Quadrille.cellLength, 8 * Quadrille.cellLength);
   board = createQuadrille(); // Background layer with Chess.com colors
   fenQuadrille = createQuadrille(FEN); // Foreground layer with custom symbols
@@ -113,8 +117,8 @@ function draw() {
 {{% /details %}}
 
 {{< callout type="info" >}}
-**Custom Symbols and Colors**\
-This example uses [chess.com](https://chess.com/) colors for the board and custom emoji symbols for the chess pieces. The `setChessSymbols()` function updates both `Quadrille.chessSymbols` and `Quadrille.chessKeys`, enabling reverse lookup of piece symbols.
+**Custom Symbols and Colors**  
+This example uses [chess.com](https://chess.com/) colors for the board and custom emojis for the pieces. Assigning to `Quadrille.chessSymbols` supports partial changes and keeps `Quadrille.chessKeys` in sync for reverse lookup.
 {{< /callout >}}
 
 {{< callout type="info" >}}
