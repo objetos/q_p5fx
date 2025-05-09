@@ -118,7 +118,7 @@ function draw() {
 
 {{< callout type="info" >}}
 **Custom Symbols and Colors**  
-This example uses [chess.com](https://chess.com/) colors for the board and custom emojis for the pieces. Assigning to `Quadrille.chessSymbols` supports partial changes and keeps `Quadrille.chessKeys` in sync for reverse lookup.
+This example applies [chess.com](https://chess.com/) board colors and uses emojis and images as custom piece symbols (any valid JavaScript value will work). Assigning to `Quadrille.chessSymbols` allows partial updates and syncs `Quadrille.chessKeys` for reverse lookup.
 {{< /callout >}}
 
 {{< callout type="info" >}}
