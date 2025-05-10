@@ -74,7 +74,7 @@ let pola;
 
 async function setup() {
   pola = await loadImage('/images/pola.jpg');
-  // Set custom chess symbols with emojis
+  // Set custom chess symbols
   Quadrille.chessSymbols = {
     K: '👑', Q: pola, N: '🐴',
     k: '🤴', q: '👸', n: '🦄'
@@ -104,7 +104,7 @@ let pola;
 
 async function setup() {
   pola = await loadImage('/images/pola.jpg');
-  // Set custom chess symbols with emojis
+  // Set custom chess symbols
   Quadrille.chessSymbols = {
     K: '👑', Q: pola, N: '🐴',
     k: '🤴', q: '👸', n: '🦄'
