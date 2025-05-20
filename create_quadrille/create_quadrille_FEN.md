@@ -123,25 +123,33 @@ function draw() {
 
 {{< callout type="info" >}}
 **Custom Symbols and Colors**  
-This example applies [chess.com](https://chess.com/) board colors and uses emojis and images as custom piece symbols (any valid JavaScript value will work). Assigning to `Quadrille.chessSymbols` allows partial updates and syncs `Quadrille.chessKeys` for reverse lookup.
+This example uses [chess.com](https://chess.com/) board colors and custom symbols such as emojis or images (any valid JavaScript value). You can assign a plain [object]({{< relref objects >}}) or [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) to `Quadrille.chessSymbols` for partial updates, and reverse lookup is always available through the `Quadrille.chessKeys` getter.
 {{< /callout >}}
 
 {{< callout type="info" >}}
 **Default Chess Symbols and Keys**  
-If no custom symbols are set, the following default values are used:
+By default, the following FEN → symbol pairs are used:
 
 ```js
-// Default chess symbols
-static chessSymbols = {
+// Default chessSymbols (FEN → symbol)
+{
   K: '♔', Q: '♕', R: '♖', B: '♗', N: '♘', P: '♙',
   k: '♚', q: '♛', r: '♜', b: '♝', n: '♞', p: '♟'
-};
+}
+```
 
-// Default chess keys (reverse lookup)
-static chessKeys = {
-  '♔': 'K', '♕': 'Q', '♖': 'R', '♗': 'B', '♘': 'N', '♙': 'P',
-  '♚': 'k', '♛': 'q', '♜': 'r', '♝': 'b', '♞': 'n', '♟': 'p'
-};
+You can update entries using a plain [object]({{< relref objects >}}) or [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map):
+
+```js
+Quadrille.chessSymbols = { N: '🦄' };
+Quadrille.chessSymbols = new Map([['P', '🥚']]);
+```
+
+Both `chessSymbols` and `chessKeys` are [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) objects:
+
+```js
+Quadrille.chessSymbols.get('K'); // '♔'
+Quadrille.chessKeys.get('♔');    // 'K'
 ```
 {{< /callout >}}
 
