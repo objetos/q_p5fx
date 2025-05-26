@@ -67,7 +67,7 @@ function draw() {
 
 {{< callout type="info" >}}  
 **Observation about images**  
-Images are now loaded in the async [setup](https://p5js.org/reference/p5/setup) function using await with [loadImage](https://p5js.org/reference/p5/loadImage) to ensure they are fully available before being used. This follows the p5.js v2.x pattern for asset loading.
+Images are loaded in the `async` [setup](https://p5js.org/reference/p5/setup) function using `await` with [loadImage](https://p5js.org/reference/p5/loadImage) to ensure they are fully available before being used. This follows the p5.js v2.x pattern for asset loading.
 {{< /callout >}}
 
 ## Example 2: Videos, Text, Colors, Numbers, and Emojis
@@ -150,7 +150,7 @@ function mouseClicked() {
 
 {{< callout type="info" >}}
 **Observations about video**  
-1. **Loading the Video:** Videos are now loaded in the async `setup()` function with await and immediately hidden using the `destino` [hide](https://p5js.org/reference/p5.Element/hide/) method to remove default controls.  
+1. **Loading the Video:** Videos are loaded in the `async` `setup()` function with `await` and immediately hidden using the `destino` [hide](https://p5js.org/reference/p5.Element/hide/) method to remove default controls.  
 2. **Interactive Playback Toggle:** This code toggles the video playback when the mouse is clicked:  
    ```javascript
    destino.looping ? destino.pause() : destino.loop();
