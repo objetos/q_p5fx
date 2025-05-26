@@ -67,7 +67,7 @@ function draw() {
 
 {{< callout type="info" >}}  
 **Observation about images**  
-Images are loaded in the `async` [setup](https://p5js.org/reference/p5/setup) function using `await` with [loadImage](https://p5js.org/reference/p5/loadImage) to ensure they are fully available before being used. This follows the p5.js v2.x pattern for asset loading.
+Images are loaded in the `async` [setup](https://p5js.org/reference/p5/setup) function using `await` with [loadImage](https://p5js.org/reference/p5/loadImage) to ensure they are fully available before being used.
 {{< /callout >}}
 
 ## Example 2: Videos, Text, Colors, Numbers, and Emojis
