@@ -123,7 +123,7 @@ function draw() {
 
 {{< callout type="info" >}}
 **Custom Symbols and Colors**  
-This example uses [chess.com](https://chess.com/) board colors and custom symbols such as emojis or images (any valid JavaScript value). You can assign a plain [object]({{< relref objects >}}) or [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) to `Quadrille.chessSymbols` for partial updates, and reverse lookup is always available through the `Quadrille.chessKeys` getter.
+This example uses [chess.com](https://chess.com/) board colors and custom symbols such as emojis or images (any valid JavaScript value). You can assign a plain [object](https://www.w3schools.com/js/js_objects.asp) or [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) to `Quadrille.chessSymbols` for partial updates, and reverse lookup is always available through the `Quadrille.chessKeys` getter.
 {{< /callout >}}
 
 {{< callout type="info" >}}
@@ -138,7 +138,7 @@ By default, the following FEN → symbol pairs are used:
 }
 ```
 
-You can update entries using a plain [object]({{< relref objects >}}) or [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map):
+You can update entries using a plain [object](https://www.w3schools.com/js/js_objects.asp) or [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map):
 
 ```js
 Quadrille.chessSymbols = { N: '🦄' };
