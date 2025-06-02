@@ -103,8 +103,7 @@ function draw() {
 {{% /details %}}
 
 {{< callout type="info" >}}
-* This example customizes `tileDisplay` and `colorDisplay` to render quadrille cells as circular shapes, overriding the default square tiling.  
-* JavaScript [arrow functions](https://www.w3schools.com/js/js_arrow_function.asp) were first introduced in [visitQuadrille]({{< relref visit_quadrille >}}).
+This example overrides the default square tiling by supplying JavaScript [arrow functions](https://www.w3schools.com/js/js_arrow_function.asp) to `tileDisplay` and `colorDisplay`, causing each quadrille cell to render as a circle.
 {{< /callout >}}
 
 ## Syntax
