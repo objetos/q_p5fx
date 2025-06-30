@@ -7,12 +7,8 @@ title: "createQuadrille(width, bitboard, value, littleEndian?)"
 Creates a quadrille by decoding a [bitboard](https://en.wikipedia.org/wiki/Bitboard)—passed as a JavaScript `BigInt`—into a rectangular quadrille. Each bit in the bitboard determines whether a corresponding cell is filled (`1`) or empty (`0`). The number of columns is set by `width`, and rows are inferred as needed.
 
 {{< callout type="info" >}}  
-The quadrille [height]({{< relref "height" >}}) is inferred automatically as the minimum number of rows needed to fit all bits in the bitboard, using row-major, big-endian order by default.
-{{< /callout >}}
-
-{{< callout type="info" >}}  
-To **explicitly define** the [height]({{< relref "height" >}}), use  
-[`createQuadrille(width, height, bitboard, value[, littleEndian])`]({{< relref "create_quadrille_width_height_bitboard_value" >}}).
+The quadrille [height]({{< relref "height" >}}) is inferred automatically as the minimum number of rows needed to fit all bits in the bitboard, using row-major, big-endian order by default.  
+To **explicitly define** the [height]({{< relref "height" >}}), call [`createQuadrille(width, height, bitboard, value[, littleEndian])`]({{< relref "create_quadrille_width_height_bitboard_value" >}}).
 {{< /callout >}}
 
 ## Example 1 — Big-endian (default)
