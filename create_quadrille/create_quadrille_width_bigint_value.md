@@ -8,7 +8,7 @@ Creates a quadrille by decoding a [bitboard](https://en.wikipedia.org/wiki/Bitbo
 
 {{< callout type="info" >}}  
 The quadrille [height]({{< relref "height" >}}) is inferred automatically as the minimum number of rows needed to fit all bits in the bitboard, using row-major, big-endian order by default.  
-To **explicitly define** the [height]({{< relref "height" >}}), call [`createQuadrille(width, height, bitboard, value[, littleEndian])`]({{< relref "create_quadrille_width_height_bitboard_value" >}}).
+To **explicitly define** the [height]({{< relref "height" >}}), call [`createQuadrille(width, height, bitboard, value[, littleEndian])`]({{< relref "create_quadrille_width_height_bigint_value" >}}).
 {{< /callout >}}
 
 ## Example 1 — Big-endian (default)
