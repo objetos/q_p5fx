@@ -17,7 +17,16 @@ Display functions determine how quadrille cells are visually rendered based on t
 | `arrayDisplay`    | Array      | No static default. It must be explicitly defined if used                                                             |
 | `objectDisplay`   | Object     | No static default. It must be explicitly defined if used                                                             |
 
-The object literal used to parameterize these functions can include the following properties: `{` `quadrille`, [cellLength]({{< relref "cell_length" >}}), [outline]({{< relref "outline" >}}), [outlineWeight]({{< relref "outline_weight" >}}), [textColor]({{< relref "text_color" >}}), [textZoom]({{< relref "text_zoom" >}}), [textFont]({{< relref "text_font" >}}), [graphics]({{< relref "graphics" >}}), [origin]({{< relref "origin" >}}), `options`, `value`, `row`, `col`, `width`, `height` `}`. Here, `options` allows passing a custom object to the display function, `value` contains the cell contents, `row` and `col` represent the cell's position in the `quadrille`, and `width` and `height` refer to `quadrille.width` and `quadrille.height`, respectively.
+{{< callout type="info" >}}
+**Display function parameters**  
+The display functions receive an object with the following properties: `{` `quadrille`, [cellLength]({{< relref "cell_length" >}}), [outline]({{< relref "outline" >}}), [outlineWeight]({{< relref "outline_weight" >}}), [textColor]({{< relref "text_color" >}}), [textZoom]({{< relref "text_zoom" >}}), [textFont]({{< relref "text_font" >}}), [graphics]({{< relref "graphics" >}}), [origin]({{< relref "origin" >}}), `value`, `row`, `col`, `width`, `height`, `options` `}`.  
+Here, `value` contains the cell content; `row` and `col` indicate the cell’s position; `width` and `height` refer to `quadrille.width` and `quadrille.height`. The `options` object supports custom parameters and is passed as the sole argument to functions in `functionDisplay`. By default, it includes `origin` (`CORNER` in `P2D`, `CENTER` in `WEBGL`) and the cell’s `row` and `col` coordinates.
+{{< /callout >}}
+
+{{< callout type="info" >}}
+**Object fallback rendering**  
+When no `objectDisplay` is specified, `drawQuadrille()` attempts to render objects using their `display` field, if defined. If `display` is a string, number, color, or image, the corresponding built-in renderer is used. If it is a function, it is called with the `options` object only. Arrays are excluded from this mechanism and must be handled explicitly using `arrayDisplay`.
+{{< /callout >}}
 
 ## Example
 

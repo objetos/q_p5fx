@@ -164,10 +164,97 @@ function mouseClicked() {
 3. **`destino.looping` custom [property](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics):** Initially, `destino.looping` is `undefined` (a [falsy](https://developer.mozilla.org/en-US/docs/Glossary/Falsy) value). The line `destino.looping = !destino.looping;` flips its value to `true` on the first click, and subsequently toggles it between `true` and `false`.  
 {{< /callout >}}
 
-## Example 3: WEBGL Mode with Functions, Images, Text, and Colors
+## Example 3: Functions, Images, Text, Colors and Emojis
 
 {{< p5-global-iframe quadrille="true" width="625" height="425" >}}
 'use strict';
+let sb; // Image variable
+let quadrille;
+let yellow, blue, red;
+
+async function setup() {
+  createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength);
+  // Load image and font
+  sb = await loadImage('/images/simon_bolivar_wedding.jpg');
+  yellow = color('yellow');
+  blue = color('blue');
+  red = color('red');
+  // Quadrille containing cell functions and other content
+  quadrille = createQuadrille([
+    ['hi', 100, sb, pulse, null, 0],
+    [null, yellow, pulse, '🐷'],
+    [null, blue, pulse, 255, '🦙'],
+    [null, red, null, 185, '🦜', sb]
+  ]);
+}
+
+function draw() {
+  background('#DAF7A6');
+  drawQuadrille(quadrille);
+}
+
+function pulse() {
+  push();
+  const center = Quadrille.cellLength / 2;
+  const radius = map(sin(frameCount * 0.1), -1, 1, 5, center);
+  noStroke();
+  fill('cyan');
+  circle(center, center, radius);
+  pop();
+}
+{{< /p5-global-iframe >}}
+
+{{% details title="code" open=true %}}
+```js
+let sb; // Image variable
+let quadrille;
+let yellow, blue, red;
+
+async function setup() {
+  createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength);
+  // Load image and font
+  sb = await loadImage('/images/simon_bolivar_wedding.jpg');
+  yellow = color('yellow');
+  blue = color('blue');
+  red = color('red');
+  // Quadrille containing cell functions and other content
+  quadrille = createQuadrille([
+    ['hi', 100, sb, pulse, null, 0],
+    [null, yellow, pulse, '🐷'],
+    [null, blue, pulse, 255, '🦙'],
+    [null, red, null, 185, '🦜', sb]
+  ]);
+}
+
+function draw() {
+  background('#DAF7A6');
+  drawQuadrille(quadrille);
+}
+
+function pulse() {
+  push();
+  const center = Quadrille.cellLength / 2;
+  const radius = map(sin(frameCount * 0.1), -1, 1, 5, center);
+  noStroke();
+  fill('cyan');
+  circle(center, center, radius);
+  pop();
+}
+```
+{{% /details %}}
+
+{{< callout type="info" >}}
+**Observations about [P2D](https://beta.p5js.org/reference/p5/p2d/) mode and function cells**  
+1. **Canvas Mode and Function Cells:** Using `P2D` mode—either by omitting the third argument to `createCanvas()` or explicitly setting it—supports 2D function-based cells like `pulse`.
+2. **Origin in the Canvas:** In `P2D` mode, the canvas origin defaults to the **top-left corner**. To position the entire quadrille with its top-left corner at the center of the canvas, use `drawQuadrille(quadrille, { origin: CENTER })`.
+3. **Origin in Function Cells:** Likewise, within each function cell (such as `pulse`), the coordinate origin is also the top-left corner of the cell. To draw shapes centered within the cell (like `circle(center, center, radius)`), define `center = Quadrille.cellLength / 2`. Alternatively, pass `options: { origin: CENTER }` to `drawQuadrille()` to shift the coordinate system to the cell center.
+{{< /callout >}}
+
+## Example 4: WEBGL Mode with Functions, Images, Text, and Colors
+
+{{< p5-global-iframe quadrille="true" width="625" height="425" >}}
+'use strict';
+
 let sb; // Image variable
 let font; // Custom font
 let quadrille;
@@ -175,33 +262,36 @@ let yellow, blue, red;
 
 async function setup() {
   createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength, WEBGL);
-  // Load image and font
   sb = await loadImage('/images/simon_bolivar_wedding.jpg');
   font = await loadFont('/fonts/noto_sans.ttf');
   textFont(font);
   yellow = color('yellow');
   blue = color('blue');
   red = color('red');
-  // Quadrille containing cell functions and other content
   quadrille = createQuadrille([
-    ['hi', 100, sb, pulse, null, 0],
-    [null, yellow, pulse, ':)'],
-    [null, blue, pulse, 255, ':p'],
-    [null, red, null, 185, ';)', pulse]
+    ['hi', 100, sb, ringTorus, null, 0],
+    [null, yellow, ringTorus, ':)'],
+    [null, blue, ringTorus, 255, ':p'],
+    [null, red, null, 185, ';)', sb]
   ]);
 }
 
 function draw() {
   background('#DAF7A6');
-  drawQuadrille(quadrille, { origin: CORNER }); // Render the quadrille
+  drawQuadrille(quadrille, { origin: CORNER });
 }
 
-function pulse() {
-  background('green');
-  const radius = map(sin(frameCount * 0.1), -1, 1, 5, Quadrille.cellLength / 2);
+function ringTorus() {
+  push();
+  ambientLight(60);
+  directionalLight(255, 255, 255, 0.25, 0.25, -1);
+  rotateX(frameCount * 0.03);
+  rotateY(frameCount * 0.03);
+  colorMode(HSB);
+  fill((frameCount * 2) % 360, 255, 255);
   noStroke();
-  fill('cyan');
-  circle(0, 0, radius);
+  torus(Quadrille.cellLength / 3);
+  pop();
 }
 {{< /p5-global-iframe >}}
 
@@ -214,51 +304,53 @@ let yellow, blue, red;
 
 async function setup() {
   createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength, WEBGL);
-  // Load image and font
   sb = await loadImage('/images/simon_bolivar_wedding.jpg');
   font = await loadFont('/fonts/noto_sans.ttf');
   textFont(font);
   yellow = color('yellow');
   blue = color('blue');
   red = color('red');
-  // Quadrille containing cell functions and other content
   quadrille = createQuadrille([
-    ['hi', 100, sb, pulse, null, 0],
-    [null, yellow, pulse, ':)'],
-    [null, blue, pulse, 255, ':p'],
-    [null, red, null, 185, ';)', pulse]
+    ['hi', 100, sb, ringTorus, null, 0],
+    [null, yellow, ringTorus, ':)'],
+    [null, blue, ringTorus, 255, ':p'],
+    [null, red, null, 185, ';)', sb]
   ]);
 }
 
 function draw() {
   background('#DAF7A6');
-  drawQuadrille(quadrille, { origin: CORNER }); // Render the quadrille
+  drawQuadrille(quadrille, { origin: CORNER });
 }
 
-function pulse() {
-  background('green');
-  const radius = map(sin(frameCount * 0.1), -1, 1, 5, Quadrille.cellLength / 2);
+function ringTorus() {
+  push();
+  ambientLight(60);
+  directionalLight(255, 255, 255, 0.25, 0.25, -1);
+  rotateX(frameCount * 0.03);
+  rotateY(frameCount * 0.03);
+  colorMode(HSB);
+  fill((frameCount * 2) % 360, 255, 255);
   noStroke();
-  fill('cyan');
-  circle(0, 0, radius);
+  torus(Quadrille.cellLength / 3);
+  pop();
 }
 ```
 {{% /details %}}
 
 {{< callout type="info" >}}
-**Observations about [WEBGL](https://p5js.org/reference/p5/WEBGL/) mode and function cells**  
-1. **[createCanvas](https://p5js.org/reference/p5/createCanvas/) with `WEBGL` and Function Cells:** Passing `WEBGL` as the third parameter in [createCanvas](https://p5js.org/reference/p5/createCanvas/) enables support for function cells, such as `pulse`.
-2. **Function Cells and 3D Geometry:** In `WEBGL` mode, function cells can render 3D geometry using shapes like [`box`](https://p5js.org/reference/p5/box), [`sphere`](https://p5js.org/reference/p5/sphere), and other 3D primitives.  
-3. **Font Limitations:** In `WEBGL` mode, fonts must be loaded manually, and emojis are not supported (the only known limitation). 
-4. **Origin in WEBGL vs P2D:** In `WEBGL` mode, the `origin` defaults to the **center** of the canvas, while in `P2D` mode, it defaults to the **top-left corner**. To ensure the quadrille aligns correctly in `WEBGL` mode, the `origin` option is explicitly set to `CORNER` using: `drawQuadrille(quadrille, { origin: CORNER })`.
-5. **Origin in Function Cells:** Similarly, within function cells (like `pulse`), the `origin` is also the **center**. Therefore, `circle(0, 0, radius)` draws a circle centered at the cell's center.
+**Observations about [WEBGL](https://beta.p5js.org/reference/p5/WEBGL/) mode and function cells**  
+1. **3D Function Cells:** Using `WEBGL` mode as the third argument to `createCanvas()` enables 3D function-based cells like `ringTorus`, which can render geometry using primitives such as [`box`](https://p5js.org/reference/p5/box), [`sphere`](https://p5js.org/reference/p5/sphere), and [`torus`](https://p5js.org/reference/p5/torus).
+2. **Font Limitations:** In `WEBGL` mode, fonts must be loaded manually, and emojis are not supported (the only known limitation).
+3. **Origin in the Canvas:** In `WEBGL` mode, the canvas origin defaults to the **center**. To align the top-left of the quadrille with the canvas, use `drawQuadrille(quadrille, { origin: CORNER })`.
+4. **Origin in Function Cells:** Likewise, within each function cell (such as `ringTorus`), the coordinate origin is also the center of the cell. To draw from the top-left corner instead, pass `options: { origin: CORNER }` to `drawQuadrille()`.
 {{< /callout >}}
 
 <!-- {{< callout type="warning" >}}
 The **`WEBGL` mode** in **`p5.js`** has a **higher carbon footprint** due to its reliance on **GPU acceleration**, which consumes more energy. For applications that do not require 3D rendering, consider using **`PGraphics`** with **`P2D` mode** as a more **energy-efficient** and **sustainable** alternative.
 {{< /callout >}} -->
 
-## Example 4: p5.Graphics, Images, Text, Colors, and Emojis
+## Example 5: p5.Graphics, Images, Text, Colors, and Emojis
 
 {{< p5-global-iframe quadrille="true" width="625" height="425" >}}
 'use strict';
@@ -291,7 +383,7 @@ function draw() {
 }
 
 function pulse() {
-  pg.background('green');
+  pg.background('green'); // p5.Graphics background should explicitly be set
   const radius = map(sin(frameCount * 0.1), -1, 1, 5, Quadrille.cellLength / 2);
   pg.noStroke();
   pg.fill('cyan');
@@ -330,7 +422,7 @@ function draw() {
 }
 
 function pulse() {
-  pg.background('green');
+  pg.background('green'); // p5.Graphics background should explicitly be set
   const radius = map(sin(frameCount * 0.1), -1, 1, 5, Quadrille.cellLength / 2);
   pg.noStroke();
   pg.fill('cyan');
