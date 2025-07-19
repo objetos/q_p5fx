@@ -160,5 +160,7 @@ This layout matches **little-endian rank-file ordering** as used in engines like
 | `width`        | Number: Number of columns in the quadrille                                                                         |
 | `height`       | Number: Number of rows in the quadrille                                                                            |
 | `bitboard`     | BigInt (or Number): A bitboard whose binary representation determines which cells are filled                       |
-| `value`        | Any: [valid JavaScript value](https://www.w3schools.com/js/js_datatypes.asp), with `null` representing empty cells |
+| `value`[^1]    | Any: [valid JavaScript value](https://www.w3schools.com/js/js_datatypes.asp), with `null` representing empty cells |
 | `littleEndian` | Optional Boolean: If `true`, reads the bitboard in little-endian order (default is `false`, big-endian)            |
+
+[^1]: If `value` is a function, it is evaluated **per cell**. Use `Quadrille.factory(({ row, col }) => new Object(...))` to generate a new object per cell. For display routines, use a plain function like `({ row, col, options }) => { ... }`. See [`options`]({{< relref display_fns >}}) for available parameters.

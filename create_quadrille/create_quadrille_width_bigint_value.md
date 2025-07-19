@@ -135,9 +135,15 @@ To define different values in `createQuadrille(width, bigint, value)`, refer to 
 
 ## Parameters
 
-| Param    | Description                                                                                                        |
-|----------|--------------------------------------------------------------------------------------------------------------------|
-| `width`  | Number: The total number of columns for the quadrille                                                              |
-| `bigint` | BigInt (or Number): A bigint whose binary representation will determine the filled cells in the quadrille          |
-| `value`  | Any: [valid JavaScript value](https://www.w3schools.com/js/js_datatypes.asp), with `null` representing empty cells |
-| `littleEndian` | Optional Boolean: If `true`, use little-endian bit ordering (default is `false`, i.e., big-endian)           |
+| Param          | Description                                                                                                          |
+|----------------|----------------------------------------------------------------------------------------------------------------------|
+| `width`        | Number: The total number of columns for the quadrille                                                               |
+| `bigint`       | BigInt (or Number): A bigint whose binary representation will determine the filled cells in the quadrille           |
+| `value`[^1]    | Any: A [valid JavaScript value](https://www.w3schools.com/js/js_datatypes.asp), with `null` representing empty cells |
+| `littleEndian` | Optional Boolean: If `true`, use little-endian bit ordering (default is `false`, i.e., big-endian)                  |
+
+[^1]: If `value` is a function, it is evaluated **per cell**. Use `Quadrille.factory(({ row, col }) => new Object(...))` to generate a new object per cell. For display routines, use a plain function like `({ row, col, options }) => { ... }`. See [`options`]({{< relref display_fns >}}) for available parameters.
+
+
+
+
