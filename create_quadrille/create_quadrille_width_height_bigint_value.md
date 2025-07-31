@@ -1,5 +1,5 @@
 ---
-weight: 14
+weight: 15
 draft: false
 title: "createQuadrille(width, height, bitboard, value, littleEndian?)"
 ---
