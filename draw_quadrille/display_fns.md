@@ -4,7 +4,7 @@ draft: false
 title: display functions  
 ---
 
-Display functions determine how quadrille cells are visually rendered based on their values. To disable a specific display function, assign it a value of `0`, `null`, or `undefined`.
+Display functions determine how quadrille cells are visually rendered based on their values. To disable a specific display function, assign it a value of `0` or `null`.
 
 | Display Function  | Value Type | Default                                                                                                              |
 |-------------------|------------|----------------------------------------------------------------------------------------------------------------------|
