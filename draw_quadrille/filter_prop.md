@@ -6,37 +6,37 @@ title: filter
 
 Filters which cells to draw from a given quadrille `q`. It accepts the following types:
 
-- **A value collection (`Array` or `Set`)**  
-  Draws only the cells whose values are included in the collection.  
-  [Example](#example-filtering-by-value-collection):  
+* **A value collection (`Array` or `Set`)**
+  Draws only the cells whose values are included in the collection.
+  [Example](#example-filtering-by-value-collection):
   `drawQuadrille(q, { filter: [red, blue] })`
 
-- **A predicate function (`function(value): boolean`)**  
-  Draws only the cells for which the function returns `true`.  
-  [Example](#example-filtering-by-predicate-value):  
-  `drawQuadrille(q, { filter: value => brightness(value) < 50 })`
+* **A predicate function over the *cell* (`(cell) => boolean`)**
+  The function receives `{ row, col, value }` and must return `true` to draw that cell.
+  [Example](#example-filtering-by-predicate-value):
+  `drawQuadrille(q, { filter: ({ value }) => brightness(value) < 50 })`
 
-- **An object with optional `value`, `row`, and/or `col` predicate functions**  
-  Draws only the cells that match *all* specified predicates.  
-  [Example](#example-filtering-by-predicate-value-row-and-column):  
-  `drawQuadrille(q, { filter: {value: v => red(v) > 50, row: r => r == 0} })`
-
-{{< callout type="info" >}}  
-[Arrow functions](https://www.w3schools.com/js/js_arrow_function.asp) offer a compact syntax for writing functions. For example, the predicate:
+{{< callout type="info" >}}
+[Arrow functions](https://www.w3schools.com/js/js_arrow_function.asp) offer a compact syntax. For instance, the predicate
 
 ```js
-function(value) {
-  return brightness(value) < 50;
+function (cell) {
+  return brightness(cell.value) < 50
 }
 ```
 
-can be written more concisely as:
+becomes:
 
 ```js
-value => brightness(value) < 50
+cell => brightness(cell.value) < 50
 ```
 
-Here, the `function` keyword, parentheses (when there’s only one parameter), and the `return` statement (if the body is a single expression) are all omitted.
+You can also destructure to focus only on what you need:
+
+```js
+({ value }) => brightness(value) < 50
+```
+
 {{< /callout >}}
 
 ## Example: Filtering by Value Collection
@@ -137,203 +137,176 @@ The `values` array must contain references to the exact instances used to fill t
 
 (click on canvas and press any key to randomize `q`)  
 {{< p5-global-iframe quadrille="true" width="625" height="425" >}}
-'use strict';
-Quadrille.cellLength = 20;                    // Set cell size
-Quadrille.outline = '#FF00FF';                // Set outline color
-Quadrille.outlineWeight = 1;                  // Set outline weight
+'use strict'
 
-let q;         // Quadrille
-let select;    // UI
+Quadrille.cellLength = 20;
+Quadrille.outline = '#FF00FF';
+Quadrille.outlineWeight = 1;
 
-// Define a set of predicate-based color filters
+let q;
+let select;
+
 const filters = {
-  'All': undefined,                                       // No filter
-  'Warm': c => red(c) > blue(c),                          // Warmer hues
-  'Dark': c => brightness(c) < 50,                        // Low brightness
-  'Gothic': c => saturation(c) < 20 && brightness(c) < 60 // Muted and dark
-};
+  'All':    undefined,
+  'Warm':   ({ value }) => red(value) > blue(value),
+  'Dark':   ({ value }) => brightness(value) < 50,
+  'Gothic': ({ value }) => saturation(value) < 20 && brightness(value) < 60
+}
 
-function setup() {
+function setup () {
   createCanvas(600, 400);
   q = createQuadrille(30, 20);
-  // Fill quadrille with random colors iterating with a for...of loop
   for (const { row, col } of q) {
     q.fill(row, col, color(random(255), random(255), random(255)));
   }
   select = createSelect().position(10, 10);
-  for (const label in filters) {
-    select.option(label);
-  }
+  for (const label in filters) select.option(label);
 }
 
-function draw() {
+function draw () {
   background(255);
-  // Draw q with predicate object controlled by the select
   drawQuadrille(q, { filter: filters[select.value()] });
 }
 
-function keyPressed() {
+function keyPressed () {
   q.randomize();
 }
 {{< /p5-global-iframe >}}
 
 {{% details title="code" open=true %}}
 ```js
-Quadrille.cellLength = 20;                    // Set cell size
-Quadrille.outline = '#FF00FF';                // Set outline color
-Quadrille.outlineWeight = 1;                  // Set outline weight
+Quadrille.cellLength = 20;
+Quadrille.outline = '#FF00FF';
+Quadrille.outlineWeight = 1;
 
-let q;               // Quadrilles
-let select;          // UI
+let q;
+let select;
 
-// Define a set of predicate-based color filters
 const filters = {
-  'All': undefined,                                       // No filter
-  'Warm': c => red(c) > blue(c),                          // Warmer hues
-  'Dark': c => brightness(c) < 50,                        // Low brightness
-  'Gothic': c => saturation(c) < 20 && brightness(c) < 60 // Muted and dark
-};
+  'All':    undefined,
+  'Warm':   ({ value }) => red(value) > blue(value),
+  'Dark':   ({ value }) => brightness(value) < 50,
+  'Gothic': ({ value }) => saturation(value) < 20 && brightness(value) < 60
+}
 
-function setup() {
+function setup () {
   createCanvas(600, 400);
   q = createQuadrille(30, 20);
-  // Fill quadrille with random colors iterating with a for...of loop
   for (const { row, col } of q) {
     q.fill(row, col, color(random(255), random(255), random(255)));
   }
   select = createSelect().position(10, 10);
-  for (const label in filters) {
-    select.option(label);
-  }
+  for (const label in filters) select.option(label);
 }
 
-function draw() {
+function draw () {
   background(255);
-  // Draw q with predicate object controlled by the select
-  drawQuadrille(q, {filter: filters[select.value()] });
+  drawQuadrille(q, { filter: filters[select.value()] });
 }
 
-function keyPressed() {
+function keyPressed () {
   q.randomize();
 }
 ```
 {{% /details %}}
 
-{{< callout type="info" >}}  
-In JavaScript, `for...of` is used to iterate over *iterables* such as arrays, strings, Maps, Sets, and (custom) generators:
+{{< callout type="info" >}}
+In JavaScript, `for...of` iterates over iterables like arrays, strings, Maps, and Sets, and when used with a quadrille it yields `{ row, col, value }`:
 
 ```js
 for (const { row, col } of q) {
-  q.fill(row, col, color(random(255), random(255), random(255)));
+  q.fill(row, col, color(random(255), random(255), random(255)))
 }
 ```
 
-On the other hand, `for...in` is used to iterate over *object keys*, typically with plain objects:
+Destructure only what you need inside predicates (e.g., `{ row, col }`).
+{{< /callout >}}
+
+{{< callout type="info" >}}
+In JavaScript, `for...in` is used to iterate over *object keys*, typically with plain objects:
 
 ```js
 for (const label in filters) {
-  select.option(label);
+  select.option(label)
 }
-```  
+```
 {{< /callout >}}
 
 ## Example: Filtering by Predicate Value, Row, and Column
 
-(click on canvas and press any key to randomize `q`)  
+(click on canvas and press any key to randomize `q`)
 {{< p5-global-iframe quadrille="true" width="625" height="425" >}}
-'use strict';
-Quadrille.cellLength = 20;                    // Set cell size
-Quadrille.outline = '#FF00FF';                // Set outline color
-Quadrille.outlineWeight = 1;                  // Set outline weight
+'use strict'
+Quadrille.cellLength = 20;
+Quadrille.outline = '#FF00FF';
+Quadrille.outlineWeight = 1;
 
 const COLS = 30, ROWS = 20;
 let q;
 let select;
 
-// Object filters combining row/col/value predicates
 const filters = {
-  'All': undefined,
-  'Even Rows': { row: r => r % 2 === 0 },
-  'Left Half': { col: c => c < COLS / 2 },
-  'Cool & Right': {
-    value: c => blue(c) > red(c),
-    col: c => c >= COLS / 2
-  },
-  'Top Warm': {
-    value: c => red(c) > blue(c),
-    row: r => r < ROWS / 2
-  }
-};
+  'All':          undefined,
+  'Even Rows':    ({ row }) => row % 2 === 0,
+  'Left Half':    ({ col }) => col < COLS / 2,
+  'Cool & Right': ({ value, col }) => blue(value) > red(value) && col >= COLS / 2,
+  'Top Warm':     ({ value, row }) => red(value) > blue(value) && row < ROWS / 2
+}
 
-function setup() {
+function setup () {
   createCanvas(600, 400);
   q = createQuadrille(COLS, ROWS);
-  // Fill quadrille with random colors using a for...of loop
   for (const { row, col } of q) {
     q.fill(row, col, color(random(255), random(255), random(255)));
   }
-  // UI controls
   select = createSelect().position(10, 10);
-  for (const label in filters) {
-    select.option(label);
-  }
+  for (const label in filters) select.option(label);
 }
 
-function draw() {
-  background(255);
+function draw () {
+  background(255)
   drawQuadrille(q, { filter: filters[select.value()] });
 }
 
-function keyPressed() {
+function keyPressed () {
   q.randomize();
 }
 {{< /p5-global-iframe >}}
 
 {{% details title="code" open=true %}}
 ```js
-Quadrille.cellLength = 20;                    // Set cell size
-Quadrille.outline = '#FF00FF';                // Set outline color
-Quadrille.outlineWeight = 1;                  // Set outline weight
+Quadrille.cellLength = 20;
+Quadrille.outline = '#FF00FF';
+Quadrille.outlineWeight = 1;
 
 const COLS = 30, ROWS = 20;
 let q;
 let select;
 
-// Object filters combining row/col/value predicates
 const filters = {
-  'All': undefined,
-  'Even Rows': { row: r => r % 2 === 0 },
-  'Left Half': { col: c => c < COLS / 2 },
-  'Cool & Right': {
-    value: c => blue(c) > red(c),
-    col: c => c >= COLS / 2
-  },
-  'Top Warm': {
-    value: c => red(c) > blue(c),
-    row: r => r < ROWS / 2
-  }
-};
+  'All':          undefined,
+  'Even Rows':    ({ row }) => row % 2 === 0,
+  'Left Half':    ({ col }) => col < COLS / 2,
+  'Cool & Right': ({ value, col }) => blue(value) > red(value) && col >= COLS / 2,
+  'Top Warm':     ({ value, row }) => red(value) > blue(value) && row < ROWS / 2
+}
 
-function setup() {
+function setup () {
   createCanvas(600, 400);
   q = createQuadrille(COLS, ROWS);
-  // Fill quadrille with random colors using a for...of loop
   for (const { row, col } of q) {
     q.fill(row, col, color(random(255), random(255), random(255)));
   }
-  // UI controls
   select = createSelect().position(10, 10);
-  for (const label in filters) {
-    select.option(label);
-  }
+  for (const label in filters) select.option(label);
 }
 
-function draw() {
-  background(255);
+function draw () {
+  background(255)
   drawQuadrille(q, { filter: filters[select.value()] });
 }
 
-function keyPressed() {
+function keyPressed () {
   q.randomize();
 }
 ```
@@ -345,6 +318,6 @@ function keyPressed() {
 
 ## Parameters
 
-| Param    | Description |
-|----------|-------------|
-| `filter` | Specifies which cells to draw. All cells are drawn if this parameter is omitted or `undefined`. It can be: <ul><li>a value collection (`Array` or `Set`)</li><li>a predicate function (`value => boolean`)</li><li>an object with optional `value`, `row`, and/or `col` predicates</li></ul> |
+| Param    | Description                                                                                                                                                                                                                                                                    |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `filter` | Specifies which cells to draw. All cells are drawn if omitted or `undefined`. It can be: <ul><li>a **value collection** (`Array` or `Set`) checked by identity (`===`) against `cell.value`</li><li>a **cell-predicate function** `({ row, col, value }) => boolean`</li></ul> |
