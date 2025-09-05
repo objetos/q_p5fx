@@ -139,73 +139,81 @@ The `values` array must contain references to the exact instances used to fill t
 {{< p5-global-iframe quadrille="true" width="625" height="425" >}}
 'use strict'
 
-Quadrille.cellLength = 20;
-Quadrille.outline = '#FF00FF';
-Quadrille.outlineWeight = 1;
+Quadrille.cellLength = 20;                    // Set cell size
+Quadrille.outline = '#FF00FF';                // Set outline color
+Quadrille.outlineWeight = 1;                  // Set outline weight
 
-let q;
-let select;
+let q;                                        // Quadrille
+let select;                                   // UI
 
+// Predicate-based color filters
 const filters = {
-  'All':    undefined,
-  'Warm':   ({ value }) => red(value) > blue(value),
-  'Dark':   ({ value }) => brightness(value) < 50,
-  'Gothic': ({ value }) => saturation(value) < 20 && brightness(value) < 60
-}
+  'All':    undefined,                                // No filter
+  'Warm':   ({ value }) => red(value) > blue(value),  // Warmer hues
+  'Dark':   ({ value }) => brightness(value) < 50,    // Low brightness
+  'Gothic': ({ value }) => saturation(value) < 20 &&
+                           brightness(value) < 60     // Muted & dark
+};
 
 function setup () {
-  createCanvas(600, 400);
-  q = createQuadrille(30, 20);
+  createCanvas(600, 400);                    // Create canvas
+  q = createQuadrille(30, 20);               // Create quadrille
+  // Fill quadrille with random colors using a for...of loop
   for (const { row, col } of q) {
     q.fill(row, col, color(random(255), random(255), random(255)));
   }
-  select = createSelect().position(10, 10);
-  for (const label in filters) select.option(label);
+  select = createSelect().position(10, 10);  // Dropdown menu
+  for (const label in filters) select.option(label); // Populate options
 }
 
 function draw () {
-  background(255);
-  drawQuadrille(q, { filter: filters[select.value()] });
+  background(255);                           // Clear background
+  // Draw filtered quadrille
+  drawQuadrille(q, { filter: filters[select.value()] }); 
 }
 
 function keyPressed () {
-  q.randomize();
+  q.randomize();                             // Randomize on key press
 }
 {{< /p5-global-iframe >}}
 
 {{% details title="code" open=true %}}
 ```js
-Quadrille.cellLength = 20;
-Quadrille.outline = '#FF00FF';
-Quadrille.outlineWeight = 1;
+Quadrille.cellLength = 20;                    // Set cell size
+Quadrille.outline = '#FF00FF';                // Set outline color
+Quadrille.outlineWeight = 1;                  // Set outline weight
 
-let q;
-let select;
+let q;                                        // Quadrille
+let select;                                   // UI
 
+// Predicate-based color filters
 const filters = {
-  'All':    undefined,
-  'Warm':   ({ value }) => red(value) > blue(value),
-  'Dark':   ({ value }) => brightness(value) < 50,
-  'Gothic': ({ value }) => saturation(value) < 20 && brightness(value) < 60
-}
+  'All':    undefined,                                // No filter
+  'Warm':   ({ value }) => red(value) > blue(value),  // Warmer hues
+  'Dark':   ({ value }) => brightness(value) < 50,    // Low brightness
+  'Gothic': ({ value }) => saturation(value) < 20 &&
+                           brightness(value) < 60     // Muted & dark
+};
 
 function setup () {
-  createCanvas(600, 400);
-  q = createQuadrille(30, 20);
+  createCanvas(600, 400);                    // Create canvas
+  q = createQuadrille(30, 20);               // Create quadrille
+  // Fill quadrille with random colors using a for...of loop
   for (const { row, col } of q) {
     q.fill(row, col, color(random(255), random(255), random(255)));
   }
-  select = createSelect().position(10, 10);
-  for (const label in filters) select.option(label);
+  select = createSelect().position(10, 10);  // Dropdown menu
+  for (const label in filters) select.option(label); // Populate options
 }
 
 function draw () {
-  background(255);
-  drawQuadrille(q, { filter: filters[select.value()] });
+  background(255);                           // Clear background
+  // Draw filtered quadrille
+  drawQuadrille(q, { filter: filters[select.value()] }); 
 }
 
 function keyPressed () {
-  q.randomize();
+  q.randomize();                             // Randomize on key press
 }
 ```
 {{% /details %}}
@@ -237,77 +245,87 @@ for (const label in filters) {
 (click on canvas and press any key to randomize `q`)
 {{< p5-global-iframe quadrille="true" width="625" height="425" >}}
 'use strict'
-Quadrille.cellLength = 20;
-Quadrille.outline = '#FF00FF';
-Quadrille.outlineWeight = 1;
+Quadrille.cellLength = 20;                    // Set cell size
+Quadrille.outline = '#FF00FF';                // Set outline color
+Quadrille.outlineWeight = 1;                  // Set outline weight
 
-const COLS = 30, ROWS = 20;
-let q;
-let select;
+const COLS = 30, ROWS = 20;                   // Grid dimensions
+let q;                                        // Quadrille
+let select;                                   // UI
 
+// Combined cell-predicate filters
 const filters = {
-  'All':          undefined,
-  'Even Rows':    ({ row }) => row % 2 === 0,
-  'Left Half':    ({ col }) => col < COLS / 2,
-  'Cool & Right': ({ value, col }) => blue(value) > red(value) && col >= COLS / 2,
-  'Top Warm':     ({ value, row }) => red(value) > blue(value) && row < ROWS / 2
-}
+  'All':          undefined,                           // No filter
+  'Even Rows':    ({ row }) => row % 2 === 0,          // Even rows only
+  'Left Half':    ({ col }) => col < COLS / 2,         // Left half only
+  'Cool & Right': ({ value, col }) => blue(value) > red(value) && 
+                                      col >= COLS / 2, // Cool hues on right half
+  'Top Warm':     ({ value, row }) => red(value) > blue(value) &&
+                                      row < ROWS / 2   // Warm hues on top half
+};
 
 function setup () {
-  createCanvas(600, 400);
-  q = createQuadrille(COLS, ROWS);
+  createCanvas(600, 400);                     // Create canvas
+  q = createQuadrille(COLS, ROWS);            // Create quadrille
+  // Fill quadrille with random colors using a for...of loop
   for (const { row, col } of q) {
     q.fill(row, col, color(random(255), random(255), random(255)));
   }
-  select = createSelect().position(10, 10);
-  for (const label in filters) select.option(label);
+  select = createSelect().position(10, 10);   // Dropdown menu
+  for (const label in filters) select.option(label); // Populate options
 }
 
 function draw () {
-  background(255)
+  background(255);                            // Clear background
+  // Draw filtered quadrille
   drawQuadrille(q, { filter: filters[select.value()] });
 }
 
 function keyPressed () {
-  q.randomize();
+  q.randomize();                              // Randomize on key press
 }
 {{< /p5-global-iframe >}}
 
 {{% details title="code" open=true %}}
 ```js
-Quadrille.cellLength = 20;
-Quadrille.outline = '#FF00FF';
-Quadrille.outlineWeight = 1;
+Quadrille.cellLength = 20;                    // Set cell size
+Quadrille.outline = '#FF00FF';                // Set outline color
+Quadrille.outlineWeight = 1;                  // Set outline weight
 
-const COLS = 30, ROWS = 20;
-let q;
-let select;
+const COLS = 30, ROWS = 20;                   // Grid dimensions
+let q;                                        // Quadrille
+let select;                                   // UI
 
+// Combined cell-predicate filters
 const filters = {
-  'All':          undefined,
-  'Even Rows':    ({ row }) => row % 2 === 0,
-  'Left Half':    ({ col }) => col < COLS / 2,
-  'Cool & Right': ({ value, col }) => blue(value) > red(value) && col >= COLS / 2,
-  'Top Warm':     ({ value, row }) => red(value) > blue(value) && row < ROWS / 2
-}
+  'All':          undefined,                           // No filter
+  'Even Rows':    ({ row }) => row % 2 === 0,          // Even rows only
+  'Left Half':    ({ col }) => col < COLS / 2,         // Left half only
+  'Cool & Right': ({ value, col }) => blue(value) > red(value) && 
+                                      col >= COLS / 2, // Cool hues on right half
+  'Top Warm':     ({ value, row }) => red(value) > blue(value) &&
+                                      row < ROWS / 2   // Warm hues on top half
+};
 
 function setup () {
-  createCanvas(600, 400);
-  q = createQuadrille(COLS, ROWS);
+  createCanvas(600, 400);                     // Create canvas
+  q = createQuadrille(COLS, ROWS);            // Create quadrille
+  // Fill quadrille with random colors using a for...of loop
   for (const { row, col } of q) {
     q.fill(row, col, color(random(255), random(255), random(255)));
   }
-  select = createSelect().position(10, 10);
-  for (const label in filters) select.option(label);
+  select = createSelect().position(10, 10);   // Dropdown menu
+  for (const label in filters) select.option(label); // Populate options
 }
 
 function draw () {
-  background(255)
+  background(255);                            // Clear background
+  // Draw filtered quadrille
   drawQuadrille(q, { filter: filters[select.value()] });
 }
 
 function keyPressed () {
-  q.randomize();
+  q.randomize();                              // Randomize on key press
 }
 ```
 {{% /details %}}
