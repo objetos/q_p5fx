@@ -8,7 +8,7 @@ Creates a quadrille and fills its cells using the characters from the provided `
 
 ## Example
 
-{{< p5-global-iframe quadrille="true" width="425" height="225" >}}
+{{< p5 quadrille="true" >}}
 'use strict';
 let quadrille;
 
@@ -21,7 +21,7 @@ function draw() {
   background('orange');
   drawQuadrille(quadrille);
 }
-{{< /p5-global-iframe >}}
+{{< /p5 >}}
 
 {{% details title="code" open=true %}}
 ```js
@@ -29,7 +29,7 @@ let quadrille;
 
 function setup() {
   createCanvas(4 * Quadrille.cellLength, 2 * Quadrille.cellLength);
-  quadrille = createQuadrille(4, 'hola 👽!');
+  quadrille = createQuadrille(4, 'hola 👾👽!');
 }
 
 function draw() {

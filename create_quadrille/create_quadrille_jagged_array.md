@@ -4,11 +4,11 @@ draft: false
 title: "createQuadrille(jagged_array)"  
 ---
 
-The `createQuadrille` function creates a **quadrille** and fills its cells using items from a [jagged_array](https://en.wikipedia.org/wiki/Jagged_array). The array can contain any combination of [valid JavaScript values](https://www.w3schools.com/js/js_datatypes.asp), with `null` representing empty cells.
+The `createQuadrille` function creates a **quadrille** and fills its cells using items from a [jagged_array](https://en.wikipedia.org/wiki/Jagged_array). The array can contain any combination of [valid JavaScript values](https://www.w3schools.com/js/js_datatypes.asp), with `null` representing empty cells. Rows may have different lengths — shorter rows are padded with `null` to the longest row's width — and holes or explicit `undefined` entries likewise normalize to `null` on entry.
 
 ## Example 1: Images, Text, Colors, Numbers, and Emojis
 
-{{< p5-global-iframe quadrille="true" width="625" height="425" >}}
+{{< p5 quadrille="true" >}}
 'use strict';
 let sb; // Image variable
 let quadrille;
@@ -34,7 +34,7 @@ function draw() {
   background('#DAF7A6');
   drawQuadrille(quadrille); // Render the quadrille
 }
-{{< /p5-global-iframe >}}
+{{< /p5 >}}
 
 {{% details title="code" open=true %}}
 ```js
@@ -73,7 +73,7 @@ Images are loaded in the `async` [setup](https://p5js.org/reference/p5/setup) fu
 ## Example 2: Videos, Text, Colors, Numbers, and Emojis
 
 (click to toggle the video playback)  
-{{< p5-global-iframe quadrille="true" width="625" height="425" >}}
+{{< p5 quadrille="true" >}}
 'use strict';
 let sb; // Image variable
 let destino; // Video variable
@@ -108,7 +108,7 @@ function mouseClicked() {
   destino.looping ? destino.pause() : destino.loop();
   destino.looping = !destino.looping;
 }
-{{< /p5-global-iframe >}}
+{{< /p5 >}}
 
 {{% details title="code" open=true %}}
 ```js
@@ -166,7 +166,7 @@ function mouseClicked() {
 
 ## Example 3: Functions, Images, Text, Colors and Emojis
 
-{{< p5-global-iframe quadrille="true" width="625" height="425" >}}
+{{< p5 quadrille="true" >}}
 'use strict';
 let sb; // Image variable
 let quadrille;
@@ -202,7 +202,7 @@ function pulse() {
   circle(center, center, radius);
   pop();
 }
-{{< /p5-global-iframe >}}
+{{< /p5 >}}
 
 {{% details title="code" open=true %}}
 ```js
@@ -252,7 +252,7 @@ function pulse() {
 
 ## Example 4: WEBGL Mode with Functions, Images, Text, and Colors
 
-{{< p5-global-iframe quadrille="true" width="625" height="425" >}}
+{{< p5 quadrille="true" >}}
 'use strict';
 
 let sb; // Image variable
@@ -293,7 +293,7 @@ function ringTorus() {
   torus(Quadrille.cellLength / 3);
   pop();
 }
-{{< /p5-global-iframe >}}
+{{< /p5 >}}
 
 {{% details title="code" open=true %}}
 ```js
@@ -352,7 +352,7 @@ The **`WEBGL` mode** in **`p5.js`** has a **higher carbon footprint** due to its
 
 ## Example 5: p5.Graphics, Images, Text, Colors, and Emojis
 
-{{< p5-global-iframe quadrille="true" width="625" height="425" >}}
+{{< p5 quadrille="true" >}}
 'use strict';
 let sb; // Image variable
 let pg; // p5.Graphics object
@@ -389,7 +389,7 @@ function pulse() {
   pg.fill('cyan');
   pg.circle(pg.width / 2, pg.height / 2, radius);
 }
-{{< /p5-global-iframe >}}
+{{< /p5 >}}
 
 {{% details title="code" open=true %}}
 ```js
@@ -452,4 +452,4 @@ Function cells are the preferred choice in this API's examples while occasionall
 
 | Param      | Description                                                                                         |
 |----------------|-----------------------------------------------------------------------------------------------------|
-| `jagged_array` | An array containing any combination of valid JavaScript values. Use `null` to represent empty cells |
+| `jagged_array` | An array of rows, possibly of different lengths, containing any combination of valid JavaScript values. Use `null` to represent empty cells (short rows pad with `null`; holes and `undefined` normalize to `null`) |

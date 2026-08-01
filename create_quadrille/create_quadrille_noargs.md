@@ -8,7 +8,7 @@ Creates an 8x8 quadrille with a chessboard pattern.
 
 ## Example
 
-{{< p5-global-iframe quadrille="true" width="670" height="345" >}}
+{{< p5 quadrille="true" >}}
 'use strict';
 // Set the cell length for all quadrilles (default is 100, changed to 40 here)
 Quadrille.cellLength = 40;
@@ -32,7 +32,7 @@ function draw() {
   // Display q2 with an x-offset of 330 pixels
   drawQuadrille(q2, { x: 330 });
 }
-{{< /p5-global-iframe >}}
+{{< /p5 >}}
 
 {{% details title="code" open=true %}}
 ```js
@@ -62,7 +62,7 @@ function draw() {
 {{% /details %}}
 
 {{< callout type="info" >}}
-`createQuadrille()` is equivalent to `createQuadrille(8, 8).fill()`. See [createQuadrille(width, height)]({{< ref "create_quadrille/#createquadrillewidth-height" >}}) and [fill()]({{< ref "fill" >}}).
+`createQuadrille()` is equivalent to `createQuadrille(8, 8).fill()`. See [createQuadrille(width, height)]({{< ref "create_quadrille_width_height" >}}) and [fill()]({{< ref "fill_noargs" >}}).
 {{< /callout >}}
 
 {{< callout type="warning" >}}

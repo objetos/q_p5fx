@@ -4,11 +4,11 @@ draft: false
 title: "createQuadrille(string)"
 ---
 
-Creates a quadrille and fills its cells using the characters from the provided `string`. The number of columns in the quadrille matches the length of the string.
+Creates a quadrille and fills its cells using the characters from the provided `string` — one column per character, counted as Unicode code points, so an emoji like `👽` occupies a single cell (even though its UTF-16 `.length` is 2).
 
 ## Example
 
-{{< p5-global-iframe quadrille="true" width="625" height="125" >}}
+{{< p5 quadrille="true" >}}
 'use strict';
 let quadrille;
 
@@ -21,7 +21,7 @@ function draw() {
   background('orange');
   drawQuadrille(quadrille);
 }
-{{< /p5-global-iframe >}}
+{{< /p5 >}}
 
 {{% details title="code" open=true %}}
 ```js
@@ -51,4 +51,4 @@ The `createQuadrille(string)` function fills a quadrille with each character of 
 
 | Param    | Description                                                    |
 |----------|----------------------------------------------------------------|
-| `string` | String: The string used to fill the quadrille cells. Each character occupies one cell |
+| `string` | String: The string used to fill the quadrille cells. Each character (Unicode code point) occupies one cell |

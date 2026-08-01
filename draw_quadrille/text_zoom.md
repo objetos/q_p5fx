@@ -4,7 +4,7 @@ draft: false
 title: Quadrille.textZoom  
 ---
 
-Defines the default text zoom level for quadrille cells. The default is `Quadrille.textZoom`, which is `0.78`.
+Defines the default text zoom level for quadrille cells. The default is `Quadrille.textZoom`, which is `1`.
 
 ## Example
 
@@ -22,10 +22,10 @@ function setup() {
   q3 = createQuadrille(8, 'ensueñoscaprichosilencioaventura');
   q4 = createQuadrille(8, 'claridadlecturasmisterioviajeros');
   // Local slider to adjust the text zoom level for q1
-  localZoomSlider = createSlider(0.1, 0.78, 0.5, 0.01);
+  localZoomSlider = createSlider(0.1, 1, 0.5, 0.01);
   localZoomSlider.position(10, 10);
   // Global slider to set the global Quadrille.textZoom
-  globalZoomSlider = createSlider(0.1, 0.78, Quadrille.textZoom, 0.01);
+  globalZoomSlider = createSlider(0.1, 1, Quadrille.textZoom, 0.01);
   globalZoomSlider.position(340, 10);
   globalZoomSlider.input(() => Quadrille.textZoom = globalZoomSlider.value());
 }
@@ -55,10 +55,10 @@ function setup() {
   q3 = createQuadrille(8, 'ensueñoscaprichosilencioaventura');
   q4 = createQuadrille(8, 'claridadlecturasmisterioviajeros');
   // Local slider to adjust the text zoom level for q1
-  localZoomSlider = createSlider(0.1, 0.78, 0.5, 0.01);
+  localZoomSlider = createSlider(0.1, 1, 0.5, 0.01);
   localZoomSlider.position(10, 10);
   // Global slider to set the global Quadrille.textZoom
-  globalZoomSlider = createSlider(0.1, 0.78, Quadrille.textZoom, 0.01);
+  globalZoomSlider = createSlider(0.1, 1, Quadrille.textZoom, 0.01);
   globalZoomSlider.position(340, 10);
   globalZoomSlider.input(() => Quadrille.textZoom = globalZoomSlider.value());
 }
@@ -77,7 +77,7 @@ function draw() {
 
 {{< callout type="info" >}}
 - `q1` is drawn with a text zoom level controlled by the local slider (`localZoomSlider`), initialized to `0.5`.  
-- `q2`, `q3`, and `q4` use the global `Quadrille.textZoom` set by the global slider (`globalZoomSlider`), which is initially `0.78`.
+- `q2`, `q3`, and `q4` use the global `Quadrille.textZoom` set by the global slider (`globalZoomSlider`), which is initially `1`.
 {{< /callout >}}
 
 ## Syntax
@@ -88,4 +88,4 @@ function draw() {
 
 | Param     | Description                                                                            |
 |-----------|----------------------------------------------------------------------------------------|
-| `textZoom` | Number: Specifies the text zoom level for drawing the quadrille text. The default is `Quadrille.textZoom`, which is `0.78` |
+| `textZoom` | Number: Specifies the text zoom level for drawing the quadrille text. The default is `Quadrille.textZoom`, which is `1` |

@@ -8,7 +8,7 @@ Creates a quadrille with the chess board position described by the given [FEN](h
 
 ## Example 1
 
-{{< p5-global-iframe quadrille="true" width="425" height="425" >}}
+{{< p5 quadrille="true" >}}
 'use strict';
 Quadrille.cellLength = 50;
 Quadrille.tileDisplay = 0;
@@ -27,7 +27,7 @@ function draw() {
   drawQuadrille(board);
   drawQuadrille(fen);
 }
-{{< /p5-global-iframe >}}
+{{< /p5 >}}
 
 {{% details title="code" open=true %}}
 ```js
@@ -60,7 +60,7 @@ This [iconic game](https://www.chessgames.com/perl/chessgame?gid=1095025), playe
 
 ## Example 2: Custom Chess Symbols with Chess.com Colors
 
-{{< p5-global-iframe quadrille="true" width="425" height="425" >}}
+{{< p5 quadrille="true" >}}
 'use strict';
 Quadrille.cellLength = 50;
 Quadrille.tileDisplay = 0;
@@ -88,7 +88,7 @@ function draw() {
   drawQuadrille(board);
   drawQuadrille(fen);
 }
-{{< /p5-global-iframe >}}
+{{< /p5 >}}
 
 {{% details title="code" open=true %}}
 ```js
