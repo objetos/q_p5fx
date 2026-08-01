@@ -8,7 +8,7 @@ Creates an empty quadrille having `width` number of columns and `height` number 
 
 ## Example
 
-{{< p5-global-iframe quadrille="true" width="625" height="425" >}}
+{{< p5 quadrille="true" >}}
 'use strict';
 // quadrille object declaration
 let quadrille;
@@ -26,7 +26,7 @@ function draw() {
   // to display the quadrille a call to drawQuadrille is needed
   drawQuadrille(quadrille);
 }
-{{< /p5-global-iframe >}}
+{{< /p5 >}}
 
 {{% details title="code" open=true %}}
 ```js
@@ -50,7 +50,7 @@ function draw() {
 {{% /details %}}
 
 {{< callout type="info" >}}
-`createQuadrille(width, height)` creates an empty quadrille with the given dimensions. See [fill]({{< ref "fill" >}}) and [rand]({{< ref "rand" >}}) for ways to populating it.
+`createQuadrille(width, height)` creates an empty quadrille with the given dimensions. See [fill]({{< ref "fill" >}}) and [rand]({{< ref "rand" >}}) for ways to populate it.
 {{< /callout >}}
 
 ## Syntax

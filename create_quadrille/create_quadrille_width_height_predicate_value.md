@@ -11,7 +11,7 @@ This method is ideal for generating patterns like diagonals, borders, checkerboa
 ## Example
 
 (fill the two diagonals with 🌀 symbols)  
-{{< p5-global-iframe quadrille="true" width="425" height="425" >}}
+{{< p5 quadrille="true" >}}
 'use strict';
 Quadrille.cellLength = 50;
 let q;
@@ -25,7 +25,7 @@ function draw() {
   background('beige');
   drawQuadrille(q);
 }
-{{< /p5-global-iframe >}}
+{{< /p5 >}}
 
 {{% details title="code" open=true %}}
 ```js
@@ -57,4 +57,4 @@ function draw() {
 | `predicate` | Function: receives `{ row, col }` and returns `true` if the cell should be filled |
 | `value`[^1] | Any: the value to assign to matching cells. Can be a literal, function, or object |
 
-[^1]: If `value` is a function, it is evaluated **per cell**. Use `Quadrille.factory(({ row, col }) => new Object(...))` to generate a new object per cell. For display routines, use a plain function like `({ row, col, options }) => { ... }`. See [`options`]({{< relref display_fns >}}) for available parameters.
+[^1]: A plain function `value` is **stored, not called** — it becomes a per-cell display routine `({ row, col, options }) => { ... }` (see [`options`]({{< relref display_fns >}})). To have a function **evaluated per cell** at creation time — a fresh object or a varied tile per cell — tag it: `Quadrille.factory(({ row, col }) => new Object(...))`.

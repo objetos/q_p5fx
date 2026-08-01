@@ -13,7 +13,7 @@ To **explicitly define** the [height]({{< relref "height" >}}), call [`createQua
 
 ## Example 1 — Big-endian (default)
 
-{{< p5-global-iframe quadrille="true" width="325" height="225" >}}
+{{< p5 quadrille="true" >}}
 'use strict';
 let quadrille;
 
@@ -31,7 +31,7 @@ function draw() {
   background('orange');
   drawQuadrille(quadrille);
 }
-{{< /p5-global-iframe >}}
+{{< /p5 >}}
 
 {{% details title="code" open=true %}}
 ```js
@@ -69,7 +69,7 @@ This example fills a quadrille using a **bitboard** (`58n` = `0b111010`) in **ro
 
 ## Example 2 — Little-endian
 
-{{< p5-global-iframe quadrille="true" width="325" height="225" >}}
+{{< p5 quadrille="true" >}}
 'use strict';
 let quadrille;
 
@@ -87,7 +87,7 @@ function draw() {
   background('orange');
   drawQuadrille(quadrille);
 }
-{{< /p5-global-iframe >}}
+{{< /p5 >}}
 
 {{% details title="code" open=true %}}
 ```js
@@ -129,6 +129,10 @@ This layout is often used in chess engines such as [Stockfish](https://github.co
 To define different values in `createQuadrille(width, bigint, value)`, refer to [createQuadrille(jagged_array)]({{< relref "create_quadrille_jagged_array" >}}).
 {{< /callout >}}
 
+{{< callout type="warning" >}}
+The bitboard must be a **BigInt** (note the `n` suffix: `58n`). A plain Number matches **no constructor overload** in this form — the quadrille is silently created without cell memory, and later calls on it fail.
+{{< /callout >}}
+
 ## Syntax
 
 > `createQuadrille(width, bitboard, value[, littleEndian])`
@@ -138,11 +142,11 @@ To define different values in `createQuadrille(width, bigint, value)`, refer to 
 | Param          | Description                                                                                                          |
 |----------------|----------------------------------------------------------------------------------------------------------------------|
 | `width`        | Number: The total number of columns for the quadrille                                                               |
-| `bigint`       | BigInt (or Number): A bigint whose binary representation will determine the filled cells in the quadrille           |
+| `bitboard`     | BigInt: A bitboard whose binary representation will determine the filled cells in the quadrille                     |
 | `value`[^1]    | Any: A [valid JavaScript value](https://www.w3schools.com/js/js_datatypes.asp), with `null` representing empty cells |
 | `littleEndian` | Optional Boolean: If `true`, use little-endian bit ordering (default is `false`, i.e., big-endian)                  |
 
-[^1]: If `value` is a function, it is evaluated **per cell**. Use `Quadrille.factory(({ row, col }) => new Object(...))` to generate a new object per cell. For display routines, use a plain function like `({ row, col, options }) => { ... }`. See [`options`]({{< relref display_fns >}}) for available parameters.
+[^1]: A plain function `value` is **stored, not called** — it becomes a per-cell display routine `({ row, col, options }) => { ... }` (see [`options`]({{< relref display_fns >}})). To have a function **evaluated per cell** at creation time — a fresh object or a varied tile per cell — tag it: `Quadrille.factory(({ row, col }) => new Object(...))`.
 
 
 

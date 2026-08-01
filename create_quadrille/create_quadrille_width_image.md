@@ -8,7 +8,7 @@ Converts an `image` (a [p5.Image](https://p5js.org/reference/#/p5.Image), [p5.Gr
 
 ## Example
 
-{{< p5-global-iframe quadrille="true" width="625" height="625" >}}
+{{< p5 quadrille="true" >}}
 'use strict';
 let ps;
 let quadrille;
@@ -24,7 +24,7 @@ function draw() {
   background('orange');
   drawQuadrille(quadrille);
 }
-{{< /p5-global-iframe >}}
+{{< /p5 >}}
 
 {{% details title="code" open=true %}}
 ```js

@@ -4,11 +4,11 @@ draft: false
 title: "createQuadrille(width, height, order, value)"
 ---
 
-Creates a quadrille and fills its cells using the specified `value`, which is randomly repeated throughout the quadrille up to `order` number of times. The dimensions of the quadrille are determined by `width` and `height`.
+Creates a quadrille of dimensions `width` × `height` and randomly places `value` in exactly `order` cells (clamped to the board size).
 
 ## Example
 
-{{< p5-global-iframe quadrille="true" width="625" height="425" >}}
+{{< p5 quadrille="true" >}}
 'use strict';
 let quadrille;
 
@@ -21,7 +21,7 @@ function draw() {
   background('orange');
   drawQuadrille(quadrille);
 }
-{{< /p5-global-iframe >}}
+{{< /p5 >}}
 
 {{% details title="code" open=true %}}
 ```js
@@ -40,6 +40,10 @@ function draw() {
 {{% /details %}}
 
 {{< callout type="info" >}}
+The `order` argument means exactly what the [order]({{< relref "order" >}}) property means — the number of filled cells: after `createQuadrille(6, 4, 13, 150)`, `q.order === 13`. Values beyond the board size clamp: `createQuadrille(2, 2, 99, value)` fills all 4 cells.
+{{< /callout >}}
+
+{{< callout type="info" >}}
 To define different values in `createQuadrille(width, height, order, value)`, refer to [createQuadrille(jagged_array)]({{< relref "create_quadrille_jagged_array" >}}).
 {{< /callout >}}
 
@@ -53,7 +57,7 @@ To define different values in `createQuadrille(width, height, order, value)`, re
 |--------|----------------------------------------------------------------------------------------------------------------------------------------------------|
 | `width`  | Number: The total number of columns for the quadrille                                                                                              |
 | `height` | Number: The total number of rows for the quadrille                                                                                                |
-| `order`  | Number: The number of non-empty cells to be filled with the `value`                                                                                |
+| `order`  | Number: The number of cells to fill with `value` — the resulting [order]({{< relref "order" >}}) property (clamps to `width × height`)              |
 | `value`[^1] | Any: [valid JavaScript value](https://www.w3schools.com/js/js_datatypes.asp), with `null` representing empty cells                       |
 
-[^1]: If `value` is a function, it is evaluated **per cell**. Use `Quadrille.factory(({ row, col }) => new Object(...))` to generate a new object per cell. For display routines, use a plain function like `({ row, col, options }) => { ... }`. See [`options`]({{< relref display_fns >}}) for available parameters.
+[^1]: A plain function `value` is **stored, not called** — it becomes a per-cell display routine `({ row, col, options }) => { ... }` (see [`options`]({{< relref display_fns >}})). To have a function **evaluated per cell** at creation time — a fresh object or a varied tile per cell — tag it: `Quadrille.factory(({ row, col }) => new Object(...))`.
