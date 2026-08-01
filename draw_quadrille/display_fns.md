@@ -1,5 +1,5 @@
 ---
-weight: 12
+weight: 13
 draft: false  
 title: display functions  
 ---
@@ -29,6 +29,11 @@ Here, `value` contains the cell content; `row` and `col` indicate the cell’s p
 {{< callout type="info" >}}
 **Object fallback rendering**  
 When no `objectDisplay` is specified, `drawQuadrille()` attempts to render objects using their `display` field, if defined. If `display` is a string, number, color, or image, the corresponding built-in renderer is used. If it is a function, it is called with the `options` object only. Arrays are excluded from this mechanism and must be handled explicitly using `arrayDisplay`.
+{{< /callout >}}
+
+{{< callout type="info" >}}
+**Shipped display function values**
+Beyond the per-type defaults above, the library ships [Quadrille.thinWall]({{< relref "thin_wall" >}}) — a value-agnostic display for the thin-wall maze look, installed per draw as any (or all) of the display params together with `tileDisplay: null`.
 {{< /callout >}}
 
 ## Example

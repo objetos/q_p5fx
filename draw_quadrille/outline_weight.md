@@ -1,14 +1,14 @@
 ---
 weight: 3
 draft: false  
-title: outlineWeight  
+title: Quadrille.outlineWeight  
 ---
 
 Defines the default outline weight (stroke thickness) for drawing the quadrille cells. The default value is `Quadrille.outlineWeight`, which is `2`.
 
 ## Example
 
-{{< p5-global-iframe quadrille="true" width="675" height="355" >}}
+{{< p5 quadrille="true" >}}
 'use strict';
 // Set a common cell length of 40 pixels for all quadrilles
 Quadrille.cellLength = 40;
@@ -39,7 +39,7 @@ function draw() {
   drawQuadrille(q3, { y: 170 });
   drawQuadrille(q4, { x: 330, y: 170 });
 }
-{{< /p5-global-iframe >}}
+{{< /p5 >}}
 
 {{% details title="code" open=true %}}
 ```js

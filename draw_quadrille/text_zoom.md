@@ -1,14 +1,14 @@
 ---
 weight: 5
 draft: false  
-title: textZoom  
+title: Quadrille.textZoom  
 ---
 
-Defines the default text zoom level for quadrille cells. The default is `Quadrille.textZoom`, which is `0.89`.
+Defines the default text zoom level for quadrille cells. The default is `Quadrille.textZoom`, which is `0.78`.
 
 ## Example
 
-{{< p5-global-iframe quadrille="true" width="675" height="355" >}}
+{{< p5 quadrille="true" >}}
 'use strict';
 // Set a common cell length of 40 pixels for all quadrilles
 Quadrille.cellLength = 40;
@@ -39,7 +39,7 @@ function draw() {
   drawQuadrille(q3, { y: 170 });
   drawQuadrille(q4, { x: 330, y: 170 });
 }
-{{< /p5-global-iframe >}}
+{{< /p5 >}}
 
 {{% details title="code" open=true %}}
 ```js
@@ -77,7 +77,7 @@ function draw() {
 
 {{< callout type="info" >}}
 - `q1` is drawn with a text zoom level controlled by the local slider (`localZoomSlider`), initialized to `0.5`.  
-- `q2`, `q3`, and `q4` use the global `Quadrille.textZoom` set by the global slider (`globalZoomSlider`), which is initially `0.89`.
+- `q2`, `q3`, and `q4` use the global `Quadrille.textZoom` set by the global slider (`globalZoomSlider`), which is initially `0.78`.
 {{< /callout >}}
 
 ## Syntax
@@ -88,4 +88,4 @@ function draw() {
 
 | Param     | Description                                                                            |
 |-----------|----------------------------------------------------------------------------------------|
-| `textZoom` | Number: Specifies the text zoom level for drawing the quadrille text. The default is `Quadrille.textZoom`, which is `0.89` |
+| `textZoom` | Number: Specifies the text zoom level for drawing the quadrille text. The default is `Quadrille.textZoom`, which is `0.78` |

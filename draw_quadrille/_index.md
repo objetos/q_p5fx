@@ -5,7 +5,7 @@ weight: 2
 draft: false
 ---
 
-The `drawQuadrille` function is used to render a quadrille onto the canvas or a specified graphics buffer. It provides various parameters for customizing the appearance and behavior of the drawn quadrille, including cell dimensions, colors, and display styles.
+The `drawQuadrille` function is used to render a quadrille onto the canvas or a specified graphics buffer. It provides various parameters for customizing the appearance and behavior of the drawn quadrille, including cell dimensions, colors, and display styles. It also accepts a raw 1D/2D JS array, wrapped on the fly as a live zero-copy view — see [drawing arrays]({{< relref "drawing_arrays" >}}).
 
 By default, `drawQuadrille(quadrille)` is sufficient for most cases where no custom display parameters are needed, as it uses the quadrille's default properties for rendering. For more advanced use cases, `drawQuadrille(quadrille, { options })` allows you to specify optional display parameters, such as [cellLength]({{< relref "cell_length" >}}), [outline]({{< relref "outline" >}}), [textColor]({{< relref "text_color" >}}), and more, to customize the rendering behavior.
 
@@ -51,7 +51,7 @@ The remaining parameters in the `{ options }` object use their default values, m
 
 | param       | description                                                                                           |
 |-----------------|-------------------------------------------------------------------------------------------------------|
-| `quadrille`       | Quadrille: The `quadrille` to be drawn                                                                |
+| `quadrille`       | Quadrille \| Array: The `quadrille` to be drawn — or a raw 1D/2D array, wrapped on the fly as a live zero-copy view (see [drawing arrays]({{< relref "drawing_arrays" >}})) |
 | [`cellLength`]({{< relref "cell_length" >}}) | Number: Edge length in pixels. Default is [`Quadrille.cellLength`]({{< relref "cell_length" >}})        |
 | [`outline`]({{< relref "outline" >}}) | [p5.Color](https://p5js.org/reference/#/p5.Color): Edge color. Default is [`Quadrille.outline`]({{< relref "outline" >}}) |
 | [`outlineWeight`]({{< relref "outline_weight" >}}) | Number: Edge weight. Default is [`Quadrille.outlineWeight`]({{< relref "outline_weight" >}})            |

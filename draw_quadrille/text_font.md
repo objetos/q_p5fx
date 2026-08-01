@@ -1,5 +1,5 @@
 ---
-weight: 6
+weight: 7
 draft: false
 title: textFont
 ---
@@ -8,11 +8,11 @@ Defines the default font used for drawing the text in quadrille cells. The defau
 
 ## Example
 
-{{< p5-global-iframe quadrille="true" width="675" height="185" >}}
+{{< p5 quadrille="true" >}}
 'use strict';
 // Set a common cell length of 40 pixels for all quadrilles
 Quadrille.cellLength = 40;
-// Set a common cell text zoom of 0.8 for all quadrilles
+// Set a common cell text zoom of 0.78 for all quadrilles
 Quadrille.textZoom = 0.78;
 let q1, q2;
 let notoFont;
@@ -34,13 +34,13 @@ function draw() {
   // Draw q2 using the default p5.js font
   drawQuadrille(q2, { x: 330 });
 }
-{{< /p5-global-iframe >}}
+{{< /p5 >}}
 
 {{% details title="code" open=true %}}
 ```js
 // Set a common cell length of 40 pixels for all quadrilles
 Quadrille.cellLength = 40;
-// Set a common cell text zoom of 0.8 for all quadrilles
+// Set a common cell text zoom of 0.78 for all quadrilles
 Quadrille.textZoom = 0.78;
 let q1, q2;
 let notoFont;

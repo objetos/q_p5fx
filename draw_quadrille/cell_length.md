@@ -1,14 +1,14 @@
 ---
 weight: 1  
 draft: false  
-title: cellLength
+title: Quadrille.cellLength
 ---
 
 Defines the drawing cell length for quadrilles in pixels. The default is `Quadrille.cellLength`, which is `100`.
 
 ## Example
 
-{{< p5-global-iframe quadrille="true" width="675" height="355" >}}
+{{< p5 quadrille="true" >}}
 'use strict';
 // Set the global cell length to a fixed value of 40 pixels (default is 100)
 Quadrille.cellLength = 40;
@@ -39,7 +39,7 @@ function draw() {
   drawQuadrille(q3, { y: 170 });
   drawQuadrille(q4, { x: 330, y: 170 });
 }
-{{< /p5-global-iframe >}}
+{{< /p5 >}}
 
 {{% details title="code" open=true %}}
 ```js
