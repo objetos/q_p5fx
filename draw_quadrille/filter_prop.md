@@ -41,7 +41,7 @@ You can also destructure to focus only on what you need:
 ## Example: Filtering by Value Collection
 
 (click on canvas and press any key to randomize `q`)
-{{< p5-global-iframe quadrille="true" width="625" height="425" >}}
+{{< p5 quadrille="true" >}}
 'use strict';
 Quadrille.cellLength = 20;
 Quadrille.outline = '#FF00FF';
@@ -78,7 +78,7 @@ function update() {
 function keyPressed() {
   q.randomize();
 }
-{{< /p5-global-iframe >}}
+{{< /p5 >}}
 
 {{% details title="code" open=true %}}
 ```js
@@ -129,7 +129,7 @@ then `values` must include that same variable, not a new `color('lemonchiffon')`
 ## Example: Filtering by Predicate Value
 
 (click on canvas and press any key to randomize `q`)
-{{< p5-global-iframe quadrille="true" width="625" height="425" >}}
+{{< p5 quadrille="true" >}}
 'use strict';
 Quadrille.cellLength = 20;
 Quadrille.outline = '#FF00FF';
@@ -162,7 +162,7 @@ function draw() {
 function keyPressed() {
   q.randomize();
 }
-{{< /p5-global-iframe >}}
+{{< /p5 >}}
 
 {{% details title="code" open=true %}}
 ```js
@@ -220,7 +220,7 @@ for (const label in filters) {
 ## Example: Filtering by Predicate Value, Row, and Column
 
 (click on canvas and press any key to randomize `q`)
-{{< p5-global-iframe quadrille="true" width="625" height="425" >}}
+{{< p5 quadrille="true" >}}
 'use strict';
 Quadrille.cellLength = 20;
 Quadrille.outline = '#FF00FF';
@@ -255,7 +255,7 @@ function draw() {
 function keyPressed() {
   q.randomize();
 }
-{{< /p5-global-iframe >}}
+{{< /p5 >}}
 
 {{% details title="code" open=true %}}
 ```js

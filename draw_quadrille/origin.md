@@ -9,7 +9,7 @@ The `origin` parameter defines the top-left corner of the quadrille for drawing:
 ## Example
 
 (click or press any key to toggle the origin of `q` between `CORNER` and `CENTER`)\
-{{< p5-global-iframe quadrille="true" width="625" height="425" >}}
+{{< p5 quadrille="true" >}}
 'use strict';
 // q0 is the reference quadrille
 let q0, q;
@@ -34,7 +34,7 @@ function mouseClicked() {
 function keyPressed() {
   center = !center;
 }
-{{< /p5-global-iframe >}}
+{{< /p5 >}}
 
 {{% details title="code" open=true %}}
 ```js

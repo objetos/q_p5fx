@@ -9,7 +9,7 @@ The `x` and `y` parameters define the upper-left corner where the quadrille is d
 ## Example
 
 (move the mouse to position `q`)\
-{{< p5-global-iframe quadrille="true" width="625" height="425" >}}
+{{< p5 quadrille="true" >}}
 'use strict';
 // q0 is the reference quadrille
 let q0, q;
@@ -25,7 +25,7 @@ function draw() {
   drawQuadrille(q0);
   drawQuadrille(q, { x: mouseX, y: mouseY, outline: 'lime' });
 }
-{{< /p5-global-iframe >}}
+{{< /p5 >}}
 
 {{% details title="code" open=true %}}
 ```js

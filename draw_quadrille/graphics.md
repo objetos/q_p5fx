@@ -9,7 +9,7 @@ The `graphics` parameter renders quadrilles onto a custom [p5.Graphics](https://
 ## Example 1
 
 (click and drag the canvas to move the quadrille graphics)\
-{{< p5-global-iframe quadrille="true" width="625" height="425" >}}
+{{< p5 quadrille="true" >}}
 'use strict';
 Quadrille.cellLength = 50;
 let quadrille;
@@ -32,7 +32,7 @@ function draw() {
   // Render the graphics object dynamically at the mouse position
   mouseIsPressed && image(pg, mouseX, mouseY);
 }
-{{< /p5-global-iframe >}}
+{{< /p5 >}}
 
 {{% details title="code" open=true %}}
 ```js
@@ -67,7 +67,7 @@ This example shows how to render a quadrille onto a `p5.Graphics` object, allowi
 ## Example 2
 
 (click and drag to orbit; dynamic Game of Life pattern rendered as a 3D texture)\
-{{< p5-global-iframe quadrille="true" width="425" height="425" >}}
+{{< p5 quadrille="true" >}}
 'use strict';
 Quadrille.cellLength = 20;
 let game, pattern;
@@ -113,7 +113,7 @@ function update() {
   drawQuadrille(game, { graphics, outline: 'magenta', origin: CORNER });
   texture(graphics); // Apply the graphics object as a texture
 }
-{{< /p5-global-iframe >}}
+{{< /p5 >}}
 
 {{% details title="code" open=true %}}
 ```js

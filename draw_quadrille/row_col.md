@@ -9,7 +9,7 @@ The `row` and `col` parameters define the position of the upper-left corner wher
 ## Example
 
 (move the mouse to position `q`)
-{{< p5-global-iframe quadrille="true" width="625" height="425" >}}
+{{< p5 quadrille="true" >}}
 'use strict';
 // q0 is the reference quadrille
 let q0, q;
@@ -17,7 +17,7 @@ let q0, q;
 function setup() {
   createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength);
   q0 = createQuadrille(6, 4);
-  q = createQuadrille(3, 58, color('blue'));
+  q = createQuadrille(3, 58n, color('blue'));
 }
 
 function draw() {
@@ -25,7 +25,7 @@ function draw() {
   drawQuadrille(q0);
   drawQuadrille(q, { row: q0.mouseRow, col: q0.mouseCol, outline: 'lime' });
 }
-{{< /p5-global-iframe >}}
+{{< /p5 >}}
 
 {{% details title="code" open=true %}}
 ```js
@@ -35,7 +35,7 @@ let q0, q;
 function setup() {
   createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength);
   q0 = createQuadrille(6, 4);
-  q = createQuadrille(3, 58, color('blue'));
+  q = createQuadrille(3, 58n, color('blue'));
 }
 
 function draw() {
