@@ -28,7 +28,7 @@ Here, `value` contains the cell content; `row` and `col` indicate the cell’s p
 
 {{< callout type="info" >}}
 **Object fallback rendering**  
-When no `objectDisplay` is specified, `drawQuadrille()` attempts to render objects using their `display` field, if defined. If `display` is a string, number, color, or image, the corresponding built-in renderer is used. If it is a function, it is called with the `options` object only. Arrays are excluded from this mechanism and must be handled explicitly using `arrayDisplay`.
+When no `objectDisplay` is specified, `drawQuadrille()` attempts to render objects using their `display` field, if defined. If `display` is a string, number, color, or image, the corresponding built-in renderer is used. If it is a function, it is called with the `options` object only, and with `this` bound to the object itself — so a one-line `display()` method can re-enter the API on its own value, e.g. a stored quadrille drawing itself via `drawQuadrille(this, { cellLength })`: the pattern behind quadrille-of-quadrilles nesting. Arrays are excluded from this mechanism and must be handled explicitly using `arrayDisplay`.
 {{< /callout >}}
 
 {{< callout type="info" >}}
@@ -38,7 +38,7 @@ Beyond the per-type defaults above, the library ships [Quadrille.thinWall]({{< r
 
 ## Example
 
-{{< p5-global-iframe quadrille="true" width="625" height="425" >}}
+{{< p5 quadrille="true" >}}
 'use strict';
 let quadrille;
 let circled;
@@ -76,7 +76,7 @@ function draw() {
   };
   drawQuadrille(quadrille, params);
 }
-{{< /p5-global-iframe >}}
+{{< /p5 >}}
 
 {{% details title="code" open=true %}}
 ```js
