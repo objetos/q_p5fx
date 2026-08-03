@@ -16,6 +16,10 @@ Filters which cells to draw from a given quadrille `q`. It accepts the following
   [Example](#example-filtering-by-predicate-value):
   `drawQuadrille(q, { filter: ({ value }) => brightness(value) < 50 })`
 
+* **A single value** (anything that is neither a function nor a collection)
+  Draws only the cells whose value matches it by identity (`===`):
+  `drawQuadrille(q, { filter: red })`
+
 {{< callout type="info" >}}
 [Arrow functions](https://www.w3schools.com/js/js_arrow_function.asp) offer a compact syntax. For instance, the predicate
 
@@ -303,4 +307,4 @@ function keyPressed() {
 
 | Param    | Description                                                                                                                                                                                                                                                                    |
 | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `filter` | Specifies which cells to draw. All cells are drawn if omitted or `undefined`. It can be: <ul><li>a **value collection** (`Array` or `Set`) checked by identity (`===`) against `cell.value`</li><li>a **cell-predicate function** `({ row, col, value }) => boolean`</li></ul> |
+| `filter` | Specifies which cells to draw. All cells are drawn if omitted or `undefined`. It can be: <ul><li>a **value collection** (`Array` or `Set`) checked by identity (`===`) against `cell.value`</li><li>a **cell-predicate function** `({ row, col, value }) => boolean`</li><li>a **single value** (neither function nor collection), matched by identity (`===`) against `cell.value`</li></ul> |

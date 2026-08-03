@@ -15,7 +15,7 @@ Display functions determine how quadrille cells are visually rendered based on t
 | `stringDisplay`   | String     | `Quadrille.stringDisplay`: Displays strings in cells                                                                 |
 | `colorDisplay`    | Color      | `Quadrille.colorDisplay`: Fills cells with specified [p5.Colors](https://p5js.org/reference/#/p5.Color)              |
 | `imageDisplay`    | Image      | `Quadrille.imageDisplay`: Draws images in cells                                                                      |
-| `functionDisplay` | Function   | `Quadrille.functionDisplay`: Executes a function to draw the cell (available only in WEBGL)                          |
+| `functionDisplay` | Function   | `Quadrille.functionDisplay`: Executes a function to draw the cell, in both P2D and WEBGL (via a framebuffer in WEBGL)                          |
 | `arrayDisplay`    | Array      | No static default. It must be explicitly defined if used                                                             |
 | `objectDisplay`   | Object     | No static default. It must be explicitly defined if used                                                             |
 | `symbolDisplay`   | Symbol     | No static default. It must be explicitly defined if used                                                             |
