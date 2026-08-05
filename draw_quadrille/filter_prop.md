@@ -21,7 +21,7 @@ Filters which cells to draw from a given quadrille `q`. It accepts the following
   `drawQuadrille(q, { filter: red })`
 
 {{< callout type="info" >}}
-[Arrow functions](https://www.w3schools.com/js/js_arrow_function.asp) offer a compact syntax. For instance, the predicate
+[Arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) offer a compact syntax. For instance, the predicate
 
 ```js
 function (cell) {
