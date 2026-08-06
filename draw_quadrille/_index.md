@@ -11,7 +11,7 @@ By default, `drawQuadrille(quadrille)` is sufficient for most cases where no cus
 
 ## Configuration  
 
-The `drawQuadrille` function simplifies customization by using its `{ options }` [object literal](https://www.w3schools.com/js/js_objects.asp) parameter, leveraging [JavaScript object destructuring](https://www.w3schools.com/js/js_destructuring.asp) to extract values directly. This approach makes function calls more readable, flexible, and maintainable, allowing you to configure only the parameters you need while relying on defaults for the rest.  
+The `drawQuadrille` function simplifies customization by using its `{ options }` [object literal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer) parameter, leveraging [JavaScript object destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring) to extract values directly. This approach makes function calls more readable, flexible, and maintainable, allowing you to configure only the parameters you need while relying on defaults for the rest.  
 
 ### Example  
 
@@ -35,7 +35,7 @@ In this example, only these parameters are explicitly configured:
 The remaining parameters in the `{ options }` object use their default values, making it easier to adjust specific aspects of the quadrille's rendering without needing to pass every option explicitly.  
 
 {{< callout type="info" >}}  
-[JavaScript object destructuring](https://www.w3schools.com/js/js_destructuring.asp) allows extracting values directly from objects, improving code clarity and ease of use. This approach provides several benefits:  
+[JavaScript object destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring) allows extracting values directly from objects, improving code clarity and ease of use. This approach provides several benefits:  
 
 1. **Clarity**: Parameters are grouped into a single, descriptive object, making function calls easier to read.  
 2. **Flexibility**: Only the parameters you need are specified, while defaults handle the rest.  
@@ -45,7 +45,7 @@ The remaining parameters in the `{ options }` object use their default values, m
 
 ## Syntax
 
-> drawQuadrille(quadrille, [{[[cellLength]({{< relref "cell_length" >}})], [[outline]({{< relref "outline" >}})], [[outlineWeight]({{< relref "outline_weight" >}})], [[textColor]({{< relref "text_color" >}})], [[textZoom]({{< relref "text_zoom" >}})], [[textFont]({{< relref "text_font" >}})], [[x]({{< relref "x_y" >}})], [[y]({{< relref "x_y" >}})], [[row]({{< relref "row_col" >}})], [[col]({{< relref "row_col" >}})], [[filter]({{< relref "filter_prop" >}})], [[graphics]({{< relref "graphics" >}})], [[origin]({{< relref "origin" >}})], [[tileDisplay]({{< relref "display_fns" >}})], [[stringDisplay]({{< relref "display_fns" >}})], [[numberDisplay]({{< relref "display_fns" >}})], [[colorDisplay]({{< relref "display_fns" >}})], [[imageDisplay]({{< relref "display_fns" >}})], [[functionDisplay]({{< relref "display_fns" >}})], [[arrayDisplay]({{< relref "display_fns" >}})], [[objectDisplay]({{< relref "display_fns" >}})]}])
+> drawQuadrille(quadrille, [{[[cellLength]({{< relref "cell_length" >}})], [[outline]({{< relref "outline" >}})], [[outlineWeight]({{< relref "outline_weight" >}})], [[textColor]({{< relref "text_color" >}})], [[textZoom]({{< relref "text_zoom" >}})], [[textFont]({{< relref "text_font" >}})], [[x]({{< relref "x_y" >}})], [[y]({{< relref "x_y" >}})], [[row]({{< relref "row_col" >}})], [[col]({{< relref "row_col" >}})], [[filter]({{< relref "filter_prop" >}})], [[graphics]({{< relref "graphics" >}})], [[origin]({{< relref "origin" >}})], [[options]({{< relref "options" >}})], [[tileDisplay]({{< relref "display_fns" >}})], [[stringDisplay]({{< relref "display_fns" >}})], [[numberDisplay]({{< relref "display_fns" >}})], [[bigintDisplay]({{< relref "display_fns" >}})], [[booleanDisplay]({{< relref "display_fns" >}})], [[colorDisplay]({{< relref "display_fns" >}})], [[imageDisplay]({{< relref "display_fns" >}})], [[functionDisplay]({{< relref "display_fns" >}})], [[arrayDisplay]({{< relref "display_fns" >}})], [[objectDisplay]({{< relref "display_fns" >}})], [[symbolDisplay]({{< relref "display_fns" >}})]}])
 
 ## Parameters
 
@@ -65,13 +65,17 @@ The remaining parameters in the `{ options }` object use their default values, m
 | [`filter`]({{< relref "filter_prop" >}}) | Specifies which cells to draw. All cells are drawn if this parameter is omitted or `undefined`. It can be: <ul><li>a value collection (`Array` or `Set`)</li><li>a predicate function (`value => boolean`)</li><li>an object with optional `value`, `row`, and/or `col` predicates</li></ul> |
 | [`graphics`]({{< relref "graphics" >}}) | [p5.Graphics](https://p5js.org/reference/#/p5.Graphics): Renderer target. Default is `this` (main canvas) |
 | [`origin`]({{< relref "origin" >}}) | Constant: Defines the reference point for drawing the quadrille. `CORNER` aligns it to the top-left corner of the canvas (default in `P2D`), and `CENTER` aligns it to the center of the canvas (default in `WEBGL`) |
+| [`options`]({{< relref "options" >}}) | Object: Forwarded as the sole argument to functions stored in cells and to object cells' `display` methods, carrying `origin` plus the current cell's `row` and `col`. Default is a fresh `{}` per call |
 | [`tileDisplay`]({{< relref "display_fns" >}})[^1] | Function: Renders cell contours. Default is `Quadrille.tileDisplay`                                   |
 | [`stringDisplay`]({{< relref "display_fns" >}}) | Function: Renders strings in cells. Default is `Quadrille.stringDisplay`                              |
 | [`numberDisplay`]({{< relref "display_fns" >}}) | Function: Renders numbers in cells as grayscale values. Default is `Quadrille.numberDisplay`          |
+| [`bigintDisplay`]({{< relref "display_fns" >}}) | Function: Renders BigInt values using `numberDisplay`. Default is `Quadrille.bigintDisplay`           |
+| [`booleanDisplay`]({{< relref "display_fns" >}}) | Function: Renders boolean values as ✅ or ❎. Default is `Quadrille.booleanDisplay`                    |
 | [`colorDisplay`]({{< relref "display_fns" >}}) | Function: Renders colors in cells. Default is `Quadrille.colorDisplay`                                |
 | [`imageDisplay`]({{< relref "display_fns" >}}) | Function: Renders images in cells. Default is `Quadrille.imageDisplay`                                |
-| [`functionDisplay`]({{< relref "display_fns" >}}) | Function: Renders functions in cells, available only in `WEBGL`. Default is `Quadrille.functionDisplay` |
+| [`functionDisplay`]({{< relref "display_fns" >}}) | Function: Renders functions in cells, in both `P2D` and `WEBGL` (via a framebuffer in `WEBGL`). Default is `Quadrille.functionDisplay` |
 | [`arrayDisplay`]({{< relref "display_fns" >}}) | Function: Renders cells filled with arrays. No static default provided                                |
 | [`objectDisplay`]({{< relref "display_fns" >}}) | Function: Renders cells filled with objects. No static default provided                               |
+| [`symbolDisplay`]({{< relref "display_fns" >}}) | Function: Renders cells filled with symbols. No static default provided                               |
 
 [^1]: The `tileDisplay` parameter allows implementing other [regular tilings](https://en.wikipedia.org/wiki/Euclidean_tilings_by_convex_regular_polygons#Regular_tilings) beyond the default [square tiling](https://en.wikipedia.org/wiki/Square_tiling).

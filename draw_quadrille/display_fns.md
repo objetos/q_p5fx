@@ -22,13 +22,13 @@ Display functions determine how quadrille cells are visually rendered based on t
 
 {{< callout type="info" >}}
 **Display function parameters**  
-The display functions receive an object with the following properties: `{` `quadrille`, [cellLength]({{< relref "cell_length" >}}), [outline]({{< relref "outline" >}}), [outlineWeight]({{< relref "outline_weight" >}}), [textColor]({{< relref "text_color" >}}), [textZoom]({{< relref "text_zoom" >}}), [textFont]({{< relref "text_font" >}}), [graphics]({{< relref "graphics" >}}), [origin]({{< relref "origin" >}}), `value`, `row`, `col`, `width`, `height`, `options` `}`.  
-Here, `value` contains the cell content; `row` and `col` indicate the cell’s position; `width` and `height` refer to `quadrille.width` and `quadrille.height`. The `options` object supports custom parameters and is passed as the sole argument to functions in `functionDisplay`. By default, it includes `origin` (`CORNER` in `P2D`, `CENTER` in `WEBGL`) and the cell’s `row` and `col` coordinates.
+The display functions receive an object with the following properties: `{` `quadrille`, [cellLength]({{< relref "cell_length" >}}), [outline]({{< relref "outline" >}}), [outlineWeight]({{< relref "outline_weight" >}}), [textColor]({{< relref "text_color" >}}), [textZoom]({{< relref "text_zoom" >}}), [textFont]({{< relref "text_font" >}}), [graphics]({{< relref "graphics" >}}), [origin]({{< relref "origin" >}}), `value`, `row`, `col`, `width`, `height`, [options]({{< relref "options" >}}) `}`.  
+Here, `value` contains the cell content; `row` and `col` indicate the cell’s position; `width` and `height` refer to `quadrille.width` and `quadrille.height`. The [options]({{< relref "options" >}}) object supports custom parameters and is passed as the sole argument to functions in `functionDisplay`. By default, it includes `origin` (`CORNER` in `P2D`, `CENTER` in `WEBGL`) and the cell’s `row` and `col` coordinates.
 {{< /callout >}}
 
 {{< callout type="info" >}}
 **Object fallback rendering**  
-When no `objectDisplay` is specified, `drawQuadrille()` attempts to render objects using their `display` field, if defined. If `display` is a string, number, color, or image, the corresponding built-in renderer is used. If it is a function, it is called with the `options` object only, and with `this` bound to the object itself — so a one-line `display()` method can re-enter the API on its own value, e.g. a stored quadrille drawing itself via `drawQuadrille(this, { cellLength })`: the pattern behind quadrille-of-quadrilles nesting. Arrays are excluded from this mechanism and must be handled explicitly using `arrayDisplay`.
+When no `objectDisplay` is specified, `drawQuadrille()` attempts to render objects using their `display` field, if defined. If `display` is a string, number, color, or image, the corresponding built-in renderer is used. If it is a function, it is called with the [options]({{< relref "options" >}}) object only, and with `this` bound to the object itself — so a one-line `display()` method can re-enter the API on its own value, e.g. a stored quadrille drawing itself via `drawQuadrille(this, { cellLength })`: the pattern behind quadrille-of-quadrilles nesting. Arrays are excluded from this mechanism and must be handled explicitly using `arrayDisplay`.
 {{< /callout >}}
 
 {{< callout type="info" >}}
@@ -120,7 +120,7 @@ function draw() {
 {{% /details %}}
 
 {{< callout type="info" >}}
-This example overrides the default square tiling by supplying JavaScript [arrow functions](https://www.w3schools.com/js/js_arrow_function.asp) to `tileDisplay` and `colorDisplay`, causing each quadrille cell to render as a circle.
+This example overrides the default square tiling by supplying JavaScript [arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) to `tileDisplay` and `colorDisplay`, causing each quadrille cell to render as a circle.
 {{< /callout >}}
 
 ## Syntax
@@ -138,7 +138,7 @@ This example overrides the default square tiling by supplying JavaScript [arrow 
 | `stringDisplay`       | Function: Renders strings in cells. Default is `Quadrille.stringDisplay`                              |
 | `colorDisplay`        | Function: Renders colors in cells. Default is `Quadrille.colorDisplay`                                |
 | `imageDisplay`        | Function: Renders images in cells. Default is `Quadrille.imageDisplay`                                |
-| `functionDisplay`     | Function: Renders functions in cells, available only in WEBGL. Default is `Quadrille.functionDisplay` |
+| `functionDisplay`     | Function: Renders functions in cells, in both `P2D` and `WEBGL` (via a framebuffer in `WEBGL`). Default is `Quadrille.functionDisplay` |
 | `arrayDisplay`        | Function: Renders cells filled with arrays. No static default provided                                |
 | `objectDisplay`       | Function: Renders cells filled with objects. No static default provided                               |
 | `symbolDisplay`       | Function: Renders cells filled with symbols. No static default provided                               |

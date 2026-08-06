@@ -72,7 +72,7 @@ This example shows how to render a quadrille onto a `p5.Graphics` object, allowi
 Quadrille.cellLength = 20;
 let game, pattern;
 let life;
-let graphics;
+let pg;
 
 function setup() {
   // Initialize a quadrille for the Game of Life simulation
@@ -84,8 +84,8 @@ function setup() {
   createCanvas(game.width * Quadrille.cellLength,
                game.height * Quadrille.cellLength,
                WEBGL);
-  graphics = createGraphics(game.width * Quadrille.cellLength,
-                            game.height * Quadrille.cellLength, WEBGL);
+  pg = createGraphics(game.width * Quadrille.cellLength,
+                      game.height * Quadrille.cellLength, WEBGL);
   update();
 }
 
@@ -102,16 +102,16 @@ function update() {
   const next = game.clone();
   // Implement Game of Life rules
   game.visit(({row, col}) => {
-              const order = game.ring(row, col).order;
+              const count = game.ring(row, col).order;
               game.isFilled(row, col) ?
-              (order < 3 || order > 4) && next.clear(row, col) :
-              order === 3 && next.fill(row, col, life);
+              (count < 3 || count > 4) && next.clear(row, col) :
+              count === 3 && next.fill(row, col, life);
             });
   game = next;
-  graphics.background('blue');
+  pg.background('blue');
   // Render the updated game state onto the graphics object
-  drawQuadrille(game, { graphics, outline: 'magenta', origin: CORNER });
-  texture(graphics); // Apply the graphics object as a texture
+  drawQuadrille(game, { graphics: pg, outline: 'magenta', origin: CORNER });
+  texture(pg); // Apply the graphics object as a texture
 }
 {{< /p5 >}}
 
@@ -120,7 +120,7 @@ function update() {
 Quadrille.cellLength = 20;
 let game, pattern;
 let life;
-let graphics;
+let pg;
 
 function setup() {
   // Initialize a quadrille for the Game of Life simulation
@@ -132,8 +132,8 @@ function setup() {
   createCanvas(game.width * Quadrille.cellLength,
                game.height * Quadrille.cellLength,
                WEBGL);
-  graphics = createGraphics(game.width * Quadrille.cellLength,
-                            game.height * Quadrille.cellLength, WEBGL);
+  pg = createGraphics(game.width * Quadrille.cellLength,
+                      game.height * Quadrille.cellLength, WEBGL);
   update();
 }
 
@@ -150,16 +150,16 @@ function update() {
   const next = game.clone();
   // Implement Game of Life rules
   game.visit(({row, col}) => {
-              const order = game.ring(row, col).order;
+              const count = game.ring(row, col).order;
               game.isFilled(row, col) ?
-              (order < 3 || order > 4) && next.clear(row, col) :
-              order === 3 && next.fill(row, col, life);
+              (count < 3 || count > 4) && next.clear(row, col) :
+              count === 3 && next.fill(row, col, life);
             });
   game = next;
-  graphics.background('blue');
+  pg.background('blue');
   // Render the updated game state onto the graphics object
-  drawQuadrille(game, { graphics, outline: 'magenta', origin: CORNER });
-  texture(graphics); // Apply the graphics object as a texture
+  drawQuadrille(game, { graphics: pg, outline: 'magenta', origin: CORNER });
+  texture(pg); // Apply the graphics object as a texture
 }
 ```
 {{% /details %}}

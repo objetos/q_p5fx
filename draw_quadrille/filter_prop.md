@@ -9,7 +9,7 @@ Filters which cells to draw from a given quadrille `q`. It accepts the following
 * **A value collection (`Array` or `Set`)**
   Draws only the cells whose values are included in the collection.
   [Example](#example-filtering-by-value-collection):
-  `drawQuadrille(q, { filter: [red, blue] })`
+  `drawQuadrille(q, { filter: [tomato, skyblue] })`
 
 * **A predicate function over the *cell* (`(cell) => boolean`)**
   The function receives `{ row, col, value }` and must return `true` to draw that cell.
@@ -18,7 +18,7 @@ Filters which cells to draw from a given quadrille `q`. It accepts the following
 
 * **A single value** (anything that is neither a function nor a collection)
   Draws only the cells whose value matches it by identity (`===`):
-  `drawQuadrille(q, { filter: red })`
+  `drawQuadrille(q, { filter: tomato })`
 
 {{< callout type="info" >}}
 [Arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) offer a compact syntax. For instance, the predicate
@@ -51,16 +51,16 @@ Quadrille.cellLength = 20;
 Quadrille.outline = '#FF00FF';
 Quadrille.outlineWeight = 1;
 let q;
-let yellow, blue, red;
+let yellow, skyblue, tomato;
 let yellowBox, blueBox, redBox;
 let values = [];
 
 function setup() {
   createCanvas(600, 400);
   yellow = color('lemonchiffon');
-  blue = color('skyblue');
-  red = color('tomato');
-  q = createQuadrille(30, 20).rand(200, yellow).rand(200, blue).fill(red);
+  skyblue = color('skyblue');
+  tomato = color('tomato');
+  q = createQuadrille(30, 20).rand(200, yellow).rand(200, skyblue).fill(tomato);
   yellowBox = createCheckbox('Yellow', true).position(10, 10).changed(update);
   blueBox = createCheckbox('Blue', true).position(10, 30).changed(update);
   redBox = createCheckbox('Red', false).position(10, 50).changed(update);
@@ -75,8 +75,8 @@ function draw() {
 function update() {
   values = [];
   yellowBox.checked() && values.push(yellow);
-  blueBox.checked() && values.push(blue);
-  redBox.checked() && values.push(red);
+  blueBox.checked() && values.push(skyblue);
+  redBox.checked() && values.push(tomato);
 }
 
 function keyPressed() {
@@ -90,16 +90,16 @@ Quadrille.cellLength = 20;
 Quadrille.outline = '#FF00FF';
 Quadrille.outlineWeight = 1;
 let q;
-let yellow, blue, red;
+let yellow, skyblue, tomato;
 let yellowBox, blueBox, redBox;
 let values = [];
 
 function setup() {
   createCanvas(600, 400);
   yellow = color('lemonchiffon');
-  blue = color('skyblue');
-  red = color('tomato');
-  q = createQuadrille(30, 20).rand(200, yellow).rand(200, blue).fill(red);
+  skyblue = color('skyblue');
+  tomato = color('tomato');
+  q = createQuadrille(30, 20).rand(200, yellow).rand(200, skyblue).fill(tomato);
   yellowBox = createCheckbox('Yellow', true).position(10, 10).changed(update);
   blueBox = createCheckbox('Blue', true).position(10, 30).changed(update);
   redBox = createCheckbox('Red', false).position(10, 50).changed(update);
@@ -114,8 +114,8 @@ function draw() {
 function update() {
   values = [];
   yellowBox.checked() && values.push(yellow);
-  blueBox.checked() && values.push(blue);
-  redBox.checked() && values.push(red);
+  blueBox.checked() && values.push(skyblue);
+  redBox.checked() && values.push(tomato);
 }
 
 function keyPressed() {

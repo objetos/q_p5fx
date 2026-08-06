@@ -4,7 +4,7 @@ draft: false
 title: "createQuadrille(jagged_array)"  
 ---
 
-The `createQuadrille` function creates a **quadrille** and fills its cells using items from a [jagged_array](https://en.wikipedia.org/wiki/Jagged_array). The array can contain any combination of [valid JavaScript values](https://www.w3schools.com/js/js_datatypes.asp), with `null` representing empty cells. Rows may have different lengths — shorter rows are padded with `null` to the longest row's width — and holes or explicit `undefined` entries likewise normalize to `null` on entry.
+The `createQuadrille` function creates a **quadrille** and fills its cells using items from a [jagged_array](https://en.wikipedia.org/wiki/Jagged_array). The array can contain any combination of [valid JavaScript values](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Data_structures), with `null` representing empty cells. Rows may have different lengths — shorter rows are padded with `null` to the longest row's width — and holes or explicit `undefined` entries likewise normalize to `null` on entry.
 
 ## Example 1: Images, Text, Colors, Numbers, and Emojis
 
@@ -12,21 +12,21 @@ The `createQuadrille` function creates a **quadrille** and fills its cells using
 'use strict';
 let sb; // Image variable
 let quadrille;
-let yellow, blue, red;
+let yellow, dodgerblue, tomato;
 
 async function setup() {
   createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength);
   // Load image
   sb = await loadImage('/images/simon_bolivar_wedding.jpg');
   yellow = color('yellow');
-  blue = color('blue');
-  red = color('red');
+  dodgerblue = color('dodgerblue');
+  tomato = color('tomato');
   // Define the quadrille with diverse content
   quadrille = createQuadrille([
     ['hi', 100, sb, sb, null, 0],
     [null, yellow, sb, '🐷'],
-    [null, blue, sb, 255, '🦙'],
-    [null, red, null, 185, '🦜', sb]
+    [null, dodgerblue, sb, 255, '🦙'],
+    [null, tomato, null, 185, '🦜', sb]
   ]);
 }
 
@@ -40,21 +40,21 @@ function draw() {
 ```js
 let sb; // Image variable
 let quadrille;
-let yellow, blue, red;
+let yellow, dodgerblue, tomato;
 
 async function setup() {
   createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength);
   // Load image
   sb = await loadImage('/images/simon_bolivar_wedding.jpg');
   yellow = color('yellow');
-  blue = color('blue');
-  red = color('red');
+  dodgerblue = color('dodgerblue');
+  tomato = color('tomato');
   // Define the quadrille with diverse content
   quadrille = createQuadrille([
     ['hi', 100, sb, sb, null, 0],
     [null, yellow, sb, '🐷'],
-    [null, blue, sb, 255, '🦙'],
-    [null, red, null, 185, '🦜', sb]
+    [null, dodgerblue, sb, 255, '🦙'],
+    [null, tomato, null, 185, '🦜', sb]
   ]);
 }
 
@@ -78,7 +78,7 @@ Images are loaded in the `async` [setup](https://p5js.org/reference/p5/setup) fu
 let sb; // Image variable
 let destino; // Video variable
 let quadrille;
-let yellow, blue, red;
+let yellow, dodgerblue, tomato;
 
 async function setup() {
   createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength);
@@ -87,14 +87,14 @@ async function setup() {
   destino = await createVideo(['/videos/destino.webm']);
   destino.hide(); // Hide video controls
   yellow = color('yellow');
-  blue = color('blue');
-  red = color('red');
+  dodgerblue = color('dodgerblue');
+  tomato = color('tomato');
   // Quadrille containing a video, image, text, and colors
   quadrille = createQuadrille([
     ['hi', 100, sb, sb, null, 0],
     [null, yellow, sb, '🐷'],
-    [null, blue, destino, 255, '🦙'],
-    [null, red, null, 185, '🦜', sb]
+    [null, dodgerblue, destino, 255, '🦙'],
+    [null, tomato, null, 185, '🦜', sb]
   ]);
 }
 
@@ -115,7 +115,7 @@ function mouseClicked() {
 let sb; // Image variable
 let destino; // Video variable
 let quadrille;
-let yellow, blue, red;
+let yellow, dodgerblue, tomato;
 
 async function setup() {
   createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength);
@@ -124,14 +124,14 @@ async function setup() {
   destino = await createVideo(['/videos/destino.webm']);
   destino.hide(); // Hide video controls
   yellow = color('yellow');
-  blue = color('blue');
-  red = color('red');
+  dodgerblue = color('dodgerblue');
+  tomato = color('tomato');
   // Quadrille containing a video, image, text, and colors
   quadrille = createQuadrille([
     ['hi', 100, sb, sb, null, 0],
     [null, yellow, sb, '🐷'],
-    [null, blue, destino, 255, '🦙'],
-    [null, red, null, 185, '🦜', sb]
+    [null, dodgerblue, destino, 255, '🦙'],
+    [null, tomato, null, 185, '🦜', sb]
   ]);
 }
 
@@ -156,7 +156,7 @@ function mouseClicked() {
    destino.looping ? destino.pause() : destino.loop();
    destino.looping = !destino.looping;
    ```  
-   The [ternary operator](https://www.w3schools.com/js/js_comparisons.asp#ternary) (`condition ? exprIfTrue : exprIfFalse`) is shorthand for `if/else`. Equivalent code:  
+   The [ternary operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_operator) (`condition ? exprIfTrue : exprIfFalse`) is shorthand for `if/else`. Equivalent code:  
    ```javascript
    if (destino.looping) destino.pause();
    else destino.loop();
@@ -170,21 +170,21 @@ function mouseClicked() {
 'use strict';
 let sb; // Image variable
 let quadrille;
-let yellow, blue, red;
+let yellow, dodgerblue, tomato;
 
 async function setup() {
   createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength);
   // Load image and font
   sb = await loadImage('/images/simon_bolivar_wedding.jpg');
   yellow = color('yellow');
-  blue = color('blue');
-  red = color('red');
+  dodgerblue = color('dodgerblue');
+  tomato = color('tomato');
   // Quadrille containing cell functions and other content
   quadrille = createQuadrille([
     ['hi', 100, sb, pulse, null, 0],
     [null, yellow, pulse, '🐷'],
-    [null, blue, pulse, 255, '🦙'],
-    [null, red, null, 185, '🦜', sb]
+    [null, dodgerblue, pulse, 255, '🦙'],
+    [null, tomato, null, 185, '🦜', sb]
   ]);
 }
 
@@ -208,21 +208,21 @@ function pulse() {
 ```js
 let sb; // Image variable
 let quadrille;
-let yellow, blue, red;
+let yellow, dodgerblue, tomato;
 
 async function setup() {
   createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength);
   // Load image and font
   sb = await loadImage('/images/simon_bolivar_wedding.jpg');
   yellow = color('yellow');
-  blue = color('blue');
-  red = color('red');
+  dodgerblue = color('dodgerblue');
+  tomato = color('tomato');
   // Quadrille containing cell functions and other content
   quadrille = createQuadrille([
     ['hi', 100, sb, pulse, null, 0],
     [null, yellow, pulse, '🐷'],
-    [null, blue, pulse, 255, '🦙'],
-    [null, red, null, 185, '🦜', sb]
+    [null, dodgerblue, pulse, 255, '🦙'],
+    [null, tomato, null, 185, '🦜', sb]
   ]);
 }
 
@@ -258,7 +258,7 @@ function pulse() {
 let sb; // Image variable
 let font; // Custom font
 let quadrille;
-let yellow, blue, red;
+let yellow, dodgerblue, tomato;
 
 async function setup() {
   createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength, WEBGL);
@@ -266,13 +266,13 @@ async function setup() {
   font = await loadFont('/fonts/noto_sans.ttf');
   textFont(font);
   yellow = color('yellow');
-  blue = color('blue');
-  red = color('red');
+  dodgerblue = color('dodgerblue');
+  tomato = color('tomato');
   quadrille = createQuadrille([
     ['hi', 100, sb, ringTorus, null, 0],
     [null, yellow, ringTorus, ':)'],
-    [null, blue, ringTorus, 255, ':p'],
-    [null, red, null, 185, ';)', sb]
+    [null, dodgerblue, ringTorus, 255, ':p'],
+    [null, tomato, null, 185, ';)', sb]
   ]);
 }
 
@@ -300,7 +300,7 @@ function ringTorus() {
 let sb; // Image variable
 let font; // Custom font
 let quadrille;
-let yellow, blue, red;
+let yellow, dodgerblue, tomato;
 
 async function setup() {
   createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength, WEBGL);
@@ -308,13 +308,13 @@ async function setup() {
   font = await loadFont('/fonts/noto_sans.ttf');
   textFont(font);
   yellow = color('yellow');
-  blue = color('blue');
-  red = color('red');
+  dodgerblue = color('dodgerblue');
+  tomato = color('tomato');
   quadrille = createQuadrille([
     ['hi', 100, sb, ringTorus, null, 0],
     [null, yellow, ringTorus, ':)'],
-    [null, blue, ringTorus, 255, ':p'],
-    [null, red, null, 185, ';)', sb]
+    [null, dodgerblue, ringTorus, 255, ':p'],
+    [null, tomato, null, 185, ';)', sb]
   ]);
 }
 
@@ -357,22 +357,22 @@ The **`WEBGL` mode** in **`p5.js`** has a **higher carbon footprint** due to its
 let sb; // Image variable
 let pg; // p5.Graphics object
 let quadrille;
-let yellow, blue, red;
+let yellow, dodgerblue, tomato;
 
 async function setup() {
   createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength);
   // Load image
   sb = await loadImage('/images/simon_bolivar_wedding.jpg');
   yellow = color('yellow');
-  blue = color('blue');
-  red = color('red');
+  dodgerblue = color('dodgerblue');
+  tomato = color('tomato');
   // Create a p5.Graphics object for custom drawing
   pg = createGraphics(Quadrille.cellLength, Quadrille.cellLength);
   quadrille = createQuadrille([
     ['hi', 100, sb, pg, null, 0],
     [null, yellow, pg, '🐷'],
-    [null, blue, pg, 255, '🦙'],
-    [null, red, null, 185, '🦜', pg]
+    [null, dodgerblue, pg, 255, '🦙'],
+    [null, tomato, null, 185, '🦜', pg]
   ]);
 }
 
@@ -396,22 +396,22 @@ function pulse() {
 let sb; // Image variable
 let pg; // p5.Graphics object
 let quadrille;
-let yellow, blue, red;
+let yellow, dodgerblue, tomato;
 
 async function setup() {
   createCanvas(6 * Quadrille.cellLength, 4 * Quadrille.cellLength);
   // Load image
   sb = await loadImage('/images/simon_bolivar_wedding.jpg');
   yellow = color('yellow');
-  blue = color('blue');
-  red = color('red');
+  dodgerblue = color('dodgerblue');
+  tomato = color('tomato');
   // Create a p5.Graphics object for custom drawing
   pg = createGraphics(Quadrille.cellLength, Quadrille.cellLength);
   quadrille = createQuadrille([
     ['hi', 100, sb, pg, null, 0],
     [null, yellow, pg, '🐷'],
-    [null, blue, pg, 255, '🦙'],
-    [null, red, null, 185, '🦜', pg]
+    [null, dodgerblue, pg, 255, '🦙'],
+    [null, tomato, null, 185, '🦜', pg]
   ]);
 }
 
