@@ -4,80 +4,85 @@ draft: false
 title: Quadrille.textZoom  
 ---
 
-Defines the default text zoom level for quadrille cells. The default is `Quadrille.textZoom`, which is `1`.
+Sets the glyph size for string cells, as a fraction of `cellLength`. The default is `Quadrille.textZoom`, which is `0.78` — a little under the full cell, so a glyph does not crowd the tile stroke.
+
+Passing `textZoom` to `drawQuadrille` overrides the global default for that call only.
 
 ## Example
 
 {{< p5 quadrille="true" >}}
 'use strict';
-// Set a common cell length of 40 pixels for all quadrilles
 Quadrille.cellLength = 40;
 let q1, q2, q3, q4;
 let localZoomSlider, globalZoomSlider;
 
 function setup() {
-  createCanvas(650, 330);
-  q1 = createQuadrille(8, 'cronopiofabulosaliteratatangente');
-  q2 = createQuadrille(8, 'galaxiassoñadorainfinitoarmónico');
-  q3 = createQuadrille(8, 'ensueñoscaprichosilencioaventura');
-  q4 = createQuadrille(8, 'claridadlecturasmisterioviajeros');
-  // Local slider to adjust the text zoom level for q1
-  localZoomSlider = createSlider(0.1, 1, 0.5, 0.01);
+  createCanvas(650, 290);
+  q1 = createQuadrille(4, '🎃👻🦊🧀🍄🐭🧱🌊');
+  q2 = createQuadrille(4, 'abcdefgh');
+  q3 = createQuadrille(4, '⭐🔑💀🗝️🧭🕯️🪙🎲');
+  q4 = createQuadrille(4, ['ab', 'cd', 'ef', 'gh', 'ij', 'kl', 'mn', 'op']);
+  // Local: applies to q1 only, and wins over the global default
+  localZoomSlider = createSlider(0.1, 1.4, 0.78, 0.01);
   localZoomSlider.position(10, 10);
-  // Global slider to set the global Quadrille.textZoom
-  globalZoomSlider = createSlider(0.1, 1, Quadrille.textZoom, 0.01);
+  // Global: applies to everything drawn without an explicit textZoom
+  globalZoomSlider = createSlider(0.1, 1.4, Quadrille.textZoom, 0.01);
   globalZoomSlider.position(340, 10);
   globalZoomSlider.input(() => Quadrille.textZoom = globalZoomSlider.value());
 }
 
 function draw() {
-  background('#FFC0CB');
-  // Draw q1 with a text zoom level controlled by the local slider
-  drawQuadrille(q1, { textZoom: localZoomSlider.value() });
-  // Draw q2, q3, and q4 using the global Quadrille.textZoom
-  drawQuadrille(q2, { x: 330 });
-  drawQuadrille(q3, { y: 170 });
-  drawQuadrille(q4, { x: 330, y: 170 });
+  background('#123');
+  drawQuadrille(q1, { y: 50, textZoom: localZoomSlider.value() });
+  drawQuadrille(q2, { x: 330, y: 50 });
+  drawQuadrille(q3, { y: 160 });
+  drawQuadrille(q4, { x: 330, y: 160 });
 }
 {{< /p5 >}}
 
 {{% details title="code" open=true %}}
 ```js
-// Set a common cell length of 40 pixels for all quadrilles
 Quadrille.cellLength = 40;
 let q1, q2, q3, q4;
 let localZoomSlider, globalZoomSlider;
 
 function setup() {
-  createCanvas(650, 330);
-  q1 = createQuadrille(8, 'cronopiofabulosaliteratatangente');
-  q2 = createQuadrille(8, 'galaxiassoñadorainfinitoarmónico');
-  q3 = createQuadrille(8, 'ensueñoscaprichosilencioaventura');
-  q4 = createQuadrille(8, 'claridadlecturasmisterioviajeros');
-  // Local slider to adjust the text zoom level for q1
-  localZoomSlider = createSlider(0.1, 1, 0.5, 0.01);
+  createCanvas(650, 290);
+  q1 = createQuadrille(4, '🎃👻🦊🧀🍄🐭🧱🌊');
+  q2 = createQuadrille(4, 'abcdefgh');
+  q3 = createQuadrille(4, '⭐🔑💀🗝️🧭🕯️🪙🎲');
+  q4 = createQuadrille(4, ['ab', 'cd', 'ef', 'gh', 'ij', 'kl', 'mn', 'op']);
+  // Local: applies to q1 only, and wins over the global default
+  localZoomSlider = createSlider(0.1, 1.4, 0.78, 0.01);
   localZoomSlider.position(10, 10);
-  // Global slider to set the global Quadrille.textZoom
-  globalZoomSlider = createSlider(0.1, 1, Quadrille.textZoom, 0.01);
+  // Global: applies to everything drawn without an explicit textZoom
+  globalZoomSlider = createSlider(0.1, 1.4, Quadrille.textZoom, 0.01);
   globalZoomSlider.position(340, 10);
   globalZoomSlider.input(() => Quadrille.textZoom = globalZoomSlider.value());
 }
 
 function draw() {
-  background('#FFC0CB');
-  // Draw q1 with a text zoom level controlled by the local slider
-  drawQuadrille(q1, { textZoom: localZoomSlider.value() });
-  // Draw q2, q3, and q4 using the global Quadrille.textZoom
-  drawQuadrille(q2, { x: 330 });
-  drawQuadrille(q3, { y: 170 });
-  drawQuadrille(q4, { x: 330, y: 170 });
+  background('#123');
+  drawQuadrille(q1, { y: 50, textZoom: localZoomSlider.value() });
+  drawQuadrille(q2, { x: 330, y: 50 });
+  drawQuadrille(q3, { y: 160 });
+  drawQuadrille(q4, { x: 330, y: 160 });
 }
 ```
 {{% /details %}}
 
 {{< callout type="info" >}}
-- `q1` is drawn with a text zoom level controlled by the local slider (`localZoomSlider`), initialized to `0.5`.  
-- `q2`, `q3`, and `q4` use the global `Quadrille.textZoom` set by the global slider (`globalZoomSlider`), which is initially `1`.
+Drag the **left** slider and only `q1` changes: a `textZoom` passed to `drawQuadrille` overrides the global default for that call. Drag the **right** one and `q2`, `q3` and `q4` follow it while `q1` stays put — an explicit value always wins.
+
+Push either past `1` and the glyph outgrows its cell. Nothing is clipped: string cells are drawn unboxed, so a glyph overflows into its neighbours rather than vanishing.
+{{< /callout >}}
+
+{{< callout type="warning" >}}
+**A cell's glyph count is what divides the zoom, and it counts characters.**
+
+Compare `q4` against the others. A one-character cell draws at `cellLength × textZoom`; `q4` holds two characters per cell, so each is drawn at half that. This is what keeps a whole word inside its cell.
+
+An emoji counts as **one** character even though JavaScript stores most of them as two [UTF-16](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) code units — `'🎃'.length` is `2`, yet it fills a cell exactly like `'a'`. `q3` mixes emoji that carry variation selectors, which are also folded into a single character.
 {{< /callout >}}
 
 ## Syntax
@@ -88,4 +93,4 @@ function draw() {
 
 | Param     | Description                                                                            |
 |-----------|----------------------------------------------------------------------------------------|
-| `textZoom` | Number: Specifies the text zoom level for drawing the quadrille text. The default is `Quadrille.textZoom`, which is `1` |
+| `textZoom` | Number: glyph size as a fraction of `cellLength`. Defaults to `Quadrille.textZoom`, which is `0.78` |

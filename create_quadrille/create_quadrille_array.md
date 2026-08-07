@@ -4,7 +4,7 @@ draft: false
 title: "createQuadrille(array)"
 ---
 
-The `createQuadrille` function creates a **quadrille** and fills its cells using items from the `array` as the source. The array can contain any combination of [valid JavaScript values](https://www.w3schools.com/js/js_datatypes.asp), with `null` representing empty cells. Holes and explicit `undefined` entries are welcome too — `createQuadrille` copies the array and normalizes them to `null` on entry ([array views]({{< ref "drawing_arrays" >}}) instead alias your array untouched).
+The `createQuadrille` function creates a **quadrille** and fills its cells using items from the `array` as the source. The array can contain any combination of [valid JavaScript values](https://www.w3schools.com/js/js_datatypes.asp), with `null` representing empty cells. Holes and explicit `undefined` entries are welcome too — `createQuadrille` copies the array and normalizes them to `null` on entry ([array views]({{< ref "/docs/api/p5_functions/draw_quadrille/drawing_arrays" >}}) instead alias your array untouched).
 
 ## Example
 
