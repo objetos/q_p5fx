@@ -9,7 +9,7 @@ Display functions determine how quadrille cells are visually rendered based on t
 | Display Function  | Value Type | Default                                                                                                              |
 |-------------------|------------|----------------------------------------------------------------------------------------------------------------------|
 | `tileDisplay`     | All cells  | `Quadrille.tileDisplay`: Draws cell contours as square tiles                                                         |
-| `booleanDisplay`  | Boolean    | `Quadrille.booleanDisplay`: Displays ✅ or ❎ depending on the boolean value                                           |
+| `booleanDisplay`  | Boolean    | `Quadrille.booleanDisplay`: Displays ✓ or ✗ depending on the boolean value                                             |
 | `numberDisplay`   | Number     | `Quadrille.numberDisplay`: Renders numbers in cells as grayscale colors, clamped to the range [0..255]              |
 | `bigintDisplay`   | BigInt     | `Quadrille.bigintDisplay`: Displays BigInt values using `numberDisplay`                                              |
 | `stringDisplay`   | String     | `Quadrille.stringDisplay`: Displays strings in cells                                                                 |
@@ -132,7 +132,7 @@ This example overrides the default square tiling by supplying JavaScript [arrow 
 | Param            | Description                                                                                                |
 |------------------|------------------------------------------------------------------------------------------------------------|
 | `tileDisplay`[^1]     | Function: Renders cell contours. Default is `Quadrille.tileDisplay`                                   |
-| `booleanDisplay`      | Function: Renders boolean values in cells as ✅ or ❎. Default is `Quadrille.booleanDisplay`          |
+| `booleanDisplay`      | Function: Renders boolean values in cells as ✓ or ✗. Default is `Quadrille.booleanDisplay`            |
 | `numberDisplay`       | Function: Renders numbers in cells. Default is `Quadrille.numberDisplay`                              |
 | `bigintDisplay`       | Function: Renders BigInt values using `numberDisplay`. Default is `Quadrille.bigintDisplay`           |
 | `stringDisplay`       | Function: Renders strings in cells. Default is `Quadrille.stringDisplay`                              |
